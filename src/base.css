@@ -1,0 +1,13 @@
+@tailwind base;
+
+html {
+  @apply font-sans;
+
+  font-size: 14px;
+}
+
+svg {
+  @apply fill-current;
+}
+
+@tailwind utilities;

@@ -12,6 +12,16 @@ module.exports = async ({config}) => {
     } else {
       console.error('No PostCSS loader was found!')
     }
+
+    /* Add sass-loader */
+
+    cssRule.test = /\.s?css$/
+    cssRule.use.push({
+      loader: 'sass-loader',
+      options: {
+        implementation: require('sass'),
+      },
+    })
   } else {
     console.error('No CSS loader rule was found!')
   }

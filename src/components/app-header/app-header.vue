@@ -48,29 +48,35 @@
   }
 </script>
 
-<style>
+<style lang="scss">
   .ej-app-header {
     padding: 0 50px;
   }
 
-  .ej-app-logo i {
-    width: 24px;
-    height: 24px;
+  .ej-app-logo {
+    i {
+      width: 24px;
+      height: 24px;
+    }
   }
 
-  .ej-app-tray > * {
-    @apply flex-none flex items-center;
+  .ej-app-tray {
+    > * {
+      @apply flex-none flex items-center;
 
-    margin-left: 30px;
+      margin-left: 30px;
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+    }
   }
 
-  .ej-app-tray .icon {
-    width: 18px;
-    height: 18px;
-  }
-
-  .ej-app-user__avatar {
-    width: 24px;
-    height: 24px;
+  .ej-app-user {
+    &__avatar {
+      width: 24px;
+      height: 24px;
+    }
   }
 </style>

@@ -9,8 +9,12 @@
       </a>
 
       <div class="ej-app-tray flex-none ml-auto flex">
-        <a href="javascript:"><span>搜索</span></a>
-        <a href="javascript:"><span>通知</span></a>
+        <a href="javascript:">
+          <ej-icon icon="search" class="icon"/>
+        </a>
+        <a href="javascript:">
+          <ej-icon icon="bell" class="icon"/>
+        </a>
         <a href="javascript:">
           <i class="ej-app-user__avatar flex-none rounded-full bg-white mr-2 opacity-50"></i>
           <span class="flex-none">Somebody</span>
@@ -21,8 +25,14 @@
 </template>
 
 <script>
+  import EjIcon from '../icon'
+
   export default {
     name: 'EjAppHeader',
+
+    components: {
+      EjIcon,
+    },
 
     props: {
       height: {
@@ -52,6 +62,11 @@
     @apply flex-none flex items-center;
 
     margin-left: 30px;
+  }
+
+  .ej-app-tray .icon {
+    width: 18px;
+    height: 18px;
   }
 
   .ej-app-user__avatar {

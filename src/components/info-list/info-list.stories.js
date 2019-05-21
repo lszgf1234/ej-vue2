@@ -1,5 +1,5 @@
 import {storiesOf} from '@storybook/vue'
-import {withKnobs, text, number} from '@storybook/addon-knobs'
+import {withKnobs, array, text, number} from '@storybook/addon-knobs'
 import Vue from 'vue'
 
 import InfoList from '.'
@@ -20,10 +20,10 @@ storiesOf('InfoList', module)
         })),
       },
       columns: {
-        default: number('Columns', 3)
+        default: number('Columns', 3),
       },
       separator: {
-        default: text('Separator', '：')
+        default: text('Separator', '：'),
       },
     },
   }))

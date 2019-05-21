@@ -1,10 +1,14 @@
 {
+  "name": "@ej/ui",
+  "version": "0.1.0",
+  "private": true,
   "main": "src/index.js",
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "svg4everybody": "^2.1.9",
     "vue": "^2.6.10"
   },
   "devDependencies": {

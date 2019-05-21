@@ -9,9 +9,10 @@
       </a>
 
       <div class="ej-app-tray flex-none ml-auto flex">
-        <a href="javascript:">
-          <ej-icon icon="search" class="icon"/>
-        </a>
+<!--        <a href="javascript:">-->
+<!--          <ej-icon icon="search" class="icon"/>-->
+<!--        </a>-->
+        <ej-app-search/>
         <a href="javascript:">
           <ej-icon icon="bell" class="icon"/>
         </a>
@@ -26,12 +27,14 @@
 
 <script>
   import EjIcon from '../icon'
+  import EjAppSearch from './app-search.vue'
 
   export default {
     name: 'EjAppHeader',
 
     components: {
       EjIcon,
+      EjAppSearch,
     },
 
     props: {
@@ -49,6 +52,8 @@
 </script>
 
 <style lang="scss">
+  @import './variables.scss';
+
   .ej-app-header {
     padding: 0 50px;
   }
@@ -68,8 +73,8 @@
     }
 
     .icon {
-      width: 18px;
-      height: 18px;
+      width: $tray-icon-size;
+      height: $tray-icon-size;
     }
   }
 

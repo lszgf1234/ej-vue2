@@ -7,6 +7,7 @@ module.exports = async ({config}) => {
       const _plugins = postcss.options.plugins
       postcss.options.plugins = (loader) => [
         require('tailwindcss'),
+        require('postcss-easings'),
         ..._plugins(loader),
       ]
     } else {

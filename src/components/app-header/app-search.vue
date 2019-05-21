@@ -84,7 +84,7 @@
 
           const keyword = this.keyword.trim()
           if (keyword) {
-            console.log('search', keyword)
+            this.$parent.$emit('search', keyword)
             this.active = false
           }
           // 如果用户没有输入任何关键词，维持输入框的焦点

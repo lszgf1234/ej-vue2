@@ -1,24 +1,22 @@
 <template>
-  <div class="ej-app-header__wrap" :style="{height: height + 'px'}">
+  <div class="ej-app-header__wrap" :style="{height: height$}">
     <div class="ej-app-header bg-black text-white flex w-full"
          :class="{fixed}"
-         :style="{height: height + 'px'}">
+         :style="{height: height$}">
       <a href="javascript:" class="ej-app-logo flex-none flex items-center">
-        <i class="flex-none rounded bg-white mr-2 opacity-50"></i>
-        <span class="flex-none text-lg">{{title}}</span>
+        <i v-if="logo" class="flex-none rounded bg-white opacity-50" :class="{'mr-2': title}"></i>
+        <span v-if="title" class="flex-none text-lg">{{title}}</span>
       </a>
 
       <div class="ej-app-tray flex-none ml-auto flex">
-<!--        <a href="javascript:">-->
-<!--          <ej-icon icon="search" class="icon"/>-->
-<!--        </a>-->
-        <ej-app-search/>
+        <ej-app-search v-if="options.search !== false"/>
+        <ej-app-notification v-if="options.notification !== false"/>
         <a href="javascript:">
-          <ej-icon icon="bell" class="icon"/>
-        </a>
-        <a href="javascript:">
-          <i class="ej-app-user__avatar flex-none rounded-full bg-white mr-2 opacity-50"></i>
-          <span class="flex-none">Somebody</span>
+          <i v-if="user.avatar && options.avatar !== false"
+             class="ej-app-user__avatar flex-none rounded-full bg-white opacity-50"
+             :class="{'mr-2': user.name && options.username !== false}"></i>
+          <span v-if="user.name && options.username !== false"
+                class="flex-none">{{user.name}}</span>
         </a>
       </div>
     </div>
@@ -26,8 +24,10 @@
 </template>
 
 <script>
+  import {toCssSize} from '../../utils/ui'
   import EjIcon from '../icon'
   import EjAppSearch from './app-search.vue'
+  import EjAppNotification from './app-notification.vue'
 
   export default {
     name: 'EjAppHeader',
@@ -35,6 +35,7 @@
     components: {
       EjIcon,
       EjAppSearch,
+      EjAppNotification,
     },
 
     props: {
@@ -42,11 +43,27 @@
         type: [Number, String],
         default: 50,
       },
+      logo: {
+        type: String,
+      },
       title: {
         type: String,
-        required: true,
+      },
+      user: {
+        type: Object,
+        default: () => ({}),
       },
       fixed: Boolean,
+      options: {
+        type: Object,
+        default: () => ({}),
+      },
+    },
+
+    computed: {
+      height$ () {
+        return toCssSize(this.height)
+      },
     },
   }
 </script>

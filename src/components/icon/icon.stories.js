@@ -1,5 +1,5 @@
 import {storiesOf} from '@storybook/vue'
-import {withKnobs, text, color} from '@storybook/addon-knobs'
+import {text, color} from '@storybook/addon-knobs'
 import Vue from 'vue'
 
 import Icon from '.'
@@ -7,7 +7,6 @@ import Icon from '.'
 Vue.use(Icon)
 
 storiesOf('Icon', module)
-  .addDecorator(withKnobs)
   .add('基本使用', () => ({
     template: `
       <ej-icon :icon="icon" :style="{color}"/>

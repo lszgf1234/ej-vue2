@@ -1,5 +1,5 @@
 import {storiesOf} from '@storybook/vue'
-import {withKnobs, array, text, number} from '@storybook/addon-knobs'
+import {text, number} from '@storybook/addon-knobs'
 import Vue from 'vue'
 
 import InfoList from '.'
@@ -7,7 +7,6 @@ import InfoList from '.'
 Vue.use(InfoList)
 
 storiesOf('InfoList', module)
-  .addDecorator(withKnobs)
   .add('基本使用', () => ({
     template: `
       <ej-info-list :data="data" :columns="columns" :separator="separator"></ej-info-list>

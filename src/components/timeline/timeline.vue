@@ -35,10 +35,12 @@
   import Vue from 'vue'
   import {Timeline, TimelineItem} from 'element-ui'
 
-  Vue.use(Timeline)
-  Vue.use(TimelineItem)
   export default {
     name: 'EjTimeline',
+    components: {
+      [Timeline.name]: Timeline,
+      [TimelineItem.name]: TimelineItem,
+    },
     props: {
       data: {
         type: Array,

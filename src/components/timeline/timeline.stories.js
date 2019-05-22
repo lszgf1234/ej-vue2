@@ -34,13 +34,7 @@ const data = [
 storiesOf('Timeline', module)
   .add('基本用法', () => ({
     template: `
-      <ej-timeline :data="data">
-        <template slot="item-detail" slot-scope="row">
-          <div class="desc form-group-xs">{{row.item.desc}}</div>
-          <div class="form-group-xs" v-for="(itemChild, index) in row.item.files" :key="index"><a
-            :href="itemChild.href">{{itemChild.name}}</a></div>
-        </template>
-      </ej-timeline> 
+      <ej-timeline :data="data"/>
     `,
     props: {
       data: {

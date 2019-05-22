@@ -21,7 +21,9 @@
             </div>
             <transition @before-enter="filterBeforeEnter" @enter="filterEnter" @leave="filterLeave">
               <div v-show="item.show" class="more-box">
-                <slot name="item-detail" :item="item"></slot>
+                <div class="desc form-group-xs">{{item.desc}}</div>
+                <div class="form-group-xs" v-for="(itemChild, index) in item.files" :key="index"><a
+                  :href="itemChild.href">{{itemChild.name}}</a></div>
               </div>
             </transition>
           </div>

@@ -97,6 +97,13 @@ module.exports = {
         '2xl': `${20 / 14}rem`,
         '3xl': `${22 / 14}rem`,
       },
+      spacing: {
+        xs: '5px',
+        sm: '10px',
+        md: '20px',
+        lg: '30px',
+        xl: '50px',
+      }
     },
   },
 }

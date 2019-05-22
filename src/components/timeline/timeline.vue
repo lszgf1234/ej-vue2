@@ -13,7 +13,7 @@
             <span class="text">{{item.title}}</span>
           </div>
           <div :class="{active: item.show}" v-else>
-            <div class="title form-group-sm">
+            <div class="title mb-sm">
               <a class="text " href="javascript:" @click="show(item, key)">
                 <span>{{item.title}}</span>
                 <i class="el-icon-arrow-down icon"></i>
@@ -21,8 +21,8 @@
             </div>
             <transition @before-enter="filterBeforeEnter" @enter="filterEnter" @leave="filterLeave">
               <div v-show="item.show" class="more-box">
-                <div class="desc form-group-xs">{{item.desc}}</div>
-                <div class="form-group-xs" v-for="(itemChild, index) in item.files" :key="index"><a
+                <div class="desc mb-xs">{{item.desc}}</div>
+                <div class="mb-xs" v-for="(itemChild, index) in item.files" :key="index"><a
                   :href="itemChild.href">{{itemChild.name}}</a></div>
               </div>
             </transition>
@@ -84,17 +84,6 @@
 <style lang="scss">
   /*$color_333: #333;*/
   .timeline-view {
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group-sm {
-      margin-bottom: 10px;
-    }
-
-    .form-group-xs {
-      margin-bottom: 5px;
-    }
     .icon {
       margin-left: 5px;
     }

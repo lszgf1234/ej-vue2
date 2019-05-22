@@ -2,7 +2,7 @@
   <div class="timeline-view">
     <el-timeline>
       <el-timeline-item
-        v-for="(item, key) in dataList"
+        v-for="(item, key) in data"
         :key="key"
         :color="item.color"
         :timestamp="item.timestamp"
@@ -20,7 +20,7 @@
               </a>
             </div>
             <transition @before-enter="filterBeforeEnter" @enter="filterEnter" @leave="filterLeave">
-              <div v-show="item.show" class="more-box">
+              <div v-show="dataStatus[key]" class="more-box">
                 <div class="desc mb-xs">{{item.desc}}</div>
                 <div class="mb-xs" v-for="(itemChild, index) in item.files" :key="index"><a
                   :href="itemChild.href">{{itemChild.name}}</a></div>
@@ -50,22 +50,23 @@
     },
     data () {
       return {
-        dataList: [],
+        dataStatus: [],
+      }
+    },
+    watch: {
+      data () {
+        this.initStatus()
       }
     },
     created () {
-      for (let item of this.data) {
-        item.show = false
-        this.dataList.push(item)
-      }
+      this.initStatus()
     },
     methods: {
       hasMore (item) {
         return (item.desc || item.files.length)
       },
       show (item, index) {
-        item.show = !item.show
-        this.dataList.splice(index, 1, item)
+        this.dataStatus.splice(index, 1, !this.dataStatus[index])
       },
       filterBeforeEnter (el) {
         el.style.height = 0
@@ -77,12 +78,19 @@
       filterLeave (el) {
         el.style.height = 0
       },
+      initStatus () {
+        if (this.dataStatus.length) {
+          this.dataStatus = []
+        }
+        this.data.forEach(item => {
+          this.dataStatus.push(false)
+        })
+      },
     },
   }
 </script>
 
 <style lang="scss">
-  /*$color_333: #333;*/
   .timeline-view {
     .icon {
       margin-left: 5px;

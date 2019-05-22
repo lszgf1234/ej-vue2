@@ -14,7 +14,7 @@
           </div>
           <div :class="{active: item.show}" v-else>
             <div class="title form-group-sm">
-              <a class="text" href="javascript:" @click="show(item, key)">
+              <a class="text " href="javascript:" @click="show(item, key)">
                 <span>{{item.title}}</span>
                 <i class="el-icon-arrow-down icon"></i>
               </a>
@@ -82,7 +82,7 @@
 </script>
 
 <style lang="scss">
-  $color_333: #333;
+  /*$color_333: #333;*/
   .timeline-view {
     .form-group {
       margin-bottom: 20px;
@@ -100,7 +100,7 @@
     }
 
     a, a:hover, a:active {
-      color: $color_333;
+      color: theme('colors.gray.darkest');
     }
 
     .icon {

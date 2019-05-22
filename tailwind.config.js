@@ -1,6 +1,48 @@
 module.exports = {
   theme: {
     extend: {
+      colors: {
+        gray: {
+          lightest: '#fafafa',
+          lighter: '#f5f5f5',
+          light: '#e4e4e4',
+          default: '#ccc',
+          dark: '#999',
+          darker: '#666',
+          darkest: '#333',
+        },
+        red: {
+          lighter: '#ffe1e1',
+          light: '#ffa5a5',
+          default: '#ff6a6a',
+        },
+        orange: {
+          lighter: '#ffe3cb',
+          light: '#ffbf8a',
+          default: '#eb8f43',
+        },
+        yellow: {
+          lighter: '#ffedbb',
+          light: '#ffdc7b',
+          default: '#ffcc3f',
+        },
+        green: {
+          lighter: '#d8ffec',
+          light: '#8be0b6',
+          default: '#4ec189',
+        },
+        blue: {
+          lighter: '#e2ecff',
+          light: '#9cbaf2',
+          default: '#477de9',
+        },
+        purple: {
+          lighter: '#ebdfff',
+          light: '#be94ff',
+          default: '#8e45ff',
+        },
+      },
+      fill: theme => theme('colors'),
       fontFamily: {
         sans: [
           '-apple-system',
@@ -45,6 +87,15 @@ module.exports = {
           'MingLiU',
           'serif',
         ],
+      },
+      fontSize: {
+        xs: `${10 / 14}rem`,
+        sm: `${12 / 14}rem`,
+        base: `${14 / 14}rem`,
+        lg: `${16 / 14}rem`,
+        xl: `${18 / 14}rem`,
+        '2xl': `${20 / 14}rem`,
+        '3xl': `${22 / 14}rem`,
       },
     },
   },

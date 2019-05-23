@@ -8,6 +8,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "element-ui": "^2.8.2",
     "svg4everybody": "^2.1.9",
     "vue": "^2.6.10"
   },

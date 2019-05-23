@@ -22,7 +22,7 @@ storiesOf('AppHeader', module)
   .add('基本使用', () => ({
     template: `
       <div>
-        <ej-app-header :logo="logo" :title="title" :user="user" :fixed="fixed" :options="options"/>
+        <ej-app-header :height="height" :logo="logo" :title="title" :user="user" :fixed="fixed" :options="options"/>
         <ul class="text-center text-gray">
           <li v-for="n of 100">{{n}}</li>
         </ul>

@@ -3,63 +3,90 @@ import Vue from 'vue'
 import {select, boolean} from '@storybook/addon-knobs';
 
 import FlowChart from '.'
+import {testImg} from '../../assets/base64'
 
 Vue.use(FlowChart)
 
-const data = {
-  title: '工单初审',
-  time: '2018-02-23 18:03',
-  duration: '0.1h',
-  desc: '审批意见内容描述',
-  user_name: '李帅123',
-  user_img: 'https://jianjiaoedu.oss-cn-zhangjiakou.aliyuncs.com/avatar/201706291521585954aa9606954.jpg',
-  files: [
-    {
-      name: '附件1',
-      herf: 'https://jianjiaoedu.oss-cn-zhangjiakou.aliyuncs.com/avatar/201706291521585954aa9606954.jpg'
-    },
-    {
-      name: '附件2',
-      herf: 'https://jianjiaoedu.oss-cn-zhangjiakou.aliyuncs.com/avatar/201706291521585954aa9606954.jpg'
-    }
-  ]
-}
-storiesOf('FlowChart', module)
+
+const data = [
+  {
+    title: '工单初审', // 必须的
+    type: 'success', // 必须的 站内信
+    user_img: testImg,
+    user_name: '李帅123',
+    time: '2018-02-23 18:03',
+  },
+  {
+    title: '工单初审', // 必须的
+    type: 'success', // 必须的 站内信
+    user_img: testImg,
+    user_name: '李帅123',
+    time: '2018-02-23 18:03',
+  },
+  {
+    title: '审核中',
+    type: 'starting',
+
+    user_img: testImg,
+    user_name: '李帅123',
+  },
+  {
+    title: '待审核',
+    type: 'wait',
+  },
+]
+const dataError = [
+  {
+    title: '工单初审', // 必须的
+    type: 'success', // 必须的 站内信
+    user_img: testImg,
+    user_name: '李帅123',
+    time: '2018-02-23 18:03',
+  },
+  {
+    title: '驳回',
+    type: 'error',
+    user_img: testImg,
+    user_name: '李帅123',
+    time: '2018-02-23 18:03',
+  },
+  {
+    title: '待审核',
+    type: 'wait',
+  },
+]
+
+storiesOf('FlowChar', module)
   .add('基本使用', () => ({
     template: `
-      <ej-flow-chart :data="data" :type="type" :has-next="hasNext" :has-popcard="hasPopcard"></ej-flow-chart>
+      <ej-flow-chart :data="data" @press="press" @email="email"/>
     `,
     props: {
       data: {
         default: data,
       },
-      type: {
-        default: select('type', ['wait', 'starting', 'error', 'success'], 'wait')
+    },
+    methods: {
+      press (data) {
+        console.log(data)
       },
-      hasNext: {
-        default: boolean('hasNext', false),
-      },
-      hasPopcard: {
-        default: boolean('hasPopcard', false),
+      email(data) {
+        console.log(data)
       },
     },
   }))
-storiesOf('FlowChart', module)
-  .add('使用卡片插槽', () => ({
+  .add('驳回', () => ({
     template: `
-      <ej-flow-chart :data="data" :has-next="true" :has-popcard="true">
-        <template slot="action">
-           <a href="javascript:">操作插槽</a>
-        </template>
-        <template slot="main">
-           <a href="javascript:">详情插槽</a>
-        </template>
-      </ej-flow-chart>
+      <ej-flow-chart :data="data" @email="email"/>
     `,
     props: {
       data: {
-        default: data,
+        default: dataError,
+      },
+    },
+    methods: {
+      email(data) {
+        console.log(data)
       },
     },
   }))
-

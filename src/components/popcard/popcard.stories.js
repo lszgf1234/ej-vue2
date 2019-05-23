@@ -21,11 +21,11 @@ storiesOf('Popcard', module)
   .addDecorator(withKnobs)
   .add('基本使用', () => ({
     template: `
-      <ej-Popcard :img-url="imgUrl" :title="title" :width="width">
+      <ej-popcard :img-url="imgUrl" :title="title" :width="width">
         <template slot="img">
            <img style="width: 25px; height: 25px" :src="imgUrl">
         </template>
-      </ej-Popcard>
+      </ej-popcard>
     `,
     props: {
       title: {

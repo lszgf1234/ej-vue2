@@ -14,11 +14,21 @@ const data = [
     files: [
       {
         href: '/',
-        name: '文件1',
+        name: '文件1.zip',
+        type: 2,
+        size: '1M',
       },
       {
         href: '/',
-        name: '文件2',
+        name: '文件2.docx',
+        type: 1,
+        size: '100KB',
+      },
+      {
+        href: 'http://jianjiaoedu.bj.bcebos.com/201807091159335b42dda567baf.jpg',
+        name: '文件2.png',
+        type: 3,
+        size: '10KB',
       },
     ],
   },

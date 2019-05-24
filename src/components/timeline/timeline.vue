@@ -26,7 +26,7 @@
                   <a class="download" :href="itemChild.href">
                     <ej-icon :icon="getIcon(itemChild.type)" class="icon-file"/>
                     <span class="text">{{itemChild.name}}</span>
-                    <span class="size">{{itemChild.size}}</span>
+                    <span class="size">{{itemChild.size | sizeTo}}</span>
                   </a>
                 </div>
               </div>
@@ -43,6 +43,7 @@
   import {Timeline, TimelineItem} from 'element-ui'
 
   import Icon from '../icon'
+  import mixins from '../../mixins'
 
   const typeList = [
     {value: 1, text: '文档', icon: 'textfile'},
@@ -52,6 +53,7 @@
 
   export default {
     name: 'EjTimeline',
+    mixins: [mixins.filters],
     components: {
       [Timeline.name]: Timeline,
       [TimelineItem.name]: TimelineItem,

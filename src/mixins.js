@@ -8,7 +8,7 @@ let filters = {
       } else {
         return `${val}B`
       }
-    }
+    },
   },
 }
 

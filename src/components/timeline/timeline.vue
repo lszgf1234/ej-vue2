@@ -2,7 +2,7 @@
   <div class="timeline-view">
     <el-timeline>
       <el-timeline-item
-        v-for="(item, key) in data"
+        v-for="(item, key) in dataList"
         :key="key"
         :color="item.color"
         :timestamp="item.timestamp"
@@ -12,7 +12,7 @@
           <div class="title" v-if="!hasMore(item)">
             <span class="text">{{item.title}}</span>
           </div>
-          <div :class="{active: dataStatus[key]}" v-else>
+          <div :class="{active: item.show}" v-else>
             <div class="title mb-sm">
               <a class="text " href="javascript:" @click="show(item, key)">
                 <span>{{item.title}}</span>
@@ -20,7 +20,7 @@
               </a>
             </div>
             <transition @before-enter="filterBeforeEnter" @enter="filterEnter" @leave="filterLeave">
-              <div v-show="dataStatus[key]" class="more-box">
+              <div v-show="item.show" class="more-box">
                 <div class="desc mb-xs">{{item.desc}}</div>
                 <div class="mb-xs" v-for="(itemChild, index) in (item.files || [])" :key="index">
                   <a class="download" :href="itemChild.href">
@@ -44,6 +44,7 @@
 
   import Icon from '../icon'
   import mixins from '../../mixins'
+  import {formatDate} from '../../utils'
 
   const typeList = [
     {value: 1, text: '文档', icon: 'textfile'},
@@ -68,6 +69,7 @@
     data () {
       return {
         dataStatus: [],
+        dataList: [],
       }
     },
     watch: {
@@ -83,7 +85,8 @@
         return (item.desc || (item.files || []).length)
       },
       show (item, index) {
-        this.$set(this.dataStatus, index, !this.dataStatus[index])
+        item.show = !item.show
+        this.$set(this.dataList, index, item)
       },
       filterBeforeEnter (el) {
         el.style.height = 0
@@ -100,7 +103,11 @@
         }
         this.data.forEach(item => {
           this.dataStatus.push(false)
+          item.show = false
+          item.timestamp = formatDate(item.timestamp)
+          this.dataList.push(item)
         })
+      //  排序 this.dataList
       },
       getIcon (type) {
         let str;

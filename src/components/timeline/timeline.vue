@@ -176,3 +176,13 @@
     }
   }
 </style>
+<style lang="scss">
+  .timeline-view{
+    .el-timeline-item__wrapper{
+      top: 0;
+    }
+    .el-timeline-item__timestamp.is-top{
+      padding-top: 0;
+    }
+  }
+</style>

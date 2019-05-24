@@ -65,15 +65,21 @@
         type: Array,
         default: () => []
       },
+      isDescending :{
+        type: Boolean,
+        default: false,
+      },
     },
     data () {
       return {
-        dataStatus: [],
         dataList: [],
       }
     },
     watch: {
       data () {
+        this.initStatus()
+      },
+      isDescending () {
         this.initStatus()
       }
     },
@@ -98,16 +104,17 @@
         el.style.height = 0
       },
       initStatus () {
-        if (this.dataStatus.length) {
-          this.dataStatus = []
+        if (this.dataList.length) {
+          this.dataList = []
         }
         this.data.forEach(item => {
-          this.dataStatus.push(false)
           item.show = false
           item.timestamp = formatDate(item.timestamp)
           this.dataList.push(item)
         })
-      //  排序 this.dataList
+        this.dataList.sort((a, b) => {
+          return !this.isDescending ? (new Date(a.timestamp) - new Date(b.timestamp)) : (new Date(b.timestamp) - new Date(a.timestamp))
+        })
       },
       getIcon (type) {
         let str;

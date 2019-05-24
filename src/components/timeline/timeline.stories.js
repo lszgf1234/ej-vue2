@@ -1,5 +1,6 @@
 import {storiesOf} from '@storybook/vue'
 import Vue from 'vue'
+import {boolean} from "@storybook/addon-knobs";
 
 import tailwindConfig from '../../../tailwind.config'
 import {cloneDeep} from '../../utils'
@@ -9,13 +10,13 @@ Vue.use(Timeline)
 
 const data = [
   {
-    timestamp: '2018-04-12 20:46',
-    title: '创建成功',
-  },
-  {
     timestamp: '2018-04-13T12:23:34.567',
     title: '通过审核',
     desc: '不知道为什么但就是通过了',
+  },
+  {
+    timestamp: '2018-04-12 20:46',
+    title: '创建成功',
   },
   {
     timestamp: '2018-04-14',
@@ -59,11 +60,14 @@ const data = [
 storiesOf('Timeline', module)
   .add('基本用法', () => ({
     template: `
-      <ej-timeline :data="data"/>
+      <ej-timeline :data="data" :is-descending="isDescending"/>
     `,
     props: {
       data: {
         default: data,
+      },
+      isDescending: {
+        default: boolean('isDescending', false),
       },
     },
   }))

@@ -36,3 +36,19 @@ export function formatDate (d = new Date(), format = 'YYYY-MM-DD HH:mm:ss') {
     .replace('ss', (second + '').padStart(2, '0'))
     .replace('s', second)
 }
+
+/**
+ * 字节格式化
+ *
+ * @param val {Number} - 字节大小
+ * @return {String} - 格式化后的尺寸大小
+ */
+export function sizeTo (val) {
+  if (val >= 1024 * 1024) {
+    return `${parseInt(val / (1024 * 1024) * 10) / 10}MB`
+  } else if (val >= 1024) {
+    return `${parseInt(val / 1024 * 10) / 10}KB`
+  } else {
+    return `${val}B`
+  }
+}

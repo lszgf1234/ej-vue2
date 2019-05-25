@@ -44,8 +44,8 @@
     data () {
       return {
         infoList: [
-          {name: '审批人', value: this.data.user_name},
-          {name: '审批时间', value: this.data.time},
+          {name: '操作人', value: this.data.user_name},
+          {name: '操作时间', value: this.data.time},
         ]
       }
     },

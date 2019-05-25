@@ -13,7 +13,7 @@
             <span class="text">{{item.title}}</span>
           </div>
           <div :class="{active: item.show}" v-else>
-            <div class="title mb-sm">
+            <div class="title">
               <a class="text " href="javascript:" @click="show(item, key)">
                 <span>{{item.title}}</span>
                 <i class="el-icon-arrow-down icon"></i>

@@ -1,10 +1,11 @@
 <template>
  <div class="ej-flow-chart">
    <ej-flow-item
-     :data="item" v-for="(item, key) of data"
-     :key="key"
-     :has-next="key<data.length-1"
-     :class="{'flex-1': key<data.length-1}"
+     v-for="(item, idx) of data"
+     :data="item"
+     :key="idx"
+     :has-next="idx < data.length - 1"
+     :class="{'flex-1': idx < data.length - 1}"
       @press="press"
       @email="email"
    />

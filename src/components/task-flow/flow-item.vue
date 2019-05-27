@@ -7,7 +7,7 @@
         </template>
         <template slot="action">
           <a href="javascript:" @click="email"><ej-icon icon="mail" class="icon-email"/></a>
-          <a class="ml-xs text-blue" href="javascript:" @click="press" v-if="data.type==='starting'">催一下</a>
+          <a v-if="data.type==='starting'" href="javascript:" class="ml-xs text-blue"  @click="press">催一下</a>
         </template>
         <template slot="main">
           <ej-info-list :data="infoList" class="mt-xs"/>

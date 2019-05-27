@@ -3,9 +3,9 @@ import {text, boolean, optionsKnob as options} from '@storybook/addon-knobs'
 import {action} from '@storybook/addon-actions'
 import Vue from 'vue'
 
-import searchInput from '.'
+import SearchInput from '.'
 
-Vue.use(searchInput)
+Vue.use(SearchInput)
 
 storiesOf('searchInput', module)
   .add('基本用法', () => ({

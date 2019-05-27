@@ -6,11 +6,17 @@
           <div class="circle form-group-sm"></div>
         </template>
         <template slot="action">
-          <a href="javascript:" @click="email"><ej-icon icon="mail" class="icon-email"/></a>
           <a v-if="data.type==='starting'" href="javascript:" class="ml-xs text-blue"  @click="press">催一下</a>
         </template>
         <template slot="main">
-          <ej-info-list :data="infoList" class="mt-xs"/>
+          <ej-info-list :data="infoList" class="mt-xs">
+            <template slot="name" slot-scope="row">
+              <div class="name-self">
+                <span class="name-self-text">{{row.item.value}}</span>
+                <a v-if="row.item.user_id" href="javascript:" @click="email"><ej-icon icon="mail" class="icon-email"/></a>
+              </div>
+            </template>
+          </ej-info-list>
         </template>
       </ej-popcard>
       <div class="title">{{data.title}}</div>
@@ -44,7 +50,7 @@
     data () {
       return {
         infoList: [
-          {name: '操作人', value: this.data.user_name},
+          {name: '操作人', value: this.data.user_name, slotName: 'name',},
           {name: '操作时间', value: this.data.time},
         ]
       }
@@ -130,6 +136,18 @@
       color: theme('colors.blue.default');
       width: 18px;
       height: 15px;
+    }
+    .name-self{
+      display: flex;
+      flex: 1;
+      align-items: center;
+      .name-self-text{
+        flex: 1;
+      }
+    }
+    .common-popcard .user-name{
+      cursor: inherit;
+      color: theme('colors.gray.darkest');
     }
   }
 </style>

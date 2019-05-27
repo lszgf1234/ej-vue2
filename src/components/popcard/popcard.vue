@@ -45,6 +45,9 @@
       }
     },
 
+    mounted () {
+      this.setPosition('init')
+    },
     methods: {
       show () {
         /*
@@ -66,9 +69,19 @@
           clearTimeout(this.timer)
           this.timer = null
         }
+        this.setPosition()
+      },
+      hide () {
+        this.timer = setTimeout(() => {
+          this.style.visibility = 'hidden';
+          clearTimeout(this.timer)
+          this.timer = null
+        }, 300)
+      },
+      setPosition (init) {
         let style = {
           width: `${this.width}px`,
-          visibility: 'unset',
+          visibility: init === 'init' ? 'hidden' : 'unset',
         }
         let elOffsets = this.$el.getBoundingClientRect()
         let documentElement = document.documentElement
@@ -87,13 +100,6 @@
 
         this.style = style
       },
-      hide () {
-        this.timer = setTimeout(() => {
-          this.style.visibility = 'hidden';
-          clearTimeout(this.timer)
-          this.timer = null
-        }, 300)
-      },
     },
   }
 </script>
@@ -110,6 +116,7 @@
       padding: 10px 20px;
       position: absolute;
       top: 0;
+      width: 0;
       z-index: 100;
       color: rgba(102, 102, 102, 1);
       box-shadow: 0 2px 6px 3px rgba(0, 0, 0, 0.1);

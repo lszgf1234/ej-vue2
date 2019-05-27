@@ -4,7 +4,11 @@ api与 Element UI `<el-input>` 相同。
 
 ### Props
 
-与 `<el-input>` 相同。
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `width` | String | '552px' | 输入框宽度
+| `height` | String | '40px' | 输入框高度
+其余与 `<el-input>` 相同。
 
 ### Events
 

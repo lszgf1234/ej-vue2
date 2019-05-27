@@ -2,7 +2,7 @@
   <div class="common-popcard" @mouseenter="show" @mouseleave="hide">
     <slot name="img"/>
     <div class="position">
-      <div class="box-postcard bg-gray-white" v-show="visible" :style="{width: width + 'px'}">
+      <div ref="position" :style="style" class="box-postcard bg-gray-white">
         <div class="item item-title">
           <span v-if="imgUrl" class="card-img" :style="{backgroundImage: `url(${imgUrl})`}"></span>
           <img v-else src="../../assets/icon-account.svg" class="card-img img-def">
@@ -41,15 +41,52 @@
     data () {
       return {
         visible: false,
+        style: {visibility: 'hidden'}
       }
     },
 
     methods: {
       show () {
         this.visible = true
+
+        /*
+        * 起点
+        * 左下角
+        * 右侧展示 默认
+        *   默认，左右都展示不开
+        *   x + width > clientWidth
+        * 左侧展示
+        *   右侧展示不开时
+        *
+        * 下侧展示
+        *   默认
+        * 上侧展示
+        *   下册展示不开
+        *
+        * */
+        let style = {
+          width: `${this.width}px`,
+          visibility: 'unset',
+        }
+        let elOffsets = this.$el.getBoundingClientRect()
+        let documentElement = document.documentElement
+        if (elOffsets.x + this.width > documentElement.clientWidth) {
+          style.right = 0
+        } else {
+          style.left = 0
+        }
+
+        let positionOffsets = this.$refs.position.getBoundingClientRect()
+        if (positionOffsets.height + elOffsets.y + elOffsets.height > documentElement.clientHeight) {
+          style.top = `${-(elOffsets.height + positionOffsets.height)}px`
+        } else {
+          style.top = 0
+        }
+
+        this.style = style
       },
       hide () {
-        this.visible = false
+        this.style.visibility = 'hidden';
       },
     },
   }
@@ -66,7 +103,6 @@
     .box-postcard {
       padding: 10px 20px;
       position: absolute;
-      left: 0;
       top: 0;
       z-index: 100;
       color: rgba(102, 102, 102, 1);

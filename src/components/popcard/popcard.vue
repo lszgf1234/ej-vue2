@@ -40,15 +40,13 @@
 
     data () {
       return {
-        visible: false,
-        style: {visibility: 'hidden'}
+        style: {visibility: 'hidden'},
+        timer: null,
       }
     },
 
     methods: {
       show () {
-        this.visible = true
-
         /*
         * 起点
         * 左下角
@@ -64,6 +62,10 @@
         *   下册展示不开
         *
         * */
+        if (this.timer) {
+          clearTimeout(this.timer)
+          this.timer = null
+        }
         let style = {
           width: `${this.width}px`,
           visibility: 'unset',
@@ -86,7 +88,11 @@
         this.style = style
       },
       hide () {
-        this.style.visibility = 'hidden';
+        this.timer = setTimeout(() => {
+          this.style.visibility = 'hidden';
+          clearTimeout(this.timer)
+          this.timer = null
+        }, 300)
       },
     },
   }

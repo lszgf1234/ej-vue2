@@ -2,11 +2,10 @@ import {storiesOf} from '@storybook/vue'
 import Vue from 'vue'
 import {select, boolean} from '@storybook/addon-knobs';
 
-import FlowChart from '.'
+import TaskFlow from '.'
 import {testImg} from '../../assets/base64'
 
-Vue.use(FlowChart)
-
+Vue.use(TaskFlow)
 
 const data = [
   {
@@ -56,10 +55,10 @@ const dataError = [
   },
 ]
 
-storiesOf('FlowChar', module)
+storiesOf('TaskFlow', module)
   .add('基本使用', () => ({
     template: `
-      <ej-flow-chart :data="data" @press="press" @email="email"/>
+      <ej-task-flow :data="data" @press="press" @email="email"/>
     `,
     props: {
       data: {
@@ -77,7 +76,7 @@ storiesOf('FlowChar', module)
   }))
   .add('驳回', () => ({
     template: `
-      <ej-flow-chart :data="data" @email="email"/>
+      <ej-task-flow :data="data" @email="email"/>
     `,
     props: {
       data: {

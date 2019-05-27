@@ -15,7 +15,7 @@
   import FlowItem from './flow-item'
 
   export default {
-    name: 'EjFlowChart',
+    name: 'EjTaskFlow',
     components: {
       [FlowItem.name]: FlowItem,
     },

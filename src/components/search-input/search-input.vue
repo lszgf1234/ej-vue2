@@ -50,9 +50,6 @@
     },
 
     methods: {
-      change (val) {
-        this.$emit('input', val)
-      },
       search () {
         const input = this.model
         this.$emit('search', input)
@@ -83,12 +80,16 @@
   .ej-search-input {
     .el-input__inner {
       border-radius: 20px;
+      height: inherit;
     }
 
     .ej-app-search__button {
       width: 20px;
       height: 20px;
-      transform: translate(-10px, 10px);
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translate(-50%, -50%);
     }
   }
 </style>

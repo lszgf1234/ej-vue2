@@ -11,6 +11,8 @@ storiesOf('searchInput', module)
   .add('基本用法', () => ({
     template: `
       <ej-search-input  v-model="model"
+                        :width="width"
+                        :height="height"
                         :placeholder="placeholder"
                         @search="search"
       />
@@ -27,6 +29,12 @@ storiesOf('searchInput', module)
       modelInput: {
         default: text('modelInput', ''),
       },
+      width: {
+        default: text('width', '552px'),
+      },
+      height: {
+        default: text('height', '40px'),
+      },
     },
     methods: {
       search (...args) {
@@ -40,5 +48,5 @@ storiesOf('searchInput', module)
         },
         immediate: true
       },
-    }
+    },
   }))

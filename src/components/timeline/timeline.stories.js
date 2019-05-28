@@ -1,6 +1,6 @@
 import {storiesOf} from '@storybook/vue'
+import {boolean} from '@storybook/addon-knobs'
 import Vue from 'vue'
-import {boolean} from "@storybook/addon-knobs";
 
 import tailwindConfig from '../../../tailwind.config'
 import {cloneDeep} from '../../utils'

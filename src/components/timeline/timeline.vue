@@ -1,20 +1,18 @@
 <template>
   <div class="timeline-view">
     <el-timeline>
-      <el-timeline-item
-        v-for="(item, key) in dataList"
-        :key="key"
-        :color="item.color"
-        :timestamp="item.timestamp"
-        placement="top"
-      >
+      <el-timeline-item v-for="(item, key) in dataList"
+                        :key="key"
+                        :color="item.color"
+                        :timestamp="item.timestamp"
+                        placement="top">
         <div>
-          <div class="title" v-if="!hasMore(item)">
+          <div v-if="!hasMore(item)" class="title">
             <span class="text">{{item.title}}</span>
           </div>
-          <div :class="{active: item.show}" v-else>
+          <div v-else :class="{active: item.show}">
             <div class="title">
-              <a class="text " href="javascript:" @click="show(item, key)">
+              <a href="javascript:" class="text" @click="show(item, key)">
                 <span>{{item.title}}</span>
                 <i class="el-icon-arrow-down icon"></i>
               </a>
@@ -22,8 +20,8 @@
             <transition @before-enter="filterBeforeEnter" @enter="filterEnter" @leave="filterLeave">
               <div v-show="item.show" class="more-box">
                 <div class="desc mb-xs">{{item.desc}}</div>
-                <div class="mb-xs" v-for="(itemChild, index) in (item.files || [])" :key="index">
-                  <a class="download" :href="itemChild.href">
+                <div v-for="(itemChild, index) in (item.files || [])" :key="index" class="mb-xs">
+                  <a :href="itemChild.href" class="download">
                     <ej-icon :icon="getIcon(itemChild.type)" class="icon-file"/>
                     <span class="text">{{itemChild.name}}</span>
                     <span class="size">{{sizeTo(itemChild.size)}}</span>
@@ -39,12 +37,12 @@
 </template>
 
 <script>
-  import Vue from 'vue'
   import {Timeline, TimelineItem} from 'element-ui'
 
-  import Icon from '../icon'
   import {formatDate, sizeTo} from '../../utils'
+  import Icon from '../icon'
 
+  // TODO: 这里需要和具体业务设计同步
   const typeList = [
     {value: 1, text: '文档', icon: 'textfile'},
     {value: 2, text: '压缩文件', icon: 'folder'},
@@ -53,54 +51,65 @@
 
   export default {
     name: 'EjTimeline',
+
     components: {
       [Timeline.name]: Timeline,
       [TimelineItem.name]: TimelineItem,
       [Icon.name]: Icon,
     },
+
     props: {
       data: {
         type: Array,
-        default: () => []
+        default: () => [],
       },
-      descending :{
+      descending: {
         type: Boolean,
         default: false,
       },
     },
+
     data () {
       return {
         dataList: [],
       }
     },
+
     watch: {
       data () {
         this.initStatus()
       },
       descending () {
         this.initStatus()
-      }
+      },
     },
+
     created () {
       this.initStatus()
     },
+
     methods: {
       hasMore (item) {
         return (item.desc || (item.files || []).length)
       },
+
       show (item, index) {
         item.show = !item.show
         this.$set(this.dataList, index, item)
       },
+
       filterBeforeEnter (el) {
         el.style.height = 0
       },
+
       filterEnter (el) {
         el.style.height = el.scrollHeight !== 0 ? el.scrollHeight + 'px' : 0
       },
+
       filterLeave (el) {
         el.style.height = 0
       },
+
       initStatus () {
         if (this.dataList.length) {
           this.dataList = []
@@ -114,8 +123,9 @@
           return !this.descending ? (new Date(a.timestamp) - new Date(b.timestamp)) : (new Date(b.timestamp) - new Date(a.timestamp))
         })
       },
+
       getIcon (type) {
-        let str;
+        let str
         typeList.forEach(item => {
           if (item.value === type) {
             str = item.icon
@@ -123,6 +133,7 @@
         })
         return str
       },
+
       sizeTo (val) {
         return sizeTo(val)
       },
@@ -177,12 +188,14 @@
     }
   }
 </style>
+
 <style lang="scss">
-  .timeline-view{
-    .el-timeline-item__wrapper{
+  .timeline-view {
+    .el-timeline-item__wrapper {
       top: 0;
     }
-    .el-timeline-item__timestamp.is-top{
+
+    .el-timeline-item__timestamp.is-top {
       padding-top: 0;
     }
   }

@@ -60,14 +60,14 @@ const data = [
 storiesOf('Timeline', module)
   .add('基本用法', () => ({
     template: `
-      <ej-timeline :data="data" :is-descending="isDescending"/>
+      <ej-timeline :data="data" :descending="descending"/>
     `,
     props: {
       data: {
         default: data,
       },
-      isDescending: {
-        default: boolean('isDescending', false),
+      descending: {
+        default: boolean('descending', false),
       },
     },
   }))

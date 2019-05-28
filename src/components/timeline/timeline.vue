@@ -63,7 +63,7 @@
         type: Array,
         default: () => []
       },
-      isDescending :{
+      descending :{
         type: Boolean,
         default: false,
       },
@@ -77,7 +77,7 @@
       data () {
         this.initStatus()
       },
-      isDescending () {
+      descending () {
         this.initStatus()
       }
     },
@@ -111,7 +111,7 @@
           this.dataList.push(item)
         })
         this.dataList.sort((a, b) => {
-          return !this.isDescending ? (new Date(a.timestamp) - new Date(b.timestamp)) : (new Date(b.timestamp) - new Date(a.timestamp))
+          return !this.descending ? (new Date(a.timestamp) - new Date(b.timestamp)) : (new Date(b.timestamp) - new Date(a.timestamp))
         })
       },
       getIcon (type) {

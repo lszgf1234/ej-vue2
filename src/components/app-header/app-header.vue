@@ -3,12 +3,15 @@
     <div class="ej-app-header bg-black text-white flex w-full"
          :class="{fixed}"
          :style="{height: height$}">
-      <a href="javascript:" class="ej-app-logo flex-none flex items-center">
+      <a href="javascript:" class="ej-app-logo flex-none flex items-center" @click="onClickLogo">
         <i v-if="logo" class="flex-none rounded bg-white opacity-50" :class="{'mr-2': title}"></i>
         <span v-if="title" class="flex-none text-lg">{{title}}</span>
       </a>
 
+      <slot/>
+
       <div class="ej-app-tray flex-none ml-auto flex">
+        <slot v-if="$scopedSlots.tray" name="tray"/>
         <ej-app-search v-if="options.search !== false"/>
         <ej-app-notification v-if="options.notification !== false"/>
         <a href="javascript:">
@@ -65,6 +68,14 @@
         return toCssSize(this.height)
       },
     },
+
+    methods: {
+      onClickLogo () {
+        if (this.$router) {
+          this.$router.push({name: 'home'})
+        }
+      },
+    },
   }
 </script>
 
@@ -76,6 +87,8 @@
   }
 
   .ej-app-logo {
+    margin-right: 30px;
+
     i {
       width: 24px;
       height: 24px;

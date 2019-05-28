@@ -2,7 +2,7 @@
   <a href="javascript:" class="ej-app-search flex items-center relative" @click="active = true">
     <ej-icon icon="search"
              class="ej-app-search__button relative"
-             :class="active ? ['active', 'text-gray-500'] : undefined"
+             :class="active ? ['active', 'text-gray-dark'] : undefined"
              @click="search"/>
 
     <transition name="ej-app-search" @after-leave="keyword = ''">

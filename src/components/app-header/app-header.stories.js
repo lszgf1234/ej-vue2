@@ -19,10 +19,17 @@ const _options = {
 }
 
 storiesOf('AppHeader', module)
-  .add('基本使用', () => ({
+  .add('基本用法', () => ({
     template: `
       <div>
-        <ej-app-header :height="height" :logo="logo" :title="title" :user="user" :fixed="fixed" :options="options"/>
+        <ej-app-header :height="height" :logo="logo" :title="title" :user="user" :fixed="fixed" :options="options">
+          <a href="javascript:" class="opacity-50 self-center">Whatever-Content</a>
+          
+          <template #tray>
+            <a href="javascript:" class="opacity-50">Whatever-Tray-Icon</a>
+          </template>
+        </ej-app-header>
+        
         <ul class="text-center text-gray">
           <li v-for="n of 100">{{n}}</li>
         </ul>

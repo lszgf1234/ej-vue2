@@ -1,53 +1,51 @@
 import Vue from 'vue'
 
-import LoadingComp from './loading.vue'
+import SpinnerComp from './spinner.vue'
 
-const Mask = Vue.extend(LoadingComp)
+const VALID_POSITION_VALS = ['absolute', 'relative', 'fixed']
 
-const Loading = {}
+const Spinner = Vue.extend(SpinnerComp)
 
-Loading.install = Vue => {
-  Vue.directive('loading', {
-    bind: (el, binding) => {
-      const mask = new Mask({
-        el: document.createElement('div'),
-        data: {
-          fullscreen: !!binding.modifiers.fullscreen,
-        },
-      })
+const directive = {
+  name: 'EjLoading',
 
-      el.instance = mask
+  bind: (el, binding) => {
+    el.instance = new Spinner({
+      el: document.createElement('div'),
+      data: {
+        fullscreen: !!binding.modifiers.fullscreen,
+      },
+    })
 
-      const curStyle = window.getComputedStyle(el)
-      const position = curStyle.position
-      const positionProps = ['absolute', 'relative', 'fixed']
+    const {position} = window.getComputedStyle(el)
 
-      el.style.position = positionProps.includes(position) ? position : 'relative'
+    if (!VALID_POSITION_VALS.includes(position)) {
+      el.style.position = 'relative'
+    }
 
-      if (binding.value) {
+    if (binding.value) {
+      el.appendChild(el.instance.$el)
+    }
+  },
+
+  update: (el, binding) => {
+    if (binding.value) {
+      if (el.instance.$el.parentNode === null) {
         el.appendChild(el.instance.$el)
       }
-    },
-
-    update: (el, binding) => {
-      if (binding.value) {
-        if (el.instance.$el.parentNode === null) {
-          el.appendChild(el.instance.$el)
-        }
-      } else {
-        if (el === el.instance.$el.parentNode) {
-          el.removeChild(el.instance.$el)
-        }
-      }
-    },
-
-    unbind: (el) => {
+    } else {
       if (el === el.instance.$el.parentNode) {
         el.removeChild(el.instance.$el)
       }
-      el.instance = null
-    },
-  })
+    }
+  },
+
+  unbind: (el) => {
+    if (el === el.instance.$el.parentNode) {
+      el.removeChild(el.instance.$el)
+    }
+    el.instance = null
+  },
 }
 
-export default Loading
+export default directive

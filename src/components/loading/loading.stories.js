@@ -1,38 +1,33 @@
 import {storiesOf} from '@storybook/vue'
-import {boolean, text} from '@storybook/addon-knobs'
+import {boolean} from '@storybook/addon-knobs'
 import Vue from 'vue'
 
 import Loading from '.'
 
 Vue.use(Loading)
 
-storiesOf('Loading', module)
-  .add('局部loading', () => ({
+storiesOf('Directives|v-ej-loading', module)
+  .add('局部模式', () => ({
     template: `
-      <div class="relative border-solid border border-black"
-           style="height: 300px; width: 300px;"
-           v-loading="loadingStatus">
+      <div v-ej-loading="loading" class="border border-black">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid assumenda at beatae consectetur consequuntur dolore earum eum incidunt nulla qui quidem, quisquam recusandae similique sit temporibus voluptate voluptatem voluptatum?
       </div>
     `,
     props: {
-      loadingStatus: {
-        default: boolean('控制loading出现与消失 loadingStatus', true),
-      },
-      readme: {
-        default: text('局部loading指令用法', 'v-loading="loadingStatus"'),
+      loading: {
+        default: boolean('Loading', true),
       },
     },
   }))
-  .add('全屏loading', () => ({
+  .add('全屏模式', () => ({
     template: `
-      <div v-loading.fullscreen="loadingStatus"></div>
+      <div v-ej-loading.fullscreen="loading" class="border border-black">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad consectetur delectus enim et, fugit illo ipsum nostrum obcaecati quaerat quasi reiciendis voluptate? Doloribus fuga laborum nam omnis quae ratione.
+      </div>
     `,
     props: {
-      loadingStatus: {
-        default: boolean('控制loading出现与消失 loadingStatus', true),
-      },
-      readme: {
-        default: text('全局loading指令用法', 'v-loading.fullscreen="loadingStatus"'),
+      loading: {
+        default: boolean('Loading', true),
       },
     },
   }))

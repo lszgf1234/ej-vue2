@@ -8,6 +8,7 @@ import Popcard from './components/popcard'
 import TaskFlow from './components/task-flow'
 import SearchInput from './components/search-input'
 import Highlight from './components/highlight'
+import SearchConditions from './components/search-conditions'
 
 import Loading from './directives/loading'
 
@@ -22,6 +23,7 @@ export {
   TaskFlow,
   SearchInput,
   Highlight,
+  SearchConditions,
 
   Loading,
 }
@@ -38,6 +40,7 @@ export default {
     Vue.use(TaskFlow)
     Vue.use(SearchInput)
     Vue.use(Highlight)
+    Vue.use(SearchConditions)
 
     Vue.use(Loading)
   },

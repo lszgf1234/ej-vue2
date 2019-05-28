@@ -24,17 +24,17 @@ export function formatDate (d = new Date(), format = 'YYYY-MM-DD HH:mm:ss') {
     .replace('YYYY', year)
     .replace('YY', (year % 100 + '').padStart(2, '0'))
     .replace('MM', (month + '').padStart(2, '0'))
-    .replace('M', month)
+    .replace('M', month + '')
     .replace('DD', (date + '').padStart(2, '0'))
-    .replace('D', date)
+    .replace('D', date + '')
     .replace('HH', (hour + '').padStart(2, '0'))
-    .replace('H', hour)
+    .replace('H', hour + '')
     .replace('hh', (hour % 12 + '').padStart(2, '0'))
-    .replace('h', hour % 12)
+    .replace('h', hour % 12 + '')
     .replace('mm', (minute + '').padStart(2, '0'))
-    .replace('m', minute)
+    .replace('m', minute + '')
     .replace('ss', (second + '').padStart(2, '0'))
-    .replace('s', second)
+    .replace('s', second + '')
 }
 
 /**
@@ -44,10 +44,13 @@ export function formatDate (d = new Date(), format = 'YYYY-MM-DD HH:mm:ss') {
  * @return {String} - 格式化后的尺寸大小
  */
 export function sizeTo (val) {
-  if (val >= 1024 * 1024) {
-    return `${parseInt(val / (1024 * 1024) * 10) / 10}MB`
-  } else if (val >= 1024) {
-    return `${parseInt(val / 1024 * 10) / 10}KB`
+  const ONE_KB = 1024
+  const ONE_MB = ONE_KB * 1024
+
+  if (val >= ONE_MB) {
+    return `${Math.round(val / ONE_MB * 10) / 10}MB`
+  } else if (val >= ONE_KB) {
+    return `${Math.round(val / ONE_KB * 10) / 10}KB`
   } else {
     return `${val}B`
   }

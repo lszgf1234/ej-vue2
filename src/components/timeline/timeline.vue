@@ -120,7 +120,9 @@
           this.dataList.push(item)
         })
         this.dataList.sort((a, b) => {
-          return !this.descending ? (new Date(a.timestamp) - new Date(b.timestamp)) : (new Date(b.timestamp) - new Date(a.timestamp))
+          const dateA = new Date(a.timestamp)
+          const dateB = new Date(b.timestamp)
+          return !this.descending ? dateA - dateB : dateB - dateA
         })
       },
 

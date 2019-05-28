@@ -15,7 +15,7 @@ const data = [
     desc: '不知道为什么但就是通过了',
   },
   {
-    timestamp: '2018-04-12 20:46',
+    timestamp: '2018-04-12T20:46:23',
     title: '创建成功',
   },
   {
@@ -43,7 +43,7 @@ const data = [
     ],
   },
   {
-    timestamp: '2018-04-15 00:00:00',
+    timestamp: '2018-04-15T00:00:00',
     title: '活动结束',
     desc: '活动圆满结束',
     files: [

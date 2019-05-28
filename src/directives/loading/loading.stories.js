@@ -2,7 +2,7 @@ import {storiesOf} from '@storybook/vue'
 import {boolean} from '@storybook/addon-knobs'
 import Vue from 'vue'
 
-import Loading from '.'
+import Loading from './index'
 
 Vue.use(Loading)
 

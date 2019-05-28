@@ -1,5 +1,5 @@
 import {storiesOf} from '@storybook/vue'
-import {text, boolean} from '@storybook/addon-knobs'
+import {boolean, text} from '@storybook/addon-knobs'
 import Vue from 'vue'
 
 import Loading from '.'
@@ -10,7 +10,7 @@ storiesOf('Loading', module)
   .add('局部loading', () => ({
     template: `
       <div class="relative border-solid border border-black"
-           style=" height: 300px; width: 300px;"
+           style="height: 300px; width: 300px;"
            v-loading="loadingStatus">
       </div>
     `,

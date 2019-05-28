@@ -1,5 +1,5 @@
-
 import Vue from 'vue'
+
 import LoadingComp from './loading.vue'
 
 const Mask = Vue.extend(LoadingComp)

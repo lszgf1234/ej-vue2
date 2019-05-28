@@ -63,7 +63,7 @@ const MessageBoxConfirm = async (params = CONFIRM_TEXT.DEFAULT, fn) => {
 
     return MessageSuccess(confirm)
   } catch (error) {
-    console.log(error)
+    console.error(error)
     return MessageError(confirm)
   }
 }

@@ -20,7 +20,6 @@
 </template>
 
 <script>
-  import Vue from 'vue'
   import {Tooltip} from 'element-ui'
 
   import MessageUtil from '../../utils/message'

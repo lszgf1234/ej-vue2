@@ -27,7 +27,6 @@
 </template>
 
 <script>
-  import Vue from 'vue'
   import {Input, Tooltip} from 'element-ui'
 
   import TagItem from './tag-item.vue'

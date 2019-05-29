@@ -16,7 +16,7 @@
           @click="showMore = !showMore"
           class="ej-conditions-item__more text-blue cursor-pointer">
           {{showMoreText}}
-          <i class="el-icon-arrow-down"></i>
+          <i :class="showMoreClass" class="el-icon-arrow-down"/>
     </span>
   </dd>
 </template>
@@ -51,7 +51,10 @@
     computed: {
       showMoreText () {
         return this.showMore ? '收起' : '更多'
-      }
+      },
+      showMoreClass () {
+        return this.showMore ? 'up-active' : ''
+      },
     },
 
     methods: {
@@ -105,6 +108,14 @@
       @apply absolute;
       top: 0;
       right: 26px;
+
+      .el-icon-arrow-down {
+        transition: transform $transition-duration;
+        
+        &.up-active {
+          transform: rotateZ(180deg);
+        }
+      }
     }
 
     &__text-wraaper {

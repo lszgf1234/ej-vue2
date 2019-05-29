@@ -78,7 +78,6 @@
       init () {
         this.dataList.length && (this.dataList = [])
         if (this.isVertical) {
-          console.log(2222)
           // 如果为竖排 ,分组，设置每组宽度
           this.width = `${100 / this.columns}%`
           let data = this.data

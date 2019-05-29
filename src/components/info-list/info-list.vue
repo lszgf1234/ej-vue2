@@ -82,7 +82,7 @@
           this.width = `${100 / this.columns}%`
           let data = this.data
           let size = Math.ceil(data.length / this.columns)
-          for (let page = 1; page <= this.columns; page++) {
+          for (let page = 1 ; page <= this.columns ; page++) {
             this.dataList.push(data.slice((page - 1) * size, page * size))
           }
         } else {
@@ -97,10 +97,7 @@
 
 <style lang="scss">
   .ej-info-list {
-    * {
-      box-sizing: border-box;
-    }
-
+    
     ul {
       margin: 0;
       padding: 0;

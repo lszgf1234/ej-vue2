@@ -1,6 +1,7 @@
 import {storiesOf} from '@storybook/vue'
-import {boolean, select} from '@storybook/addon-knobs'
+import {boolean} from '@storybook/addon-knobs'
 import Vue from 'vue'
+import {Button} from 'element-ui'
 
 import tailwindConfig from '../../../tailwind.config'
 import {cloneDeep} from '../../utils'
@@ -90,11 +91,34 @@ storiesOf('Timeline', module)
   }))
   .add('数据更新', () => ({
     template: `
-      <ej-timeline :data="data"/>
+      <div>
+        <ej-timeline :data="data"/>
+        <el-button @click="add" type="primary" size="small">添加数据</el-button>
+      </div>
     `,
-    props: {
-      data: {
-        default: select('数据更新', {'数据1': data, '数据2': data1,}, data),
+    components: {
+      [Button.name]: Button,
+    },
+    data () {
+      return {
+        data: [
+          {
+            timestamp: '2018-04-12T20:46:23',
+            title: '创建成功',
+          },
+          {
+            timestamp: '2019-05-29 18:06:27',
+            title: '初审',
+          },
+        ],
+      }
+    },
+    methods: {
+      add () {
+        this.data.push({
+          timestamp: new Date(),
+          title: '初审',
+        })
       },
     },
   }))

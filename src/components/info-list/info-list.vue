@@ -15,18 +15,16 @@
       </li>
     </ul>
     <ul v-else class="v-list">
-      <li v-for="(item, key) in dataList" :key="key" class="info-item" :style="{width: width}">
-        <div v-for="(itemChild, keyChild) in item" :key="keyChild">
-          <div class="info-detail">
-            <span class="label">{{itemChild.name}}</span>
-            <span>：</span>
-            <slot v-if="itemChild.slotName" :name="itemChild.slotName" :item="itemChild">
-              <span class="text">{{itemChild.value}}</span>
-            </slot>
-            <slot v-else name="item" :item="itemChild">
-              <span class="text">{{itemChild.value}}</span>
-            </slot>
-          </div>
+      <li v-for="(item, key) in dataList" :key="key" :style="{width: width}" class="info-item">
+        <div v-for="(itemChild, keyChild) in item" :key="keyChild" class="info-detail">
+          <span class="label">{{itemChild.name}}</span>
+          <span>：</span>
+          <slot v-if="itemChild.slotName" :name="itemChild.slotName" :item="itemChild">
+            <span class="text">{{itemChild.value}}</span>
+          </slot>
+          <slot v-else name="item" :item="itemChild">
+            <span class="text">{{itemChild.value}}</span>
+          </slot>
         </div>
       </li>
     </ul>
@@ -97,7 +95,7 @@
 
 <style lang="scss">
   .ej-info-list {
-    
+
     ul {
       margin: 0;
       padding: 0;

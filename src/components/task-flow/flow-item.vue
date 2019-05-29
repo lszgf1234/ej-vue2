@@ -3,7 +3,10 @@
     <div class="left">
       <ej-popcard :img-url="data.user_img" :title="data.title">
         <template slot="img">
-          <div class="circle mb-sm"></div>
+          <div class="circle mb-sm">
+            <ej-icon v-if="data.type!=='error'" icon="check" class="circle-icon"/>
+            <ej-icon v-else icon="close" class="circle-icon"/>
+          </div>
         </template>
         <template slot="action">
           <a v-if="data.type === 'starting'"
@@ -82,23 +85,32 @@
 
     &.flow-starting {
       .circle {
-        background: theme('colors.yellow.default');
+        border-color: theme('colors.yellow.default');
+        .circle-icon{
+          background: theme('colors.yellow.default');
+        }
       }
     }
 
     &.flow-error {
       .circle {
-        background: theme('colors.red.default');
+        border-color: theme('colors.red.default');
+        .circle-icon{
+          background: theme('colors.red.default');
+        }
       }
     }
 
     &.flow-success {
       .circle {
-        background: theme('colors.green.default');
+        border-color: theme('colors.blue.default');
+        .circle-icon{
+          background: theme('colors.blue.default');
+        }
       }
 
       .icon {
-        color: theme('colors.green.default');
+        color: theme('colors.blue.default');
       }
     }
 
@@ -112,10 +124,19 @@
       width: 30px;
       height: 30px;
       border-radius: 50%;
-      background: theme('colors.gray.light');
+      border: 2px solid theme('colors.gray.light');
+      padding: 2px;
       display: flex;
       align-items: center;
       justify-content: center;
+      .circle-icon{
+        background: theme('colors.gray.light');
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        padding: 5px;
+        color: theme('colors.white');
+      }
     }
 
     .title {

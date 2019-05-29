@@ -28,12 +28,6 @@
       EjIcon,
     },
 
-    data() {
-      return {
-        model: '',
-      };
-    },
-
     props: {
       value: {
         type: [String, Number],
@@ -63,14 +57,14 @@
           height: this.height,
         }
       },
-    },
 
-    watch: {
-      value: {
-        handler (newVal) {
-          this.model = newVal;
+      model: {
+        get () {
+          return this.value
         },
-        immediate: true
+        set (val) {
+          this.$emit('input', val)
+        },
       }
     },
   }

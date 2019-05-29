@@ -1,5 +1,5 @@
 import {storiesOf} from '@storybook/vue'
-import {boolean} from '@storybook/addon-knobs'
+import {boolean, select} from '@storybook/addon-knobs'
 import Vue from 'vue'
 
 import tailwindConfig from '../../../tailwind.config'
@@ -57,6 +57,9 @@ const data = [
   },
 ]
 
+const data1 = cloneDeep(data)
+data1[3].color = tailwindConfig.theme.extend.colors.green.default
+
 storiesOf('Timeline', module)
   .add('基本用法', () => ({
     template: `
@@ -82,6 +85,16 @@ storiesOf('Timeline', module)
           clone[3].color = tailwindConfig.theme.extend.colors.green.default
           return clone
         },
+      },
+    },
+  }))
+  .add('数据更新', () => ({
+    template: `
+      <ej-timeline :data="data"/>
+    `,
+    props: {
+      data: {
+        default: select('数据更新', {'数据1': data, '数据2': data1,}, data),
       },
     },
   }))

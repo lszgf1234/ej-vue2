@@ -3,8 +3,8 @@
     <span ref="textContent"
           :class="{'height-auto': showMore}"
           class="ej-search-tag__text-wraaper inline-flex flex-wrap overflow-hidden">
-          <el-tag v-for="(item, index) in options"
-                  :key="index"
+          <el-tag v-for="(item) in options"
+                  :key="key(item)"
                   closable
                   @close="close(item)"
                   class="ej-search-tag__item text-blue border-blue">
@@ -61,10 +61,10 @@
         return `${item.pLabel}: ${item.label}`;
       },
 
-      // // 保证唯一
-      // key (item = {}) {
-      //   return `'${item.pValue}''${item.value}'`;
-      // },
+      // 保证唯一
+      key (item = {}) {
+        return `'${item.pValue}''${item.value}'`;
+      },
 
       isShowMoreBtn () {
         this.$nextTick(() => {

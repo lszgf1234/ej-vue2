@@ -2,14 +2,14 @@
   <div class="common-popcard" @mouseenter="show" @mouseleave="hide">
     <slot name="img"/>
     <div class="position">
-      <div ref="position" :style="style" class="box-postcard bg-white">
+      <div ref="position" class="box-postcard bg-white" :style="style">
         <div class="item item-title">
           <span v-if="imgUrl" class="card-img" :style="{backgroundImage: `url(${imgUrl})`}"></span>
           <img v-else src="../../assets/icon-account.svg" class="card-img img-def">
           <a :href="href" class="user-name">{{title}}</a>
-          <slot name="action"></slot>
+          <slot name="action"/>
         </div>
-        <slot name="main"></slot>
+        <slot name="main"/>
       </div>
     </div>
   </div>
@@ -23,12 +23,10 @@
       imgUrl: {
         type: String,
       },
-
       href: {
         type: String,
-        default: 'javascript:void(0)',
+        default: 'javascript:',
       },
-
       title: {
         type: String,
       },
@@ -48,6 +46,7 @@
     mounted () {
       this.setPosition('init')
     },
+
     methods: {
       show () {
         /*
@@ -66,15 +65,15 @@
         *
         * */
         if (this.timer) {
-          clearTimeout(this.timer)
+          window.clearTimeout(this.timer)
           this.timer = null
         }
         this.setPosition()
       },
       hide () {
-        this.timer = setTimeout(() => {
-          this.style.visibility = 'hidden';
-          clearTimeout(this.timer)
+        this.timer = window.setTimeout(() => {
+          this.style.visibility = 'hidden'
+          window.clearTimeout(this.timer)
           this.timer = null
         }, 300)
       },
@@ -118,7 +117,7 @@
       top: 0;
       width: 0;
       z-index: 100;
-      color: rgba(102, 102, 102, 1);
+      color: #666;
       box-shadow: 0 2px 6px 3px rgba(0, 0, 0, 0.1);
     }
 
@@ -142,7 +141,7 @@
 
     .user-name {
       font-size: 14px;
-      color: rgba(71, 125, 233, 1);
+      color: #477de9;
       margin-left: 5px;
       flex: 1;
     }

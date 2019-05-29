@@ -1,21 +1,21 @@
 <template>
   <div class="ej-info-list clearfix">
     <ul v-if="!isVertical" class="h-list">
-      <li class="info-item" v-for="(item, key) in dataList" :key="key" :style="{width: width}">
+      <li v-for="(item, key) in dataList" :key="key" class="info-item" :style="{width: width}">
         <div class="info-detail">
           <span class="label">{{item.name}}</span>
           <span>：</span>
           <slot v-if="item.slotName" :name="item.slotName" :item="item">
             <span class="text">{{item.value}}</span>
           </slot>
-          <slot name="item" v-else :item="item">
-            <span class="text" >{{item.value}}</span>
+          <slot v-else name="item" :item="item">
+            <span class="text">{{item.value}}</span>
           </slot>
         </div>
       </li>
     </ul>
-    <ul class="v-list" v-else>
-      <li class="info-item" v-for="(item, key) in dataList" :key="key" :style="{width: width}">
+    <ul v-else class="v-list">
+      <li v-for="(item, key) in dataList" :key="key" class="info-item" :style="{width: width}">
         <div v-for="(itemChild, keyChild) in item" :key="keyChild">
           <div class="info-detail">
             <span class="label">{{itemChild.name}}</span>
@@ -23,8 +23,8 @@
             <slot v-if="itemChild.slotName" :name="itemChild.slotName" :item="itemChild">
               <span class="text">{{itemChild.value}}</span>
             </slot>
-            <slot name="item" v-else :item="itemChild">
-              <span class="text" >{{itemChild.value}}</span>
+            <slot v-else name="item" :item="itemChild">
+              <span class="text">{{itemChild.value}}</span>
             </slot>
           </div>
         </div>
@@ -34,12 +34,12 @@
 </template>
 
 <script>
-
   /*
-  * 默认时 横排 单栏
-  * */
+   * 默认时 横排 单栏
+   */
   export default {
     name: 'EjInfoList',
+
     props: {
       data: {
         type: Array,
@@ -53,12 +53,14 @@
         default: () => false,
       },
     },
+
     data () {
       return {
         dataList: [],
         width: '100%',
       }
     },
+
     watch: {
       columns () {
         this.init()
@@ -67,9 +69,11 @@
         this.init()
       },
     },
+
     created () {
       this.init()
     },
+
     methods: {
       init () {
         this.dataList.length && (this.dataList = [])
@@ -109,16 +113,17 @@
       overflow: hidden;
     }
 
-    .v-list.info-item, .info-detail{
+    .v-list.info-item, .info-detail {
       padding-bottom: 5px;
     }
 
-    .hasline{
-      border-right:1px solid #ddd ;
+    .hasline {
+      border-right: 1px solid #ddd;
     }
 
     .info-detail {
       display: flex;
+
       span {
         line-height: 20px;
       }

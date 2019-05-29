@@ -1,5 +1,5 @@
 import {storiesOf} from '@storybook/vue'
-import {withKnobs, text, number} from '@storybook/addon-knobs'
+import {number, text, withKnobs} from '@storybook/addon-knobs'
 import Vue from 'vue'
 
 import Popcard from '.'
@@ -23,7 +23,7 @@ storiesOf('Popcard', module)
     template: `
       <ej-popcard :img-url="imgUrl" :title="title" :width="width">
         <template slot="img">
-           <img style="width: 25px; height: 25px" :src="imgUrl">
+          <img style="width: 25px; height: 25px" :src="imgUrl">
         </template>
       </ej-popcard>
     `,
@@ -35,23 +35,23 @@ storiesOf('Popcard', module)
         default: text('img-url', data.img),
       },
       width: {
-        default: number('width', 272 ),
+        default: number('width', 272),
       },
     },
   }))
   .add('slot', () => ({
     template: `
-      <ej-Popcard :img-url="data.img" :title="data.name">
+      <ej-popcard :img-url="data.img" :title="data.name">
         <template slot="img">
-           <img style="width: 25px; height: 25px" :src="data.img">
+          <img style="width: 25px; height: 25px" :src="data.img">
         </template>
         <template slot="action">
-           <a href="javascript:">操作插槽</a>
+          <a href="javascript:">操作插槽</a>
         </template>
         <template slot="main">
-           <a href="javascript:">详情插槽</a>
+          <a href="javascript:">详情插槽</a>
         </template>
-      </ej-Popcard>
+      </ej-popcard>
     `,
     props: {
       data: {

@@ -1,9 +1,8 @@
 import {storiesOf} from '@storybook/vue'
 import Vue from 'vue'
-import {select, boolean} from '@storybook/addon-knobs';
 
-import TaskFlow from '.'
 import {testImg} from '../../assets/base64'
+import TaskFlow from '.'
 
 Vue.use(TaskFlow)
 
@@ -69,7 +68,7 @@ storiesOf('TaskFlow', module)
       press (data) {
         console.log(data)
       },
-      email(data) {
+      email (data) {
         console.log(data)
       },
     },
@@ -84,7 +83,7 @@ storiesOf('TaskFlow', module)
       },
     },
     methods: {
-      email(data) {
+      email (data) {
         console.log(data)
       },
     },

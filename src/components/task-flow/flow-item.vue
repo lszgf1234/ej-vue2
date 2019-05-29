@@ -6,14 +6,19 @@
           <div class="circle form-group-sm"></div>
         </template>
         <template slot="action">
-          <a v-if="data.type==='starting'" href="javascript:" class="ml-xs text-blue"  @click="press">催一下</a>
+          <a v-if="data.type === 'starting'"
+             href="javascript:"
+             class="ml-xs text-blue"
+             @click="press">催一下</a>
         </template>
         <template slot="main">
           <ej-info-list :data="infoList" class="mt-xs">
             <template slot="name" slot-scope="row">
               <div class="name-self">
                 <span class="name-self-text">{{row.item.value}}</span>
-                <a v-if="row.item.user_id" href="javascript:" @click="email"><ej-icon icon="mail" class="icon-email"/></a>
+                <a v-if="row.item.user_id" href="javascript:" @click="email">
+                  <ej-icon icon="mail" class="icon-email"/>
+                </a>
               </div>
             </template>
           </ej-info-list>
@@ -21,7 +26,7 @@
       </ej-popcard>
       <div class="title">{{data.title}}</div>
     </div>
-    <span class="right" v-if="hasNext">
+    <span v-if="hasNext" class="right">
       <ej-icon icon="right" class="icon"/>
     </span>
   </div>
@@ -34,11 +39,13 @@
 
   export default {
     name: 'EjFlowItem',
+
     components: {
       [Icon.name]: Icon,
       [Popcard.name]: Popcard,
       [InfoList.name]: InfoList,
     },
+
     props: {
       data: {
         type: Object,
@@ -47,21 +54,23 @@
         type: Boolean,
       },
     },
+
     data () {
       return {
         infoList: [
-          {name: '操作人', value: this.data.user_name, slotName: 'name',},
+          {name: '操作人', value: this.data.user_name, slotName: 'name'},
           {name: '操作时间', value: this.data.time},
-        ]
+        ],
       }
     },
+
     methods: {
       press () {
         this.$emit('press', this.data)
       },
       email () {
         this.$emit('email', this.data)
-      }
+      },
     },
   }
 </script>
@@ -132,20 +141,24 @@
       width: 20px;
       color: theme('colors.gray.light');
     }
-    .icon-email{
+
+    .icon-email {
       color: theme('colors.blue.default');
       width: 18px;
       height: 15px;
     }
-    .name-self{
+
+    .name-self {
       display: flex;
       flex: 1;
       align-items: center;
-      .name-self-text{
+
+      .name-self-text {
         flex: 1;
       }
     }
-    .common-popcard .user-name{
+
+    .common-popcard .user-name {
       cursor: inherit;
       color: theme('colors.gray.darkest');
     }

@@ -1,7 +1,7 @@
 <template>
   <div class="ej-info-list clearfix">
     <ul v-if="!isVertical" class="h-list">
-      <li v-for="(item, key) in dataList" :key="key" :style="{width: width}" class="info-item">
+      <li v-for="(item, idx) in dataList" :key="idx" :style="{width: width}" class="info-item">
         <div class="info-detail">
           <span class="label">{{item.name}}</span>
           <span>：</span>
@@ -15,8 +15,8 @@
       </li>
     </ul>
     <ul v-else class="v-list">
-      <li v-for="(item, key) in dataList" :key="key" :style="{width: width}" class="info-item">
-        <div v-for="(itemChild, keyChild) in item" :key="keyChild" class="info-detail">
+      <li v-for="(item, idx) in dataList" :key="idx" :style="{width: width}" class="info-item">
+        <div v-for="(itemChild, idxChild) in item" :key="idxChild" class="info-detail">
           <span class="label">{{itemChild.name}}</span>
           <span>：</span>
           <slot v-if="itemChild.slotName" :name="itemChild.slotName" :item="itemChild">

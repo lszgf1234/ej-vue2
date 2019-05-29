@@ -1,4 +1,5 @@
 import {storiesOf} from '@storybook/vue'
+import Vuex from 'vuex'
 import {number, text, object, boolean, optionsKnob as options} from '@storybook/addon-knobs'
 import {action} from '@storybook/addon-actions'
 import Vue from 'vue'
@@ -24,17 +25,21 @@ storiesOf('Components|AppHeader', module)
       <div>
         <ej-app-header :height="height" :logo="logo" :title="title" :user="user" :fixed="fixed" :options="options">
           <a href="javascript:" class="opacity-50 self-center">Whatever-Content</a>
-          
+
           <template #tray>
             <a href="javascript:" class="opacity-50">Whatever-Tray-Icon</a>
           </template>
         </ej-app-header>
-        
+
         <ul class="text-center text-gray">
           <li v-for="n of 100">{{n}}</li>
         </ul>
       </div>
     `,
+     store: new Vuex.Store({
+      state: {},
+      mutations: {},
+    }),
     props: {
       height: {
         default: number('Height', 50),

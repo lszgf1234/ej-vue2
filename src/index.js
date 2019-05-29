@@ -5,7 +5,7 @@ import TextEditor from './components/text-editor'
 import TextRenderer from './components/text-renderer'
 import Timeline from './components/timeline'
 import Popcard from './components/popcard'
-import FlowChart from './components/flow-chart'
+import TaskFlow from './components/task-flow'
 
 import Loading from './directives/loading'
 
@@ -17,7 +17,7 @@ export {
   TextRenderer,
   Timeline,
   Popcard,
-  FlowChart,
+  TaskFlow,
 
   Loading,
 }
@@ -31,7 +31,7 @@ export default {
     Vue.use(TextRenderer)
     Vue.use(Timeline)
     Vue.use(Popcard)
-    Vue.use(FlowChart)
+    Vue.use(TaskFlow)
 
     Vue.use(Loading)
   },

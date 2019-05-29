@@ -40,11 +40,11 @@
         default: '',
       },
       width: {
-        default: String,
+        type: String,
         default: '552px',
       },
       height: {
-        default: String,
+        type: String,
         default: '40px',
       },
     },
@@ -62,7 +62,7 @@
           width: this.width,
           height: this.height,
         }
-      }
+      },
     },
 
     watch: {

@@ -45,7 +45,7 @@
         type: Array,
       },
       columns: {
-        type: [Number, null],
+        type: Number,
         default: 1,
       },
       isVertical: {

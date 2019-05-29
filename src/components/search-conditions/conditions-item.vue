@@ -104,7 +104,7 @@
       }
     }
 
-    &__more {
+    .ej-conditions-item__more {
       @apply absolute;
       top: 0;
       right: 26px;
@@ -118,7 +118,7 @@
       }
     }
 
-    &__text-wraaper {
+    .ej-conditions-item__text-wraaper {
       max-height: $search-conditions-height;
       transition: max-height $transition-duration;
       overflow: hidden;

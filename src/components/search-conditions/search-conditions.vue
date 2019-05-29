@@ -240,7 +240,11 @@
       options: {
         type: Array,
         default: () => ([])
-      }
+      },
+      cascaderKeys: {
+        type: Array,
+        default: () => ([])
+      },
     },
 
     computed: {
@@ -278,12 +282,14 @@
       // 处理父级传下来的参数
       handlerOptions (options = []) {
         this.conditionsList =  options.map(item => {
+          console.log(this.cascaderKeys.indexOf(item.value))
           return Object.assign(item, {
             // CascaderItem 联级选择器
             // ConditionsItem 默认
-            isTemplate: item.component === 'cascader' ? CascaderItem : ConditionsItem
+            isTemplate: this.cascaderKeys.indexOf(item.value) !== -1 ? CascaderItem : ConditionsItem
           })
         })
+        
       },
       // 联级选择器
       cascaderChange (conditionsKey, val, labels) {

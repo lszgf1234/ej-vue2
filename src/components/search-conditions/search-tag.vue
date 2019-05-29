@@ -14,7 +14,7 @@
 
     <span v-show="showMoreBtn"
           @click="showMore = !showMore"
-          class="ej-conditions-item__more text-blue cursor-pointer">
+          class="ej-search-tag__more text-blue cursor-pointer">
           {{showMoreText}}
           <i :class="showMoreClass" class="el-icon-arrow-down"/>
     </span>
@@ -103,7 +103,7 @@
       height: auto;
     }
 
-    &__item {
+    .ej-search-tag__item {
       height: $search-conditions-height;
       line-height: $search-conditions-height;
       font-size: 14px;
@@ -121,7 +121,7 @@
       }
     }
 
-    &__more {
+    .ej-search-tag__more {
       @apply absolute;
       top: 0;
       right: 26px;
@@ -135,7 +135,7 @@
       }
     }
 
-    &__text-wraaper {
+    .ej-search-tag__text-wraaper {
       max-height: $search-conditions-height;
       transition: max-height $transition-duration;
       overflow: hidden;

@@ -236,7 +236,6 @@ const options = [
     label: '机构名称',
     model: ['zujian', 'form', 'checkbox'],
     labels: [],
-    component: 'cascader',
     valueList: cascaderOptions,
   },
   {
@@ -244,7 +243,6 @@ const options = [
     label: '机构名称',
     model: ['zujian', 'form', 'checkbox'],
     labels: [],
-    component: 'cascader',
     valueList: cascaderOptions,
   }
 ]
@@ -252,9 +250,16 @@ const options = [
 storiesOf('SearchConditions', module)
   .add('基本使用', () => ({
     template: `
-      <ej-search-conditions :style="{width: '1100px', margin: '30px auto'}" :options="options" @change="change"/>
+      <ej-search-conditions :style="{width: '1100px', margin: '30px auto'}"
+                            :options="options"
+                            :cascaderKeys="cascaderKeys"
+                            @change="change"
+      />
     `,
     props: {
+      cascaderKeys: {
+        default: object('联级选择器key列表', ['keyc', 'keyd']),
+      },
       options: {
         default: object('options', options),
       },

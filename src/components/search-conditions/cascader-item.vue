@@ -59,7 +59,7 @@
 
 <style lang="scss">
   @import './variables.scss';
-  .ej-cascader-item {
+  .ej-cascader-item.el-cascader {
     width: 250px;
     line-height: $search-conditions-height;
 

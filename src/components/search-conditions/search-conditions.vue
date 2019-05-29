@@ -282,7 +282,6 @@
       // 处理父级传下来的参数
       handlerOptions (options = []) {
         this.conditionsList =  options.map(item => {
-          console.log(this.cascaderKeys.indexOf(item.value))
           return Object.assign(item, {
             // CascaderItem 联级选择器
             // ConditionsItem 默认

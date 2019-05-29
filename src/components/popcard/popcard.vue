@@ -2,9 +2,9 @@
   <div class="common-popcard" @mouseenter="show" @mouseleave="hide">
     <slot name="img"/>
     <div class="position">
-      <div ref="position" class="box-postcard bg-white" :style="style">
+      <div ref="position" :style="style" class="box-postcard bg-white">
         <div class="item item-title">
-          <span v-if="imgUrl" class="card-img" :style="{backgroundImage: `url(${imgUrl})`}"></span>
+          <span v-if="imgUrl" :style="{backgroundImage: `url(${imgUrl})`}" class="card-img" ></span>
           <img v-else src="../../assets/icon-account.svg" class="card-img img-def">
           <a :href="href" class="user-name">{{title}}</a>
           <slot name="action"/>

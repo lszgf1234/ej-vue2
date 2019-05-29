@@ -1,7 +1,7 @@
 <template>
   <div class="ej-info-list clearfix">
     <ul v-if="!isVertical" class="h-list">
-      <li v-for="(item, key) in dataList" :key="key" class="info-item" :style="{width: width}">
+      <li v-for="(item, key) in dataList" :key="key" :style="{width: width}" class="info-item">
         <div class="info-detail">
           <span class="label">{{item.name}}</span>
           <span>：</span>

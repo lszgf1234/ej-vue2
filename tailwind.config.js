@@ -103,7 +103,7 @@ module.exports = {
         md: '20px',
         lg: '30px',
         xl: '50px',
-      }
+      },
     },
   },
 }

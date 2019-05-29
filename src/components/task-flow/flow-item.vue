@@ -3,7 +3,7 @@
     <div class="left">
       <ej-popcard :img-url="data.user_img" :title="data.title">
         <template slot="img">
-          <div class="circle form-group-sm"></div>
+          <div class="circle mb-sm"></div>
         </template>
         <template slot="action">
           <a v-if="data.type === 'starting'"
@@ -76,10 +76,6 @@
 </script>
 
 <style lang="scss">
-  .form-group-sm {
-    margin-bottom: 10px;
-  }
-
   .ej-flow-item {
     display: inline-flex;
     margin-bottom: 10px;

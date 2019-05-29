@@ -6,12 +6,14 @@ api与 Element UI `<el-input>` 相同。
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `width` | String | '552px' | 输入框宽度
-| `height` | String | '40px' | 输入框高度
+| `value` | String | | 控件值，用于 v-model |
+| `width` | String | '552px' | 输入框宽度 |
+| `height` | String | '40px' | 输入框高度 |
+
 其余与 `<el-input>` 相同。
 
 ### Events
 
 | 事件名称 | 说明 | 回调参数 |
-|---|---|---|---|
+|---|---|---|
 | `search` | 搜索事件 | 目前的输入值 |

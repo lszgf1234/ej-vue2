@@ -2,20 +2,19 @@
   <el-input v-model="model"
             v-bind="$attrs"
             v-on="$listeners"
-            :style="styleObj"
-            @keyup.enter.native="search"
             class="ej-search-input"
-  >
-    <ej-icon  icon="search"
-              slot="suffix"
-              @click="search"
-              class="ej-app-search__button cursor-pointer"
-    />
+            :style="styleObj"
+            @keyup.enter.native="search">
+    <ej-icon slot="suffix"
+             icon="search"
+             class="ej-app-search__button cursor-pointer"
+             @click="search"/>
   </el-input>
 </template>
 
 <script>
   import {Input as ElInput} from 'element-ui'
+
   import EjIcon from '../icon'
 
   export default {
@@ -43,13 +42,6 @@
       },
     },
 
-    methods: {
-      search () {
-        const input = this.model
-        this.$emit('search', input)
-      },
-    },
-
     computed: {
       styleObj () {
         return {
@@ -65,7 +57,14 @@
         set (val) {
           this.$emit('input', val)
         },
-      }
+      },
+    },
+
+    methods: {
+      search () {
+        const input = this.model
+        this.$emit('search', input)
+      },
     },
   }
 </script>

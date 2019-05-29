@@ -1,5 +1,5 @@
 import {storiesOf} from '@storybook/vue'
-import {text, boolean, optionsKnob as options} from '@storybook/addon-knobs'
+import {text} from '@storybook/addon-knobs'
 import {action} from '@storybook/addon-actions'
 import Vue from 'vue'
 
@@ -7,46 +7,30 @@ import SearchInput from '.'
 
 Vue.use(SearchInput)
 
-storiesOf('searchInput', module)
+storiesOf('Components|SearchInput', module)
   .add('基本用法', () => ({
     template: `
-      <ej-search-input  v-model="model"
-                        :width="width"
-                        :height="height"
-                        :placeholder="placeholder"
-                        @search="search"
-      />
+      <ej-search-input v-model="model" :width="width" :height="height" :placeholder="placeholder" @search="search"/>
     `,
-    data () {
-      return {
-        model: ''
-      }
-    },
     props: {
       placeholder: {
-        default: text('placeholder', '请输入资料名称'),
-      },
-      modelInput: {
-        default: text('modelInput', ''),
+        default: text('Placeholder', '请输入关键词'),
       },
       width: {
-        default: text('width', '552px'),
+        default: text('Width', '552px'),
       },
       height: {
-        default: text('height', '40px'),
+        default: text('Height', '40px'),
       },
+    },
+    data () {
+      return {
+        model: '',
+      }
     },
     methods: {
       search (...args) {
         action('search')(...args)
-      },
-    },
-    watch: {
-      modelInput: {
-        handler (newVal) {
-          this.model = newVal
-        },
-        immediate: true
       },
     },
   }))

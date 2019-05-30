@@ -1,5 +1,5 @@
 import {storiesOf} from '@storybook/vue'
-import {text} from '@storybook/addon-knobs'
+import {number, text} from '@storybook/addon-knobs'
 import {action} from '@storybook/addon-actions'
 import Vue from 'vue'
 
@@ -17,10 +17,10 @@ storiesOf('Components|SearchInput', module)
         default: text('Placeholder', '请输入关键词'),
       },
       width: {
-        default: text('Width', '552px'),
+        default: number('Width', 552),
       },
       height: {
-        default: text('Height', '40px'),
+        default: number('Height', 40),
       },
     },
     data () {

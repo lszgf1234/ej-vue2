@@ -15,6 +15,7 @@
 <script>
   import {Input as ElInput} from 'element-ui'
 
+  import {toCssSize} from '../../utils/ui'
   import EjIcon from '../icon'
 
   export default {
@@ -33,20 +34,20 @@
         default: '',
       },
       width: {
-        type: String,
-        default: '552px',
+        type: [String, Number],
+        default: 552,
       },
       height: {
-        type: String,
-        default: '40px',
+        type: [String, Number],
+        default: 40,
       },
     },
 
     computed: {
       styleObj () {
         return {
-          width: this.width,
-          height: this.height,
+          width: toCssSize(this.width),
+          height: toCssSize(this.height),
         }
       },
 

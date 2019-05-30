@@ -5,8 +5,8 @@
         <template slot="img">
           <div class="circle mb-sm">
             <ej-icon v-if="data.type === 'error'" icon="close" class="circle-icon"/>
-            <ej-icon v-else-if="data.type === 'starting'" icon="more" class="circle-icon"/>
-            <ej-icon v-else icon="check" class="circle-icon"/>
+            <ej-icon v-else-if="data.type === 'success'" icon="check" class="circle-icon"/>
+            <ej-icon v-else icon="more" class="circle-icon"/>
           </div>
         </template>
         <template slot="action">

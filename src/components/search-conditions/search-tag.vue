@@ -69,7 +69,7 @@
       isShowMoreBtn () {
         this.$nextTick(() => {
           // 减掉150的右内边距
-          const textWrapper = this.$refs.textWrapper.offsetWidth - 150;
+          const textWrapper = this.$refs.textWrapper.offsetWidth - 80;
           const textContent = this.$refs.textContent.offsetWidth;
 
           // 判断长度超过父级
@@ -97,7 +97,7 @@
 
   .ej-search-tag {
     width: 100%;
-    padding-right: 150px;
+    padding-right: 80px;
 
     &.h-auto {
       height: auto;

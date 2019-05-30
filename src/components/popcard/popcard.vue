@@ -80,7 +80,7 @@
       setPosition (init) {
         let style = {
           width: `${this.width}px`,
-          visibility: init === 'init' ? 'hidden' : 'unset',
+          visibility: init === 'init' ? 'hidden' : 'inherit',
         }
         let elOffsets = this.$el.getBoundingClientRect()
         let documentElement = document.documentElement

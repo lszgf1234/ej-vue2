@@ -18,7 +18,7 @@ const _options = {
   username: false,
 }
 
-storiesOf('AppHeader', module)
+storiesOf('Components|AppHeader', module)
   .add('基本用法', () => ({
     template: `
       <div>

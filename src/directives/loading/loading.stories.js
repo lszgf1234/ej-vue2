@@ -6,7 +6,7 @@ import Loading from './index'
 
 Vue.use(Loading)
 
-storiesOf('Directives|v-ej-loading', module)
+storiesOf('Directives|Loading', module)
   .add('局部模式', () => ({
     template: `
       <div v-ej-loading="loading" class="border border-black">

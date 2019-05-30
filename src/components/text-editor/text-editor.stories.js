@@ -5,7 +5,7 @@ import TextEditor from '.'
 
 Vue.use(TextEditor)
 
-storiesOf('TextEditor', module)
+storiesOf('Components|TextEditor', module)
   .add('基本用法', () => ({
     template: `
       <ej-text-editor/>

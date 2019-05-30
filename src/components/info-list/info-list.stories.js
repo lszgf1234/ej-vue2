@@ -6,7 +6,7 @@ import InfoList from '.'
 
 Vue.use(InfoList)
 
-storiesOf('InfoList', module)
+storiesOf('Components|InfoList', module)
   .add('基本使用', () => ({
     template: `
       <ej-info-list :data="data" :columns="columns" :separator="separator"></ej-info-list>

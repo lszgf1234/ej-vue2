@@ -5,7 +5,7 @@ import TagList from '.'
 
 Vue.use(TagList)
 
-storiesOf('TagList', module)
+storiesOf('Components|TagList', module)
   .add('基本使用', () => ({
     template: '<ej-tag-list class="rules-tag"/>',
   }))

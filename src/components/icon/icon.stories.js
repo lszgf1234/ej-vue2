@@ -6,7 +6,7 @@ import Icon from '.'
 
 Vue.use(Icon)
 
-storiesOf('Icon', module)
+storiesOf('Components|Icon', module)
   .add('基本使用', () => ({
     template: `
       <ej-icon :icon="icon" :style="{color}"/>

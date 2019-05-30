@@ -6,7 +6,7 @@ import TextRenderer from '.'
 
 Vue.use(TextRenderer)
 
-storiesOf('TextRenderer', module)
+storiesOf('Components|TextRenderer', module)
   .add('基本用法', () => ({
     template: `
       <ej-text-renderer :value="value"/>

@@ -58,9 +58,6 @@ const data = [
   },
 ]
 
-const data1 = cloneDeep(data)
-data1[3].color = tailwindConfig.theme.extend.colors.green.default
-
 storiesOf('Timeline', module)
   .add('基本用法', () => ({
     template: `
@@ -107,7 +104,7 @@ storiesOf('Timeline', module)
             title: '创建成功',
           },
           {
-            timestamp: '2019-05-29 18:06:27',
+            timestamp: '2019-05-29T18:06:27',
             title: '初审',
           },
         ],

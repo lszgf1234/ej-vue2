@@ -1,30 +1,32 @@
 <template>
   <div class="timeline-view">
     <el-timeline>
-      <el-timeline-item v-for="(item, key) in dataList"
-                        :key="key"
-                        :color="item.color"
-                        :timestamp="item.timestamp"
+      <el-timeline-item v-for="(it, idx) in data$"
+                        :key="idx"
+                        :color="it.color"
+                        :timestamp="it.timestamp | formatDate"
                         placement="top">
         <div>
-          <div v-if="!hasMore(item)" class="title">
-            <span class="text">{{item.title}}</span>
+          <div v-if="!hasMore(it)" class="title">
+            <span class="text">{{it.title}}</span>
           </div>
-          <div v-else :class="{active: item.show}">
+          <div v-else :class="{active: showMap[`${idx}_${it.timestamp}`]}">
             <div class="title">
-              <a href="javascript:" class="text" @click="show(item, key)">
-                <span>{{item.title}}</span>
+              <a href="javascript:" class="text" @click="show(it, idx)">
+                <span>{{it.title}}</span>
                 <i class="el-icon-arrow-down icon"></i>
               </a>
             </div>
-            <transition @before-enter="filterBeforeEnter" @enter="filterEnter" @leave="filterLeave">
-              <div v-show="item.show" class="more-box">
-                <div class="desc mb-xs">{{item.desc}}</div>
-                <div v-for="(itemChild, index) in (item.files || [])" :key="index" class="mb-xs">
-                  <a :href="itemChild.href" class="download">
-                    <ej-icon :icon="getIcon(itemChild.type)" class="icon-file"/>
-                    <span class="text">{{itemChild.name}}</span>
-                    <span class="size">{{sizeTo(itemChild.size)}}</span>
+            <transition @before-enter="el => el.style.height = 0"
+                        @enter="el => el.style.height = el.scrollHeight + 'px'"
+                        @leave="el => el.style.height = 0">
+              <div v-show="showMap[`${idx}_${it.timestamp}`]" class="more-box">
+                <div class="desc mb-xs">{{it.desc}}</div>
+                <div v-for="(file, idx) in (it.files || [])" :key="idx" class="mb-xs">
+                  <a :href="file.href" class="download">
+                    <ej-icon :icon="file.type | icon" class="icon-file"/>
+                    <span class="text">{{file.name}}</span>
+                    <span class="size">{{file.size | humanize}}</span>
                   </a>
                 </div>
               </div>
@@ -39,15 +41,15 @@
 <script>
   import {Timeline, TimelineItem} from 'element-ui'
 
-  import {formatDate, sizeTo} from '../../utils'
+  import {FileType} from '../../enums'
+  import {formatDate, humanizeFileSize} from '../../utils'
   import Icon from '../icon'
 
-  // TODO: 这里需要和具体业务设计同步
-  const typeList = [
-    {value: 1, text: '文档', icon: 'textfile'},
-    {value: 2, text: '压缩文件', icon: 'folder'},
-    {value: 3, text: '图片', icon: 'image'},
-  ]
+  const FileTypeIcon = {
+    [FileType.Text]: 'textfile',
+    [FileType.Archive]: 'folder',
+    [FileType.Image]: 'image',
+  }
 
   export default {
     name: 'EjTimeline',
@@ -56,6 +58,12 @@
       [Timeline.name]: Timeline,
       [TimelineItem.name]: TimelineItem,
       [Icon.name]: Icon,
+    },
+
+    filters: {
+      formatDate,
+      icon: type => FileTypeIcon[type],
+      humanize: val => humanizeFileSize(val),
     },
 
     props: {
@@ -71,73 +79,28 @@
 
     data () {
       return {
-        dataList: [],
+        showMap: {},
       }
     },
 
-    watch: {
-      data () {
-        this.initStatus()
+    computed: {
+      data$ () {
+        return [...this.data].sort((a, b) => {
+          const _a = new Date(a.timestamp)
+          const _b = new Date(b.timestamp)
+          return this.descending ? _b - _a : _a - _b
+        })
       },
-      descending () {
-        this.initStatus()
-      },
-    },
-
-    created () {
-      this.initStatus()
     },
 
     methods: {
       hasMore (item) {
-        return (item.desc || (item.files || []).length)
+        return (item.desc || item.files || '').length
       },
 
-      show (item, index) {
-        item.show = !item.show
-        this.$set(this.dataList, index, item)
-      },
-
-      filterBeforeEnter (el) {
-        el.style.height = 0
-      },
-
-      filterEnter (el) {
-        el.style.height = el.scrollHeight !== 0 ? el.scrollHeight + 'px' : 0
-      },
-
-      filterLeave (el) {
-        el.style.height = 0
-      },
-
-      initStatus () {
-        if (this.dataList.length) {
-          this.dataList = []
-        }
-        this.data.forEach(item => {
-          item.show = false
-          item.timestamp = formatDate(item.timestamp)
-          this.dataList.push(item)
-        })
-        this.dataList.sort((a, b) => {
-          const dateA = new Date(a.timestamp)
-          const dateB = new Date(b.timestamp)
-          return !this.descending ? dateA - dateB : dateB - dateA
-        })
-      },
-
-      getIcon (type) {
-        let str
-        typeList.forEach(item => {
-          if (item.value === type) {
-            str = item.icon
-          }
-        })
-        return str
-      },
-
-      sizeTo (val) {
-        return sizeTo(val)
+      show (item, idx) {
+        const key = `${idx}_${item.timestamp}`
+        this.$set(this.showMap, key, !this.showMap[key])
       },
     },
   }

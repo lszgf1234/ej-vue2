@@ -43,7 +43,7 @@ export function formatDate (d = new Date(), format = 'YYYY-MM-DD HH:mm:ss') {
  * @param val {Number} - 字节大小
  * @return {String} - 格式化后的尺寸大小
  */
-export function sizeTo (val) {
+export function humanizeFileSize (val) {
   const ONE_KB = 1024
   const ONE_MB = ONE_KB * 1024
 

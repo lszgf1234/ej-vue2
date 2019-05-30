@@ -7,7 +7,7 @@
                   :key="key(item)"
                   closable
                   @close="close(item)"
-                  class="ej-search-tag__item text-blue border-blue">
+                  class="ej-search-tag__item">
                   {{text(item)}}
           </el-tag>
     </span>
@@ -104,6 +104,7 @@
     }
 
     .ej-search-tag__item {
+      @apply text-blue border-blue;
       height: $search-conditions-height;
       line-height: $search-conditions-height;
       font-size: 14px;

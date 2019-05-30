@@ -1,5 +1,5 @@
 import {storiesOf} from '@storybook/vue'
-import {text, color} from '@storybook/addon-knobs'
+import {color, text} from '@storybook/addon-knobs'
 import Vue from 'vue'
 
 import Icon from '.'
@@ -7,16 +7,23 @@ import Icon from '.'
 Vue.use(Icon)
 
 storiesOf('Components|Icon', module)
-  .add('基本使用', () => ({
+  .add('基本用法', () => ({
     template: `
-      <ej-icon :icon="icon" :style="{color}"/>
+      <ej-icon :icon="icon" :style="style"/>
     `,
     props: {
       icon: {
         default: text('Icon', 'star', 'Props'),
       },
       color: {
-        default: color('Color', '#000', 'Preview'),
+        default: color('Color', '#f0f', 'Preview'),
+      },
+    },
+    computed: {
+      style () {
+        return {
+          color: this.color,
+        }
       },
     },
   }))

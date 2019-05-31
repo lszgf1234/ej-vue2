@@ -1,272 +1,192 @@
 import {storiesOf} from '@storybook/vue'
-import {text, number, object} from '@storybook/addon-knobs'
+import {object} from '@storybook/addon-knobs'
 import Vue from 'vue'
 
-import SearchConditions from '.'
-
+import SearchConditions from './index.js'
 Vue.use(SearchConditions)
 
-const cascaderOptions = [{
-  value: 'zhinan',
-  label: '指南',
-  children: [{
-    value: 'shejiyuanze',
-    label: '设计原则',
-    children: [{
-      value: 'yizhi',
-      label: '一致'
-    }, {
-      value: 'fankui',
-      label: '反馈'
-    }, {
-      value: 'xiaolv',
-      label: '效率'
-    }, {
-      value: 'kekong',
-      label: '可控'
-    }]
-  }, {
-    value: 'daohang',
-    label: '导航',
-    children: [{
-      value: 'cexiangdaohang',
-      label: '侧向导航'
-    }, {
-      value: 'dingbudaohang',
-      label: '顶部导航'
-    }]
-  }]
-}, {
-  value: 'zujian',
-  label: '组件',
-  children: [{
-    value: 'basic',
-    label: 'Basic',
-    children: [{
-      value: 'layout',
-      label: 'Layout 布局'
-    }, {
-      value: 'color',
-      label: 'Color 色彩'
-    }, {
-      value: 'typography',
-      label: 'Typography 字体'
-    }, {
-      value: 'icon',
-      label: 'Icon 图标'
-    }, {
-      value: 'button',
-      label: 'Button 按钮'
-    }]
-  }, {
-    value: 'form',
-    label: 'Form',
-    children: [{
-      value: 'radio',
-      label: 'Radio 单选框'
-    }, {
-      value: 'checkbox',
-      label: 'Checkbox 多选框'
-    }, {
-      value: 'input',
-      label: 'Input 输入框'
-    }, {
-      value: 'input-number',
-      label: 'InputNumber 计数器'
-    }, {
-      value: 'select',
-      label: 'Select 选择器'
-    }, {
-      value: 'cascader',
-      label: 'Cascader 级联选择器'
-    }, {
-      value: 'switch',
-      label: 'Switch 开关'
-    }, {
-      value: 'slider',
-      label: 'Slider 滑块'
-    }, {
-      value: 'time-picker',
-      label: 'TimePicker 时间选择器'
-    }, {
-      value: 'date-picker',
-      label: 'DatePicker 日期选择器'
-    }, {
-      value: 'datetime-picker',
-      label: 'DateTimePicker 日期时间选择器'
-    }, {
-      value: 'upload',
-      label: 'Upload 上传'
-    }, {
-      value: 'rate',
-      label: 'Rate 评分'
-    }, {
-      value: 'form',
-      label: 'Form 表单'
-    }]
-  }, {
-    value: 'data',
-    label: 'Data',
-    children: [{
-      value: 'table',
-      label: 'Table 表格'
-    }, {
-      value: 'tag',
-      label: 'Tag 标签'
-    }, {
-      value: 'progress',
-      label: 'Progress 进度条'
-    }, {
-      value: 'tree',
-      label: 'Tree 树形控件'
-    }, {
-      value: 'pagination',
-      label: 'Pagination 分页'
-    }, {
-      value: 'badge',
-      label: 'Badge 标记'
-    }]
-  }, {
-    value: 'notice',
-    label: 'Notice',
-    children: [{
-      value: 'alert',
-      label: 'Alert 警告'
-    }, {
-      value: 'loading',
-      label: 'Loading 加载'
-    }, {
-      value: 'message',
-      label: 'Message 消息提示'
-    }, {
-      value: 'message-box',
-      label: 'MessageBox 弹框'
-    }, {
-      value: 'notification',
-      label: 'Notification 通知'
-    }]
-  }, {
-    value: 'navigation',
-    label: 'Navigation',
-    children: [{
-      value: 'menu',
-      label: 'NavMenu 导航菜单'
-    }, {
-      value: 'tabs',
-      label: 'Tabs 标签页'
-    }, {
-      value: 'breadcrumb',
-      label: 'Breadcrumb 面包屑'
-    }, {
-      value: 'dropdown',
-      label: 'Dropdown 下拉菜单'
-    }, {
-      value: 'steps',
-      label: 'Steps 步骤条'
-    }]
-  }, {
-    value: 'others',
-    label: 'Others',
-    children: [{
-      value: 'dialog',
-      label: 'Dialog 对话框'
-    }, {
-      value: 'tooltip',
-      label: 'Tooltip 文字提示'
-    }, {
-      value: 'popover',
-      label: 'Popover 弹出框'
-    }, {
-      value: 'card',
-      label: 'Card 卡片'
-    }, {
-      value: 'carousel',
-      label: 'Carousel 走马灯'
-    }, {
-      value: 'collapse',
-      label: 'Collapse 折叠面板'
-    }]
-  }]
-}, {
-  value: 'ziyuan',
-  label: '资源',
-  children: [{
-    value: 'axure',
-    label: 'Axure Components'
-  }, {
-    value: 'sketch',
-    label: 'Sketch Templates'
-  }, {
-    value: 'jiaohu',
-    label: '组件交互文档'
-  }]
-}]
-const options = [
+const _conditionsOptions = [
   {
-    value: 'keya',
-    label: '常用条件',
-    valueList: [
-      {
-        value: 'cy1',
-        label: '本部门全部资源1',
-      },
-      {
-        value: 'cy2',
-        label: '本部门全部资源2',
-      },
-      {
-        value: 'cy3',
-        label: '本部门全部资源3',
-        active: true,
-      },
-    ],
+    value: 'cy1',
+    label: '本部门全部资源1',
   },
   {
-    value: 'keyb',
-    label: '机构名称',
-    valueList: [
-      ...Array.from({length: 34}).map((_, idx) => ({
-        value: 'Item ' + (idx + 1),
-        label: '机构名称 ' + (idx + 1),
-      })),
-    ],
+    value: 'cy2',
+    label: '本部门全部资源2',
   },
   {
-    value: 'keyc',
-    label: '机构名称',
-    model: ['zujian', 'form', 'checkbox'],
-    labels: [],
-    valueList: cascaderOptions,
+    value: 'cy3',
+    label: '本部门全部资源3',
+    selected: true,
   },
+]
+
+const _conditionsOptions4 = [
   {
-    value: 'keyd',
-    label: '机构名称',
-    model: ['zujian', 'form', 'checkbox'],
-    labels: [],
-    valueList: cascaderOptions,
+    model: ['zhinan', 'daohang', 'dingbudaohang'],
+    label: '',
   }
+]
+
+const _cascaderOptions = [
+  {
+    value: 'zhinan',
+    label: '指南',
+    children: [
+      {
+        value: 'shejiyuanze',
+        label: '设计原则',
+        children: [
+          {
+            value: 'yizhi',
+            label: '一致'
+          }, {
+            value: 'fankui',
+            label: '反馈'
+          }, {
+            value: 'xiaolv',
+            label: '效率'
+          }, {
+            value: 'kekong',
+            label: '可控'
+          },
+        ],
+      },
+      {
+        value: 'daohang',
+        label: '导航',
+        children: [
+          {
+            value: 'cexiangdaohang',
+            label: '侧向导航'
+          },
+          {
+            value: 'dingbudaohang',
+            label: '顶部导航'
+          },
+        ]
+      },
+    ],
+  },
 ]
 
 storiesOf('SearchConditions', module)
   .add('基本使用', () => ({
     template: `
-      <ej-search-conditions :style="{width: '1100px', margin: '30px auto'}"
-                            :options="options"
-                            :cascaderKeys="cascaderKeys"
-                            @change="change"
-      />
+      <ej-search-conditions :style="{'width': '1000px', margin: '50px auto'}">
+          <ej-conditions-list :options="selectedList">
+            <template #title>已选条件</template>
+            <template v-slot:content="{options}">
+              <ej-conditions-tag v-for="(item, index) in options"
+                                :key="index"
+                                :options="item">
+                基础资源
+              </ej-conditions-tag>
+            </template>
+          </ej-conditions-list>
+
+          <ej-conditions-list :options="conditionsOptions1">
+            <template #title>常用条件</template>
+            <template v-slot:content="{options}">
+              <ej-conditions-item v-for="(item, index) in options"
+                                  :key="index"
+                                  :selected.sync="item.selected">
+                {{item.label}}
+              </ej-conditions-item>
+            </template>
+          </ej-conditions-list>
+
+          <ej-conditions-list :options="conditionsOptions2">
+            <template #title>机构名称</template>
+            <template v-slot:content="{options}">
+              <ej-conditions-item v-for="(item, index) in options"
+                                  :key="index"
+                                  :selected.sync="item.selected">
+                {{item.label}}
+              </ej-conditions-item>
+            </template>
+          </ej-conditions-list>
+
+          <ej-conditions-list :options="conditionsOptions3">
+            <template #title>基础资源</template>
+            <template v-slot:content="{options}">
+              <ej-conditions-item v-for="(item, index) in options"
+                                  :key="index"
+                                  :selected.sync="item.selected">
+                {{item.label}}
+              </ej-conditions-item>
+            </template>
+          </ej-conditions-list>
+
+          <ej-conditions-list :options="conditionsOptions4">
+            <template #title>主题资源</template>
+            <template v-slot:content="{options}">
+
+              <ej-conditions-cascader v-for="(item, index) in options"
+                                      :key="index"
+                                      v-model="item.model"
+                                      :label.sync="item.label"
+                                      :selected.sync="item.selected"
+                                      :options="cascaderOptions1">
+              </ej-conditions-cascader>
+            </template>
+          </ej-conditions-list>
+
+          <ej-conditions-list :options="conditionsOptions5">
+            <template #title>主题资源</template>
+            <template v-slot:content="{options}">
+
+              <ej-conditions-cascader v-for="(item, index) in options"
+                                      :key="index"
+                                      v-model="item.model"
+                                      :label.sync="item.label"
+                                      :selected.sync="item.selected"
+                                      :options="cascaderOptions2">
+              </ej-conditions-cascader>
+            </template>
+          </ej-conditions-list>
+      </ej-search-conditions>
     `,
     props: {
-      cascaderKeys: {
-        default: object('联级选择器key列表', ['keyc', 'keyd']),
+      conditionsOptions1: {
+        default: object('ConditionsOptions1', JSON.parse(JSON.stringify(_conditionsOptions))),
       },
-      options: {
-        default: object('options', options),
+      conditionsOptions2: {
+        default: object('ConditionsOptions2', JSON.parse(JSON.stringify(_conditionsOptions))),
+      },
+      conditionsOptions3: {
+        default: object('ConditionsOptions3', JSON.parse(JSON.stringify(_conditionsOptions))),
+      },
+      conditionsOptions4: {
+        default: object('ConditionsOptions4', JSON.parse(JSON.stringify(_conditionsOptions4))),
+      },
+      conditionsOptions5: {
+        default: object('ConditionsOptions5', JSON.parse(JSON.stringify(_conditionsOptions4))),
+      },
+      cascaderOptions1: {
+        default: object('CascaderOptions1', JSON.parse(JSON.stringify(_cascaderOptions))),
+      },
+      cascaderOptions2: {
+        default: object('CascaderOptions2', JSON.parse(JSON.stringify(_cascaderOptions))),
       },
     },
-    methods: {
-      change (val) {
-        console.log(val)
-      }
-    }
+
+    computed: {
+      selectedList () {
+        let a = [
+          this.conditionsOptions1,
+          this.conditionsOptions2,
+          this.conditionsOptions3,
+          this.conditionsOptions4,
+          this.conditionsOptions5,
+        ].map(item => {
+          return item.filter(citem => {
+            return citem.selected
+          })
+        })
+        console.log(a)
+        return a
+      },
+    },
+
   }))

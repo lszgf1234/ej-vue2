@@ -2,7 +2,6 @@
   <el-cascader  ref="cascader"
                 v-model="model"
                 :options="options"
-                @change="change"
                 class="ej-cascader-item"
   />
 </template>
@@ -10,14 +9,10 @@
 <script>
   import {Cascader as ElCascader} from 'element-ui'
   export default {
+    name: 'EjConditionsCascader',
+
     components: {
       ElCascader,
-    },
-
-    data () {
-      return {
-        model: [],
-      }
     },
 
     props: {
@@ -29,29 +24,40 @@
         type: Array,
         default: () => ([]),
       },
-      conditionsKey: {
-        type: String,
-        default: '',
+      selected: {
+        type: Boolean,
+        default: false,
       },
     },
 
+    computed: {
+      model: {
+        get () {
+          this.change()
+          return this.value
+        },
+        set (val) {
+          this.$emit('input', val)
+        },
+      },
+    },
+    
+
     methods: {
-      change (val) {
-        this.$emit('cascaderChange', this.conditionsKey, val, this.$refs.cascader.currentLabels)
+      change () {
+        this.$emit('update:selected', Boolean(this.value.length))
+
+        this.$nextTick(() => {
+          this.$emit('update:label', this.$refs.cascader.currentLabels)
+        })
       }
     },
 
-    mounted () {
-      // 首次进入触发生成Labels
-      this.change (this.model)
-    },
-
     watch: {
-      value: {
-        handler (newVal) {
-          this.model = newVal
-        },
-        immediate: true,
+      selected (newVal) {
+        if (!newVal) {
+          this.model = []
+        }
       }
     }
   }

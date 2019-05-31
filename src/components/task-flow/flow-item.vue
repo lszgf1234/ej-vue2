@@ -16,16 +16,20 @@
              @click="press">催一下</a>
         </template>
         <template slot="main">
-          <ej-info-list :data="infoList" class="mt-xs">
-            <template slot="name" slot-scope="row">
-              <div class="name-self">
-                <span class="name-self-text">{{row.item.value}}</span>
-                <a v-if="row.item.user_id" href="javascript:" @click="email">
-                  <ej-icon icon="mail" class="icon-email"/>
-                </a>
-              </div>
-            </template>
-          </ej-info-list>
+          <div class="user-list">
+            <ej-info-list v-for="(item, idx) in taskList" :key="idx" :data="item" class="user-item mt-xs">
+              <template slot="name" slot-scope="row">
+                <div class="name-self">
+                  <span v-if="row.item.user_img" :style="{backgroundImage: `url(${row.item.user_img})`}" class="other-img" ></span>
+                  <img v-else src="../../assets/icon-account.svg" class="other-img img-def">
+                  <span class="name-self-text">{{row.item.value}}</span>
+                  <a href="javascript:" @click="email">
+                    <ej-icon icon="mail" class="icon-email"/>
+                  </a>
+                </div>
+              </template>
+            </ej-info-list>
+          </div>
         </template>
       </ej-popcard>
       <div class="title">{{data.title}}</div>
@@ -37,6 +41,8 @@
 </template>
 
 <script>
+  import {formatDate, typeofData} from '../../utils'
+
   import Icon from '../icon'
   import Popcard from '../popcard'
   import InfoList from '../info-list'
@@ -49,7 +55,6 @@
       [Popcard.name]: Popcard,
       [InfoList.name]: InfoList,
     },
-
     props: {
       data: {
         type: Object,
@@ -68,12 +73,29 @@
       }
     },
 
+    computed: {
+      taskList () {
+        return typeofData(this.data.tasks) === 'Array' ? this.data.tasks.map((item) => {
+          return [
+            {name: '操作人', value: item.user_name, slotName: 'name', user_img: item.user_img},
+            {name: '操作时间', value: formatDate(item.timestamp)},
+          ]
+        }) : [[
+          {name: '操作人', value: ''},
+          {name: '操作时间', value: ''},
+        ]]
+      },
+    },
+
     methods: {
       press () {
         this.$emit('press', this.data)
       },
       email () {
-        this.$emit('email', this.data)
+        // this.$emit('email', this.data)
+        /*
+        * todo: 全局站内信
+        **/
       },
     },
   }
@@ -179,6 +201,33 @@
     .common-popcard .user-name {
       cursor: inherit;
       color: theme('colors.gray.darkest');
+    }
+    .common-popcard{
+      .card-img{
+        display: none;
+      }
+      .user-name{
+        margin-left: 0;
+      }
+    }
+
+    .other-img {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-size: cover;
+    }
+
+    .img-def {
+      width: 16px;
+    }
+    .user-list{
+      .user-item{
+        border-bottom: 1px solid theme('colors.gray.default');
+      }
+      :last-child{
+        border-color: transparent;
+      }
     }
   }
 </style>

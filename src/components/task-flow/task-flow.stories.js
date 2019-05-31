@@ -10,43 +10,59 @@ const data = [
   {
     title: '工单初审', // 必须的
     type: 'success', // 必须的 站内信
-    user_img: testImg,
-    user_name: '李帅123',
-    time: '2018-02-23 18:03',
+    tasks: [{
+      user_img: testImg,
+      user_name: '李帅123',
+      user_id: 1,
+      timestamp: '2018-04-15T00:00:00',
+    }, {
+      user_img: testImg,
+      user_name: '李帅123',
+      user_id: 1,
+      timestamp: '2018-04-15T00:00:00',
+    }],
   },
   {
     title: '工单初审', // 必须的
     type: 'success', // 必须的 站内信
-    user_img: testImg,
-    user_name: '李帅123',
-    time: '2018-02-23 18:03',
+    tasks: [{
+      user_img: testImg,
+      user_name: '李帅123',
+      timestamp: '2018-05-15T00:00:00',
+    }],
   },
   {
     title: '审核中',
     type: 'starting',
-
-    user_img: testImg,
-    user_name: '李帅123',
+    tasks: [{
+      user_img: testImg,
+      user_name: '李帅123',
+    }],
   },
   {
     title: '待审核',
     type: 'wait',
+    tasks: [],
   },
 ]
 const dataError = [
   {
     title: '工单初审', // 必须的
     type: 'success', // 必须的 站内信
-    user_img: testImg,
-    user_name: '李帅123',
-    time: '2018-02-23 18:03',
+    tasks: [{
+      user_img: testImg,
+      user_name: '李帅123',
+      timestamp: '2018-05-15T00:00:00',
+    }],
   },
   {
     title: '驳回',
     type: 'error',
-    user_img: testImg,
-    user_name: '李帅123',
-    time: '2018-02-23 18:03',
+    tasks: [{
+      user_img: testImg,
+      user_name: '李帅123',
+      timestamp: '2018-06-15T00:00:00',
+    }],
   },
   {
     title: '待审核',

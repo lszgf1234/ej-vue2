@@ -1,11 +1,10 @@
 <template>
   <div class="ej-search-conditions">
-    <slot></slot>
+    <slot/>
   </div>
 </template>
 
 <script>
-
   export default {
     name: 'EjSearchConditions',
 

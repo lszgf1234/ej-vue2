@@ -1,13 +1,10 @@
 <template>
-  <el-cascader  ref="cascader"
-                v-model="model"
-                :options="options"
-                class="ej-cascader-item"
-  />
+  <el-cascader ref="cascader" v-model="model" :options="options" class="ej-cascader-item"/>
 </template>
 
 <script>
   import {Cascader as ElCascader} from 'element-ui'
+
   export default {
     name: 'EjConditionsCascader',
 
@@ -18,11 +15,11 @@
     props: {
       options: {
         type: Array,
-        default: () => ([]),
+        default: () => [],
       },
       value: {
         type: Array,
-        default: () => ([]),
+        default: () => [],
       },
       selected: {
         type: Boolean,
@@ -41,7 +38,14 @@
         },
       },
     },
-    
+
+    watch: {
+      selected (newVal) {
+        if (!newVal) {
+          this.model = []
+        }
+      },
+    },
 
     methods: {
       change () {
@@ -50,21 +54,14 @@
         this.$nextTick(() => {
           this.$emit('update:label', this.$refs.cascader.currentLabels)
         })
-      }
+      },
     },
-
-    watch: {
-      selected (newVal) {
-        if (!newVal) {
-          this.model = []
-        }
-      }
-    }
   }
 </script>
 
 <style lang="scss">
   @import './variables.scss';
+
   .ej-cascader-item.el-cascader {
     width: 250px;
     line-height: $search-conditions-height;
@@ -78,7 +75,6 @@
     .el-input__icon {
       line-height: $search-conditions-height;
     }
-    
   }
 </style>
 

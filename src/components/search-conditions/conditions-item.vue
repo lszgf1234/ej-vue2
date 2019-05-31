@@ -1,11 +1,12 @@
 <template>
   <div class="ej-conditions-item" :class="{'text-blue': selected}" @click="click">
-    <slot></slot>
+    <slot/>
   </div>
 </template>
 
 <script>
   import {Tag as ElTag} from 'element-ui'
+
   export default {
     name: 'EjConditionsItem',
 
@@ -17,7 +18,7 @@
       selected: {
         type: Boolean,
         default: false,
-      }
+      },
     },
 
     methods: {

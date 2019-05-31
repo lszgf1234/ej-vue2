@@ -1,20 +1,18 @@
 <template>
   <div class="ej-conditions-list">
     <span class="title">
-      <slot name="title"></slot>
+      <slot name="title"/>
     </span>
 
     <div ref="listWrapper"
-        :class="{'max-height-300': isShowMore}"
-        class="ej-conditions-list__content">
-
+         class="ej-conditions-list__content"
+         :class="{'max-height-300': isShowMore}">
       <div class="flex flex-wrap" ref="listContent">
-        <slot name="content" :options="options"></slot>
+        <slot name="content" :options="options"/>
       </div>
 
-      <ej-conditions-more :isShow="isMoreBtn" @showMore="showMore"></ej-conditions-more>
+      <ej-conditions-more :isShow="isMoreBtn" @showMore="showMore"/>
     </div>
-
   </div>
 </template>
 
@@ -28,6 +26,13 @@
       EjConditionsMore,
     },
 
+    props: {
+      options: {
+        type: Array,
+        default: () => [],
+      },
+    },
+
     data () {
       return {
         isMoreBtn: false,
@@ -35,19 +40,27 @@
       }
     },
 
-    props: {
+    watch: {
+      // 更新数据时重新计算
       options: {
-        type: Array,
-        default: () => ([]),
-      }
+        deep: true,
+        immediate: true,
+        handler () {
+          this.showMoreBtn()
+        },
+      },
+    },
+
+    mounted () {
+      this.showMoreBtn()
     },
 
     methods: {
       showMoreBtn () {
         this.$nextTick(() => {
           // 减掉150的右内边距
-          const listWrapper = this.$refs.listWrapper.offsetWidth - 80;
-          const listContent = this.$refs.listContent.offsetWidth;
+          const listWrapper = this.$refs.listWrapper.offsetWidth - 80
+          const listContent = this.$refs.listContent.offsetWidth
 
           // 判断长度超过父级
           this.isMoreBtn = listContent >= listWrapper
@@ -58,22 +71,7 @@
         this.isShowMore = isShow
       },
     },
-
-    mounted () {
-      this.showMoreBtn()
-    },
-
-    watch: {
-      // 更新数据时重新计算
-      options: {
-        handler () {
-          this.showMoreBtn()
-        },
-        deep: true,
-        immediate: true,
-      },
-    }
-  };
+  }
 </script>
 
 <style lang="scss">
@@ -81,6 +79,7 @@
 
   .ej-conditions-list {
     @apply flex;
+
     margin-bottom: 10px;
 
     &:last-child {

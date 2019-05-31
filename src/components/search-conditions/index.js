@@ -6,7 +6,7 @@ import ConditionsCascader from './conditions-cascader.vue'
 
 export default {
   ...SearchConditions,
-  install: (Vue) => { 
+  install: Vue => {
     Vue.component(SearchConditions.name, SearchConditions)
     Vue.component(ConditionsList.name, ConditionsList)
     Vue.component(ConditionsItem.name, ConditionsItem)

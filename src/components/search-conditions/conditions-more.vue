@@ -1,44 +1,43 @@
 <template>
-  <span v-show="isShow"
-        class="ej-conditions-more"
-        @click="click">
-        {{showMoreText}}
+  <span v-show="isShow" class="ej-conditions-more" @click="click">
+    {{showMoreText}}
     <i :class="showMoreClass" class="el-icon-arrow-down"></i>
   </span>
 </template>
 
 <script>
-export default {
-  name: 'EjConditionsMore',
+  export default {
+    name: 'EjConditionsMore',
 
-  data () {
-    return {
-      showMore: false,
-    }
-  },
+    props: {
+      isShow: {
+        type: Boolean,
+        default: false,
+      },
+    },
 
-  props: {
-    isShow: {
-      type: Boolean,
-      default: false,
+    data () {
+      return {
+        showMore: false,
+      }
     },
-  },
 
-  computed: {
-    showMoreText () {
-      return this.showMore ? '收起' : '更多'
+    computed: {
+      showMoreText () {
+        return this.showMore ? '收起' : '更多'
+      },
+      showMoreClass () {
+        return this.showMore ? 'up-active' : ''
+      },
     },
-    showMoreClass () {
-      return this.showMore ? 'up-active' : ''
+
+    methods: {
+      click () {
+        this.showMore = !this.showMore
+        this.$emit('showMore', this.showMore)
+      },
     },
-  },
-  methods: {
-    click () {
-      this.showMore = !this.showMore;
-      this.$emit('showMore', this.showMore)
-    }
-  },
-}
+  }
 </script>
 
 <style lang="scss">
@@ -52,7 +51,7 @@ export default {
 
     .el-icon-arrow-down {
       transition: transform $transition-duration;
-      
+
       &.up-active {
         transform: rotateZ(180deg);
       }

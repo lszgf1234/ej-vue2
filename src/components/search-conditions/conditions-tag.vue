@@ -1,14 +1,13 @@
 <template>
-  <el-tag v-show="isShow"
-          closable
-          class="ej-conditions-tag"
-          @close="close">
-    <slot/>：{{label}}
+  <el-tag v-show="isShow" closable class="ej-conditions-tag" @close="close">
+    <slot/>
+    ：{{label}}
   </el-tag>
 </template>
 
 <script>
   import {Tag as ElTag} from 'element-ui'
+
   export default {
     name: 'EjConditionsTag',
 
@@ -19,10 +18,9 @@
     props: {
       options: {
         type: Array,
-        default: () => ([]),
-      }
+        default: () => [],
+      },
     },
-
 
     computed: {
       selectedList () {
@@ -53,13 +51,14 @@
         this.selectedList.forEach(item => {
           item.selected = false
         })
-      }
-    }
+      },
+    },
   }
 </script>
 
 <style lang="scss">
   @import './variables.scss';
+
   .el-tag.ej-conditions-tag {
     @apply text-blue border-blue;
 

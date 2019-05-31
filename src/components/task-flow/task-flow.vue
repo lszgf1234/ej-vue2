@@ -5,8 +5,7 @@
                   :data="item"
                   :has-next="idx < data.length - 1"
                   :class="{'flex-1': idx < data.length - 1}"
-                  @nag="nag"
-                  @email="email"/>
+                  @nag="nag"/>
   </div>
 </template>
 
@@ -30,9 +29,6 @@
     methods: {
       nag (data) {
         this.$emit('nag', data)
-      },
-      email (data) {
-        this.$emit('email', data)
       },
     },
   }

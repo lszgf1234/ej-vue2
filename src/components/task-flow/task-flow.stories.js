@@ -70,10 +70,10 @@ const dataError = [
   },
 ]
 
-storiesOf('TaskFlow', module)
+storiesOf('Components|TaskFlow', module)
   .add('基本使用', () => ({
     template: `
-      <ej-task-flow :data="data" @nag="nag" @email="email"/>
+      <ej-task-flow :data="data" @nag="nag"/>
     `,
     props: {
       data: {
@@ -82,9 +82,6 @@ storiesOf('TaskFlow', module)
     },
     methods: {
       nag (data) {
-        console.log(data)
-      },
-      email (data) {
         console.log(data)
       },
     },

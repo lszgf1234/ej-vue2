@@ -17,7 +17,7 @@ const data = {
   详情
 */
 
-storiesOf('Popcard', module)
+storiesOf('Components|Popcard', module)
   .addDecorator(withKnobs)
   .add('基本使用', () => ({
     template: `

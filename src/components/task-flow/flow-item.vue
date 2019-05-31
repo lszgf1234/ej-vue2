@@ -67,10 +67,6 @@
 
     data () {
       return {
-        infoList: [
-          {name: '操作人', value: this.data.user_name, slotName: 'name'},
-          {name: '操作时间', value: this.data.time},
-        ],
         TaskType: TaskType,
       }
     },

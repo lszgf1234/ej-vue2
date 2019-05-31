@@ -58,7 +58,7 @@ const data = [
   },
 ]
 
-storiesOf('Timeline', module)
+storiesOf('Components|Timeline', module)
   .add('基本用法', () => ({
     template: `
       <ej-timeline :data="data" :descending="descending"/>

@@ -5,7 +5,7 @@
                   :data="item"
                   :has-next="idx < data.length - 1"
                   :class="{'flex-1': idx < data.length - 1}"
-                  @press="press"
+                  @nag="nag"
                   @email="email"/>
   </div>
 </template>
@@ -28,8 +28,8 @@
     },
 
     methods: {
-      press (data) {
-        this.$emit('press', data)
+      nag (data) {
+        this.$emit('nag', data)
       },
       email (data) {
         this.$emit('email', data)

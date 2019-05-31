@@ -13,7 +13,7 @@
           <a v-if="data.type === TaskType.Starting"
              href="javascript:"
              class="ml-xs text-blue"
-             @click="press">催一下</a>
+             @click="nag">催一下</a>
         </template>
         <template slot="main">
           <div class="user-list">
@@ -77,7 +77,7 @@
 
     computed: {
       taskList () {
-        return typeofData(this.data.tasks) === 'Array' ? this.data.tasks.map((item) => {
+        return (typeofData(this.data.tasks) === 'Array' && this.data.tasks.length) ? this.data.tasks.map((item) => {
           return [
             {name: '操作人', value: item.user_name, slotName: 'name', user_img: item.user_img},
             {name: '操作时间', value: formatDate(item.timestamp)},
@@ -90,8 +90,8 @@
     },
 
     methods: {
-      press () {
-        this.$emit('press', this.data)
+      nag () {
+        this.$emit('nag', this.data)
       },
       email () {
         // this.$emit('email', this.data)

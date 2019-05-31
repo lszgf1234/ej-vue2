@@ -13,10 +13,18 @@
 | data[i] | Type | Default | Description |
 |---|---|---|---|
 | `title` | String | | 流程标题 |
-| `type` | String | | 状态，可取值 wait/success/starting/error |
-| `user_name` | String | | 操作人 |
-| `time` | String | | 操作时间 |
-| `user_img` | String | | 操作人头像 |
+| `type` | Number | | 状态，可取值 1/2/3/4 |
+| `tasks` | Array | | 操作人信息 ，可选|
+
+#### `tasks[i]`
+
+| tasks[i] | Type | Default | Description |
+|---|---|---|---|
+| `user_id` | String | | 用户id |
+| `user_name` | String | | 用户名 |
+| `user_img` | String | | 用户头像 |
+| `timestamp` | String | | 操作时间 |
+
 
 ### Events
 

@@ -9,7 +9,7 @@ Vue.use(TaskFlow)
 const data = [
   {
     title: '工单初审', // 必须的
-    type: 'success', // 必须的 站内信
+    type: 3, // 必须的 站内信
     tasks: [{
       user_img: testImg,
       user_name: '李帅123',
@@ -24,7 +24,7 @@ const data = [
   },
   {
     title: '工单初审', // 必须的
-    type: 'success', // 必须的 站内信
+    type: 3, // 必须的 站内信
     tasks: [{
       user_img: testImg,
       user_name: '李帅123',
@@ -33,7 +33,7 @@ const data = [
   },
   {
     title: '审核中',
-    type: 'starting',
+    type: 2,
     tasks: [{
       user_img: testImg,
       user_name: '李帅123',
@@ -41,14 +41,14 @@ const data = [
   },
   {
     title: '待审核',
-    type: 'wait',
+    type: 1,
     tasks: [],
   },
 ]
 const dataError = [
   {
     title: '工单初审', // 必须的
-    type: 'success', // 必须的 站内信
+    type: 3, // 必须的 站内信
     tasks: [{
       user_img: testImg,
       user_name: '李帅123',
@@ -57,7 +57,7 @@ const dataError = [
   },
   {
     title: '驳回',
-    type: 'error',
+    type: 4,
     tasks: [{
       user_img: testImg,
       user_name: '李帅123',
@@ -66,7 +66,7 @@ const dataError = [
   },
   {
     title: '待审核',
-    type: 'wait',
+    type: 1,
   },
 ]
 

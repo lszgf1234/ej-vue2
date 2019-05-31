@@ -1,16 +1,16 @@
 <template>
-  <div class="ej-flow-item" :class="'flow-'+data.type">
+  <div class="ej-flow-item" :class="`flow-${TaskType[data.type].toLowerCase()}`">
     <div class="left">
       <ej-popcard :img-url="data.user_img" :title="data.title">
         <template slot="img">
           <div class="circle mb-sm">
-            <ej-icon v-if="data.type === 'error'" icon="close" class="circle-icon"/>
-            <ej-icon v-else-if="data.type === 'success'" icon="check" class="circle-icon"/>
+            <ej-icon v-if="data.type === TaskType.Error" icon="close" class="circle-icon"/>
+            <ej-icon v-else-if="data.type === TaskType.Success" icon="check" class="circle-icon"/>
             <ej-icon v-else icon="more" class="circle-icon"/>
           </div>
         </template>
         <template slot="action">
-          <a v-if="data.type === 'starting'"
+          <a v-if="data.type === TaskType.Starting"
              href="javascript:"
              class="ml-xs text-blue"
              @click="press">催一下</a>
@@ -42,6 +42,7 @@
 
 <script>
   import {formatDate, typeofData} from '../../utils'
+  import {TaskType} from '../../enums'
 
   import Icon from '../icon'
   import Popcard from '../popcard'
@@ -70,6 +71,7 @@
           {name: '操作人', value: this.data.user_name, slotName: 'name'},
           {name: '操作时间', value: this.data.time},
         ],
+        TaskType: TaskType,
       }
     },
 

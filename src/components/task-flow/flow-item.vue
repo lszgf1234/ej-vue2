@@ -4,9 +4,7 @@
       <ej-popcard :img-url="data.user_img" :title="data.title">
         <template slot="img">
           <div class="circle mb-sm">
-            <ej-icon v-if="data.type === TaskType.Error" icon="close" class="circle-icon"/>
-            <ej-icon v-else-if="data.type === TaskType.Success" icon="check" class="circle-icon"/>
-            <ej-icon v-else icon="more" class="circle-icon"/>
+            <ej-icon :icon="data.type === TaskType.Error ? 'close' : data.type === TaskType.Success ? 'check' : 'more'" class="circle-icon"/>
           </div>
         </template>
         <template slot="action">

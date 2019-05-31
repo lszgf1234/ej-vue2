@@ -16,22 +16,3 @@
     }
   }
 </script>
-
-<style lang="scss">
-  @import './variables.scss';
-  .ej-search-conditions {
-    &__title {
-      white-space: nowrap;
-      line-height: $search-conditions-height;
-      margin-right: $search-conditions-height;
-    }
-
-    &__item {
-      margin-bottom: 10px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-</style>

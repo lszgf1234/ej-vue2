@@ -4,7 +4,7 @@
       <ej-popcard :img-url="data.user_img" :title="data.title">
         <template slot="img">
           <div class="circle mb-sm">
-            <ej-icon :icon="data.type === TaskType.Error ? 'close' : data.type === TaskType.Success ? 'check' : 'more'" class="circle-icon"/>
+            <ej-icon :icon="icon" class="circle-icon"/>
           </div>
         </template>
         <template slot="action">
@@ -54,6 +54,7 @@
       [Popcard.name]: Popcard,
       [InfoList.name]: InfoList,
     },
+
     props: {
       data: {
         type: Object,
@@ -65,11 +66,18 @@
 
     data () {
       return {
-        TaskType: TaskType,
+        TaskType,
       }
     },
 
     computed: {
+      icon () {
+        switch (this.data.type) {
+          case TaskType.Error: return 'close'
+          case TaskType.Success: return 'check'
+          default: return 'more'
+        }
+      },
       taskList () {
         return (typeofData(this.data.tasks) === 'Array' && this.data.tasks.length) ? this.data.tasks.map((item) => {
           return [

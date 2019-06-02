@@ -55,3 +55,11 @@ export function humanizeFileSize (val) {
     return `${val}B`
   }
 }
+
+/*
+* 数据类型判断
+* */
+export function typeofData (obj) {
+  /* 返回 'String' */
+  return Object.prototype.toString.call(obj).slice(8, -1)
+}

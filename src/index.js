@@ -4,6 +4,8 @@ import InfoList from './components/info-list'
 import TextEditor from './components/text-editor'
 import TextRenderer from './components/text-renderer'
 import Timeline from './components/timeline'
+import Popcard from './components/popcard'
+import TaskFlow from './components/task-flow'
 
 import Loading from './directives/loading'
 
@@ -14,6 +16,8 @@ export {
   TextEditor,
   TextRenderer,
   Timeline,
+  Popcard,
+  TaskFlow,
 
   Loading,
 }
@@ -26,6 +30,8 @@ export default {
     Vue.use(TextEditor)
     Vue.use(TextRenderer)
     Vue.use(Timeline)
+    Vue.use(Popcard)
+    Vue.use(TaskFlow)
 
     Vue.use(Loading)
   },

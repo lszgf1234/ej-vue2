@@ -1,29 +1,14 @@
-## ej-highlight 代码高亮组件
+## Highlight 代码高亮组件
+
+基于 highlight.js 实现。
 
 ```html
-
-<!-- 指定语言sql 默认主题 github-->
-<div>
-  <ej-highlight language='sql'>
-    ...
-  </ej-highlight> 
-</div>
-
+<ej-highlight code="SELECT * FROM ExampleTable;" language="sql"/>
 ```
 
-```js
-import Vue from 'vue'
-import {Highlight} from '@ej/ui'
+### Props
 
-Vue.use(Highlight)
-
-```
-#### 主题类型
-
-参考地址 https://highlightjs.org/static/demo/
-Styles是官方提供的所有主题
-
-#### 语言类型
-
-参考地址 https://highlightjs.readthedocs.io/en/latest/css-classes-reference.html
-[Language names and aliases]表 列出了官方支持所有的语言
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `code` | String | | 要高亮显示的代码文本 |
+| `language` | String | `"sql"` | 高亮语言，目前只支持 SQL |

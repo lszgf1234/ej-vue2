@@ -1,34 +1,35 @@
 import {storiesOf} from '@storybook/vue'
-import {radios} from '@storybook/addon-knobs'
 import Vue from 'vue'
 
-import Highlight from './index'
+import Highlight from '.'
 
 Vue.use(Highlight)
 
+const CODE_SQL = `
+CREATE TABLE "topic" (
+  "id" serial NOT NULL PRIMARY KEY,
+  "forum_id" integer NOT NULL,
+  "subject" varchar(255) NOT NULL
+);
+ALTER TABLE "topic"
+ADD CONSTRAINT forum_id FOREIGN KEY ("forum_id")
+REFERENCES "forum" ("id");
+
+-- Initials
+insert into "topic" ("forum_id", "subject")
+values (2, 'D''artagnian');
+`
+
 storiesOf('Components|Highlight', module)
-  .add('代码高亮', () => ({
+  .add('基本用法', () => ({
     template: `
       <div>
-        <ej-highlight :language="language">
-          CREATE TABLE "topic" (
-            "id" serial NOT NULL PRIMARY KEY,
-            "forum_id" integer NOT NULL,
-            "subject" varchar(255) NOT NULL
-          );
-          ALTER TABLE "topic"
-          ADD CONSTRAINT forum_id FOREIGN KEY ("forum_id")
-          REFERENCES "forum" ("id");
-
-          -- Initials
-          insert into "topic" ("forum_id", "subject")
-          values (2, 'D''artagnian');
-        </ej-highlight>
+        <ej-highlight :code="code" :language="language"/>
       </div>
     `,
     props: {
-      language: {
-        default: radios('目前支持语言', {sql: 'sql'}, 'sql')
+      code: {
+        default: CODE_SQL,
       },
     },
   }))

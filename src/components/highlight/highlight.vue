@@ -1,64 +1,79 @@
 <template>
-  <pre>
-    <slot></slot>
-  </pre>
+  <pre>{{code.trim()}}</pre>
 </template>
 
 <script>
-import hljs from 'highlight.js'
-import 'highlight.js/styles/github.css'
+  import hljs from 'highlight.js'
 
-export default {
-  name: 'EjHighlight',
+  const THEMES = {
+    github: () => import('highlight.js/styles/github.css'),
+  }
+  const DEFAULT_THEME = 'github'
+  const LOADED_THEMES = {}
 
-  data () {
-    return {
-      languages: ['sql'],
-    }
-  },
+  const LANGS = {
+    sql: () => import('highlight.js/lib/languages/sql'),
+  }
+  const LOADED_LANGS = {}
 
-  props: {
-    language: {
-      type: String,
-      default: undefined,
-    }
-  },
+  export default {
+    name: 'EjHighlight',
 
-  mounted () {
-    this.$nextTick(function () {
-      this.splitParagraph()
-      this.initStyle()
-    })
-  },
+    props: {
+      code: {
+        type: String,
+        default: '',
+      },
 
-  updated () {
-    this.$nextTick(function () {
-      this.initStyle()
-    })
-  },
+      theme: {
+        type: String,
+        default: DEFAULT_THEME,
+      },
 
-  methods: {
-    async initStyle () {
-      // 只导入所需的库和语言可能会更有效率
-      if (this.language && this.languages.includes(this.language)) {
-        const languageType = require(`highlight.js/lib/languages/${this.language}`)
-        hljs.registerLanguage(`${this.language}`, languageType)
-      }
-
-      let targets = this.$el.querySelectorAll('code')
-      targets.forEach(target => hljs.highlightBlock(target))
+      language: {
+        type: String,
+      },
     },
 
-    splitParagraph () {
-      const para = this.$el.textContent.split('\n\n')
-      this.$el.textContent = ''
-      para.map(p => {
-        let code = document.createElement('code')
-        code.append(p)
-        this.$el.append(code)
-      })
+    watch: {
+      theme: {
+        immediate: true,
+        handler (theme) {
+          if (!THEMES[theme]) theme = DEFAULT_THEME
+
+          if (!LOADED_THEMES[theme]) {
+            THEMES[theme]()
+            LOADED_THEMES[theme] = true
+          }
+        },
+      },
+
+      language: {
+        immediate: true,
+        async handler (lang) {
+          if (!LOADED_LANGS[lang] && LANGS[lang]) {
+            const {default: spec} = await LANGS[lang]()
+            hljs.registerLanguage(lang, spec)
+            LOADED_LANGS[lang] = true
+          }
+        },
+      },
     },
-  },
-}
+
+    mounted () {
+      this.highlight()
+    },
+
+    updated () {
+      this.highlight()
+    },
+
+    methods: {
+      async highlight () {
+        await this.$nextTick()
+        hljs.highlightBlock(this.$el)
+      },
+    },
+  }
 </script>
 

@@ -7,6 +7,7 @@ import Timeline from './components/timeline'
 import Popcard from './components/popcard'
 import TaskFlow from './components/task-flow'
 import SearchInput from './components/search-input'
+import Highlight from './components/highlight'
 
 import Loading from './directives/loading'
 
@@ -20,6 +21,7 @@ export {
   Popcard,
   TaskFlow,
   SearchInput,
+  Highlight,
 
   Loading,
 }
@@ -35,6 +37,7 @@ export default {
     Vue.use(Popcard)
     Vue.use(TaskFlow)
     Vue.use(SearchInput)
+    Vue.use(Highlight)
 
     Vue.use(Loading)
   },

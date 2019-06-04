@@ -1,21 +1,23 @@
 <template>
-  <pre ref="hljs">
+  <pre>
     <slot></slot>
   </pre>
 </template>
 
 <script>
 import hljs from 'highlight.js'
+import 'highlight.js/styles/github.css'
 
 export default {
-  name: 'EjHightlight',
+  name: 'EjHighlight',
+
+  data () {
+    return {
+      languages: ['sql'],
+    }
+  },
 
   props: {
-    styleName: {
-      type: String,
-      default: 'github',
-    },
-
     language: {
       type: String,
       default: undefined,
@@ -24,7 +26,7 @@ export default {
 
   mounted () {
     this.$nextTick(function () {
-      this.splitPara()
+      this.splitParagraph()
       this.initStyle()
     })
   },
@@ -37,26 +39,23 @@ export default {
 
   methods: {
     async initStyle () {
-      // 根据官方提供的主题，可以指定自己喜欢的主题
-      await import(`highlight.js/styles/${this.styleName}.css`)
-
       // 只导入所需的库和语言可能会更有效率
-      if (this.language) {
+      if (this.language && this.languages.includes(this.language)) {
         const languageType = require(`highlight.js/lib/languages/${this.language}`)
         hljs.registerLanguage(`${this.language}`, languageType)
       }
 
-      let targets = this.$refs.hljs.querySelectorAll('code')
+      let targets = this.$el.querySelectorAll('code')
       targets.forEach(target => hljs.highlightBlock(target))
     },
 
-    splitPara () {
-      const para = this.$refs.hljs.textContent.split('\n\r')
-      this.$refs.hljs.textContent = ''
+    splitParagraph () {
+      const para = this.$el.textContent.split('\n\n')
+      this.$el.textContent = ''
       para.map(p => {
         let code = document.createElement('code')
         code.append(p)
-        this.$refs.hljs.append(code)
+        this.$el.append(code)
       })
     },
   },

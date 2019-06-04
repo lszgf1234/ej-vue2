@@ -2,16 +2,9 @@
 
 ```html
 
-<!-- 指定主题 指定语言 可选-->
+<!-- 指定语言sql 默认主题 github-->
 <div>
-  <ej-highlight styleName="highlight官方提供了很多的主题" language='sql'>
-    ...
-  </ej-highlight> 
-</div>
-
-<!-- 使用普通模式， 默认主题 github-->
-<div>
-  <ej-highlight>
+  <ej-highlight language='sql'>
     ...
   </ej-highlight> 
 </div>

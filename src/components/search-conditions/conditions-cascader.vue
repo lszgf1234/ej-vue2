@@ -1,15 +1,20 @@
 <template>
-  <el-cascader ref="cascader" v-model="model" :options="options" class="ej-cascader-item"/>
+  <conditions-List v-bind="$attrs" :change="value">
+    <el-cascader ref="cascader" v-model="model" :options="options" @change="change" class="ej-cascader-item"/>
+  </conditions-List>
 </template>
 
 <script>
   import {Cascader as ElCascader} from 'element-ui'
+
+  import ConditionsList from './conditions-list'
 
   export default {
     name: 'EjConditionsCascader',
 
     components: {
       ElCascader,
+      ConditionsList,
     },
 
     props: {
@@ -21,16 +26,11 @@
         type: Array,
         default: () => [],
       },
-      selected: {
-        type: Boolean,
-        default: false,
-      },
     },
 
     computed: {
       model: {
         get () {
-          this.change()
           return this.value
         },
         set (val) {
@@ -39,22 +39,21 @@
       },
     },
 
-    watch: {
-      selected (newVal) {
-        if (!newVal) {
-          this.model = []
-        }
+    methods: {
+      change () {
+        const labels = this.$refs.cascader.currentLabels
+        
+        this.$emit('update:selected', this.$refs.cascader.currentValue.map((item, index) => {
+          return {
+            value: item,
+            label: labels[index],
+          }
+        }))
       },
     },
 
-    methods: {
-      change () {
-        this.$emit('update:selected', Boolean(this.value.length))
-
-        this.$nextTick(() => {
-          this.$emit('update:label', this.$refs.cascader.currentLabels)
-        })
-      },
+    mounted () {
+      this.change()
     },
   }
 </script>

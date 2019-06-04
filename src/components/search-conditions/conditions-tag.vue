@@ -1,18 +1,27 @@
 <template>
-  <el-tag v-show="isShow" closable class="ej-conditions-tag" @close="close">
-    <slot/>
-    ：{{label}}
-  </el-tag>
+  <conditions-list label="已选条件" v-show="isShow" :change="options">
+    <template v-for="item in options">
+      <el-tag :key="item.value"
+              closable
+              class="ej-conditions-tag"
+              @close="close(item)">
+        {{item.label}}：{{mapListString(item.children, 'label', '、', item)}}
+      </el-tag>
+    </template>
+  </conditions-list>
 </template>
 
 <script>
   import {Tag as ElTag} from 'element-ui'
+
+  import ConditionsList from './conditions-list'
 
   export default {
     name: 'EjConditionsTag',
 
     components: {
       ElTag,
+      ConditionsList,
     },
 
     props: {
@@ -23,34 +32,20 @@
     },
 
     computed: {
-      selectedList () {
-        return this.filterSelected(this.options)
-      },
-      label () {
-        return this.mapListString(this.selectedList, 'label', '、')
-      },
       isShow () {
-        return Boolean(this.selectedList.length)
+        return Boolean(this.options.length)
       },
     },
 
     methods: {
-      mapListString (list = [], key, tag = ',') {
+      mapListString (list = [], key, tag = ',', item) {
         return list.map(item => {
-          return item[key]
+          return item ? item[key] : ''
         }).join(tag)
       },
 
-      filterSelected (list = []) {
-        return list.filter(item => {
-          return item.selected
-        })
-      },
-
-      close () {
-        this.selectedList.forEach(item => {
-          item.selected = false
-        })
+      close (item) {
+        this.$emit('close', item.value)
       },
     },
   }

@@ -1,14 +1,11 @@
 <template>
   <div class="ej-conditions-list">
-    <span class="title">
-      <slot name="title"/>
-    </span>
-
+    <span class="title">{{label}}</span>
     <div ref="listWrapper"
          class="ej-conditions-list__content"
          :class="{'max-height-300': isShowMore}">
       <div class="flex flex-wrap" ref="listContent">
-        <slot name="content" :options="options"/>
+        <slot/>
       </div>
 
       <ej-conditions-more :isShow="isMoreBtn" @showMore="showMore"/>
@@ -27,10 +24,14 @@
     },
 
     props: {
-      options: {
+      label: {
+        type: String,
+        default: '',
+      },
+      change: {
         type: Array,
         default: () => [],
-      },
+      }
     },
 
     data () {
@@ -42,7 +43,7 @@
 
     watch: {
       // 更新数据时重新计算
-      options: {
+      change: {
         deep: true,
         immediate: true,
         handler () {

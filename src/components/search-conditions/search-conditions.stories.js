@@ -18,7 +18,6 @@ const _conditionsOptions = [
   {
     value: 'cy3',
     label: '本部门全部资源3',
-    selected: true,
   },
 ]
 
@@ -74,76 +73,53 @@ const _cascaderOptions = [
 storiesOf('SearchConditions', module)
   .add('基本使用', () => ({
     template: `
-      <ej-search-conditions :style="{'width': '1000px', margin: '50px auto'}">
-        <ej-conditions-list :options="selectedList">
-          <template #title>已选条件</template>
-          <template #content="{options}">
-            <ej-conditions-tag v-for="(item, index) in options"
-                               :key="index"
-                               :options="item">
-              基础资源
-            </ej-conditions-tag>
-          </template>
-        </ej-conditions-list>
+      <ej-search-conditions :models="models" :datas="datas" :style="{'width': '1000px', margin: '50px auto'}">
 
-        <ej-conditions-list :options="conditionsOptions1">
-          <template #title>常用条件</template>
-          <template #content="{options}">
-            <ej-conditions-item v-for="(item, index) in options"
-                                :key="index"
-                                :selected.sync="item.selected">
-              {{item.label}}
-            </ej-conditions-item>
-          </template>
-        </ej-conditions-list>
+        <ej-conditions-item v-model="models.model1"
+                            :options="datas.model1.options"
+                            :selected.sync="datas.model1.selected"
+                            label="常用条件"/>
 
-        <ej-conditions-list :options="conditionsOptions2">
-          <template #title>机构名称</template>
-          <template #content="{options}">
-            <ej-conditions-item v-for="(item, index) in options"
-                                :key="index"
-                                :selected.sync="item.selected">
-              {{item.label}}
-            </ej-conditions-item>
-          </template>
-        </ej-conditions-list>
+        <ej-conditions-cascader v-model="models.model4"
+                                :options="datas.model4.options"
+                                :selected.sync="datas.model4.selected"
+                                label="基础资源"/>
 
-        <ej-conditions-list :options="conditionsOptions3">
-          <template #title>基础资源</template>
-          <template #content="{options}">
-            <ej-conditions-item v-for="(item, index) in options"
-                                :key="index"
-                                :selected.sync="item.selected">
-              {{item.label}}
-            </ej-conditions-item>
-          </template>
-        </ej-conditions-list>
-
-        <ej-conditions-list :options="conditionsOptions4">
-          <template #title>主题资源</template>
-          <template #content="{options}">
-            <ej-conditions-cascader v-for="(item, index) in options"
-                                    :key="index"
-                                    v-model="item.model"
-                                    :label.sync="item.label"
-                                    :selected.sync="item.selected"
-                                    :options="cascaderOptions1"/>
-          </template>
-        </ej-conditions-list>
-
-        <ej-conditions-list :options="conditionsOptions5">
-            <template #title>主题资源</template>
-            <template #content="{options}">
-              <ej-conditions-cascader v-for="(item, index) in options"
-                                      :key="index"
-                                      v-model="item.model"
-                                      :label.sync="item.label"
-                                      :selected.sync="item.selected"
-                                      :options="cascaderOptions2"/>
-            </template>
-          </ej-conditions-list>
+        <ej-conditions-cascader v-model="models.model5"
+                                :options="datas.model5.options"
+                                :selected.sync="datas.model5.selected"
+                                label="主题资源"/>
       </ej-search-conditions>
     `,
+
+    data () {
+      return {
+        models: {
+          model1: ['cy1', 'cy3'],
+          model2: [],
+          model3: [],
+          model4: ['zhinan', 'daohang', 'dingbudaohang'],
+          model5: [],
+        },
+        datas: {
+          model1: {
+            label: '常用条件',
+            selected: [],
+            options: this.conditionsOptions1,
+          },
+          model4: {
+            label: '常用条件2',
+            selected: [],
+            options: this.cascaderOptions1,
+          },
+          model5: {
+            label: '常用条件3',
+            selected: [],
+            options: this.cascaderOptions2,
+          },
+        },
+      }
+    },
 
     props: {
       conditionsOptions1: {
@@ -155,35 +131,11 @@ storiesOf('SearchConditions', module)
       conditionsOptions3: {
         default: object('ConditionsOptions3', JSON.parse(JSON.stringify(_conditionsOptions))),
       },
-      conditionsOptions4: {
-        default: object('ConditionsOptions4', JSON.parse(JSON.stringify(_conditionsOptions4))),
-      },
-      conditionsOptions5: {
-        default: object('ConditionsOptions5', JSON.parse(JSON.stringify(_conditionsOptions4))),
-      },
       cascaderOptions1: {
         default: object('CascaderOptions1', JSON.parse(JSON.stringify(_cascaderOptions))),
       },
       cascaderOptions2: {
         default: object('CascaderOptions2', JSON.parse(JSON.stringify(_cascaderOptions))),
-      },
-    },
-
-    computed: {
-      selectedList () {
-        let a = [
-          this.conditionsOptions1,
-          this.conditionsOptions2,
-          this.conditionsOptions3,
-          this.conditionsOptions4,
-          this.conditionsOptions5,
-        ].map(item => {
-          return item.filter(citem => {
-            return citem.selected
-          })
-        })
-        console.log(a)
-        return a
       },
     },
   }))

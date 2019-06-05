@@ -1,27 +1,26 @@
 <template>
-  <conditions-list label="已选条件" v-show="isShow" :change="options">
-    <template v-for="item in options">
-      <el-tag :key="item.value"
-              closable
-              class="ej-conditions-tag"
-              @close="close(item)">
-        {{item.label}}：{{mapListString(item.children, 'label', '、', item)}}
-      </el-tag>
-    </template>
-  </conditions-list>
+  <conditions-wrapper label="已选条件" v-show="isShow" :change="options">
+    <el-tag v-for="item in options"
+            :key="item.value"
+            closable
+            class="ej-conditions-tag"
+            @close="close(item)">
+      {{item.label}}：{{mapListString(item.children, 'label', '、', item)}}
+    </el-tag>
+  </conditions-wrapper>
 </template>
 
 <script>
   import {Tag as ElTag} from 'element-ui'
 
-  import ConditionsList from './conditions-list'
+  import ConditionsWrapper from './conditions-wrapper'
 
   export default {
     name: 'EjConditionsTag',
 
     components: {
       ElTag,
-      ConditionsList,
+      ConditionsWrapper,
     },
 
     props: {

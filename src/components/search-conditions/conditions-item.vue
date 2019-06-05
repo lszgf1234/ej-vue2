@@ -1,27 +1,26 @@
 <template>
-  <conditions-List v-bind="$attrs" :change="value">
-      <template v-for="item in options">
-        <div :key="item.value"
-             :class="{'text-blue': someSelected(selectedList, item.value)}"
-             class="ej-conditions-item"
-             @click="click(item.value)">
-          {{item.label}}
-        </div>
-      </template>
-  </conditions-List>
+  <conditions-wrapper v-bind="$attrs" :change="value">
+      <div v-for="item in options"
+           :key="item.value"
+           :class="{'text-blue': someSelected(selectedList, item.value)}"
+           class="ej-conditions-item"
+           @click="click(item.value)">
+        {{item.label}}
+      </div>
+  </conditions-wrapper>
 </template>
 
 <script>
   import {Tag as ElTag} from 'element-ui'
   
-  import ConditionsList from './conditions-list'
+  import ConditionsWrapper from './conditions-wrapper'
 
   export default {
     name: 'EjConditionsItem',
 
     components: {
       ElTag,
-      ConditionsList,
+      ConditionsWrapper,
     },
 
     props: {
@@ -32,6 +31,10 @@
       value: {
         type: Array,
         default: () => [],
+      },
+      keyName: {
+        type: String,
+        default: '',
       },
     },
 
@@ -63,7 +66,10 @@
         })
       },
       emitLables () {
-        this.$emit('update:selected', this.selectedList)
+        const key = this.keyName
+        if (!key) return
+        const parentDatas = this.$parent.datas || {}
+        this.$set(parentDatas[key], 'selected', this.selectedList)
       },
     },
 

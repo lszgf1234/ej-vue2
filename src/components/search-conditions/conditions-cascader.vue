@@ -1,20 +1,20 @@
 <template>
-  <conditions-List v-bind="$attrs" :change="value">
+  <conditions-wrapper v-bind="$attrs" :change="value">
     <el-cascader ref="cascader" v-model="model" :options="options" @change="change" class="ej-cascader-item"/>
-  </conditions-List>
+  </conditions-wrapper>
 </template>
 
 <script>
   import {Cascader as ElCascader} from 'element-ui'
 
-  import ConditionsList from './conditions-list'
+  import ConditionsWrapper from './conditions-wrapper'
 
   export default {
     name: 'EjConditionsCascader',
 
     components: {
       ElCascader,
-      ConditionsList,
+      ConditionsWrapper,
     },
 
     props: {
@@ -25,6 +25,10 @@
       value: {
         type: Array,
         default: () => [],
+      },
+      keyName: {
+        type: String,
+        default: '',
       },
     },
 
@@ -41,10 +45,15 @@
 
     methods: {
       change () {
+        const key = this.keyName
+        if (!key) return
+        const parentDatas = this.$parent.datas || {}
         const labels = this.$refs.cascader.currentLabels
+        const values = this.$refs.cascader.currentValue
         
-        this.$emit('update:selected',
-          this.$refs.cascader.currentValue.map((item, index) => {
+        
+        this.$set(parentDatas[key], 'selected',
+          values.map((item, index) => {
             return {
               value: item,
               label: labels[index],

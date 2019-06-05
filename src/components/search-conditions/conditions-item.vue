@@ -6,6 +6,9 @@
            class="ej-conditions-item"
            @click="click(item.value)">
         {{item.label}}
+        <span v-if="item.num" class="text-black">
+          (<em class="text-red not-italic">{{item.num}}</em>)
+        </span>
       </div>
   </conditions-wrapper>
 </template>

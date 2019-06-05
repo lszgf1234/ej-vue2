@@ -23,6 +23,7 @@ const _conditionsOptions = [
   {
     value: 'cy3',
     label: '本部门全部资源3',
+    num: 2, // 未审核数量
   },
   {
     value: 'cy4',

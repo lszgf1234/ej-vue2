@@ -9,6 +9,8 @@ import TaskFlow from './components/task-flow'
 import SearchInput from './components/search-input'
 import Highlight from './components/highlight'
 import SearchConditions from './components/search-conditions'
+import ConditionsItem from './components/conditions-item'
+import ConditionsCascader from './components/conditions-cascader'
 
 import Loading from './directives/loading'
 
@@ -24,6 +26,8 @@ export {
   SearchInput,
   Highlight,
   SearchConditions,
+  ConditionsItem,
+  ConditionsCascader,
 
   Loading,
 }
@@ -41,6 +45,8 @@ export default {
     Vue.use(SearchInput)
     Vue.use(Highlight)
     Vue.use(SearchConditions)
+    Vue.use(ConditionsItem)
+    Vue.use(ConditionsCascader)
 
     Vue.use(Loading)
   },

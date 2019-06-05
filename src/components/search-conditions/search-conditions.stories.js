@@ -4,8 +4,12 @@ import {action} from '@storybook/addon-actions'
 import Vue from 'vue'
 
 import SearchConditions from '.'
+import ConditionsItem from '../conditions-item'
+import ConditionsCascader from '../conditions-cascader'
 
 Vue.use(SearchConditions)
+Vue.use(ConditionsItem)
+Vue.use(ConditionsCascader)
 
 const _conditionsOptions = [
   {
@@ -100,6 +104,24 @@ storiesOf('SearchConditions', module)
       </ej-search-conditions>
     `,
 
+    props: {
+      conditionsOptions1: {
+        default: object('ConditionsOptions1', JSON.parse(JSON.stringify(_conditionsOptions))),
+      },
+      conditionsOptions2: {
+        default: object('ConditionsOptions2', JSON.parse(JSON.stringify(_conditionsOptions))),
+      },
+      conditionsOptions3: {
+        default: object('ConditionsOptions3', JSON.parse(JSON.stringify(_conditionsOptions))),
+      },
+      cascaderOptions1: {
+        default: object('CascaderOptions1', JSON.parse(JSON.stringify(_cascaderOptions))),
+      },
+      cascaderOptions2: {
+        default: object('CascaderOptions2', JSON.parse(JSON.stringify(_cascaderOptions))),
+      },
+    },
+
     data () {
       return {
         models: {
@@ -137,24 +159,6 @@ storiesOf('SearchConditions', module)
           },
         },
       }
-    },
-
-    props: {
-      conditionsOptions1: {
-        default: object('ConditionsOptions1', JSON.parse(JSON.stringify(_conditionsOptions))),
-      },
-      conditionsOptions2: {
-        default: object('ConditionsOptions2', JSON.parse(JSON.stringify(_conditionsOptions))),
-      },
-      conditionsOptions3: {
-        default: object('ConditionsOptions3', JSON.parse(JSON.stringify(_conditionsOptions))),
-      },
-      cascaderOptions1: {
-        default: object('CascaderOptions1', JSON.parse(JSON.stringify(_cascaderOptions))),
-      },
-      cascaderOptions2: {
-        default: object('CascaderOptions2', JSON.parse(JSON.stringify(_cascaderOptions))),
-      },
     },
 
     watch: {

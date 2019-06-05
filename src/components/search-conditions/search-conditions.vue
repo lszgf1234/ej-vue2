@@ -1,6 +1,6 @@
 <template>
   <div class="ej-search-conditions" >
-    <conditions-tag :options="conditionsOptions" @close="close"/>
+    <conditions-tag :options="options" @close="close"/>
     <slot/>
   </div>
 </template>
@@ -20,38 +20,30 @@
         type: Object,
         default: () => ({}),
       },
-      datas: {
-        type: Object,
-        default: () => ({}),
-      },
     },
 
-    computed: {
-      conditionsOptions () {
-        const models = this.models
-        const datas = this.datas
-        let arr = []
-
-        for (let i in models) {
-          const model = models[i] || []
-          const data = datas[i] || {}
-          const options = data.options || []
-
-          if (!model.length || !options.length) continue
-          arr.push({
-            value: i,
-            label: data.label,
-            children: data.selected || [],
-          })
-        }
-
-        return arr
-      },
+    data () {
+      return {
+        options: [],
+      }
     },
 
     methods: {
-      close (key) {
+      close (item) {
+        const key = item.value
         this.$set(this.models, key, [])
+        this.setOptions(item)
+      },
+      setOptions (item) {
+        const key = item.value
+        const index = this.options.findIndex(item => {
+          return item.value === key
+        })
+        if (index === -1) {
+          this.options.push(item)
+        } else {
+          this.$set(this.options, index, item)
+        }
       },
     },
   }

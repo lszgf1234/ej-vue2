@@ -1,5 +1,5 @@
 <template>
-  <conditions-wrapper v-bind="$attrs" :change="value">
+  <conditions-wrapper :label="label" :change="value">
       <div v-for="item in options"
            :key="item.value"
            :class="{'text-blue': someSelected(selectedList, item.value)}"
@@ -34,6 +34,10 @@
       value: {
         type: Array,
         default: () => [],
+      },
+      label: {
+        type: String,
+        default: '',
       },
       keyName: {
         type: String,
@@ -71,8 +75,11 @@
       emitLables () {
         const key = this.keyName
         if (!key) return
-        const parentDatas = this.$parent.datas || {}
-        this.$set(parentDatas[key], 'selected', this.selectedList)
+        this.$parent.setOptions({
+          value: key,
+          label: this.label,
+          children: this.selectedList,
+        })
       },
     },
 

@@ -1,6 +1,7 @@
 <template>
   <conditions-wrapper label="已选条件" v-show="isShow" :change="options">
     <el-tag v-for="item in options"
+            v-show="item.children && item.children.length"
             :key="item.value"
             closable
             class="ej-conditions-tag"
@@ -44,7 +45,11 @@
       },
 
       close (item) {
-        this.$emit('close', item.value)
+        this.$emit('close', {
+          value: item.value,
+          label: item.label,
+          children: [],
+        })
       },
     },
   }

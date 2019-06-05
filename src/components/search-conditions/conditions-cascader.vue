@@ -1,5 +1,5 @@
 <template>
-  <conditions-wrapper v-bind="$attrs" :change="value">
+  <conditions-wrapper :label="label" :change="value">
     <el-cascader ref="cascader" v-model="model" :options="options" @change="change" class="ej-cascader-item"/>
   </conditions-wrapper>
 </template>
@@ -26,6 +26,10 @@
         type: Array,
         default: () => [],
       },
+      label: {
+        type: String,
+        default: '',
+      }, 
       keyName: {
         type: String,
         default: '',
@@ -47,19 +51,20 @@
       change () {
         const key = this.keyName
         if (!key) return
-        const parentDatas = this.$parent.datas || {}
         const labels = this.$refs.cascader.currentLabels
         const values = this.$refs.cascader.currentValue
-        
-        
-        this.$set(parentDatas[key], 'selected',
-          values.map((item, index) => {
-            return {
-              value: item,
-              label: labels[index],
-            }
-          })
-        )
+        const selectedList = values.map((item, index) => {
+          return {
+            value: item,
+            label: labels[index],
+          }
+        })
+      
+        this.$parent.setOptions({
+          value: key,
+          label: this.label,
+          children: selectedList,
+        })
       },
     },
 

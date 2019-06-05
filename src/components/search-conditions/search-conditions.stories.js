@@ -76,7 +76,7 @@ const _cascaderOptions = [
 storiesOf('SearchConditions', module)
   .add('基本使用', () => ({
     template: `
-      <ej-search-conditions :models="models" :style="{'width': '1000px', margin: '50px auto'}">
+      <ej-search-conditions :style="{'width': '1000px', margin: '50px auto'}">
 
         <ej-conditions-item v-model="models.model1"
                             :options="datas.model1.options"

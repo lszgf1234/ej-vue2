@@ -15,13 +15,6 @@
       ConditionsTag,
     },
 
-    props: {
-      models: {
-        type: Object,
-        default: () => ({}),
-      },
-    },
-
     data () {
       return {
         options: [],
@@ -29,9 +22,9 @@
     },
 
     methods: {
-      close (item) {
-        const key = item.value
-        this.$set(this.models, key, [])
+      close (index, item) {
+        // slot之前还有一个'已选条件'组件 所以index+1
+        this.$children[++index].$listeners.input([])
         this.setOptions(item)
       },
       setOptions (item) {

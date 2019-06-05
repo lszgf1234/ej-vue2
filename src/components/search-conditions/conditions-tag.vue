@@ -1,11 +1,11 @@
 <template>
   <conditions-wrapper label="已选条件" v-show="isShow" :change="options">
-    <el-tag v-for="item in options"
+    <el-tag v-for="(item, index) in options"
             v-show="item.children && item.children.length"
             :key="item.value"
             closable
             class="ej-conditions-tag"
-            @close="close(item)">
+            @close="close(index, item)">
       {{item.label}}：{{mapListString(item.children, 'label', '、', item)}}
     </el-tag>
   </conditions-wrapper>
@@ -44,8 +44,8 @@
         }).join(tag)
       },
 
-      close (item) {
-        this.$emit('close', {
+      close (index, item) {
+        this.$emit('close', index, {
           value: item.value,
           label: item.label,
           children: [],

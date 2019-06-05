@@ -27,7 +27,7 @@ export {
   Highlight,
   SearchOptions,
   SearchList,
-  ConditionsCascader,
+  SearchCascader,
 
   Loading,
 }

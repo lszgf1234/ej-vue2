@@ -13,7 +13,7 @@
       <div class="ej-app-tray flex-none ml-auto flex">
         <slot v-if="$scopedSlots.tray" name="tray"/>
         <ej-app-search v-if="options.search !== false"/>
-        <ej-app-notification v-if="options.notification !== false && isIntroduceVuex"/>
+        <ej-app-notification v-if="options.notification !== false && hasVuex"/>
         <a href="javascript:">
           <i v-if="user.avatar && options.avatar !== false"
              class="ej-app-user__avatar flex-none rounded-full bg-white opacity-50"
@@ -27,7 +27,6 @@
 </template>
 
 <script>
-  import Vue from 'vue'
   import {toCssSize} from '../../utils/ui'
   import EjIcon from '../icon'
   import EjAppSearch from './app-search.vue'
@@ -68,7 +67,7 @@
       height$ () {
         return toCssSize(this.height)
       },
-      isIntroduceVuex () {
+      hasVuex () {
         return !!this.$store
       }
     },

@@ -7,8 +7,8 @@
               @show="(activeName = '', isPopperVisible = true, noticeVisible = true)"
               @hide="isPopperVisible = false">
     <a slot="reference" href="javascript:" class="ref">
-      <el-badge :value="$store.state.notificationModule.notifications"
-                :hidden="!$store.state.notificationModule.notifications"
+      <el-badge :value="$store.state.notifications"
+                :hidden="!$store.state.notifications"
                 class="app-nav__message-btn ej-app-notification">
         <ej-icon icon="bell" class="ej-app-notification__button" :class="{'text-blue': isPopperVisible}"/>
       </el-badge>
@@ -58,103 +58,17 @@
 </template>
 
 <script>
-  import Vue from 'vue'
-  import {Badge, Popover, Tabs, TabPane, Loading} from 'element-ui'
+  import {
+    Badge as ElBadge,
+    Popover as ElPopover,
+    Tabs as ElTabs,
+    TabPane as ElTabPane,
+    Loading
+  } from 'element-ui'
   import EjIcon from '../icon'
 
   import MessageUtil from '../../utils/message'
   import NotificationItem from './notification-item'
-  import notificationModule from './modules/notificationModule.js'
-
-  Vue.use(Loading)
-  Vue.use(Popover)
-  Vue.use(Tabs)
-  Vue.use(TabPane)
-  Vue.use(Badge)
-
-  let flagOneDays = 24 * 60 * 60 * 1000
-  // mock data 前一天
-  const preOneDate = new Date(new Date().getTime() - flagOneDays).getTime()
-  // mock data 前两天
-  const preTwoDate = new Date(new Date().getTime() - flagOneDays * 2).getTime()
-
-  const notiInfomation = [{
-    id: '001',
-    publishTm: new Date().getTime(),
-    title: '收到了新消息内容很长很长',
-    content: '这是内容',
-    type: 'NOTIFY',
-  }, {
-    id: '002',
-    publishTm: preOneDate,
-    title: '收到了新消息',
-    content: '这是内容',
-    type: 'NOTIFY',
-  }, {
-    id: '003',
-    publishTm: preTwoDate,
-    title: '收到了新消息',
-    content: '这是内容',
-    type: 'NOTIFY',
-  }, {
-    id: '004',
-    publishTm: preTwoDate,
-    title: '收到了新消息',
-    content: '这是内容',
-    type: 'NOTIFY',
-  }, {
-    id: '005',
-    publishTm: 1555729871000,
-    title: '收到了新消息',
-    content: '这是内容',
-    type: 'NOTIFY',
-  }, {
-    id: '006',
-    publishTm: 1555729871000,
-    title: '收到了新消息',
-    content: '这是内容',
-    type: 'NOTIFY',
-  }, {
-    id: '007',
-    publishTm: 1555729871000,
-    title: '收到了新消息',
-    content: '这是内容',
-    type: 'NOTIFY',
-  }, {
-    id: '008',
-    publishTm: 1555729871000,
-    title: '收到了新消息',
-    content: '这是内容',
-    type: 'NOTIFY',
-  }, {
-    id: '009',
-    publishTm: 1555729871000,
-    title: '收到了新消息',
-    content: '这是内容',
-    type: 'NOTIFY',
-  }, {
-    id: '010',
-    publishTm: 1555729871000,
-    title: '收到了新消息',
-    content: '这是内容',
-    type: 'NOTIFY',
-  }]
-
-  const notiNotify = [{
-    id: '001',
-    publishTm: 1555946603000,
-    title: '收到了新通知',
-    content: '这是内容',
-    type: 'INFORMATION',
-  }]
-
-  const notiCommission = [{
-    id: '001',
-    publishTm: 1552187471000,
-    title: '收到了新待办',
-    content: '这是内容',
-    type: 'COMMISSION',
-  }]
 
   const NOTIFICATION_CLEAR = {
     messageSuccessText: '清空了',
@@ -165,6 +79,11 @@
     name: 'EjAppNotification',
 
     components: {
+      Loading,
+      ElPopover,
+      ElTabs,
+      ElTabPane,
+      ElBadge,
       EjIcon,
       NotificationItem,
     },
@@ -199,16 +118,14 @@
 
     computed: {
       notifications () {
-        return this.$store.state.notificationModule.notifications
+        return this.$store.state.notifications
       },
     },
 
     created () {
-      this.$store.registerModule('notificationModule', notificationModule);
-      this.notiInformation = notiInfomation
-      this.notiNotify = notiNotify
-      this.notiCommission = notiCommission
-
+      this.notiInformation = this.$store.state.notiInfomation
+      this.notiNotify = this.$store.state.notiNotify
+      this.notiCommission = this.$store.state.notiCommission
       const unreadMessageCount = this.notiInformation.length + this.notiNotify.length + this.notiCommission.length
       this.$store.commit('setNotifications', unreadMessageCount)
     },

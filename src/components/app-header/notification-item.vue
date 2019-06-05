@@ -46,7 +46,6 @@
 
     methods: {
       handleDetail (item) {
-        console.log(item)
         this.$emit('detail', item)
       },
 

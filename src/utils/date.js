@@ -64,12 +64,3 @@ export function formatDate (d = new Date(), format = 'YYYY-MM-DD HH:mm:ss') {
     .replace('ss', (second + '').padStart(2, '0'))
     .replace('s', second)
 }
-
-/**
- * 格式化UTC时间
- * @param {String} - 例如 `2019-05-21T02:55:33.095`
- * @return {String} - 格式化后的时间字符串
- */
-export function formatUTCDate (d) {
-  return new Date(d).toISOString().replace(/T/g, ' ').replace(/\.[\d]{3}Z/, '')
-}

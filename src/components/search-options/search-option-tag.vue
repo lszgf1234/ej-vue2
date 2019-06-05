@@ -1,5 +1,5 @@
 <template>
-  <conditions-wrapper label="已选条件" v-show="isShow" :change="options">
+  <ej-search-item label="已选条件" v-show="isShow" :change="options">
     <el-tag v-for="(item, index) in options"
             v-show="item.children && item.children.length"
             :key="item.value"
@@ -8,20 +8,20 @@
             @close="close(index, item)">
       {{item.label}}：{{mapListString(item.children, 'label', '、', item)}}
     </el-tag>
-  </conditions-wrapper>
+  </ej-search-item>
 </template>
 
 <script>
   import {Tag as ElTag} from 'element-ui'
 
-  import ConditionsWrapper from './conditions-wrapper'
+  import EjSearchItem from './search-option-item'
 
   export default {
-    name: 'EjConditionsTag',
+    name: 'EjSearchTag',
 
     components: {
       ElTag,
-      ConditionsWrapper,
+      EjSearchItem,
     },
 
     props: {

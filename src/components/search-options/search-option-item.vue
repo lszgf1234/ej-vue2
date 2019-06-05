@@ -8,19 +8,19 @@
         <slot/>
       </div>
 
-      <ej-conditions-more :isShow="isMoreBtn" @showMore="showMore"/>
+      <ej-search-more :isShow="isMoreBtn" @showMore="showMore"/>
     </div>
   </div>
 </template>
 
 <script>
-  import EjConditionsMore from './conditions-more.vue'
+  import EjSearchMore from './search-option-more'
 
   export default {
-    name: 'EjConditionsList',
+    name: 'EjSearchItem',
 
     components: {
-      EjConditionsMore,
+      EjSearchMore,
     },
 
     props: {

@@ -7,7 +7,7 @@
 
 <script>
   export default {
-    name: 'EjConditionsMore',
+    name: 'EjSearchMore',
 
     props: {
       isShow: {

@@ -1,18 +1,18 @@
 <template>
   <div class="ej-search-conditions" >
-    <conditions-tag :options="options" @close="close"/>
+    <ej-search-tag :options="options" @close="close"/>
     <slot/>
   </div>
 </template>
 
 <script>
-  import ConditionsTag from './conditions-tag'
+  import EjSearchTag from './search-option-tag'
 
   export default {
-    name: 'EjSearchConditions',
+    name: 'EjSearchOptions',
 
     components: {
-      ConditionsTag,
+      EjSearchTag,
     },
 
     data () {

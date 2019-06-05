@@ -6,11 +6,11 @@ import TextRenderer from './components/text-renderer'
 import Timeline from './components/timeline'
 import Popcard from './components/popcard'
 import TaskFlow from './components/task-flow'
-import SearchInput from './components/search-input'
 import Highlight from './components/highlight'
-import SearchConditions from './components/search-conditions'
-import ConditionsItem from './components/conditions-item'
-import ConditionsCascader from './components/conditions-cascader'
+import SearchInput from './components/search-input'
+import SearchOptions from './components/search-options'
+import SearchList from './components/search-list'
+import SearchCascader from './components/search-cascader'
 
 import Loading from './directives/loading'
 
@@ -25,8 +25,8 @@ export {
   TaskFlow,
   SearchInput,
   Highlight,
-  SearchConditions,
-  ConditionsItem,
+  SearchOptions,
+  SearchList,
   ConditionsCascader,
 
   Loading,
@@ -42,11 +42,11 @@ export default {
     Vue.use(Timeline)
     Vue.use(Popcard)
     Vue.use(TaskFlow)
-    Vue.use(SearchInput)
     Vue.use(Highlight)
-    Vue.use(SearchConditions)
-    Vue.use(ConditionsItem)
-    Vue.use(ConditionsCascader)
+    Vue.use(SearchInput)
+    Vue.use(SearchOptions)
+    Vue.use(SearchList)
+    Vue.use(SearchCascader)
 
     Vue.use(Loading)
   },

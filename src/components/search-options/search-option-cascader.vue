@@ -1,20 +1,20 @@
 <template>
-  <conditions-wrapper :label="label" :change="value">
+  <ej-search-item :label="label" :change="value">
     <el-cascader ref="cascader" v-model="model" :options="options" @change="change" class="ej-cascader-item"/>
-  </conditions-wrapper>
+  </ej-search-item>
 </template>
 
 <script>
   import {Cascader as ElCascader} from 'element-ui'
 
-  import ConditionsWrapper from './conditions-wrapper'
+  import EjSearchItem from './search-option-item'
 
   export default {
-    name: 'EjConditionsCascader',
+    name: 'EjSearchCascader',
 
     components: {
       ElCascader,
-      ConditionsWrapper,
+      EjSearchItem,
     },
 
     props: {

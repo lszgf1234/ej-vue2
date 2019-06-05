@@ -3,13 +3,13 @@ import {object} from '@storybook/addon-knobs'
 import {action} from '@storybook/addon-actions'
 import Vue from 'vue'
 
-import SearchConditions from '.'
-import ConditionsItem from '../conditions-item'
-import ConditionsCascader from '../conditions-cascader'
+import EjSearchOptions from '.'
+import EjSearchCascader from '../search-cascader'
+import EjSearchList from '../search-list'
 
-Vue.use(SearchConditions)
-Vue.use(ConditionsItem)
-Vue.use(ConditionsCascader)
+Vue.use(EjSearchOptions)
+Vue.use(EjSearchList)
+Vue.use(EjSearchCascader)
 
 const _conditionsOptions = [
   {
@@ -76,33 +76,32 @@ const _cascaderOptions = [
 storiesOf('SearchConditions', module)
   .add('基本使用', () => ({
     template: `
-      <ej-search-conditions :style="{'width': '1000px', margin: '50px auto'}">
+      <ej-search-options :style="{'width': '1000px', margin: '50px auto'}">
+        <ej-search-list v-model="models.model1"
+                        :options="datas.model1.options"
+                        :key-name="datas.model1.key"
+                        :label="datas.model1.label"/>
 
-        <ej-conditions-item v-model="models.model1"
-                            :options="datas.model1.options"
-                            :key-name="datas.model1.key"
-                            :label="datas.model1.label"/>
+        <ej-search-list v-model="models.model2"
+                        :options="datas.model2.options"
+                        :key-name="datas.model2.key"
+                        :label="datas.model2.label"/>
 
-        <ej-conditions-item v-model="models.model2"
-                            :options="datas.model2.options"
-                            :key-name="datas.model2.key"
-                            :label="datas.model2.label"/>
+        <ej-search-list v-model="models.model3"
+                        :options="datas.model3.options"
+                        :key-name="datas.model3.key"
+                        :label="datas.model3.label"/>
 
-        <ej-conditions-item v-model="models.model3"
-                            :options="datas.model3.options"
-                            :key-name="datas.model3.key"
-                            :label="datas.model3.label"/>
+        <ej-search-cascader v-model="models.model4"
+                            :options="datas.model4.options"
+                            :key-name="datas.model4.key"
+                            :label="datas.model4.label"/>
 
-        <ej-conditions-cascader v-model="models.model4"
-                                :options="datas.model4.options"
-                                :key-name="datas.model4.key"
-                                :label="datas.model4.label"/>
-
-        <ej-conditions-cascader v-model="models.model5"
-                                :options="datas.model5.options"
-                                :key-name="datas.model5.key"
-                                :label="datas.model5.label"/>
-      </ej-search-conditions>
+        <ej-search-cascader v-model="models.model5"
+                            :options="datas.model5.options"
+                            :key-name="datas.model5.key"
+                            :label="datas.model5.label"/>
+      </ej-search-options>
     `,
 
     props: {

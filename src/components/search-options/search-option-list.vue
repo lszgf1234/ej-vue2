@@ -1,5 +1,5 @@
 <template>
-  <conditions-wrapper :label="label" :change="value">
+  <ej-search-item :label="label" :change="value">
       <div v-for="item in options"
            :key="item.value"
            :class="{'text-blue': someSelected(selectedList, item.value)}"
@@ -10,20 +10,20 @@
           (<em class="text-red not-italic">{{item.num}}</em>)
         </span>
       </div>
-  </conditions-wrapper>
+  </ej-search-item>
 </template>
 
 <script>
   import {Tag as ElTag} from 'element-ui'
   
-  import ConditionsWrapper from './conditions-wrapper'
+  import EjSearchItem from './search-option-item'
 
   export default {
-    name: 'EjConditionsItem',
+    name: 'EjSearchList',
 
     components: {
       ElTag,
-      ConditionsWrapper,
+      EjSearchItem,
     },
 
     props: {

@@ -53,9 +53,6 @@
       close (key) {
         this.$set(this.models, key, [])
       },
-      labels (key) {
-        console.log(key)
-      },
     },
   }
 </script>

@@ -1,5 +1,6 @@
 import {storiesOf} from '@storybook/vue'
 import {object} from '@storybook/addon-knobs'
+import {action} from '@storybook/addon-actions'
 import Vue from 'vue'
 
 import SearchConditions from '.'
@@ -19,12 +20,9 @@ const _conditionsOptions = [
     value: 'cy3',
     label: '本部门全部资源3',
   },
-]
-
-const _conditionsOptions4 = [
   {
-    model: ['zhinan', 'daohang', 'dingbudaohang'],
-    label: '',
+    value: 'cy4',
+    label: '本部门全部资源1',
   },
 ]
 
@@ -78,17 +76,27 @@ storiesOf('SearchConditions', module)
         <ej-conditions-item v-model="models.model1"
                             :options="datas.model1.options"
                             :selected.sync="datas.model1.selected"
-                            label="常用条件"/>
+                            :label="datas.model1.label"/>
+
+        <ej-conditions-item v-model="models.model2"
+                            :options="datas.model2.options"
+                            :selected.sync="datas.model2.selected"
+                            :label="datas.model2.label"/>
+
+        <ej-conditions-item v-model="models.model3"
+                            :options="datas.model3.options"
+                            :selected.sync="datas.model3.selected"
+                            :label="datas.model3.label"/>
 
         <ej-conditions-cascader v-model="models.model4"
                                 :options="datas.model4.options"
                                 :selected.sync="datas.model4.selected"
-                                label="基础资源"/>
+                                :label="datas.model4.label"/>
 
         <ej-conditions-cascader v-model="models.model5"
                                 :options="datas.model5.options"
                                 :selected.sync="datas.model5.selected"
-                                label="主题资源"/>
+                                :label="datas.model5.label"/>
       </ej-search-conditions>
     `,
 
@@ -107,13 +115,23 @@ storiesOf('SearchConditions', module)
             selected: [],
             options: this.conditionsOptions1,
           },
+          model2: {
+            label: '机构名称',
+            selected: [],
+            options: this.conditionsOptions2,
+          },
+          model3: {
+            label: '常用条件',
+            selected: [],
+            options: this.conditionsOptions3,
+          },
           model4: {
-            label: '常用条件2',
+            label: '基础资源',
             selected: [],
             options: this.cascaderOptions1,
           },
           model5: {
-            label: '常用条件3',
+            label: '主题资源',
             selected: [],
             options: this.cascaderOptions2,
           },
@@ -136,6 +154,20 @@ storiesOf('SearchConditions', module)
       },
       cascaderOptions2: {
         default: object('CascaderOptions2', JSON.parse(JSON.stringify(_cascaderOptions))),
+      },
+    },
+
+    watch: {
+      models: {
+        deep: true,
+        immediate: true,
+        handler (newVal) {
+          let obj = {}
+          for (let i in newVal) {
+            obj[i] = newVal[i].join(',')
+          }
+          action('search')(obj)
+        },
       },
     },
   }))

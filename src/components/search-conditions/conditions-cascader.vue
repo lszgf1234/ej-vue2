@@ -43,12 +43,14 @@
       change () {
         const labels = this.$refs.cascader.currentLabels
         
-        this.$emit('update:selected', this.$refs.cascader.currentValue.map((item, index) => {
-          return {
-            value: item,
-            label: labels[index],
-          }
-        }))
+        this.$emit('update:selected',
+          this.$refs.cascader.currentValue.map((item, index) => {
+            return {
+              value: item,
+              label: labels[index],
+            }
+          })
+        )
       },
     },
 

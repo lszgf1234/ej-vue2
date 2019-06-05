@@ -18,11 +18,11 @@
     props: {
       models: {
         type: Object,
-        default: () => {},
+        default: () => ({}),
       },
       datas: {
         type: Object,
-        default: () => {},
+        default: () => ({}),
       },
     },
 

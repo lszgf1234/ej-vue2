@@ -23,20 +23,13 @@
 
     methods: {
       close (index, item) {
-        // slot之前还有一个'已选条件'组件 所以index+1
-        this.$children[++index].$listeners.input([])
-        this.setOptions(item)
+        // slot之前还有'已选条件'组件 所以index+1
+        this.$children[index + 1].$listeners.input([])
+        this.setOptions(index, item)
       },
-      setOptions (item) {
-        const key = item.value
-        const index = this.options.findIndex(item => {
-          return item.value === key
-        })
-        if (index === -1) {
-          this.options.push(item)
-        } else {
-          this.$set(this.options, index, item)
-        }
+      setOptions (index, item) {
+        if (index === -1) return
+        this.$set(this.options, index, item)
       },
     },
   }

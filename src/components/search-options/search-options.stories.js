@@ -78,29 +78,29 @@ storiesOf('SearchConditions', module)
     template: `
       <ej-search-options :style="{'width': '1000px', margin: '50px auto'}">
       
-        <ej-search-list v-model="models[datas[0].key]"
+        <ej-search-list v-model="models.model1"
+                        :index="0"
                         :options="datas[0].options"
-                        :key-name="datas[0].key"
                         :label="datas[0].label"/>
 
-        <ej-search-list v-model="models[datas[1].key]"
+        <ej-search-list v-model="models.model2"
+                        :index="1"
                         :options="datas[1].options"
-                        :key-name="datas[1].key"
                         :label="datas[1].label"/>
 
-        <ej-search-list v-model="models[datas[2].key]"
+        <ej-search-list v-model="models.model3"
+                        :index="2"
                         :options="datas[2].options"
-                        :key-name="datas[2].key"
                         :label="datas[2].label"/>
 
-        <ej-search-cascader v-model="models[datas[3].key]"
+        <ej-search-cascader v-model="models.model4"
+                            :index="3"
                             :options="datas[3].options"
-                            :key-name="datas[3].key"
                             :label="datas[3].label"/>
 
-        <ej-search-cascader v-model="models[datas[4].key]"
+        <ej-search-cascader v-model="models.model5"
+                            :index="4"
                             :options="datas[4].options"
-                            :key-name="datas[4].key"
                             :label="datas[4].label"/>
       </ej-search-options>
     `,
@@ -134,33 +134,23 @@ storiesOf('SearchConditions', module)
         },
         datas: [
           {
-            key: 'model1',
             label: '常用条件',
-            selected: [],
             options: this.conditionsOptions1,
           },
           {
-            key: 'model2',
             label: '机构名称',
-            selected: [],
             options: this.conditionsOptions2,
           },
           {
-            key: 'model3',
             label: '常用条件',
-            selected: [],
             options: this.conditionsOptions3,
           },
           {
-            key: 'model4',
             label: '基础资源',
-            selected: [],
             options: this.cascaderOptions1,
           },
           {
-            key: 'model5',
             label: '主题资源',
-            selected: [],
             options: this.cascaderOptions2,
           },
         ],

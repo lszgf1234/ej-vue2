@@ -30,9 +30,9 @@
         type: String,
         default: '',
       }, 
-      keyName: {
-        type: String,
-        default: '',
+      index: {
+        type: Number,
+        default: -1,
       },
     },
 
@@ -47,29 +47,27 @@
       },
     },
 
+    mounted () {
+      this.change()
+    },
+
     methods: {
       change () {
-        const key = this.keyName
-        if (!key) return
+        const index = this.index
         const labels = this.$refs.cascader.currentLabels
         const values = this.$refs.cascader.currentValue
-        const selectedList = values.map((item, index) => {
+        const selectedList = values.map((item, i) => {
           return {
             value: item,
-            label: labels[index],
+            label: labels[i],
           }
         })
       
-        this.$parent.setOptions({
-          value: key,
+        this.$parent.setOptions(index, {
           label: this.label,
           children: selectedList,
         })
       },
-    },
-
-    mounted () {
-      this.change()
     },
   }
 </script>

@@ -39,9 +39,9 @@
         type: String,
         default: '',
       },
-      keyName: {
-        type: String,
-        default: '',
+      index: {
+        type: Number,
+        default: -1,
       },
     },
 
@@ -53,6 +53,10 @@
           })[0]
         })
       },
+    },
+
+    created () {
+      this.emitLables()
     },
 
     methods: {
@@ -73,19 +77,13 @@
         })
       },
       emitLables () {
-        const key = this.keyName
-        if (!key) return
-        this.$parent.setOptions({
-          value: key,
+        const index = this.index
+        this.$parent.setOptions(index, {
           label: this.label,
           children: this.selectedList,
         })
       },
     },
-
-    created () {
-      this.emitLables()
-    }
   }
 </script>
 

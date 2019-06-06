@@ -2,7 +2,7 @@
   <ej-search-item label="已选条件" v-show="isShow" :change="options">
     <el-tag v-for="(item, index) in options"
             v-show="item.children && item.children.length"
-            :key="item.value"
+            :key="index"
             closable
             class="ej-conditions-tag"
             @close="close(index, item)">
@@ -33,7 +33,7 @@
 
     computed: {
       isShow () {
-        return Boolean(this.options.length)
+        return this.options.some(item => item.children && item.children.length)
       },
     },
 
@@ -46,7 +46,6 @@
 
       close (index, item) {
         this.$emit('close', index, {
-          value: item.value,
           label: item.label,
           children: [],
         })

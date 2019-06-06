@@ -1,5 +1,5 @@
 <template>
-  <ej-search-item :label="label" :change="value">
+  <ej-search-option-item :label="label" :change="value">
       <div v-for="item in options"
            :key="item.value"
            :class="{'text-blue': someSelected(selectedList, item.value)}"
@@ -10,20 +10,20 @@
           (<em class="text-red not-italic">{{item.num}}</em>)
         </span>
       </div>
-  </ej-search-item>
+  </ej-search-option-item>
 </template>
 
 <script>
   import {Tag as ElTag} from 'element-ui'
   
-  import EjSearchItem from './search-option-item'
+  import EjSearchOptionItem from './search-option-item'
 
   export default {
-    name: 'EjSearchList',
+    name: 'EjSearchOptionList',
 
     components: {
       ElTag,
-      EjSearchItem,
+      EjSearchOptionItem,
     },
 
     props: {

@@ -1,5 +1,5 @@
 <template>
-  <ej-search-item label="已选条件" v-show="isShow" :change="options">
+  <ej-search-option-item label="已选条件" v-show="isShow" :change="options">
     <el-tag v-for="(item, index) in options"
             v-show="item.children && item.children.length"
             :key="index"
@@ -8,20 +8,20 @@
             @close="close(index, item)">
       {{item.label}}：{{mapListString(item.children, 'label', '、', item)}}
     </el-tag>
-  </ej-search-item>
+  </ej-search-option-item>
 </template>
 
 <script>
   import {Tag as ElTag} from 'element-ui'
 
-  import EjSearchItem from './search-option-item'
+  import EjSearchOptionItem from './search-option-item'
 
   export default {
-    name: 'EjSearchTag',
+    name: 'EjSearchOptionTag',
 
     components: {
       ElTag,
-      EjSearchItem,
+      EjSearchOptionItem,
     },
 
     props: {

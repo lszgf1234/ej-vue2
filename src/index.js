@@ -9,8 +9,8 @@ import TaskFlow from './components/task-flow'
 import Highlight from './components/highlight'
 import SearchInput from './components/search-input'
 import SearchOptions from './components/search-options'
-import SearchList from './components/search-list'
-import SearchCascader from './components/search-cascader'
+import SearchOptionList from './components/search-option-list'
+import SearchOptionCascader from './components/search-option-cascader'
 
 import Loading from './directives/loading'
 
@@ -26,8 +26,8 @@ export {
   SearchInput,
   Highlight,
   SearchOptions,
-  SearchList,
-  SearchCascader,
+  SearchOptionList,
+  SearchOptionCascader,
 
   Loading,
 }
@@ -45,8 +45,8 @@ export default {
     Vue.use(Highlight)
     Vue.use(SearchInput)
     Vue.use(SearchOptions)
-    Vue.use(SearchList)
-    Vue.use(SearchCascader)
+    Vue.use(SearchOptionList)
+    Vue.use(SearchOptionCascader)
 
     Vue.use(Loading)
   },

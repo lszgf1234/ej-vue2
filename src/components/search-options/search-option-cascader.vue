@@ -1,20 +1,20 @@
 <template>
-  <ej-search-item :label="label" :change="value">
+  <ej-search-option-item :label="label" :change="value">
     <el-cascader ref="cascader" v-model="model" :options="options" @change="change" class="ej-cascader-item"/>
-  </ej-search-item>
+  </ej-search-option-item>
 </template>
 
 <script>
   import {Cascader as ElCascader} from 'element-ui'
 
-  import EjSearchItem from './search-option-item'
+  import EjSearchOptionItem from './search-option-item'
 
   export default {
-    name: 'EjSearchCascader',
+    name: 'EjSearchOptionCascader',
 
     components: {
       ElCascader,
-      EjSearchItem,
+      EjSearchOptionItem,
     },
 
     props: {

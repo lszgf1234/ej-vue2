@@ -8,19 +8,19 @@
         <slot/>
       </div>
 
-      <ej-search-more :isShow="isMoreBtn" @showMore="showMore"/>
+      <ej-search-option-more :isShow="isMoreBtn" @showMore="showMore"/>
     </div>
   </div>
 </template>
 
 <script>
-  import EjSearchMore from './search-option-more'
+  import EjSearchOptionMore from './search-option-more'
 
   export default {
-    name: 'EjSearchItem',
+    name: 'EjSearchOptionItem',
 
     components: {
-      EjSearchMore,
+      EjSearchOptionMore,
     },
 
     props: {

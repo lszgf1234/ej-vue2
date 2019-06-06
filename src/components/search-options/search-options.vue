@@ -23,13 +23,14 @@
 
     methods: {
       close (index, item) {
-        // slot之前还有'已选条件'组件 所以index+1
-        this.$children[index + 1].$listeners.input([])
+        // slot之前还有'已选条件'组件 index+1
+        this.$children[++index].$listeners.input([])
         this.setOptions(index, item)
       },
       setOptions (index, item) {
         if (index === -1) return
-        this.$set(this.options, index, item)
+        // slot之前还有'已选条件'组件 index-1
+        this.$set(this.options, index - 1, item)
       },
     },
   }

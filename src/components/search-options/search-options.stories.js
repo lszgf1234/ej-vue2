@@ -79,29 +79,24 @@ storiesOf('SearchConditions', module)
       <ej-search-options :style="{'width': '1000px', margin: '50px auto'}">
       
         <ej-search-list v-model="models.model1"
-                        :index="0"
-                        :options="datas[0].options"
-                        :label="datas[0].label"/>
+                        label="常用条件"
+                        :options="conditionsOptions1"/>
 
         <ej-search-list v-model="models.model2"
-                        :index="1"
-                        :options="datas[1].options"
-                        :label="datas[1].label"/>
+                        label="机构名称"
+                        :options="conditionsOptions2"/>
 
         <ej-search-list v-model="models.model3"
-                        :index="2"
-                        :options="datas[2].options"
-                        :label="datas[2].label"/>
+                        label="常用条件"
+                        :options="conditionsOptions3"/>
 
         <ej-search-cascader v-model="models.model4"
-                            :index="3"
-                            :options="datas[3].options"
-                            :label="datas[3].label"/>
+                            label="基础资源"
+                            :options="cascaderOptions1"/>
 
         <ej-search-cascader v-model="models.model5"
-                            :index="4"
-                            :options="datas[4].options"
-                            :label="datas[4].label"/>
+                            label="主题资源"
+                            :options="cascaderOptions2"/>
       </ej-search-options>
     `,
 
@@ -132,28 +127,6 @@ storiesOf('SearchConditions', module)
           model4: ['zhinan', 'daohang', 'dingbudaohang'],
           model5: [],
         },
-        datas: [
-          {
-            label: '常用条件',
-            options: this.conditionsOptions1,
-          },
-          {
-            label: '机构名称',
-            options: this.conditionsOptions2,
-          },
-          {
-            label: '常用条件',
-            options: this.conditionsOptions3,
-          },
-          {
-            label: '基础资源',
-            options: this.cascaderOptions1,
-          },
-          {
-            label: '主题资源',
-            options: this.cascaderOptions2,
-          },
-        ],
       }
     },
 

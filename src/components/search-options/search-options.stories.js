@@ -4,12 +4,8 @@ import {action} from '@storybook/addon-actions'
 import Vue from 'vue'
 
 import EjSearchOptions from '.'
-import EjSearchOptionsCascader from '../search-option-cascader'
-import EjSearchOptionsList from '../search-list'
 
 Vue.use(EjSearchOptions)
-Vue.use(EjSearchOptionsCascader)
-Vue.use(EjSearchOptionsList)
 
 const _conditionsOptions = [
   {
@@ -77,26 +73,11 @@ storiesOf('SearchConditions', module)
   .add('基本使用', () => ({
     template: `
       <ej-search-options :style="{'width': '1000px', margin: '50px auto'}">
-      
-        <ej-search-option-list v-model="models.model1"
-                               label="常用条件"
-                               :options="conditionsOptions1"/>
-
-        <ej-search-option-list v-model="models.model2"
-                               label="机构名称"
-                               :options="conditionsOptions2"/>
-
-        <ej-search-option-list v-model="models.model3"
-                               label="常用条件"
-                               :options="conditionsOptions3"/>
-
-        <ej-search-option-cascader v-model="models.model4"
-                                   label="基础资源"
-                                   :options="cascaderOptions1"/>
-
-        <ej-search-option-cascader v-model="models.model5"
-                                   label="主题资源"
-                                   :options="cascaderOptions2"/>
+        <ej-search-option-list v-model="models.model1" label="常用条件" :options="conditionsOptions1"/>
+        <ej-search-option-list v-model="models.model2" label="机构名称" :options="conditionsOptions2"/>
+        <ej-search-option-list v-model="models.model3" label="常用条件" :options="conditionsOptions3"/>
+        <ej-search-option-cascader v-model="models.model4" label="基础资源" :options="cascaderOptions1"/>
+        <ej-search-option-cascader v-model="models.model5" label="主题资源" :options="cascaderOptions2"/>
       </ej-search-options>
     `,
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="ej-search-conditions" >
+  <div class="ej-search-conditions">
     <ej-search-tag :options="options" @close="close"/>
     <slot/>
   </div>

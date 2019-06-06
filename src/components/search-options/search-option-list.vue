@@ -1,21 +1,21 @@
 <template>
   <ej-search-option-item :label="label" :change="value">
-      <div v-for="item in options"
-           :key="item.value"
-           :class="{'text-blue': someSelected(selectedList, item.value)}"
-           class="ej-conditions-item"
-           @click="click(item.value)">
-        {{item.label}}
-        <span v-if="item.num" class="text-black">
-          (<em class="text-red not-italic">{{item.num}}</em>)
-        </span>
-      </div>
+    <div v-for="item in options"
+         :key="item.value"
+         class="ej-conditions-item"
+         :class="{'text-blue': someSelected(selectedList, item.value)}"
+         @click="click(item.value)">
+      {{item.label}}
+      <span v-if="item.num" class="text-black">
+        (<em class="text-red not-italic">{{item.num}}</em>)
+      </span>
+    </div>
   </ej-search-option-item>
 </template>
 
 <script>
   import {Tag as ElTag} from 'element-ui'
-  
+
   import EjSearchOptionItem from './search-option-item'
 
   export default {
@@ -72,7 +72,7 @@
       },
       someSelected (list, key) {
         return list.some(item => {
-          return item && item.value === key 
+          return item && item.value === key
         })
       },
       emitLables () {

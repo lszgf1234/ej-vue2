@@ -45,8 +45,6 @@ export default {
     Vue.use(Highlight)
     Vue.use(SearchInput)
     Vue.use(SearchOptions)
-    Vue.use(SearchOptionList)
-    Vue.use(SearchOptionCascader)
 
     Vue.use(Loading)
   },

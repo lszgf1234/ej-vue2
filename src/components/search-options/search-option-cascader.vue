@@ -1,6 +1,10 @@
 <template>
   <ej-search-option-item :label="label" :change="value">
-    <el-cascader ref="cascader" v-model="model" :options="options" @change="change" class="ej-cascader-item"/>
+    <el-cascader ref="cascader"
+                 v-model="model"
+                 :options="options"
+                 class="ej-cascader-item"
+                 @change="change"/>
   </ej-search-option-item>
 </template>
 
@@ -29,7 +33,7 @@
       label: {
         type: String,
         default: '',
-      }, 
+      },
     },
 
     computed: {
@@ -61,7 +65,7 @@
             label: labels[i],
           }
         })
-      
+
         this.$parent.setOptions(index, {
           label: this.label,
           children: selectedList,

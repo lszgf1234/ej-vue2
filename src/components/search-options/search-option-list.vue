@@ -26,6 +26,13 @@
       EjSearchOptionItem,
     },
 
+    inject: {
+      wrapperVm: {
+        type: Object,
+        default: () => ({}),
+      },
+    },
+
     props: {
       options: {
         type: Array,
@@ -77,7 +84,7 @@
       },
       emitLables () {
         const index = this.index
-        this.$parent.setOptions(index, {
+        this.wrapperVm.setOptions(index, {
           label: this.label,
           children: this.selectedList,
         })

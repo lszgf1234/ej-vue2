@@ -21,6 +21,13 @@
       EjSearchOptionItem,
     },
 
+    inject: {
+      wrapperVm: {
+        type: Object,
+        default: () => ({}),
+      },
+    },
+
     props: {
       options: {
         type: Array,
@@ -66,7 +73,7 @@
           }
         })
 
-        this.$parent.setOptions(index, {
+        this.wrapperVm.setOptions(index, {
           label: this.label,
           children: selectedList,
         })

@@ -15,6 +15,12 @@
       EjSearchTag,
     },
 
+    provide () {
+      return {
+        wrapperVm: this,
+      }
+    },
+
     data () {
       return {
         options: [],

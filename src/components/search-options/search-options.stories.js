@@ -1,5 +1,5 @@
 import {storiesOf} from '@storybook/vue'
-import {object} from '@storybook/addon-knobs'
+import {object, number} from '@storybook/addon-knobs'
 import {action} from '@storybook/addon-actions'
 import Vue from 'vue'
 
@@ -23,6 +23,22 @@ const _conditionsOptions = [
   },
   {
     value: 'cy4',
+    label: '本部门全部资源1',
+  },
+  {
+    value: 'cy5',
+    label: '本部门全部资源1',
+  },
+  {
+    value: 'cy6',
+    label: '本部门全部资源1',
+  },
+  {
+    value: 'cy7',
+    label: '本部门全部资源1',
+  },
+  {
+    value: 'cy8',
     label: '本部门全部资源1',
   },
 ]
@@ -72,9 +88,9 @@ const _cascaderOptions = [
 storiesOf('SearchConditions', module)
   .add('基本使用', () => ({
     template: `
-      <ej-search-options :style="{'width': '1000px', margin: '50px auto'}">
+      <ej-search-options :default-tag-more="true" :max-width-tag="maxWidthTag" :style="{'width': '1000px', margin: '50px auto'}">
         <ej-search-option-list v-model="models.model1" label="常用条件" :options="conditionsOptions1"/>
-        <ej-search-option-list v-model="models.model2" label="机构名称" :options="conditionsOptions2"/>
+        <ej-search-option-list :default-more="true" v-model="models.model2" label="机构名称" :options="conditionsOptions2"/>
         <ej-search-option-list v-model="models.model3" label="常用条件" :options="conditionsOptions3"/>
         <ej-search-option-cascader v-model="models.model4" label="基础资源" :options="cascaderOptions1"/>
         <ej-search-option-cascader v-model="models.model5" label="主题资源" :options="cascaderOptions2"/>
@@ -82,6 +98,9 @@ storiesOf('SearchConditions', module)
     `,
 
     props: {
+      maxWidthTag: {
+        default: number('maxWidthTag', 100) + '%'
+      },
       conditionsOptions1: {
         default: object('ConditionsOptions1', JSON.parse(JSON.stringify(_conditionsOptions))),
       },

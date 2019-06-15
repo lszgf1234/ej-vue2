@@ -1,5 +1,5 @@
 <template>
-  <ej-search-option-item :label="label" :change="value">
+  <ej-search-option-item :show-more="defaultMore" :label="label" :change="value">
     <div v-for="item in options"
          :key="item.value"
          class="ej-conditions-item"
@@ -34,6 +34,7 @@
     },
 
     props: {
+      defaultMore: Boolean,
       options: {
         type: Array,
         default: () => [],

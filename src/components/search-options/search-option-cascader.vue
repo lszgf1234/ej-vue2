@@ -1,5 +1,5 @@
 <template>
-  <ej-search-option-item :label="label" :change="value">
+  <ej-search-option-item :show-more="defaultMore" :label="label" :change="value">
     <el-cascader ref="cascader"
                  v-model="model"
                  :options="options"
@@ -29,6 +29,7 @@
     },
 
     props: {
+      defaultMore: Boolean,
       options: {
         type: Array,
         default: () => [],
@@ -64,8 +65,8 @@
     methods: {
       change () {
         const index = this.index
-        const labels = this.$refs.cascader.currentLabels
-        const values = this.$refs.cascader.currentValue
+        const labels = this.$refs.cascader.currentLabels || []
+        const values = this.$refs.cascader.currentValue || []
         const selectedList = values.map((item, i) => {
           return {
             value: item,

@@ -8,10 +8,7 @@
         <slot/>
       </div>
 
-      <ej-search-option-more
-        v-show="isMoreBtn"
-        :show-more="isMore"
-        @click.native="moreClick"/>
+      <ej-search-option-more v-show="isMoreBtn" :show-more="isMore" @click.native="moreClick"/>
     </div>
   </div>
 </template>

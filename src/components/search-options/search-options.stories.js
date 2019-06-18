@@ -1,5 +1,5 @@
 import {storiesOf} from '@storybook/vue'
-import {object, number} from '@storybook/addon-knobs'
+import {number, object} from '@storybook/addon-knobs'
 import {action} from '@storybook/addon-actions'
 import Vue from 'vue'
 
@@ -85,8 +85,8 @@ const _cascaderOptions = [
   },
 ]
 
-storiesOf('SearchConditions', module)
-  .add('基本使用', () => ({
+storiesOf('Components|SearchOptions', module)
+  .add('基本用法', () => ({
     template: `
       <ej-search-options :default-tag-more="true" :max-width-tag="maxWidthTag" :style="{'width': '1000px', margin: '50px auto'}">
         <ej-search-option-list v-model="models.model1" label="常用条件" :options="conditionsOptions1"/>
@@ -99,7 +99,7 @@ storiesOf('SearchConditions', module)
 
     props: {
       maxWidthTag: {
-        default: number('maxWidthTag', 100) + '%'
+        default: number('maxWidthTag', 100) + '%',
       },
       conditionsOptions1: {
         default: object('ConditionsOptions1', JSON.parse(JSON.stringify(_conditionsOptions))),

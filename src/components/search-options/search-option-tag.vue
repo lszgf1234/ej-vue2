@@ -1,16 +1,12 @@
 <template>
-  <ej-search-option-item
-    v-show="isShow"
-    :show-more="showMore"
-    :change="options"
-    label="已选条件">
+  <ej-search-option-item v-show="isShow" :show-more="showMore" :change="options" label="已选条件">
     <el-tag v-for="(item, index) in options"
-            v-show="item.children && item.children.length"
             :key="index"
-            :style="style"
+            v-show="item.children && item.children.length"
             :title="`${item.label}：${mapListString(item.children, 'label', '、')}`"
             closable
             class="ej-conditions-tag"
+            :style="style"
             @close="close(index, item)">
       {{`${item.label}：${mapListString(item.children, 'label', '、')}`}}
     </el-tag>
@@ -20,7 +16,7 @@
 <script>
   import {Tag as ElTag} from 'element-ui'
 
-  import EjSearchOptionItem from './search-option-item'
+  import EjSearchOptionItem from './search-option-item.vue'
 
   export default {
     name: 'EjSearchOptionTag',
@@ -39,7 +35,7 @@
       maxWidth: {
         type: String,
         default: '',
-      }
+      },
     },
 
     computed: {

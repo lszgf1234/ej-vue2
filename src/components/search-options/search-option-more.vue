@@ -1,5 +1,5 @@
 <template>
-  <span v-show="isShow" class="ej-conditions-more" @click="click">
+  <span class="ej-conditions-more">
     {{showMoreText}}
     <i :class="showMoreClass" class="el-icon-arrow-down"></i>
   </span>
@@ -10,16 +10,10 @@
     name: 'EjSearchOptionMore',
 
     props: {
-      isShow: {
+      showMore: {
         type: Boolean,
         default: false,
       },
-    },
-
-    data () {
-      return {
-        showMore: false,
-      }
     },
 
     computed: {
@@ -28,13 +22,6 @@
       },
       showMoreClass () {
         return this.showMore ? 'up-active' : ''
-      },
-    },
-
-    methods: {
-      click () {
-        this.showMore = !this.showMore
-        this.$emit('showMore', this.showMore)
       },
     },
   }

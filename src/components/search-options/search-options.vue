@@ -1,6 +1,9 @@
 <template>
   <div class="ej-search-conditions">
-    <ej-search-tag :options="options" @close="close"/>
+    <ej-search-tag :options="options"
+                   :show-more="defaultTagMore"
+                   :max-width="maxWidthTag"
+                   @close="close"/>
     <slot/>
   </div>
 </template>
@@ -13,6 +16,17 @@
 
     components: {
       EjSearchTag,
+    },
+
+    provide () {
+      return {
+        wrapperVm: this,
+      }
+    },
+
+    props: {
+      defaultTagMore: Boolean,
+      maxWidthTag: String,
     },
 
     data () {

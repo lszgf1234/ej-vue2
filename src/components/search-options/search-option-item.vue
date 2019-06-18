@@ -3,12 +3,12 @@
     <span class="title">{{label}}</span>
     <div ref="listWrapper"
          class="ej-conditions-list__content"
-         :class="{'max-height-300': isShowMore}">
-      <div class="flex flex-wrap" ref="listContent">
+         :class="{'max-height-300': isMore}">
+      <div class="flex flex-wrap max-w-full" ref="listContent">
         <slot/>
       </div>
 
-      <ej-search-option-more :isShow="isMoreBtn" @showMore="showMore"/>
+      <ej-search-option-more v-show="isMoreBtn" :show-more="isMore" @click.native="moreClick"/>
     </div>
   </div>
 </template>
@@ -32,12 +32,16 @@
         type: Array,
         default: () => [],
       },
+      showMore: {
+        type: Boolean,
+        default: false,
+      },
     },
 
     data () {
       return {
         isMoreBtn: false,
-        isShowMore: false,
+        isMore: false,
       }
     },
 
@@ -50,6 +54,10 @@
           this.showMoreBtn()
         },
       },
+    },
+
+    created () {
+      this.isMore = this.showMore
     },
 
     mounted () {
@@ -68,8 +76,8 @@
         })
       },
 
-      showMore (isShow) {
-        this.isShowMore = isShow
+      moreClick () {
+        this.isMore = !this.isMore
       },
     },
   }

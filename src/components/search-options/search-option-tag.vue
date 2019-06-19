@@ -1,16 +1,17 @@
 <template>
-  <ej-search-option-item v-show="isShow" :show-more="showMore" :change="options" label="已选条件">
-    <el-tag v-for="(item, index) in options"
-            :key="index"
-            v-show="item.children && item.children.length"
-            :title="`${item.label}：${mapListString(item.children, 'label', '、')}`"
-            closable
-            class="ej-conditions-tag"
-            :style="style"
-            @close="close(index, item)">
-      {{`${item.label}：${mapListString(item.children, 'label', '、')}`}}
-    </el-tag>
-  </ej-search-option-item>
+  <div class="ej-search-option-tag">
+    <ej-search-option-item v-show="isShow" :show-more="showMore" :change="options" label="已选条件">
+      <div v-for="(item, index) in options" :key="index" class="ej-conditions-tag">
+        <el-tag v-show="item.children && item.children.length"
+                :title="`${item.label}：${mapListString(item.children, 'label', '、')}`"
+                closable
+                :style="style"
+                @close="close(index, item)">
+          {{`${item.label}：${mapListString(item.children, 'label', '、')}`}}
+        </el-tag>
+      </div>
+    </ej-search-option-item>
+  </div>
 </template>
 
 <script>
@@ -69,26 +70,46 @@
 <style lang="scss">
   @import './variables.scss';
 
-  .el-tag.ej-conditions-tag {
-    @apply text-blue border-blue;
+  .ej-search-option-tag {
+    .ej-conditions-list .title {
+      padding-top: 5px;
+    }
 
-    height: $search-conditions-height;
-    line-height: $search-conditions-height;
-    font-size: 14px;
-    background-color: transparent;
-    border-radius: 8px;
-    margin-right: 10px;
-    margin-bottom: 5px;
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    .ej-conditions-tag {
+      @apply relative;
+      padding-top: 5px;
+      max-width: 100%;
 
-    .el-icon-close {
-      @apply .text-gray;
+      .el-tag {
+        @apply text-gray-darkest;
 
-      &:hover {
-        @apply .text-white;
+        height: $search-conditions-height;
+        line-height: $search-conditions-height;
+        font-size: 14px;
+        border: none;
+        border-radius: 9px;
+        margin-right: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        background-color: theme('colors.blue.lighter');
+
+        .el-icon-close {
+          @apply text-blue border-blue absolute;
+
+          font-size: 14px;
+          background-color: white;
+          border-style: solid;
+          border-width: 1px;
+          right: 5px;
+          top: 0px;
+          transform: scale(0.8);
+
+          &:hover {
+            @apply text-blue;
+            background-color: white;
+          }
+        }
       }
     }
   }

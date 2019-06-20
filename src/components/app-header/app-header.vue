@@ -4,7 +4,7 @@
          :class="{fixed}"
          :style="{height: height$}">
       <a href="javascript:" class="ej-app-logo flex-none flex items-center" @click="onClickLogo">
-        <i v-if="logo" class="flex-none rounded bg-white opacity-50" :class="{'mr-2': title}"></i>
+        <ej-icon v-if="logo" :icon="logo" :class="{'mr-2': title}"/>
         <span v-if="title" class="flex-none text-lg">{{title}}</span>
       </a>
 

@@ -64,19 +64,28 @@
 
     methods: {
       change () {
-        const index = this.index
-        const labels = this.$refs.cascader.currentLabels || []
-        const values = this.$refs.cascader.currentValue || []
-        const selectedList = values.map((item, i) => {
-          return {
-            value: item,
-            label: labels[i],
-          }
-        })
+        this.$nextTick(_ => {
+          const index = this.index
+          const values = this.model
+          const labels = []
+          // 改用getCheckedNodes()方法，elementui 2.9.1版本去掉了内置的currentLabels
+          let checkedNodes = this.$refs.cascader.getCheckedNodes()[0]
 
-        this.wrapperVm.setOptions(index, {
-          label: this.label,
-          children: selectedList,
+          // 遍历获取label
+          while (checkedNodes && checkedNodes !== null) {
+            labels.unshift(checkedNodes.label)
+            checkedNodes = checkedNodes.parent
+          }
+
+          this.wrapperVm.setOptions(index, {
+            label: this.label,
+            children: values.map((item, i) => {
+              return {
+                value: item,
+                label: labels[i],
+              }
+            }),
+          })
         })
       },
     },

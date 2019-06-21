@@ -89,8 +89,6 @@
   .ej-conditions-list {
     @apply flex;
 
-    margin-bottom: 10px;
-
     &:last-child {
       margin-bottom: 0;
     }
@@ -113,7 +111,7 @@
       transition: max-height $transition-duration;
 
       &.max-height-300 {
-        max-height: 300px;
+        max-height: 300px !important;
       }
     }
   }

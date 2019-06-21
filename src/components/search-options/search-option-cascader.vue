@@ -100,13 +100,13 @@
     line-height: $search-conditions-height;
 
     .el-input__inner {
-      height: $search-conditions-height;
-      line-height: $search-conditions-height;
+      height: $search-input-height;
+      line-height: $search-input-height;
       font-size: 14px;
     }
 
     .el-input__icon {
-      line-height: $search-conditions-height;
+      line-height: $search-input-height;
     }
   }
 </style>

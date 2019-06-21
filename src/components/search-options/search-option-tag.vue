@@ -2,7 +2,7 @@
   <div class="ej-search-option-tag">
     <ej-search-option-item v-show="isShow" :show-more="showMore" :change="options" label="已选条件">
       <div v-for="(item, index) in options" :key="index" class="ej-conditions-tag">
-        <el-tag v-show="item.children && item.children.length"
+        <el-tag v-if="item && item.children && item.children.length"
                 :title="`${item.label}：${mapListString(item.children, 'label', '、')}`"
                 closable
                 :style="style"
@@ -71,10 +71,6 @@
   @import './variables.scss';
 
   .ej-search-option-tag {
-    .ej-conditions-list .title {
-      padding-top: 5px;
-    }
-
     .ej-conditions-tag {
       @apply relative;
       padding-top: 5px;
@@ -83,8 +79,8 @@
       .el-tag {
         @apply text-gray-darkest;
 
-        height: $search-conditions-height;
-        line-height: $search-conditions-height;
+        height: $search-input-height;
+        line-height: $search-input-height;
         font-size: 14px;
         border: none;
         border-radius: 9px;
@@ -111,6 +107,10 @@
           }
         }
       }
+    }
+
+    .ej-conditions-list__content {
+      line-height: $search-input-height;
     }
   }
 </style>

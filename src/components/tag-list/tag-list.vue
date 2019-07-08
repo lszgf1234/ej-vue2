@@ -147,29 +147,31 @@
     border: none;
   }
 
-  .tag-add-btn-popper {
-    padding: 4px 6px;
-    line-height: 1.2;
-    min-width: 10px;
-  }
+  .el-tooltip__popper {
+    &.tag-add-btn-popper {
+      padding: 4px 6px;
+      line-height: 1.2;
+      min-width: 10px;
 
-  .tag-add-btn-popper.is-dark {
-    background: theme('colors.blue.lighter');
-    color: theme('colors.blue.default');
-    display: block;
-  }
+      &.is-dark {
+        background: theme('colors.blue.lighter');
+        color: theme('colors.blue.default');
+        display: block;
+      }
 
-  .tag-add-btn-popper[x-placement^=bottom] .popper__arrow {
-    top: -6px;
-    border-top-width: 0;
-    border-bottom-color: theme('colors.blue.lighter');
-  }
+      &[x-placement^=bottom] .popper__arrow {
+        top: -6px;
+        border-top-width: 0;
+        border-bottom-color: theme('colors.blue.lighter');
+      }
 
-  .tag-add-btn-popper[x-placement^=bottom] .popper__arrow::after {
-    top: 1px;
-    margin-left: -5px;
-    border-top-width: 0;
-    border-bottom-color: theme('colors.blue.lighter')
+      &[x-placement^=bottom] .popper__arrow::after {
+        top: 1px;
+        margin-left: -5px;
+        border-top-width: 0;
+        border-bottom-color: theme('colors.blue.lighter')
+      }
+    }
   }
 </style>
 

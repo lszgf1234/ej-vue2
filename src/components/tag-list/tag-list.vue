@@ -8,7 +8,7 @@
               @score-change="change => onTagScoreChange(idx, change)"
               @remove="removeTag(idx)"/>
     <div class="add-wrap">
-      <el-tooltip popper-class="tag-add-btn-popper" effect="dark" content="添加标签" placement="bottom">
+      <el-tooltip popper-class="ej-tag-popper tag-add-btn-popper" effect="dark" content="添加标签" placement="bottom">
         <a class="new-tag-button" @click="inputVisible = true"></a>
       </el-tooltip>
       <div v-show="inputVisible" class="new-tag-wrap">
@@ -147,7 +147,7 @@
     border: none;
   }
 
-  .el-tooltip__popper {
+  .ej-tag-popper {
     &.tag-add-btn-popper {
       padding: 4px 6px;
       line-height: 1.2;

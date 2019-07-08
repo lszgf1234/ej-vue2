@@ -98,11 +98,10 @@
 </script>
 
 <style lang="scss">
-  @import './variables.scss';
+  @import '../app-header/variables';
 
   $button-scale: .8;
   $input-width: 200px;
-  $animation-duration: 250ms;
 
   .ej-app-search {
     &__button {

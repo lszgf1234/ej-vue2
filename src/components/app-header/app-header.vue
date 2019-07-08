@@ -1,26 +1,25 @@
 <template>
   <div class="ej-app-header__wrap" :style="{height: height$}">
-    <div class="ej-app-header bg-black text-white flex w-full"
-         :class="{fixed}"
-         :style="{height: height$}">
-      <a href="javascript:" class="ej-app-logo flex-none flex items-center" @click="onClickLogo">
-        <ej-icon v-if="logo" :icon="logo" :class="{'mr-2': title}"/>
-        <span v-if="title" class="flex-none text-lg">{{title}}</span>
-      </a>
-
-      <slot/>
-
-      <div class="ej-app-tray flex-none ml-auto flex">
-        <slot v-if="$scopedSlots.tray" name="tray"/>
-        <ej-app-search v-if="options.search !== false"/>
-        <ej-app-notification v-if="options.notification !== false && hasVuex"/>
-        <a href="javascript:">
-          <i v-if="user.avatar && options.avatar !== false"
-             class="ej-app-user__avatar flex-none rounded-full bg-white opacity-50"
-             :class="{'mr-2': user.name && options.username !== false}"></i>
-          <span v-if="user.name && options.username !== false"
-                class="flex-none">{{user.name}}</span>
+    <div class="ej-app-header w-full" :class="{fixed}" :style="{height: height$}">
+      <div class="ej-app-header__inner mx-auto flex" :class="{'h-full': true}" :style="{width: width$}">
+        <a href="javascript:" class="ej-app-logo flex-none flex items-center" @click="onClickLogo">
+          <img v-if="logo" :src="logo" :alt="title" :class="{'mr-3': title}">
+          <span v-if="title" class="flex-none text-lg">{{title}}</span>
         </a>
+
+        <slot/>
+
+        <div class="ej-app-tray flex-none ml-auto flex">
+          <slot v-if="$scopedSlots.tray" name="tray"/>
+          <a href="javascript:" class="ej-app-user">
+            <img v-if="user.avatar"
+                 :src="user.avatar"
+                 alt=""
+                 class="ej-app-user__avatar flex-none rounded-full"
+                 :class="{'mr-2': user.name}">
+            <span v-if="user.name" class="flex-none">{{user.name}}</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -29,8 +28,8 @@
 <script>
   import {toCssSize} from '../../utils/ui'
   import EjIcon from '../icon'
-  import EjAppSearch from './app-search.vue'
-  import EjAppNotification from './app-notification.vue'
+  import EjAppSearch from '../app-search/app-search.vue'
+  import EjAppNotification from '../app-notification/app-notification.vue'
 
   export default {
     name: 'EjAppHeader',
@@ -46,6 +45,9 @@
         type: [Number, String],
         default: 50,
       },
+      width: {
+        type: Number,
+      },
       logo: {
         type: String,
       },
@@ -57,19 +59,16 @@
         default: () => ({}),
       },
       fixed: Boolean,
-      options: {
-        type: Object,
-        default: () => ({}),
-      },
     },
 
     computed: {
       height$ () {
         return toCssSize(this.height)
       },
-      hasVuex () {
-        return !!this.$store
-      }
+
+      width$ () {
+        return toCssSize(this.width)
+      },
     },
 
     methods: {
@@ -83,38 +82,35 @@
 </script>
 
 <style lang="scss">
-  @import './variables.scss';
-
   .ej-app-header {
+    @apply text-white;
+
     padding: 0 50px;
+    background: #1F2E4D;
   }
 
   .ej-app-logo {
-    margin-right: 30px;
+    img {
+      height: 30px;
+    }
 
-    i {
-      width: 24px;
-      height: 24px;
+    span {
+      @apply font-bold;
     }
   }
 
   .ej-app-tray {
     > * {
       @apply flex-none flex items-center;
-
-      margin-left: 30px;
-    }
-
-    .icon {
-      width: $tray-icon-size;
-      height: $tray-icon-size;
     }
   }
 
   .ej-app-user {
+    margin-left: 30px;
+
     &__avatar {
-      width: 24px;
-      height: 24px;
+      width: 26px;
+      height: 26px;
     }
   }
 </style>

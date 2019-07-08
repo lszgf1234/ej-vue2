@@ -10,45 +10,24 @@
       <el-badge :value="$store.state.notifications"
                 :hidden="!$store.state.notifications"
                 class="app-nav__message-btn ej-app-notification">
-        <ej-icon icon="bell" class="ej-app-notification__button" :class="{'text-blue': isPopperVisible}"/>
+        <ej-icon icon="bell" class="ej-app-notification__button"/>
       </el-badge>
     </a>
 
     <el-tabs v-model="activeName" stretch class="notice-tabs overflow-hidden shadow-lg rounded" @tab-click="handleTabsClick">
-      <el-tab-pane ref="first" name="first">
-        <template #label>
-          <div class="tab-label">
-            <span class="tab-label__name">通知</span>
-            <el-badge :value="notiNotify.length" class="tab-label__badge"/>
-          </div>
-        </template>
-
+      <el-tab-pane ref="first" name="first" :label="`通知 (${notiNotify.length})`">
         <notification-item v-bind="{list: notiNotify, type: noticeType.notify.type, text: noticeType.notify.text, moreRouter: noticeMoreRouter}"
                            @clear="handleClear"
                            @detail="handleDetail"/>
       </el-tab-pane>
 
-      <el-tab-pane ref="second" name="second">
-        <template #label>
-          <div class="tab-label">
-            <span class="tab-label__name">消息</span>
-            <el-badge :value="notiInformation.length" class="tab-label__badge"/>
-          </div>
-        </template>
-
+      <el-tab-pane ref="second" name="second" :label="`消息 (${notiInformation.length})`">
         <notification-item v-bind="{list: notiInformation, type: noticeType.information.type, text: noticeType.information.text, moreRouter: noticeMoreRouter}"
                            @clear="handleClear"
                            @detail="handleDetail"/>
       </el-tab-pane>
 
-      <el-tab-pane ref="third" name="third">
-        <template #label>
-          <div class="tab-label">
-            <span class="tab-label__name">待办</span>
-            <el-badge :value="notiCommission.length" class="tab-label__badge"/>
-          </div>
-        </template>
-
+      <el-tab-pane ref="third" name="third" :label="`待办 (${notiCommission.length})`">
         <notification-item v-bind="{list: notiCommission, type: noticeType.commission.type, text: noticeType.commission.text, moreRouter: noticeMoreRouter}"
                            @clear="handleClear"
                            @detail="handleDetail"/>
@@ -184,12 +163,13 @@
 </script>
 
 <style lang="scss">
-  @import './variables.scss';
+  @import '../app-header/variables';
 
   .ej-app-notification {
     &__button {
       width: $tray-icon-size;
       height: $tray-icon-size;
+      transition: color $animation-duration ease-out-cubic;
     }
   }
 
@@ -224,8 +204,10 @@
     }
   }
 
-  .app-nav__message-btn .notice-bell:hover {
-    @apply text-blue;
+  .app-nav__message-btn {
+    .el-badge__content {
+      @apply border-0;
+    }
   }
 
   .notice-tabs {
@@ -253,11 +235,5 @@
     &__badge {
       margin-left: .25em;
     }
-  }
-</style>
-
-<style lang="scss">
-  .tab-label__badge sup {
-    top: 0 !important;
   }
 </style>

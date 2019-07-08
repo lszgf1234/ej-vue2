@@ -1,4 +1,6 @@
 import AppHeader from './components/app-header'
+import AppNotification from './components/app-notification'
+import AppSearch from './components/app-search'
 import Icon from './components/icon'
 import InfoList from './components/info-list'
 import TextEditor from './components/text-editor'
@@ -16,6 +18,8 @@ import Loading from './directives/loading'
 
 export {
   AppHeader,
+  AppNotification,
+  AppSearch,
   Icon,
   InfoList,
   TextEditor,
@@ -35,6 +39,8 @@ export {
 export default {
   install: Vue => {
     Vue.use(AppHeader)
+    Vue.use(AppNotification)
+    Vue.use(AppSearch)
     Vue.use(Icon)
     Vue.use(InfoList)
     Vue.use(TextEditor)

@@ -8,7 +8,7 @@
               @score-change="change => onTagScoreChange(idx, change)"
               @remove="removeTag(idx)"/>
     <div class="add-wrap">
-      <el-tooltip popper-class="tag-add-btn-popper" effect="dark" content="添加标签" placement="bottom">
+      <el-tooltip popper-class="ej-tag-popper tag-add-btn-popper" effect="dark" content="添加标签" placement="bottom">
         <a class="new-tag-button" @click="inputVisible = true"></a>
       </el-tooltip>
       <div v-show="inputVisible" class="new-tag-wrap">
@@ -147,29 +147,31 @@
     border: none;
   }
 
-  .tag-add-btn-popper {
-    padding: 4px 6px;
-    line-height: 1.2;
-    min-width: 10px;
-  }
+  .ej-tag-popper {
+    &.tag-add-btn-popper {
+      padding: 4px 6px;
+      line-height: 1.2;
+      min-width: 10px;
 
-  .tag-add-btn-popper.is-dark {
-    background: theme('colors.blue.lighter');
-    color: theme('colors.blue.default');
-    display: block;
-  }
+      &.is-dark {
+        background: theme('colors.blue.lighter');
+        color: theme('colors.blue.default');
+        display: block;
+      }
 
-  .tag-add-btn-popper[x-placement^=bottom] .popper__arrow {
-    top: -6px;
-    border-top-width: 0;
-    border-bottom-color: theme('colors.blue.lighter');
-  }
+      &[x-placement^=bottom] .popper__arrow {
+        top: -6px;
+        border-top-width: 0;
+        border-bottom-color: theme('colors.blue.lighter');
+      }
 
-  .tag-add-btn-popper[x-placement^=bottom] .popper__arrow::after {
-    top: 1px;
-    margin-left: -5px;
-    border-top-width: 0;
-    border-bottom-color: theme('colors.blue.lighter')
+      &[x-placement^=bottom] .popper__arrow::after {
+        top: 1px;
+        margin-left: -5px;
+        border-top-width: 0;
+        border-bottom-color: theme('colors.blue.lighter')
+      }
+    }
   }
 </style>
 

@@ -8,6 +8,7 @@ import TextRenderer from './components/text-renderer'
 import Timeline from './components/timeline'
 import Popcard from './components/popcard'
 import TaskFlow from './components/task-flow'
+import TagList from './components/tag-list'
 import Highlight from './components/highlight'
 import SearchInput from './components/search-input'
 import SearchOptions from './components/search-options'
@@ -27,6 +28,7 @@ export {
   Timeline,
   Popcard,
   TaskFlow,
+  TagList,
   SearchInput,
   Highlight,
   SearchOptions,
@@ -48,6 +50,7 @@ export default {
     Vue.use(Timeline)
     Vue.use(Popcard)
     Vue.use(TaskFlow)
+    Vue.use(TagList)
     Vue.use(Highlight)
     Vue.use(SearchInput)
     Vue.use(SearchOptions)

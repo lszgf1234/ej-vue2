@@ -23,3 +23,13 @@
     },
   }
 </script>
+
+<style lang="scss">
+  @import '../app-header/variables';
+  .ej-app-setting {
+    &__button {
+      width: $tray-icon-size;
+      height: $tray-icon-size;
+    }
+  }
+</style>

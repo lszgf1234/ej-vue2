@@ -1,5 +1,6 @@
 import AppHeader from './components/app-header'
 import AppNotification from './components/app-notification'
+import AppSetting from './components/app-setting'
 import AppSearch from './components/app-search'
 import Icon from './components/icon'
 import InfoList from './components/info-list'
@@ -21,6 +22,7 @@ export {
   AppHeader,
   AppNotification,
   AppSearch,
+  AppSetting,
   Icon,
   InfoList,
   TextEditor,

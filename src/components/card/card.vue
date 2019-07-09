@@ -11,27 +11,27 @@
           </div>
           <div class="flex-1 ml-sm item-height">
             <div class="text-blue mb-xs flex items-center">
-              <span class="flex-1">{{data.name}}({{data.position}})</span>
+              <span class="flex-1">{{data.name}}（{{data.position}}）</span>
               <a v-if="hasEmail" href="javascript:" @click="mail"><i class="el-icon-message text-2xl"></i></a>
             </div>
             <div class="mb-xs flex items-center item-height">
               <img src="../../assets/icons/icon-id.svg" class="icon-id">
-              <span class="ml-sm">{{data.userId}}</span>
-            </div>
-            <div class="mb-xs flex items-center item-height">
-              <img src="../../assets/icons/icon-job1.svg" class="icon-job">
               <span class="ml-sm">{{data.jobNumber}}</span>
             </div>
             <div class="mb-xs flex items-center item-height">
-              <i class="el-icon-phone-outline text-lg"></i>
-              <span class="ml-sm">{{data.phoneNumber}}</span>
+              <img src="../../assets/icons/icon-job.svg" class="icon-job">
+              <span class="ml-sm">{{data.phone}}</span>
             </div>
             <div class="flex items-center item-height">
-              <i class="el-icon-message text-lg"></i>
-              <span class="ml-sm flex-1">{{data.email}}</span>
-              <a href="javascript:" @click="copy(data.email)"><i class="el-icon-document-copy"></i></a>
+              <ej-icon icon="phone" class="icon-job"></ej-icon>
+              <span class="ml-sm">{{data.telephone}}</span>
             </div>
           </div>
+        </div>
+        <div class="mb-xs flex items-center item-height">
+          <i class="el-icon-message text-lg"></i>
+          <span class="ml-sm mr-lg">{{data.email}}</span>
+          <a href="javascript:" @click="copy(data.email)"><i class="el-icon-document-copy"></i></a>
         </div>
         <div class="mb-xs flex items-center item-height">
           <i class="el-icon-menu text-lg"></i>
@@ -83,21 +83,6 @@
 
     methods: {
       show () {
-        /*
-        * 起点
-        * 左下角
-        * 右侧展示 默认
-        *   默认，左右都展示不开
-        *   x + width > clientWidth
-        * 左侧展示
-        *   右侧展示不开时
-        *
-        * 下侧展示
-        *   默认
-        * 上侧展示
-        *   下册展示不开
-        *
-        * */
         if (this.timer) {
           window.clearTimeout(this.timer)
           this.timer = null
@@ -182,11 +167,11 @@
 
     .card-img, .img-def {
       width: 80px;
-      height: 94px;
+      height: 80px;
     }
 
     .card-svg {
-      background-size: 100%;
+      background-size: cover;
       background-repeat: no-repeat;
       background-position-y: center;
     }

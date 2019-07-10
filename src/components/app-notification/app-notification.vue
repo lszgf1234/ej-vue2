@@ -174,7 +174,8 @@
   }
 
   .notification-wrapper {
-    @apply  p-0;
+    padding: 0 !important;
+
     svg {
       @apply inline-block;
     }

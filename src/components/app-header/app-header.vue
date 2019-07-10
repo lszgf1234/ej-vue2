@@ -27,18 +27,9 @@
 
 <script>
   import {toCssSize} from '../../utils/ui'
-  import EjIcon from '../icon'
-  import EjAppSearch from '../app-search/app-search.vue'
-  import EjAppNotification from '../app-notification/app-notification.vue'
 
   export default {
     name: 'EjAppHeader',
-
-    components: {
-      EjIcon,
-      EjAppSearch,
-      EjAppNotification,
-    },
 
     props: {
       height: {
@@ -102,11 +93,13 @@
   .ej-app-tray {
     > * {
       @apply flex-none flex items-center;
+
+      margin-right: 30px;
     }
   }
 
   .ej-app-user {
-    margin-left: 30px;
+    margin-right: 0;
 
     &__avatar {
       width: 26px;

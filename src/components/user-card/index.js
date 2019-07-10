@@ -1,4 +1,4 @@
-import Card from './card.vue'
+import Card from './user-card.vue'
 
 export default {
   ...Card,

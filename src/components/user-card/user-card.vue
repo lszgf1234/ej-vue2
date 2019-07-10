@@ -53,7 +53,7 @@
   import Icon from '../icon'
 
   export default {
-    name: 'EjCard',
+    name: 'EjUserCard',
 
     components: {
       [Icon.name]: Icon,

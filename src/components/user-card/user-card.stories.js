@@ -25,14 +25,14 @@ const data = {
   详情
 */
 
-storiesOf('Components|Card', module)
+storiesOf('Components|UserCard', module)
   .add('基本使用', () => ({
     template: `
-      <ej-card :data="data" :has-email="hasEmail" @mail="mail">
+      <ej-user-card :data="data" :has-email="hasEmail" @mail="mail">
         <template slot="img">
           <img style="width: 25px; height: 25px" :src="imgUrl">
         </template>
-      </ej-card>
+      </ej-user-card>
     `,
     props: {
       data: {

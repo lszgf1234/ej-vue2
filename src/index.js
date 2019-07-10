@@ -15,7 +15,7 @@ import SearchInput from './components/search-input'
 import SearchOptions from './components/search-options'
 import SearchOptionList from './components/search-option-list'
 import SearchOptionCascader from './components/search-option-cascader'
-import Card from './components/card'
+import UserCard from './components/user-card'
 
 import Loading from './directives/loading'
 
@@ -37,7 +37,7 @@ export {
   SearchOptions,
   SearchOptionList,
   SearchOptionCascader,
-  Card,
+  UserCard,
 
   Loading,
 }

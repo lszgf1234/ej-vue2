@@ -15,6 +15,7 @@ import SearchInput from './components/search-input'
 import SearchOptions from './components/search-options'
 import SearchOptionList from './components/search-option-list'
 import SearchOptionCascader from './components/search-option-cascader'
+import UserCard from './components/user-card'
 
 import Loading from './directives/loading'
 
@@ -36,6 +37,7 @@ export {
   SearchOptions,
   SearchOptionList,
   SearchOptionCascader,
+  UserCard,
 
   Loading,
 }
@@ -56,6 +58,7 @@ export default {
     Vue.use(Highlight)
     Vue.use(SearchInput)
     Vue.use(SearchOptions)
+    Vue.use(Card)
 
     Vue.use(Loading)
   },

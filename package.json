@@ -8,6 +8,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "clipboard": "^2.0.4",
     "element-ui": "^2.10.1",
     "highlight.js": "^9.15.8",
     "svg4everybody": "^2.1.9",

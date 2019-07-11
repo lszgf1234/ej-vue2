@@ -1,0 +1,44 @@
+<script lang="jsx">
+  import {Submenu as ElSubmenu} from 'element-ui'
+
+  export default {
+    name: 'EjNavSubmenu',
+
+    functional: true,
+
+    render: (h, {data, slots, children}) => {
+      data.staticClass = (data.staticClass || '') + ' ej-nav-submenu'
+      data.attrs['popper-class'] = (data.attrs['popper-class'] || '') + ' ej-nav-submenu-popper'
+
+      return (
+        <ElSubmenu {...{...data, slots}}>{children}</ElSubmenu>
+      )
+    },
+  }
+</script>
+
+<style lang="scss">
+  .ej-nav-submenu {
+    .el-submenu__icon-arrow {
+      @apply hidden;
+    }
+  }
+
+  .ej-nav-submenu-popper {
+    .el-menu--popup {
+      background: #1F2E4D;
+
+      .el-menu-item {
+        background: unset !important;
+
+        &:hover {
+          background: theme('colors.blue.default') !important;
+        }
+
+        &.is-active {
+          @apply text-blue;
+        }
+      }
+    }
+  }
+</style>

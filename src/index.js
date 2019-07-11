@@ -17,6 +17,9 @@ import SearchOptionList from './components/search-option-list'
 import SearchOptionCascader from './components/search-option-cascader'
 import UserCard from './components/user-card'
 
+import NavMenu from './components/nav-menu'
+import NavSubmenu from './components/nav-submenu'
+
 import Loading from './directives/loading'
 
 export {
@@ -39,6 +42,9 @@ export {
   SearchOptionCascader,
   UserCard,
 
+  NavMenu,
+  NavSubmenu,
+
   Loading,
 }
 
@@ -59,6 +65,9 @@ export default {
     Vue.use(SearchInput)
     Vue.use(SearchOptions)
     Vue.use(Card)
+
+    Vue.use(NavMenu)
+    Vue.use(NavSubmenu)
 
     Vue.use(Loading)
   },

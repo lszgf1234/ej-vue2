@@ -1,6 +1,9 @@
+import Vue from 'vue'
 import Vuex from 'vuex'
 
 import {messages, notifications, todos} from './mock-data'
+
+Vue.use(Vuex)
 
 export const Mutation = {}
 

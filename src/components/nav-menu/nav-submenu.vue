@@ -28,9 +28,14 @@
     .el-menu--popup {
       background: #1F2E4D;
 
-      .el-menu-item {
+      .el-menu-item,
+      .el-submenu,
+      .el-submenu__title {
         background: unset !important;
+      }
 
+      .el-menu-item,
+      .el-submenu {
         &:hover {
           background: theme('colors.blue.default') !important;
         }

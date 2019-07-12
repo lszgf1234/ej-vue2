@@ -44,7 +44,8 @@
           height: unset;
           line-height: unset;
 
-          &:hover {
+          &:hover,
+          &:focus {
             background: unset;
           }
         }

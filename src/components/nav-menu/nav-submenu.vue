@@ -32,6 +32,10 @@
       .el-submenu,
       .el-submenu__title {
         background: unset !important;
+
+        &:hover {
+          @apply text-white #{!important};
+        }
       }
 
       .el-menu-item,
@@ -42,6 +46,12 @@
 
         &.is-active {
           @apply text-blue;
+        }
+
+        &.is-opened {
+          > .el-submenu__title {
+            @apply text-white #{!important};
+          }
         }
       }
     }

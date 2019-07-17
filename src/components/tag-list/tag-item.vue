@@ -1,41 +1,32 @@
 <template>
-  <div class="ej-tag-item clearfix" @mouseenter="handleMouseenter" @mouseleave="handleMouseleave">
-    <div class="fl tag-item">
+  <div class="common-tag clearfix" @mouseenter="handleMouseenter" @mouseleave="handleMouseleave">
+    <div class="float-left tag-item">
       <el-tooltip placement="top" popper-class="tag-item-popper">
         <div slot="content" class="tooltip-content">{{name}}</div>
         <span class="tag-item-word">{{name}}</span>
       </el-tooltip>
     </div>
 
-    <span class="fl tag-count-btn">
+    <span class="float-left tag-count-btn bg-blue text-white">
       <i v-show="isVisibleCountNums" class="tag-count-nums">{{score}}</i>
       <i v-show="isVisibleAddBtn" class="tag-count-add" @click="handleAddCount"></i>
       <i v-show="isVisibleSubBtn" class="tag-count-sub" @click="handleSubCount"></i>
       <transition name="fade" @after-enter="fadeAnimation = false">
-        <em v-show="fadeAnimation" class="fade-up">{{voted ? '+1': '-1'}}</em>
+        <em v-show="fadeAnimation" class="fade-up text-theme-color">{{voted ? '+1': '-1'}}</em>
       </transition>
     </span>
-    <i v-show="isShowRemoveBtn" class="tag-count-remove" @click="remove"></i>
+    <i v-if="isShowRemoveBtn" class="tag-count-remove" @click="remove"></i>
   </div>
 </template>
 
 <script>
-  import {Tooltip} from 'element-ui'
+  import Vue from 'vue'
+  import {Tooltip, MessageBox} from 'element-ui'
 
-  import MessageUtil from '../../utils/message'
-
-  const REMOVE_CONFIRM_TEXT = {
-    message: '此操作将永久删除该标签, 是否继续?',
-    messageSuccessText: '删除成功',
-    messageErrorText: '已取消删除',
-  }
+  Vue.use(Tooltip)
 
   export default {
     name: 'TagItem',
-
-    components: {
-      [Tooltip.name]: Tooltip,
-    },
 
     props: {
       name: {
@@ -96,23 +87,20 @@
       },
 
       remove () {
-        MessageUtil.MessageBoxConfirm(
-          REMOVE_CONFIRM_TEXT,
-          () => {
-            this.$emit('remove')
-          },
-        )
+        MessageBox.confirm('此操作将永久删除该标签, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning',
+        }).then(() => {
+          this.$emit('remove')
+        })
       },
 
       handleAddCount () {
-        this.fadeAnimation = true
-        this.showCountNums()
         this.$emit('score-change', 1)
       },
 
       handleSubCount () {
-        this.fadeAnimation = true
-        this.showCountNums()
         this.$emit('score-change', -1)
       },
 
@@ -127,6 +115,7 @@
 </script>
 
 <style lang="scss" scoped>
+
   .tag-item-popper .tooltip-content {
     max-width: 200px;
     line-height: 18px;
@@ -134,30 +123,27 @@
     word-break: break-all;
   }
 
-  .ej-tag-item {
+  .common-tag {
     position: relative;
     margin-bottom: 8px;
-    display: inline-flex;
 
     &:hover {
       .tag-item {
-        color: theme('colors.blue.default');
+        @apply text-blue;
       }
     }
 
     .tag-item {
-      font-size: theme('fontSize.sm');
-      color: theme('colors.gray.darkest');
       border: none;
       min-width: 40px;
       height: 24px;
       line-height: 24px;
-      background: theme('colors.blue.lighter');
       position: relative;
       margin: 0 0 0 20px;
       padding: 0 4px;
       z-index: 2;
       border-radius: 0px 3px 3px 0px;
+      @apply text-sm text-gray-darkest bg-blue-lighter;
 
       &-word {
         max-width: 160px;
@@ -215,7 +201,6 @@
         position: relative;
         margin-left: -2px;
         display: block;
-        background: theme('colors.blue.default');
         min-width: 20px;
         height: 24px;
         z-index: 1;
@@ -225,9 +210,8 @@
         text-align: center;
         padding-left: 2px;
         border-bottom-right-radius: 4px;
-        color: theme('colors.white');
-        font-size: theme('fontSize.sm');
         cursor: pointer;
+        @apply text-sm;
       }
     }
 
@@ -235,11 +219,9 @@
       position: absolute;
       top: -5px;
       right: 0;
-      font-size: theme('fontSize.sm');
-      color: theme('colors.blue.default');
-      font-weight: 600;
       z-index: 2;
       opacity: 0;
+      @apply text-sm font-semibold;
     }
 
     .fade-enter-active {

@@ -1,17 +1,18 @@
 <template>
-  <div class="ej-tag-list">
+  <div class="ej-tags flex">
     <tag-item v-for="(tag, idx) in internalTags"
               :key="tag.name"
               v-bind="tag"
               @mouseenter="$emit('tag-mouseenter', {_index: idx, ...tag})"
               @mouseleave="$emit('tag-mouseleave', {_index: idx, ...tag})"
-              @score-change="change => onTagScoreChange(idx, change)"
-              @remove="removeTag(idx)"/>
-    <div class="add-wrap">
-      <el-tooltip popper-class="ej-tag-popper tag-add-btn-popper" effect="dark" content="添加标签" placement="bottom">
+              @score-change="onTagScoreChange(tag, idx)"
+              @remove="removeTag(tag, idx)"/>
+    <div class="relative">
+      <el-tooltip popper-class="tag-add-btn-popper" effect="dark" content="添加标签" placement="bottom">
         <a class="new-tag-button" @click="inputVisible = true"></a>
       </el-tooltip>
-      <div v-show="inputVisible" class="new-tag-wrap">
+
+      <div v-if="inputVisible" class="bg-white new-tag-wrap">
         <el-input ref="saveTagInput"
                   v-model="inputValue"
                   placeholder="写下标签"
@@ -27,16 +28,18 @@
 </template>
 
 <script>
+  import Vue from 'vue'
   import {Input, Tooltip} from 'element-ui'
 
   import TagItem from './tag-item.vue'
+
+  Vue.use(Input)
+  Vue.use(Tooltip)
 
   export default {
     name: 'EjTagList',
 
     components: {
-      [Input.name]: Input,
-      [Tooltip.name]: Tooltip,
       TagItem,
     },
 
@@ -89,27 +92,12 @@
     },
 
     methods: {
-      removeTag (idx) {
-        console.log('Tag to remove:', this.internalTags[idx])
-        this.internalTags.splice(idx, 1)
+      removeTag (tag, idx) {
+        this.$emit('tag-remove', tag, idx)
       },
 
-      onTagScoreChange (idx, change) {
-        const tag = this.internalTags[idx]
-        const newTag = {
-          ...tag,
-          score: tag.score + change,
-          voted: change > 0 ? true : change < 0 ? false : tag.voted,
-        }
-        this.$set(this.internalTags, idx, newTag)
-
-        const payload = {_index: idx, ...newTag}
-        // istanbul ignore else
-        if (change > 0) {
-          this.$emit('tag-score-up', payload)
-        } else if (change < 0) {
-          this.$emit('tag-score-down', payload)
-        }
+      onTagScoreChange (tag, idx) {
+        this.$emit('tag-score', tag, idx)
       },
 
       validate (ev) {
@@ -128,12 +116,7 @@
 
       save () {
         if (!this.errorTip && this.inputTrimmed) {
-          this.internalTags.push({
-            name: this.inputTrimmed,
-            score: 1,
-            voted: true,
-            removable: true,
-          })
+          this.$emit('tag-create', this.inputTrimmed)
         }
 
         this.inputVisible = false
@@ -142,56 +125,46 @@
   }
 </script>
 
-<style lang="scss">
-  .ej-tag-list .el-input__inner {
+<style lang="css">
+  .ej-tags .el-input__inner {
     border: none;
   }
 
-  .ej-tag-popper {
-    &.tag-add-btn-popper {
-      padding: 4px 6px;
-      line-height: 1.2;
-      min-width: 10px;
+  .tag-add-btn-popper {
+    padding: 4px 6px;
+    line-height: 1.2;
+    min-width: 10px;
+  }
 
-      &.is-dark {
-        background: theme('colors.blue.lighter');
-        color: theme('colors.blue.default');
-        display: block;
-      }
+  .tag-add-btn-popper.is-dark {
+    @apply bg-blue-lighter text-blue;
+    display: block;
+  }
 
-      &[x-placement^=bottom] .popper__arrow {
-        top: -6px;
-        border-top-width: 0;
-        border-bottom-color: theme('colors.blue.lighter');
-      }
+  .tag-add-btn-popper[x-placement^=bottom] .popper__arrow {
+    top: -6px;
+    @apply border-t-0 border-b bg-blue-lighter;
+  }
 
-      &[x-placement^=bottom] .popper__arrow::after {
-        top: 1px;
-        margin-left: -5px;
-        border-top-width: 0;
-        border-bottom-color: theme('colors.blue.lighter')
-      }
-    }
+  .tag-add-btn-popper[x-placement^=bottom] .popper__arrow::after {
+    top: 1px;
+    margin-left: -5px;
+    @apply border-t-0 border-b bg-blue-lighter;
   }
 </style>
 
-<style lang="scss">
-  .ej-tag-list {
+<style lang="scss" scoped>
+
+  .ej-tags {
     position: relative;
-    display: inline-flex;
-    margin-top: 5px;
+    flex-wrap: wrap;
 
     .error-tip {
       position: absolute;
       bottom: 4px;
       left: 26px;
-      font-size: theme('fontSize.sm');
-      color: theme('colors.red.default');
       transform: scale(.8);
-    }
-
-    .add-wrap {
-      position: relative;
+      @apply text-sm text-red;
     }
 
     .new-tag {
@@ -207,32 +180,32 @@
 
       &-input {
         width: 180px;
-        border: none;
-        border-bottom: 2px solid theme('colors.blue.light');
         vertical-align: bottom;
         margin: 0 auto;
+        @apply border-0 border-b-2 border-solid border-blue-light;
       }
 
       &-input-remove {
         width: 12px;
         height: 12px;
-        top: 7px;
         position: absolute;
         right: 7px;
+        top: 7px;
         cursor: pointer;
         background: url('../../assets/icons/tab-input-remove.svg') no-repeat center;
       }
 
       &-wrap {
+        @apply shadow-md;
+
         position: absolute;
-        top: 27px;
-        left: 9px;
         width: 230px;
         padding: 16px 0 20px;
         text-align: center;
-        background: theme('colors.white');
         border-radius: 2px;
-        box-shadow: 0 2px 4px 2px theme('colors.gray.default');
+        left: 0;
+        bottom: -70px;
+        z-index: 10
       }
     }
   }

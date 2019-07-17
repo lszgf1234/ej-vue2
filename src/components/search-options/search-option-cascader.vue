@@ -58,8 +58,10 @@
       },
     },
 
-    mounted () {
-      this.change()
+    watch: {
+      model () {
+        this.change()
+      },
     },
 
     methods: {

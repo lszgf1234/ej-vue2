@@ -151,7 +151,6 @@ storiesOf('Components|SearchOptions', module)
 
     methods: {
       confirm (val) {
-        console.log(val)
         action('confirm')(val)
       },
     }

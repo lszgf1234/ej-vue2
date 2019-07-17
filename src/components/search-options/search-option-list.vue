@@ -62,8 +62,10 @@
       },
     },
 
-    created () {
-      this.emitLables()
+    watch: {
+      selectedList () {
+        this.emitLables()
+      },
     },
 
     methods: {
@@ -76,7 +78,6 @@
         }
         // 修改v-model值
         this.$emit('input', value)
-        this.emitLables()
       },
       someSelected (list, key) {
         return list.some(item => {

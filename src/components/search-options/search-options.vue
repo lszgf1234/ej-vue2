@@ -3,7 +3,10 @@
     <ej-search-tag :options="options"
                    :show-more="defaultTagMore"
                    :max-width="maxWidthTag"
-                   @close="close"/>
+                   @close="close">
+        <template #prefix><slot name="tag-prefix" v-on="$listeners"/></template>
+        <template #suffix><slot name="tag-suffix" v-on="$listeners"/></template>
+    </ej-search-tag>
     <slot/>
   </div>
 </template>

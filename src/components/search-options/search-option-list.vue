@@ -2,7 +2,7 @@
   <ej-search-option-item :show-more="defaultMore" :label="label" :change="value">
     <div v-for="item in options"
          :key="item.value"
-         class="ej-conditions-item"
+         class="ej-conditions-list"
          :class="{'text-blue': someSelected(selectedList, item.value)}"
          @click="click(item.value)">
       {{item.label}}
@@ -97,7 +97,7 @@
 <style lang="scss">
   @import './variables.scss';
 
-  .ej-conditions-item {
+  .ej-conditions-list {
     @apply cursor-pointer whitespace-no-wrap;
 
     margin-right: 30px;

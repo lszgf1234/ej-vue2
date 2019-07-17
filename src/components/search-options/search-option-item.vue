@@ -1,8 +1,8 @@
 <template>
-  <div class="ej-conditions-list">
+  <div class="ej-conditions-item">
     <span class="title">{{label}}</span>
     <div ref="listWrapper"
-         class="ej-conditions-list__content"
+         class="ej-conditions-item__content"
          :class="{'max-height-300': isMore}">
       <div class="flex flex-wrap max-w-full" ref="listContent">
         <slot/>
@@ -86,7 +86,7 @@
 <style lang="scss">
   @import './variables.scss';
 
-  .ej-conditions-list {
+  .ej-conditions-item {
     @apply flex;
 
     &:last-child {

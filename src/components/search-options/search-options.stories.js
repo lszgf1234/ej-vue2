@@ -4,8 +4,10 @@ import {action} from '@storybook/addon-actions'
 import Vue from 'vue'
 
 import EjSearchOptions from '.'
+import EjSearchSetName from '../search-set-name/'
 
 Vue.use(EjSearchOptions)
+Vue.use(EjSearchSetName)
 
 const _conditionsOptions = [
   {
@@ -89,6 +91,9 @@ storiesOf('Components|SearchOptions', module)
   .add('基本用法', () => ({
     template: `
       <ej-search-options :default-tag-more="true" :max-width-tag="maxWidthTag" :style="{'width': '1000px', margin: '50px auto'}">
+        <template #tag-suffix>
+          <ej-search-set-name @confirm="confirm"/>
+        </template>
         <ej-search-option-list v-model="models.model1" label="常用条件" :options="conditionsOptions1"/>
         <ej-search-option-list :default-more="true" v-model="models.model2" label="机构名称" :options="conditionsOptions2"/>
         <ej-search-option-list v-model="models.model3" label="常用条件" :options="conditionsOptions3"/>
@@ -143,4 +148,11 @@ storiesOf('Components|SearchOptions', module)
         },
       },
     },
+
+    methods: {
+      confirm (val) {
+        console.log(val)
+        action('confirm')(val)
+      },
+    }
   }))

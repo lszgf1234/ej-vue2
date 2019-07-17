@@ -12,7 +12,9 @@ import TaskFlow from './components/task-flow'
 import TagList from './components/tag-list'
 import Highlight from './components/highlight'
 import SearchInput from './components/search-input'
+import SearchSetName from './components/search-set-name'
 import SearchOptions from './components/search-options'
+import SearchOptionItem from './components/search-option-item'
 import SearchOptionList from './components/search-option-list'
 import SearchOptionCascader from './components/search-option-cascader'
 import UserCard from './components/user-card'
@@ -37,7 +39,9 @@ export {
   TagList,
   SearchInput,
   Highlight,
+  SearchSetName,
   SearchOptions,
+  SearchOptionItem,
   SearchOptionList,
   SearchOptionCascader,
   UserCard,

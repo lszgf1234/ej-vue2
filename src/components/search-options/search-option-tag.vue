@@ -1,6 +1,7 @@
 <template>
   <div class="ej-search-option-tag">
     <ej-search-option-item v-show="isShow" :show-more="showMore" :change="options" label="已选条件">
+      <slot name="prefix"/>
       <div v-for="(item, index) in options" :key="index" class="ej-conditions-tag">
         <el-tag v-if="item && item.children && item.children.length"
                 :title="`${item.label}：${mapListString(item.children, 'label', '、')}`"
@@ -10,6 +11,7 @@
           {{`${item.label}：${mapListString(item.children, 'label', '、')}`}}
         </el-tag>
       </div>
+      <slot name="suffix"/>
     </ej-search-option-item>
   </div>
 </template>
@@ -109,7 +111,7 @@
       }
     }
 
-    .ej-conditions-list__content {
+    .ej-conditions-item__content {
       line-height: $search-input-height;
     }
   }

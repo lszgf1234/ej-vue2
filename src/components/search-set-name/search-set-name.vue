@@ -32,6 +32,12 @@
       }
     },
 
+    watch: {
+      visible (newVal) {
+        if (newVal) this.model = ''
+      },
+    },
+
     methods: {
       close () {
         this.visible = false

@@ -66,8 +66,10 @@
 
     methods: {
       change () {
-        // 子集value与不同父级value相同时出现bug  需要更新到v2.11.0
-        // https://github.com/ElemeFE/element/issues/16324
+        /**
+         * @TODO 子集value与不同父级value相同时出现bug  需要更新到v2.11.0
+         * https://github.com/ElemeFE/element/issues/16324
+         */
         this.$nextTick(_ => {
           const index = this.index
           const values = this.model

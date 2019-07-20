@@ -63,8 +63,9 @@
 
       params () {
         const options = this.options
+        const models = this.models
         return options.map((item, index) => {
-          return {model: this.models[index] || '', option: item}
+          return {model: models[index] || '', option: item}
         })
       },
     },
@@ -73,16 +74,21 @@
       value: {
         deep: true,
         immediate: true,
-        handler (newVal) {
-          this.$set(this, 'models', newVal)
+        handler (newVal = [], oldVal) {
+          const options = this.options
+          options.forEach((_, index) => {
+            return this.$set(this.models, index, newVal[index] || '')
+          })
           this.changeSource()
         },
-      }
+      },
     },
 
     methods: {
       change (val, index) {
-        this.$set(this.models, index, val)
+        let models = JSON.parse(JSON.stringify(this.models))
+        models.splice(index, 1, val)
+        this.$emit('input', models)
         this.changeSource()
       },
 
@@ -92,14 +98,19 @@
           const values = this.models
           const labels = this.$refs.ejSelect.map(item => item.getLabels())
 
+          let children = []
+          values.forEach((item, index) => {
+            if (item && item.length) {
+              children.push({
+                value: item,
+                label: labels[index],
+              })
+            }
+          })
+
           this.wrapperVm.setOptions(index, {
             label: this.label,
-            children: values.filter(item => item && item.length).map((item, i) => {
-              return {
-                value: item,
-                label: labels[i],
-              }
-            }),
+            children,
           })
         })
       },

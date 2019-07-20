@@ -15,6 +15,7 @@ storiesOf('Components|SearchList', module)
   .add('基本用法', () => ({
     template: `
       <ej-search-list :datas="datas"
+                      :keyword.sync="keyword"
                       :options.sync="models"
                       :style="{'width': '1000px', margin: '50px auto'}"
                       @search="search"/>
@@ -22,12 +23,12 @@ storiesOf('Components|SearchList', module)
 
     data () {
       return {
+        keyword: '',
         models: {
-          keyword: '',
           name: [],
           base: [],
           theme: [],
-          filter: ['01', '02'],
+          filter: [],
           format: [],
           share: [],
           status: [],
@@ -54,7 +55,7 @@ storiesOf('Components|SearchList', module)
           {
             key: 'filter',
             label: '过滤条件',
-            options: [SEARCH_OPTIONS.theme, SEARCH_OPTIONS.theme],
+            options: [SEARCH_OPTIONS.theme, SEARCH_OPTIONS.theme, SEARCH_OPTIONS.theme],
             component: EjSearchOptionSelect,
           },
           {
@@ -81,8 +82,8 @@ storiesOf('Components|SearchList', module)
 
     methods: {
       search (...args) {
-        action('search')(...args)
         console.log(...args)
+        action('search')(...args)
       },
     },
   }))

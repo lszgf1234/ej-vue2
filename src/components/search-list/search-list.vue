@@ -2,7 +2,7 @@
   <div class="ej-search-list">
     <div class="input-box flex justify-between items-center mb-4">
       <div class="flex items-end">
-        <ej-search-input v-model="keyword"
+        <ej-search-input v-model="keywordModel"
                          placeholder="请输入资料名称"
                          @search="search('btn')"/>
         <ej-select clearable
@@ -51,6 +51,7 @@
           {value: '1', label: '常用条件1', params: {base: '03,001', format: 'database,image,stream,file', theme: '02', name: '3', share: 'condition', status: ''}},
           {value: '2', label: '常用条件2', params: {base: '', format: '', theme: '03', name: '1', share: '', status: ''}},
         ],
+        models: {},
       }
     },
 
@@ -63,25 +64,36 @@
         type: Object,
         default: () => ({}),
       },
+      keyword: {
+        type: String,
+        default: '',
+      },
     },
 
     computed: {
-      models: {
+      keywordModel: {
         get () {
-          return this.options || {}
-        },
-        set (val) {
-          this.$emit('update:options', val)
-          // 数据改变时实时通知
-          this.search('hot')
-        },
-      },
-      keyword: {
-        get () {
-          return this.models.keyword
+          return this.keyword
         },
         set (keyword) {
-          this.$emit('update:options', Object.assign({}, this.models, {keyword}))
+          this.$emit('update:keyword', keyword)
+        },
+      },
+    },
+
+    watch: {
+      options: {
+        deep: true,
+        immediate: true,
+        handler (newVal) {
+          this.models = newVal
+        },
+      },
+      models: {
+        deep: true,
+        handler (newVal) {
+          this.$emit('update:options', newVal)
+          this.search('hot')
         },
       },
     },
@@ -128,14 +140,10 @@
         const obj = {}
         for (let i in params) {
           const item = params[i]
-          if (i === 'keyword') {
-            obj.keyword = item
+          if (item) {
+            obj[i] = item.split(',')
           } else {
-            if (item) {
-              obj[i] = item.split(',')
-            } else {
-              obj[i] = []
-            }
+            obj[i] = []
           }
         }
         return obj

@@ -23,8 +23,7 @@
                  :key="index"
                  :is="item.component"
                  v-model="models[item.key]"
-                 :label="item.label"
-                 :options="item.options"/>
+                 v-bind="item"/>
     </ej-search-options>
   </div>
 </template>

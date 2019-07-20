@@ -5,6 +5,7 @@ import Vue from 'vue'
 
 import EjSearchList from '.'
 import EjSearchOptionList from '../search-options/search-option-list'
+import EjSearchOptionSelect from '../search-option-select/search-option-select'
 import EjSearchOptionCascader from '../search-options/search-option-cascader'
 import SEARCH_OPTIONS from './search-options.js'
 
@@ -26,6 +27,7 @@ storiesOf('Components|SearchList', module)
           name: [],
           base: [],
           theme: [],
+          filter: ['01', '02'],
           format: [],
           share: [],
           status: [],
@@ -46,8 +48,14 @@ storiesOf('Components|SearchList', module)
           {
             key: 'theme',
             label: '主题资源',
-            options: SEARCH_OPTIONS.theme,
-            component: EjSearchOptionCascader,
+            options: [SEARCH_OPTIONS.theme],
+            component: EjSearchOptionSelect,
+          },
+          {
+            key: 'filter',
+            label: '过滤条件',
+            options: [SEARCH_OPTIONS.theme, SEARCH_OPTIONS.theme],
+            component: EjSearchOptionSelect,
           },
           {
             key: 'format',

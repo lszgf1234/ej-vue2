@@ -1,20 +1,26 @@
 <template>
   <ej-search-option-item :show-more="defaultMore" :label="label" :change="value">
-    <ej-select ref="ejSelect"
-               v-model="model"
-               :options="options"
-               @change="change"
-              c lass="search-option-select-view"/>
+    <template v-for="(item, index) in params">
+      <ej-select ref="ejSelect"
+                 clearable
+                 :key="index"
+                 v-model="item.model"
+                 :options="item.option"
+                 @change="change(item.model, index)"
+                 class="ej-search-option-select mr-3"/>
+    </template>
+    
   </ej-search-option-item>
 </template>
 
 <script>
-  import {SearchOptionItem as EjSearchOptionItem} from '@ej/ui'
-
   import EjSelect from './select'
+  import EjSearchOptionItem from '../search-options/search-option-item'
 
   export default {
     name: 'searchOptionSelect',
+
+    inheritAttrs: false,
 
     components: {
       EjSelect,
@@ -26,6 +32,12 @@
         type: Object,
         default: () => ({}),
       },
+    },
+
+    data () {
+      return {
+        models: [],
+      }
     },
 
     props: {
@@ -48,32 +60,46 @@
       index () {
         return this.$parent.$children.findIndex(item => item === this)
       },
-      model: {
-        get () {
-          return this.value[0] || ''
-        },
-        set (val) {
-          this.$emit('input', [val])
-        },
+
+      params () {
+        const options = this.options
+        return options.map((item, index) => {
+          return {model: this.models[index] || '', option: item}
+        })
       },
     },
 
     watch: {
-      model () {
-        this.change()
-      },
+      value: {
+        deep: true,
+        immediate: true,
+        handler (newVal) {
+          this.$set(this, 'models', newVal)
+          this.changeSource()
+        },
+      }
     },
 
     methods: {
-      change () {
+      change (val, index) {
+        this.$set(this.models, index, val)
+        this.changeSource()
+      },
+
+      changeSource () {
         this.$nextTick(_ => {
           const index = this.index
-          const value = this.model
-          const label = this.$refs.ejSelect.getLabels()
+          const values = this.models
+          const labels = this.$refs.ejSelect.map(item => item.getLabels())
 
           this.wrapperVm.setOptions(index, {
             label: this.label,
-            children: value.length ? [{value, label}] : [],
+            children: values.filter(item => item && item.length).map((item, i) => {
+              return {
+                value: item,
+                label: labels[i],
+              }
+            }),
           })
         })
       },
@@ -82,11 +108,15 @@
 </script>
 
 <style lang="scss">
-  @import '../../externals/ej-ui/src/components/search-options/variables.scss';
+  @import '../search-options/variables.scss';
 
-  .search-option-select-view {
-    width: 250px;
+  .ej-search-option-select {
+    width: 130px;
     line-height: $search-conditions-height;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
 
     .el-input__inner {
       height: $search-input-height;

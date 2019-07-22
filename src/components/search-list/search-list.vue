@@ -99,10 +99,6 @@
       },
     },
 
-    created () {
-
-    },
-
     watch: {
       options: {
         deep: true,
@@ -121,6 +117,9 @@
     },
 
     methods: {
+      init () {
+        this.requestCommonlyList()
+      },
       /**
        * @param {string} type btn:搜索按钮触发  hot:数据更改触发
        */

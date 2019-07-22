@@ -1,3 +1,5 @@
+const webpack = require('webpack')
+
 module.exports = async ({config}) => {
   const cssRule = config.module.rules.find(r => r.test.toString() === /\.css$/.toString())
 
@@ -7,6 +9,13 @@ module.exports = async ({config}) => {
     exclude: /node_modules/,
     loader: 'graphql-tag/loader'
   })
+
+  // 设置全局常量
+  config.plugins.push(
+    new webpack.DefinePlugin({
+      'IS_STORY_BOOK': 'true',
+    }),
+  )
 
   if (cssRule) {
     const postcss = cssRule.use.find(l => (l.loader || '').includes('postcss-loader'))

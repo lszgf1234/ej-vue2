@@ -11,6 +11,8 @@
   export default {
     name: 'EjSearchSelectTemplate',
 
+    inheritAttrs: false,
+
     props: {
       params: {
         type: Object,
@@ -29,11 +31,12 @@
 
     methods: {
       deleted () {
-        this.$apollo.query({
-          query: MUTATION_COMMONLY_DELETE,
-          fetchPolicy: 'network-only',
+        if (IS_STORY_BOOK) return
+        this.$apollo.mutate({
+          mutation: MUTATION_COMMONLY_DELETE,
           variables: {input: this.id},
         }).then(({data}) => {
+          if (!data.result) return
           this.$emit('deleted-select')
         })
       },

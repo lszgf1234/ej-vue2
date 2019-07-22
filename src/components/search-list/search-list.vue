@@ -56,7 +56,7 @@
       return {
         models: {},
         commonlyModel: '',
-        commonlyOptions: [{label: 'label', value: 'value', component: SelectTempalte}],
+        commonlyOptions: [],
       }
     },
 
@@ -115,8 +115,9 @@
     },
 
     created () {
-      // this.requestCommonlyList()
-      console.log(process.env)
+      if (!IS_STORY_BOOK) {
+        this.requestCommonlyList()
+      }
     },
 
     methods: {

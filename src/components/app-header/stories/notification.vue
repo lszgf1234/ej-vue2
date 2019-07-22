@@ -10,8 +10,9 @@
 
 <script>
   import EjAppNotification from '../../app-notification'
-  import store from './store'
-  import {notiCommission, notiInfomation, notiNotify, user} from './mock-data'
+  import store, {Mutation} from '../../app-notification/store'
+  import {notifications, messages, todos} from '../../app-notification/mock-data'
+  import {user} from './mock-data'
 
   export default {
     store,
@@ -27,9 +28,9 @@
     },
 
     beforeCreate () {
-      this.$store.commit('setInfomation', notiInfomation)
-      this.$store.commit('setNotify', notiNotify)
-      this.$store.commit('setCommission', notiCommission)
+      this.$store.commit(Mutation.setNotifications, notifications)
+      this.$store.commit(Mutation.setMessages, messages)
+      this.$store.commit(Mutation.setTodos, todos)
     },
   }
 </script>

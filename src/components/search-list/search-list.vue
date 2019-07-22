@@ -8,9 +8,10 @@
         <ej-select clearable
                    v-model="commonlyModel"
                    :options="commonlyOptions"
+                   @deleted-select="commonlyModel = ''"
                    @change="commonlyChange(commonlyModel, commonlyOptions)"
                    placeholder="常用条件"
-                   class="ej-search-list-select mb-1"/>
+                   class="ej-search-commonly-select mb-1"/>
       </div>
       <slot name="input-suffix"/>
     </div>
@@ -36,8 +37,10 @@
   import EjSearchInput from '../search-input/search-input'
   import EjSearchSetName from '../search-set-name/search-set-name'
   import EjSearchOptions from '../search-options/'
-  import MUTATION_COMMONLY_LIST from './grapgql/mutation_commonly_list.gql'
+  import SelectTempalte from './select-tempalte'
+
   import QUERY_COMMONLY_LIST from './grapgql/query_commonly_list.gql'
+  import MUTATION_COMMONLY_LIST from './grapgql/mutation_commonly_list.gql'
 
   export default {
     name: 'EjSearchList',
@@ -53,7 +56,7 @@
       return {
         models: {},
         commonlyModel: '',
-        commonlyOptions: [],
+        commonlyOptions: [{label: 'label', value: 'value', component: SelectTempalte}],
       }
     },
 
@@ -112,7 +115,8 @@
     },
 
     created () {
-      this.requestCommonlyList()
+      // this.requestCommonlyList()
+      console.log(process.env)
     },
 
     methods: {
@@ -196,8 +200,9 @@
       // 常用条件的参数
       handlerCommonlyOptions (list = []) {
         return list.map(item => {
-          const {userConditionId, conditionName, conditionContent} = item
+          const {userConditionId, conditionName, conditionContent, conditionId} = item
           return {
+            conditionId,
             value: userConditionId,
             label: conditionName,
             // params: JSON.parse(conditionContent),
@@ -211,8 +216,8 @@
 
 <style lang="scss">
   .ej-search-list {
-    .ej-search-list-select {
-      width: 120px;
+    .ej-search-commonly-select {
+      width: 140px;
       height: 26px;
       line-height: 26px;
       margin-left: 12px;

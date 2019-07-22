@@ -4,8 +4,11 @@
         ref="elSelectOption"
         v-for="item in options"
         v-bind="item"
-        :key="item.key"
-      />
+        :key="item.key">
+        <component :is="item.component"
+                   :params="item"
+                   v-on="$listeners"/>
+      </el-option>
   </el-select>
 </template>
 

@@ -1,6 +1,6 @@
 # 常用条件列表
 query userConditionSelectByUserId($input: UserConditionAppDTO) {
-  list (input: $input) {
+  list: userConditionSelectByUserId (input: $input) {
     userConditionId
     userId
     tenantId

@@ -1,5 +1,4 @@
 import {storiesOf} from '@storybook/vue'
-import {number, object} from '@storybook/addon-knobs'
 import {action} from '@storybook/addon-actions'
 import Vue from 'vue'
 

@@ -35,6 +35,8 @@
   import EjSelect from '../search-options/select/select'
   import EjSearchInput from '../search-input/search-input'
   import EjSearchSetName from '../search-set-name/search-set-name'
+  import EjSearchOptions from '../search-options/'
+  import MUTATION_COMMONLY_LIST from './grapgql/mutation_commonly_list.gql'
   import QUERY_COMMONLY_LIST from './grapgql/query_commonly_list.gql'
 
   export default {
@@ -44,16 +46,14 @@
       EjSelect,
       EjSearchInput,
       EjSearchSetName,
+      EjSearchOptions,
     },
 
     data () {
       return {
-        commonlyModel: '',
-        commonlyOptions: [
-          {value: '1', label: '常用条件1', params: {base: '03,001', format: 'database,image,stream,file', theme: '02', name: '3', share: 'condition', status: ''}},
-          {value: '2', label: '常用条件2', params: {base: '', format: '', theme: '03', name: '1', share: '', status: ''}},
-        ],
         models: {},
+        commonlyModel: '',
+        commonlyOptions: [],
       }
     },
 
@@ -76,14 +76,9 @@
         type: String,
         default: '',
       },
-      // 用户条件id
-      conditionId: {
-        type: String,
-        default: '',
-      },
       // 应用内页面id
       viewId: {
-        type: String,
+        type: [String, Number],
         default: '',
       },
     },
@@ -116,31 +111,59 @@
       },
     },
 
+    created () {
+      this.requestCommonlyList()
+    },
+
     methods: {
-      init () {
-        this.requestCommonlyList()
-      },
       /**
        * @param {string} type btn:搜索按钮触发  hot:数据更改触发
        */
       search (type = 'btn') {
         this.$emit('search', type, this.handlerParams(this.models))
       },
-   
+
+      // 获取常用条件
+      requestCommonlyList () {
+        const appKey = this.appKey
+        const pageId = this.viewId
+
+        this.$apollo.query({
+          query: QUERY_COMMONLY_LIST,
+          fetchPolicy: 'network-only',
+          variables: {input: {appKey}},
+        }).then(({data}) => {
+          this.commonlyOptions = this.handlerCommonlyOptions(data.list)
+        })
+      },
+
+      // 设置常用条件
+      setNameConfirm (label) {
+        this.$apollo.mutate({
+          mutation: MUTATION_COMMONLY_LIST,
+          variables: {
+            input: {
+              conditionName: label,
+              conditionContent: JSON.stringify(this.handlerParams(this.models)),
+              pageId: this.viewId,
+              appKey: this.appKey,
+            },
+          },
+        }).then(res => {
+          console.log(res)
+        })
+        // this.commonlyOptions.push({
+        //   label,
+        //   value: new Date().toString(),
+        //   params: this.handlerParams(this.models),
+        // })
+      },
+
       // 预填通用条件
       commonlyChange (val, options = []) {
         // 获取要预填的参数
         const selected = options.find(item => item.value === val) || {}
         this.$set(this, 'models', this.resetParams(selected.params))
-      },
-
-      // 设置常用条件
-      setNameConfirm (label) {
-        this.commonlyOptions.push({
-          label,
-          value: new Date().toString(),
-          params: this.handlerParams(this.models),
-        })
       },
 
       // 转换参数为键值对形式
@@ -170,13 +193,16 @@
         return obj
       },
 
-      // 获取常用条件
-      requestCommonlyList () {
-        this.$apollo.query({
-          query: QUERY_COMMONLY_LIST,
-          fetchPolicy: 'network-only',
-        }).then((data) => {
-          console.log(data)
+      // 常用条件的参数
+      handlerCommonlyOptions (list = []) {
+        return list.map(item => {
+          const {userConditionId, conditionName, conditionContent} = item
+          return {
+            value: userConditionId,
+            label: conditionName,
+            // params: JSON.parse(conditionContent),
+            params: {base: '03,001', format: 'database,image,stream,file', theme: '02', name: '3', share: 'condition', status: ''},
+          }
         })
       },
     },

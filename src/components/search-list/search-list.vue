@@ -35,6 +35,7 @@
   import EjSelect from '../search-options/select/select'
   import EjSearchInput from '../search-input/search-input'
   import EjSearchSetName from '../search-set-name/search-set-name'
+  import QUERY_COMMONLY_LIST from './grapgql/query_commonly_list.gql'
 
   export default {
     name: 'EjSearchList',
@@ -69,6 +70,22 @@
         type: String,
         default: '',
       },
+
+      // 应用key
+      appKey: {
+        type: String,
+        default: '',
+      },
+      // 用户条件id
+      conditionId: {
+        type: String,
+        default: '',
+      },
+      // 应用内页面id
+      viewId: {
+        type: String,
+        default: '',
+      },
     },
 
     computed: {
@@ -80,6 +97,10 @@
           this.$emit('update:keyword', keyword)
         },
       },
+    },
+
+    created () {
+
     },
 
     watch: {
@@ -148,6 +169,16 @@
           }
         }
         return obj
+      },
+
+      // 获取常用条件
+      requestCommonlyList () {
+        this.$apollo.query({
+          query: QUERY_COMMONLY_LIST,
+          fetchPolicy: 'network-only',
+        }).then((data) => {
+          console.log(data)
+        })
       },
     },
   }

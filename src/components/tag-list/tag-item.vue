@@ -20,13 +20,14 @@
 </template>
 
 <script>
-  import Vue from 'vue'
   import {Tooltip, MessageBox} from 'element-ui'
-
-  Vue.use(Tooltip)
 
   export default {
     name: 'TagItem',
+
+    components: {
+      [Tooltip.name]: Tooltip,
+    },
 
     props: {
       name: {

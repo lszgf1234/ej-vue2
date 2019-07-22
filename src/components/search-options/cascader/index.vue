@@ -11,7 +11,7 @@
 <script>
   import {Cascader as ElCascader} from 'element-ui'
 
-  import EjSearchOptionItem from './search-option-item'
+  import EjSearchOptionItem from '../item/index'
 
   export default {
     name: 'EjSearchOptionCascader',
@@ -52,8 +52,11 @@
     },
 
     watch: {
-      model () {
-        this.change()
+      model: {
+        immediate: true,
+        handler () {
+          this.change()
+        },
       },
     },
 
@@ -92,7 +95,7 @@
 </script>
 
 <style lang="scss">
-  @import './variables.scss';
+  @import '../variables.scss';
 
   .ej-cascader-item.el-cascader {
     width: 250px;

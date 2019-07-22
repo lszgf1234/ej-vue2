@@ -15,10 +15,10 @@
 
 <script>
   import EjSelect from './select'
-  import EjSearchOptionItem from '../search-options/search-option-item'
+  import EjSearchOptionItem from '../item/index'
 
   export default {
-    name: 'searchOptionSelect',
+    name: 'EjSearchOptionSelect',
 
     inheritAttrs: false,
 
@@ -112,7 +112,7 @@
 </script>
 
 <style lang="scss">
-  @import '../search-options/variables.scss';
+  @import '../variables.scss';
 
   .ej-search-option-select {
     width: 130px;

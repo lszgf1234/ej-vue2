@@ -4,10 +4,12 @@ import {action} from '@storybook/addon-actions'
 import Vue from 'vue'
 
 import EjSearchOptions from '.'
-import EjSearchSetName from '../search-set-name/'
+import EjSearchOptionsList from './list'
+import EjSearchOptionsCascader from './cascader'
 
 Vue.use(EjSearchOptions)
-Vue.use(EjSearchSetName)
+Vue.use(EjSearchOptionsList)
+Vue.use(EjSearchOptionsCascader)
 
 const _conditionsOptions = [
   {
@@ -128,7 +130,7 @@ storiesOf('Components|SearchOptions', module)
           model1: ['cy1', 'cy3'],
           model2: [],
           model3: [],
-          model4: ['zhinan', 'daohang', 'dingbudaohang'],
+          model4: ['zhinan', 'daohang', 'cexiangdaohang'],
           model5: [],
         },
       }

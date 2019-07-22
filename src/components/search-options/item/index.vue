@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  import EjSearchOptionMore from './search-option-more'
+  import EjSearchOptionMore from '../more/index'
 
   export default {
     name: 'EjSearchOptionItem',
@@ -84,7 +84,7 @@
 </script>
 
 <style lang="scss">
-  @import './variables.scss';
+  @import '../variables.scss';
 
   .ej-conditions-item {
     @apply flex;

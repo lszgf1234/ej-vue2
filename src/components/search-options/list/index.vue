@@ -15,8 +15,7 @@
 
 <script>
   import {Tag as ElTag} from 'element-ui'
-
-  import EjSearchOptionItem from './search-option-item'
+  import EjSearchOptionItem from '../item/index'
 
   export default {
     name: 'EjSearchOptionList',
@@ -94,7 +93,7 @@
 </script>
 
 <style lang="scss">
-  @import './variables.scss';
+  @import '../variables.scss';
 
   .ej-conditions-list {
     @apply cursor-pointer whitespace-no-wrap;

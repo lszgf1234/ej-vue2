@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import EjSearchTag from './search-option-tag'
+  import EjSearchTag from './tag/index'
 
   export default {
     name: 'EjSearchOptions',

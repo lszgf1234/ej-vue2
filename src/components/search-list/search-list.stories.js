@@ -4,9 +4,9 @@ import {action} from '@storybook/addon-actions'
 import Vue from 'vue'
 
 import EjSearchList from '.'
-import EjSearchOptionList from '../search-options/search-option-list'
-import EjSearchOptionSelect from '../search-option-select/search-option-select'
-import EjSearchOptionCascader from '../search-options/search-option-cascader'
+import EjSearchOptionList from '../search-options/list'
+import EjSearchOptionSelect from '../search-options/select'
+import EjSearchOptionCascader from '../search-options/cascader'
 import SEARCH_OPTIONS from './search-options.js'
 
 Vue.use(EjSearchList)

@@ -32,9 +32,8 @@
 </template>
 
 <script>
-  import EjSelect from '../search-option-select/select'
+  import EjSelect from '../search-options/select/select'
   import EjSearchInput from '../search-input/search-input'
-  import EjSearchOptions from '../search-options/search-options'
   import EjSearchSetName from '../search-set-name/search-set-name'
 
   export default {
@@ -43,7 +42,6 @@
     components: {
       EjSelect,
       EjSearchInput,
-      EjSearchOptions,
       EjSearchSetName,
     },
 

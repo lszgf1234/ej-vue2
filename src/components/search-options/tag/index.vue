@@ -19,7 +19,7 @@
 <script>
   import {Tag as ElTag} from 'element-ui'
 
-  import EjSearchOptionItem from './search-option-item.vue'
+  import EjSearchOptionItem from '../item/index.vue'
 
   export default {
     name: 'EjSearchOptionTag',
@@ -70,7 +70,7 @@
 </script>
 
 <style lang="scss">
-  @import './variables.scss';
+  @import '../variables.scss';
 
   .ej-search-option-tag {
     .ej-conditions-tag {

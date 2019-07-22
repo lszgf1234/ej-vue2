@@ -17,6 +17,7 @@ import SearchSetName from './components/search-set-name'
 import SearchOptions from './components/search-options'
 import SearchOptionItem from './components/search-options/item'
 import SearchOptionList from './components/search-options/list'
+import SearchOptionSelect from './components/search-options/select'
 import SearchOptionCascader from './components/search-options/cascader'
 import UserCard from './components/user-card'
 
@@ -45,6 +46,7 @@ export {
   SearchOptions,
   SearchOptionItem,
   SearchOptionList,
+  SearchOptionSelect,
   SearchOptionCascader,
   UserCard,
 

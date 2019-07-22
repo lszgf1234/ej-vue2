@@ -17,13 +17,16 @@
 
     <ej-search-options :default-tag-more="true">
       <template #tag-suffix>
-        <ej-search-set-name @confirm="setNameConfirm"/>
+        <ej-search-set-name  @confirm="setNameConfirm"/>
       </template>
-      <component v-for="(item, index) in datas"
-                 :key="index"
-                 :is="item.component"
-                 v-model="models[item.key]"
-                 v-bind="item"/>
+      <template #default="{setOptions}">
+        <component v-for="(item, index) in datas"
+                  :key="index"
+                  :is="item.component"
+                  v-model="models[item.key]"
+                  v-bind="item"
+                  @setOptions="setOptions"/>
+      </template>
     </ej-search-options>
   </div>
 </template>

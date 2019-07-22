@@ -26,13 +26,6 @@
       EjSearchOptionItem,
     },
 
-    inject: {
-      wrapperVm: {
-        type: Object,
-        default: () => ({}),
-      },
-    },
-
     props: {
       defaultMore: Boolean,
       options: {
@@ -63,8 +56,11 @@
     },
 
     watch: {
-      selectedList () {
-        this.emitLables()
+      selectedList: {
+        immediate: true,
+        handler () {
+          this.emitLables()
+        },
       },
     },
 
@@ -79,14 +75,16 @@
         // 修改v-model值
         this.$emit('input', value)
       },
+
       someSelected (list, key) {
         return list.some(item => {
           return item && item.value === key
         })
       },
+
       emitLables () {
         const index = this.index
-        this.wrapperVm.setOptions(index, {
+        this.$emit('setOptions', index, {
           label: this.label,
           children: this.selectedList,
         })

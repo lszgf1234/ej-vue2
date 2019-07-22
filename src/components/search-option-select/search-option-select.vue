@@ -27,13 +27,6 @@
       EjSearchOptionItem,
     },
 
-    inject: {
-      wrapperVm: {
-        type: Object,
-        default: () => ({}),
-      },
-    },
-
     data () {
       return {
         models: [],
@@ -108,7 +101,7 @@
             }
           })
 
-          this.wrapperVm.setOptions(index, {
+          this.$emit('setOptions', index, {
             label: this.label,
             children,
           })

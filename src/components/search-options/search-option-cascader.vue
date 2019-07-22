@@ -21,13 +21,6 @@
       EjSearchOptionItem,
     },
 
-    inject: {
-      wrapperVm: {
-        type: Object,
-        default: () => ({}),
-      },
-    },
-
     props: {
       defaultMore: Boolean,
       options: {
@@ -83,7 +76,7 @@
             checkedNodes = checkedNodes.parent
           }
 
-          this.wrapperVm.setOptions(index, {
+          this.$emit('setOptions', index, {
             label: this.label,
             children: values.map((item, i) => {
               return {

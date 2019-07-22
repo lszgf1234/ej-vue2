@@ -7,7 +7,7 @@
         <template #prefix><slot name="tag-prefix" v-on="$listeners"/></template>
         <template #suffix><slot name="tag-suffix" v-on="$listeners"/></template>
     </ej-search-tag>
-    <slot/>
+    <slot :setOptions="setOptions"/>
   </div>
 </template>
 
@@ -19,12 +19,6 @@
 
     components: {
       EjSearchTag,
-    },
-
-    provide () {
-      return {
-        wrapperVm: this,
-      }
     },
 
     props: {

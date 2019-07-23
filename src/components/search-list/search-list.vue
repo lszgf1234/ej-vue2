@@ -134,6 +134,7 @@
         this.$apollo.query({
           query: QUERY_COMMONLY_LIST,
           fetchPolicy: 'network-only',
+          client: 'apolloUserClient',
           variables: {input: {appKey}},
         }).then(({data}) => {
           this.commonlyOptions = this.handlerCommonlyOptions(data.list)
@@ -144,6 +145,7 @@
       setNameConfirm (label) {
         this.$apollo.mutate({
           mutation: MUTATION_COMMONLY_LIST,
+          client: 'apolloUserClient',
           variables: {
             input: {
               conditionName: label,
@@ -155,11 +157,12 @@
         }).then(({data}) => {
           if (!data) return
           const result = data.result[0]
-          const {appKey, conditionContent, conditionName, userConditionId} = result
+          const {conditionContent, conditionName, userConditionId} = result
           this.commonlyOptions.push({
             label: conditionName,
             value: userConditionId,
             params: this.handlerParams(JSON.parse(conditionContent)),
+            component: SelectTempalte,
           })
         })
       },
@@ -209,9 +212,8 @@
       // 常用条件的参数
       handlerCommonlyOptions (list = []) {
         return list.map(item => {
-          const {userConditionId, conditionName, conditionContent, conditionId} = item
+          const {userConditionId, conditionName, conditionContent} = item
           return {
-            conditionId,
             value: userConditionId,
             label: conditionName,
             params: JSON.parse(conditionContent),

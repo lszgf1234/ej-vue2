@@ -33,7 +33,8 @@
       deleted () {
         this.$apollo.mutate({
           mutation: MUTATION_COMMONLY_DELETE,
-          variables: {input: this.id},
+          client: 'apolloUserClient',
+          variables: {input: [this.id]},
         }).then(({data}) => {
           if (!data.result) return
           this.$emit('deleted-select', this.id)

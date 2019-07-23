@@ -33,6 +33,8 @@
 </template>
 
 <script>
+  import { Message } from 'element-ui';
+
   import EjSelect from '../search-options/select/select'
   import EjSearchInput from '../search-input/search-input'
   import EjSearchSetName from '../search-set-name/search-set-name'
@@ -154,8 +156,9 @@
               appKey: this.appKey,
             },
           },
-        }).then(({data}) => {
-          if (!data) return
+        })
+        .then(({data}) => {
+          if (!data || !data.result) return
           const result = data.result[0]
           const {conditionContent, conditionName, userConditionId} = result
           this.commonlyOptions.push({
@@ -164,6 +167,10 @@
             params: this.handlerParams(JSON.parse(conditionContent)),
             component: SelectTempalte,
           })
+          Message.success('设置常用条件成功')
+        }).catch((err) => {
+          console.error(err)
+          Message.error('设置常用条件失败')
         })
       },
 
@@ -173,6 +180,7 @@
         if (index === -1) return
         this.commonlyOptions.splice(index, 1)
         this.commonlyModel = ''
+        Message.success('删除常用条件成功')
       },
 
       // 预填通用条件

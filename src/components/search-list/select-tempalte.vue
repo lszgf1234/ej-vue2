@@ -6,6 +6,8 @@
 </template>
 
 <script>
+  import { Message } from 'element-ui';
+
   import MUTATION_COMMONLY_DELETE from './grapgql/mutation_commonly_delete.gql'
 
   export default {
@@ -36,8 +38,11 @@
           client: 'apolloUserClient',
           variables: {input: [this.id]},
         }).then(({data}) => {
-          if (!data.result) return
+          if (!data || !data.result) return
           this.$emit('deleted-select', this.id)
+        }).catch((err) => {
+          console.error(err)
+          Message.error('删除常用条件失败')
         })
       },
     }

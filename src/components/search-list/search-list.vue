@@ -16,7 +16,7 @@
       <slot name="input-suffix"/>
     </div>
 
-    <ej-search-options :default-tag-more="true">
+    <ej-search-options :default-tag-more="defaultTagMore" :max-width-tag="maxWidthTag">
       <template #tag-suffix>
         <ej-search-set-name  @confirm="setNameConfirm"/>
       </template>
@@ -75,7 +75,14 @@
         type: String,
         default: '',
       },
-
+      defaultTagMore: {
+        type: Boolean,
+        default: true,
+      },
+      maxWidthTag: {
+        type: String,
+        default: '',
+      },
       // 应用key
       appKey: {
         type: String,
@@ -117,6 +124,14 @@
     },
 
     created () {
+      if (!this.$apollo) {
+        this.$apollo = {
+          query () {return this},
+          mutate () {return this},
+          then () {return this},
+          catch () {return this},
+        }
+      }
       this.requestCommonlyList()
     },
 

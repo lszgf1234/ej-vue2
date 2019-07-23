@@ -1,4 +1,5 @@
 import {storiesOf} from '@storybook/vue'
+import {number} from '@storybook/addon-knobs'
 import {action} from '@storybook/addon-actions'
 import Vue from 'vue'
 
@@ -17,6 +18,8 @@ storiesOf('Components|SearchList', module)
                       :keyword.sync="keyword"
                       :options.sync="models"
                       :style="{'width': '1000px', margin: '50px auto'}"
+                      :default-tag-more="false"
+                      :max-width-tag="maxWidthTag"
                       @search="search"/>
     `,
 
@@ -77,6 +80,12 @@ storiesOf('Components|SearchList', module)
           },
         ],
       }
+    },
+
+    props: {
+      maxWidthTag: {
+        default: number('maxWidthTag', 100) + '%',
+      },
     },
 
     methods: {

@@ -8,7 +8,7 @@
         <ej-select clearable
                    v-model="commonlyModel"
                    :options="commonlyOptions"
-                   @deleted-select="commonlyModel = ''"
+                   @deleted-select="deletedOptions"
                    @change="commonlyChange(commonlyModel, commonlyOptions)"
                    placeholder="常用条件"
                    class="ej-search-commonly-select mb-1"/>
@@ -115,9 +115,7 @@
     },
 
     created () {
-      if (!IS_STORY_BOOK) {
-        this.requestCommonlyList()
-      }
+      this.requestCommonlyList()
     },
 
     methods: {
@@ -154,14 +152,24 @@
               appKey: this.appKey,
             },
           },
-        }).then(res => {
-          console.log(res)
+        }).then(({data}) => {
+          if (!data) return
+          const result = data.result[0]
+          const {appKey, conditionContent, conditionName, userConditionId} = result
+          this.commonlyOptions.push({
+            label: conditionName,
+            value: userConditionId,
+            params: this.handlerParams(JSON.parse(conditionContent)),
+          })
         })
-        // this.commonlyOptions.push({
-        //   label,
-        //   value: new Date().toString(),
-        //   params: this.handlerParams(this.models),
-        // })
+      },
+
+      // 删除选项
+      deletedOptions (id) {
+        const index = this.commonlyOptions.findIndex(item => item.value === id)
+        if (index === -1) return
+        this.commonlyOptions.splice(index, 1)
+        this.commonlyModel = ''
       },
 
       // 预填通用条件
@@ -206,8 +214,8 @@
             conditionId,
             value: userConditionId,
             label: conditionName,
-            // params: JSON.parse(conditionContent),
-            params: {base: '03,001', format: 'database,image,stream,file', theme: '02', name: '3', share: 'condition', status: ''},
+            params: JSON.parse(conditionContent),
+            component: SelectTempalte,
           }
         })
       },

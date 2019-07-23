@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between items-center">
+  <div class="ej-search-select-tempalte flex justify-between items-center">
     {{label}}
     <i class="el-icon-circle-close" @click.stop="deleted()"/>
   </div>
@@ -25,22 +25,42 @@
         return this.params.label || ''
       },
       id () {
-        return this.params.conditionId || ''
+        return this.params.value || ''
       },
     },
 
     methods: {
       deleted () {
-        if (IS_STORY_BOOK) return
         this.$apollo.mutate({
           mutation: MUTATION_COMMONLY_DELETE,
           variables: {input: this.id},
         }).then(({data}) => {
           if (!data.result) return
-          this.$emit('deleted-select')
+          this.$emit('deleted-select', this.id)
         })
       },
     }
   }
 </script>
+
+
+<style lang="scss">
+  .ej-search-select-tempalte {
+    &:hover {
+      .el-icon-circle-close {
+        @apply inline-block;
+      }
+    }
+
+    .el-icon-circle-close {
+      @apply hidden;
+
+      transition: color .2s;
+
+      &:hover {
+        @apply text-blue-light;
+      }
+    }
+  }
+</style>
 

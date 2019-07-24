@@ -21,12 +21,7 @@
         <ej-search-set-name  @confirm="setNameConfirm"/>
       </template>
       <template #default="{setOptions}">
-        <component v-for="(item, index) in datas"
-                  :key="index"
-                  :is="item.component"
-                  v-model="models[item.key]"
-                  v-bind="item"
-                  @setOptions="setOptions"/>
+        <slot :setOptions="setOptions"/>
       </template>
     </ej-search-options>
   </div>

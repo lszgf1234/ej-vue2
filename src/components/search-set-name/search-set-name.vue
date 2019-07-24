@@ -5,7 +5,7 @@
     class="set-name-view"
     popper-class="set-name-popper">
     <h3>新常用条件名称</h3>
-    <el-input v-model="model" class="mt-1"/>
+    <el-input v-model="model" @keyup.enter.native="confirm(model)" class="mt-1"/>
     <div class="text-center mt-2">
       <el-button size="small" @click="close()">取消</el-button>
       <el-button type="primary" @click="confirm(model)" size="small">确定</el-button>

@@ -28,20 +28,23 @@
 
     data () {
       return {
-        options: [],
+        options: {},
       }
     },
 
     methods: {
-      close (index, item) {
-        // slot之前还有'已选条件'组件 index+1
-        this.$children[++index].$listeners.input([])
-        this.setOptions(index, item)
+      close (key, value) {
+        this.$children.forEach(item => {
+          if (item.prop === key) {
+            item.$listeners.input([])
+          }
+        })
+        this.$delete(this.options, key)
       },
-      setOptions (index, item) {
-        if (index === -1) return
-        // slot之前还有'已选条件'组件 index-1
-        this.$set(this.options, index - 1, item)
+
+      setOptions (key, item = {}) {
+        if (!key || !item.value || !item.value.length) return
+        this.$set(this.options, key, item)
       },
     },
   }

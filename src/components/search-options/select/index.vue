@@ -39,6 +39,10 @@
         type: Array,
         default: () => [],
       },
+      prop: {
+        type: String,
+        default: '',
+      },
       value: {
         type: Array,
         default: () => [],
@@ -89,21 +93,11 @@
         this.$nextTick(_ => {
           const index = this.index
           const values = this.models
-          const labels = this.$refs.ejSelect.map(item => item.getLabels())
-
-          let children = []
-          values.forEach((item, index) => {
-            if (item && item.length) {
-              children.push({
-                value: item,
-                label: labels[index],
-              })
-            }
-          })
-
-          this.$emit('setOptions', index, {
-            label: this.label,
-            children,
+          let labels = this.$refs.ejSelect.map(item => item.getLabels())
+          
+          this.$emit('setOptions', this.prop, {
+            label: `${this.label}：${labels.filter(item => item).join('、')}`,
+            value: values.some(item => item !== '') ? values.join(',') : [],
           })
         })
       },

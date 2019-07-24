@@ -1,21 +1,25 @@
 <template>
-  <ej-search-list :datas="datas"
-                  :keyword.sync="keyword"
-                  :options.sync="models"
-                  :style="{'width': '1000px', margin: '50px auto'}"
-                  :default-tag-more="true"
-                  :max-width-tag="maxWidthTag"
-                  @search="search">
-    <template #default="{setOptions}">
-      <ej-search-option-list v-model="models[datas[0].key]" :label="datas[0].label" :options="datas[0].options" @setOptions="setOptions"/>
-      <ej-search-option-cascader v-model="models[datas[1].key]" :label="datas[1].label" :options="datas[1].options" @setOptions="setOptions"/>
-      <ej-search-option-select v-model="models[datas[2].key]" :label="datas[2].label" :options="datas[2].options" @setOptions="setOptions"/>
-      <ej-search-option-select v-model="models[datas[3].key]" :label="datas[3].label" :options="datas[3].options" @setOptions="setOptions"/>
-      <ej-search-option-list v-model="models[datas[4].key]" :label="datas[4].label" :options="datas[4].options" @setOptions="setOptions"/>
-      <ej-search-option-list v-model="models[datas[5].key]" :label="datas[5].label" :options="datas[5].options" @setOptions="setOptions"/>
-      <ej-search-option-list v-model="models[datas[6].key]" :label="datas[6].label" :options="datas[6].options" @setOptions="setOptions"/>
-    </template>
-  </ej-search-list>
+  <div>
+    <ej-search-list :datas="datas"
+                    :keyword.sync="keyword"
+                    :options.sync="models"
+                    :style="{'width': '1000px', margin: '50px auto'}"
+                    :default-tag-more="true"
+                    :max-width-tag="maxWidthTag"
+                    @search="search"
+                    ref="ejSearchList"
+                    >
+      <template #default="{setOptions}">
+        <ej-search-option-list :prop="datas[0].key" v-model="models[datas[0].key]" :label="datas[0].label" :options="datas[0].options" @setOptions="setOptions"/>
+        <ej-search-option-cascader :prop="datas[1].key" v-model="models[datas[1].key]" :label="datas[1].label" :options="datas[1].options" @setOptions="setOptions"/>
+        <ej-search-option-select :prop="datas[2].key" v-model="models[datas[2].key]" :label="datas[2].label" :options="datas[2].options" @setOptions="setOptions"/>
+        <ej-search-option-select :prop="datas[3].key" v-model="models[datas[3].key]" :label="datas[3].label" :options="datas[3].options" @setOptions="setOptions"/>
+        <ej-search-option-list :prop="datas[4].key" v-model="models[datas[4].key]" :label="datas[4].label" :options="datas[4].options" @setOptions="setOptions"/>
+        <ej-search-option-list :prop="datas[5].key" v-model="models[datas[5].key]" :label="datas[5].label" :options="datas[5].options" @setOptions="setOptions"/>
+        <ej-search-option-list :prop="datas[6].key" v-model="models[datas[6].key]" :label="datas[6].label" :options="datas[6].options" @setOptions="setOptions"/>
+      </template>
+    </ej-search-list>
+  </div>
 </template>
 
 <script>
@@ -45,6 +49,7 @@
           format: [],
           share: [],
           status: [],
+          other: '',
         },
         datas: [
           {
@@ -93,6 +98,13 @@
     },
 
     methods: {
+      // setOptions (...args) {
+      //   // if (this.$refs.ejSearchList) {
+      //   //   return this.$refs.ejSearchList.setOptions(...args)
+      //   // } else {
+      //   //   return (() => {})
+      //   // }
+      // },
       search (...args) {
         action('search')(...args)
       },

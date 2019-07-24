@@ -10,7 +10,6 @@
 
 <script>
   import {Cascader as ElCascader} from 'element-ui'
-
   import EjSearchOptionItem from '../item/index'
 
   export default {
@@ -27,6 +26,10 @@
         type: Array,
         default: () => [],
       },
+      prop: {
+        type: String,
+        default: '',
+      },
       value: {
         type: Array,
         default: () => [],
@@ -38,9 +41,6 @@
     },
 
     computed: {
-      index () {
-        return this.$parent.$children.findIndex(item => item === this)
-      },
       model: {
         get () {
           return this.value
@@ -79,14 +79,9 @@
             checkedNodes = checkedNodes.parent
           }
 
-          this.$emit('setOptions', index, {
-            label: this.label,
-            children: values.map((item, i) => {
-              return {
-                value: item,
-                label: labels[i],
-              }
-            }),
+          this.$emit('setOptions', this.prop, {
+            label: `${this.label}：${labels.join('、')}`,
+            value: values.join(','),
           })
         })
       },

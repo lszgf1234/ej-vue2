@@ -16,6 +16,7 @@
 <script>
   import {Tag as ElTag} from 'element-ui'
   import EjSearchOptionItem from '../item/index'
+  import {mapListString} from '../../../utils'
 
   export default {
     name: 'EjSearchOptionList',
@@ -30,6 +31,10 @@
       options: {
         type: Array,
         default: () => [],
+      },
+      prop: {
+        type: String,
+        default: '',
       },
       value: {
         type: Array,
@@ -82,10 +87,9 @@
       },
 
       emitLables () {
-        const index = this.index
-        this.$emit('setOptions', index, {
-          label: this.label,
-          children: this.selectedList,
+        this.$emit('setOptions', this.prop, {
+          label: `${this.label}：${mapListString(this.selectedList, 'label', '、')}`,
+          value: mapListString(this.selectedList, 'value', ',')
         })
       },
     },

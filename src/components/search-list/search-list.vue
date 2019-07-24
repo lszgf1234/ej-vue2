@@ -16,7 +16,7 @@
       <slot name="input-suffix"/>
     </div>
 
-    <ej-search-options :default-tag-more="defaultTagMore" :max-width-tag="maxWidthTag">
+    <ej-search-options ref="ejSearchOptions" :default-tag-more="defaultTagMore" :max-width-tag="maxWidthTag">
       <template #tag-suffix>
         <ej-search-set-name  @confirm="setNameConfirm"/>
       </template>
@@ -131,6 +131,13 @@
     },
 
     methods: {
+      setOptions (...args) {
+        if (this.$refs.ejSearchOptions) {
+          return this.$refs.ejSearchOptions.setOptions(...args)
+        } else {
+          return (() => {})
+        }
+      },
       /**
        * @param {string} type btn:搜索按钮触发  hot:数据更改触发
        */

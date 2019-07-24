@@ -17,7 +17,7 @@
     methods: {
       goSettings () {
         if (this.$router) {
-          this.$router.push({name: 'settings'})
+          this.$router.push({name: 'app-settings'})
         }
       },
     },

@@ -192,7 +192,7 @@
       commonlyChange (val, options = []) {
         // 获取要预填的参数
         const selected = options.find(item => item.value === val) || {}
-        this.$set(this, 'models', this.resetParams(selected.params))
+        this.$emit('update:models', this.resetParams(selected.params))
       },
 
       // 转换参数为键值对形式

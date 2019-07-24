@@ -2,7 +2,7 @@
   <div>
     <ej-search-list ref="ejSearchList"
                     :datas="datas"
-                    :models="models"
+                    :models.sync="models"
                     :keyword.sync="keyword"
                     :style="{'width': '1000px', margin: '50px auto'}"
                     :default-tag-more="true"

@@ -109,7 +109,8 @@
     mounted () {
       setTimeout(() => {
         this.models.otherParam = 'otherParam'
-        this.emitSetSeleted('otherParam', {
+        this.emitSetSeleted({
+          key: 'otherParam',
           label: '外部条件：otherParam',
         })
       }, 1500)

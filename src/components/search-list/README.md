@@ -31,4 +31,4 @@
 
 | 方法名 | 说明 | 参数 |
 |---|---|---|
-| `emitSetSeleted` | 设置已选条件参数 | Function(key, {label}) |
+| `emitSetSeleted` | 设置已选条件参数 | Function({key, label}) |

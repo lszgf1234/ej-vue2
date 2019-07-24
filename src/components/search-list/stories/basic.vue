@@ -111,7 +111,6 @@
         this.models.otherParam = 'otherParam'
         this.emitSetSeleted('otherParam', {
           label: '外部条件：otherParam',
-          value: 'otherParam',
         })
       }, 1500)
     },

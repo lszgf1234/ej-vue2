@@ -1,9 +1,8 @@
 <template>
   <div class="ej-search-option-tag">
-    <ej-search-option-item v-show="isShow" :show-more="showMore" :change="sortOptions" label="已选条件">
-      <div v-for="item in sortOptions" :key="item.key" class="ej-conditions-tag">
-        <el-tag v-if="item && item.value && item.value.length"
-                :title="item.label"
+    <ej-search-option-item v-show="isShow" :show-more="showMore" :change="optionsMap" label="已选条件">
+      <div v-for="item in optionsMap" :key="item.key" class="ej-conditions-tag">
+        <el-tag :title="item.label"
                 :style="style"
                 closable
                 @close="close(item.key)">
@@ -51,26 +50,26 @@
         }
       },
 
-      sortOptions () {
+      optionsMap () {
         let arr = []
         for (let i in this.options) {
           arr.push(Object.assign({}, this.options[i], {key: i}))
         }
-        return this.sort(arr, 'index')
+        return arr
       },
     },
 
     methods: {
-      sort (arr, key) {
-        for (let i = 0; i < arr.length - 1; i++) {
-          if (arr[i][key] > arr[i + 1][key]) {
-            let temp = arr[i]
-            arr[i] = arr[i + 1]
-            arr[i + 1] = temp
-          }
-        }
-        return arr
-      },
+      // sort (arr, key) {
+      //   for (let i = 0; i < arr.length - 1; i++) {
+      //     if (arr[i][key] > arr[i + 1][key]) {
+      //       let temp = arr[i]
+      //       arr[i] = arr[i + 1]
+      //       arr[i + 1] = temp
+      //     }
+      //   }
+      //   return arr
+      // },
 
       close (key) {
         this.$emit('close', key)

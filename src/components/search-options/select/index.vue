@@ -93,11 +93,11 @@
         this.$nextTick(_ => {
           const index = this.index
           const values = this.models
-          let labels = this.$refs.ejSelect.map(item => item.getLabels())
+          let labels = this.$refs.ejSelect.map(item => item.getLabels()).filter(item => item)
           
-          this.$emit('setOptions', this.prop, {
-            label: `${this.label}：${labels.filter(item => item).join('、')}`,
-            value: values.some(item => item !== '') ? values.join(',') : [],
+          this.$emit('setSeleted', {
+            key: this.prop,
+            label: labels.length ? `${this.label}：${labels.join('、')}` : '',
           })
         })
       },

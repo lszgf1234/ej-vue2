@@ -7,7 +7,7 @@
         <template #prefix><slot name="tag-prefix" v-on="$listeners"/></template>
         <template #suffix><slot name="tag-suffix" v-on="$listeners"/></template>
     </ej-search-tag>
-    <slot :setOptions="setOptions"/>
+    <slot :setSeleted="setSeleted"/>
   </div>
 </template>
 
@@ -33,18 +33,23 @@
     },
 
     methods: {
-      close (key, value) {
+      close (key) {
         this.$children.forEach(item => {
           if (item.prop === key) {
             item.$listeners.input([])
           }
         })
         this.$delete(this.options, key)
+        this.$emit('closeSelected', key)
       },
 
-      setOptions (key, item = {}) {
-        if (!key || !item.value || !item.value.length) return
-        this.$set(this.options, key, item)
+      setSeleted ({key, label}) {
+        if (!key) return
+        if (!label) {
+          this.$delete(this.options, key)
+        } else {
+          this.$set(this.options, key, {label})
+        }
       },
     },
   }

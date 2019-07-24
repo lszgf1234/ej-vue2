@@ -87,9 +87,9 @@
       },
 
       emitLables () {
-        this.$emit('setOptions', this.prop, {
-          label: `${this.label}：${mapListString(this.selectedList, 'label', '、')}`,
-          value: mapListString(this.selectedList, 'value', ',')
+        this.$emit('setSeleted', {
+          key: this.prop,
+          label: this.selectedList.length ? `${this.label}：${mapListString(this.selectedList, 'label', '、')}` : '',
         })
       },
     },

@@ -93,12 +93,12 @@ storiesOf('Components|SearchOptions', module)
   .add('基本用法', () => ({
     template: `
       <ej-search-options :default-tag-more="true" :max-width-tag="maxWidthTag" :style="{'width': '1000px', margin: '50px auto'}">
-        <template #default="{setOptions}">
-          <ej-search-option-list prop="model1" v-model="models.model1" label="常用条件" :options="conditionsOptions1" @setOptions="setOptions"/>
-          <ej-search-option-list prop="model2" :default-more="true" v-model="models.model2" label="机构名称" :options="conditionsOptions2" @setOptions="setOptions"/>
-          <ej-search-option-list prop="model3" v-model="models.model3" label="常用条件" :options="conditionsOptions3" @setOptions="setOptions"/>
-          <ej-search-option-cascader prop="model4" v-model="models.model4" label="基础资源" :options="cascaderOptions1" @setOptions="setOptions"/>
-          <ej-search-option-cascader prop="model5" v-model="models.model5" label="主题资源" :options="cascaderOptions2" @setOptions="setOptions"/>
+        <template #default="{setSeleted}">
+          <ej-search-option-list prop="model1" v-model="models.model1" label="常用条件" :options="conditionsOptions1" @setSeleted="setSeleted"/>
+          <ej-search-option-list prop="model2" :default-more="true" v-model="models.model2" label="机构名称" :options="conditionsOptions2" @setSeleted="setSeleted"/>
+          <ej-search-option-list prop="model3" v-model="models.model3" label="常用条件" :options="conditionsOptions3" @setSeleted="setSeleted"/>
+          <ej-search-option-cascader prop="model4" v-model="models.model4" label="基础资源" :options="cascaderOptions1" @setSeleted="setSeleted"/>
+          <ej-search-option-cascader prop="model5" v-model="models.model5" label="主题资源" :options="cascaderOptions2" @setSeleted="setSeleted"/>
         </template>
       </ej-search-options>
     `,

@@ -16,12 +16,15 @@
       <slot name="input-suffix"/>
     </div>
 
-    <ej-search-options ref="ejSearchOptions" :default-tag-more="defaultTagMore" :max-width-tag="maxWidthTag">
+    <ej-search-options ref="ejSearchOptions"
+                       :default-tag-more="defaultTagMore"
+                       :max-width-tag="maxWidthTag"
+                       @closeSelected="closeSelected">
       <template #tag-suffix>
         <ej-search-set-name  @confirm="setNameConfirm"/>
       </template>
-      <template #default="{setOptions}">
-        <slot :setOptions="setOptions"/>
+      <template #default="{setSeleted}">
+        <slot :setSeleted="setSeleted"/>
       </template>
     </ej-search-options>
   </div>
@@ -51,7 +54,6 @@
 
     data () {
       return {
-        models: {},
         commonlyModel: '',
         commonlyOptions: [],
       }
@@ -62,7 +64,7 @@
         type: Array,
         default: () => [],
       },
-      options: {
+      models: {
         type: Object,
         default: () => ({}),
       },
@@ -102,17 +104,10 @@
     },
 
     watch: {
-      options: {
+      models: {
         deep: true,
         immediate: true,
         handler (newVal) {
-          this.models = newVal
-        },
-      },
-      models: {
-        deep: true,
-        handler (newVal) {
-          this.$emit('update:options', newVal)
           this.search('hot')
         },
       },
@@ -131,13 +126,6 @@
     },
 
     methods: {
-      setOptions (...args) {
-        if (this.$refs.ejSearchOptions) {
-          return this.$refs.ejSearchOptions.setOptions(...args)
-        } else {
-          return (() => {})
-        }
-      },
       /**
        * @param {string} type btn:搜索按钮触发  hot:数据更改触发
        */
@@ -245,6 +233,23 @@
             component: SelectTempalte,
           }
         })
+      },
+
+      // 删除已选条
+      closeSelected (key) {
+        switch (typeof this.models[key]) {
+          case 'string':
+            this.models[key] = ''
+            break
+          default:
+            this.models[key] = []
+            break
+        }
+      },
+
+      // 抛出的方法 设置已选条件
+      emitSetSeleted (...args) {
+        return this.$refs.ejSearchOptions.setSeleted(...args)
       },
     },
   }

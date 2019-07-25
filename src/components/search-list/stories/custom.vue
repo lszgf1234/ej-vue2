@@ -46,20 +46,20 @@
     },
 
     methods: {
-      emitSetSeleted (...args) {
-        return this.$refs.ejSearchList.emitSetSeleted(...args)
+      emitSetSelected (...args) {
+        return this.$refs.ejSearchList.emitSetSelected(...args)
       },
 
       customClick (n) {
         this.models.custom = [n]
-        this.emitSetSeleted({
+        this.emitSetSelected({
           key: 'custom',
           label: `自定义条件：${n}`,
         })
       },
 
       colorClick (color) {
-        this.emitSetSeleted({
+        this.emitSetSelected({
           key: 'color',
           label: color === null ? '' : `自定义条件：${color}`,
         })

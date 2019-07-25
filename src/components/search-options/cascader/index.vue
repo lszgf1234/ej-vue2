@@ -79,7 +79,7 @@
             checkedNodes = checkedNodes.parent
           }
 
-          this.$emit('setSeleted', {
+          this.$emit('setSelected', {
             key: this.prop,
             label: labels.length ? `${this.label}：${labels.join('、')}` : '',
           })

@@ -7,7 +7,7 @@
         <template #prefix><slot name="tag-prefix" v-on="$listeners"/></template>
         <template #suffix><slot name="tag-suffix" v-on="$listeners"/></template>
     </ej-search-tag>
-    <slot :setSeleted="setSeleted"/>
+    <slot :setSelected="setSelected"/>
   </div>
 </template>
 
@@ -43,7 +43,7 @@
         this.$emit('closeSelected', key)
       },
 
-      setSeleted ({key, label}) {
+      setSelected ({key, label}) {
         if (!key) return
         if (!label) {
           this.$delete(this.options, key)

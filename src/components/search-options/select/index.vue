@@ -95,7 +95,7 @@
           const values = this.models
           let labels = this.$refs.ejSelect.map(item => item.getLabels()).filter(item => item)
           
-          this.$emit('setSeleted', {
+          this.$emit('setSelected', {
             key: this.prop,
             label: labels.length ? `${this.label}：${labels.join('、')}` : '',
           })

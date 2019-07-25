@@ -1,13 +1,6 @@
 module.exports = async ({config}) => {
   const cssRule = config.module.rules.find(r => r.test.toString() === /\.css$/.toString())
 
-  // gql loader
-  config.module.rules.push({
-    test: /\.(graphql|gql)$/,
-    exclude: /node_modules/,
-    loader: 'graphql-tag/loader'
-  })
-
   if (cssRule) {
     const postcss = cssRule.use.find(l => (l.loader || '').includes('postcss-loader'))
     if (postcss) {
@@ -33,6 +26,13 @@ module.exports = async ({config}) => {
   } else {
     console.error('No CSS loader rule was found!')
   }
+
+  // gql loader
+  config.module.rules.push({
+    test: /\.(graphql|gql)$/,
+    exclude: /node_modules/,
+    loader: 'graphql-tag/loader'
+  })
 
   return config
 }

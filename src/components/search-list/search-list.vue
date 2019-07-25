@@ -5,13 +5,14 @@
         <ej-search-input v-model="keywordModel"
                          placeholder="请输入资料名称"
                          @search="search('btn')"/>
-        <ej-select clearable
-                   v-model="commonlyModel"
-                   :options="commonlyOptions"
-                   @deleted-select="deletedOptions"
-                   @change="commonlyChange(commonlyModel, commonlyOptions)"
-                   placeholder="常用条件"
-                   class="ej-search-commonly-select mb-1"/>
+        <ej-select
+          clearable
+          v-model="commonlyModel"
+          :options="commonlyOptions"
+          @deleted-select="deletedOptions"
+          @change="commonlyChange(commonlyModel, commonlyOptions)"
+          placeholder="常用条件"
+          class="ej-search-commonly-select mb-1"/>
       </div>
       <slot name="input-suffix"/>
     </div>
@@ -23,8 +24,8 @@
       <template #tag-suffix>
         <ej-search-set-name  @confirm="setNameConfirm"/>
       </template>
-      <template #default="{setSeleted}">
-        <slot :setSeleted="setSeleted"/>
+      <template #default="{setSelected}">
+        <slot :setSelected="setSelected"/>
       </template>
     </ej-search-options>
   </div>
@@ -248,8 +249,8 @@
       },
 
       // 抛出的方法 设置已选条件
-      emitSetSeleted (...args) {
-        return this.$refs.ejSearchOptions.setSeleted(...args)
+      emitSetSelected (...args) {
+        return this.$refs.ejSearchOptions.setSelected(...args)
       },
     },
   }

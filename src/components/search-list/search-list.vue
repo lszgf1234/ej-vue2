@@ -2,17 +2,17 @@
   <div class="ej-search-list">
     <div class="input-box flex justify-between items-center mb-4">
       <div class="flex items-end">
-        <ej-search-input v-model="keywordModel"
-                         placeholder="请输入资料名称"
-                         @search="search('btn')"/>
-        <ej-select
-          clearable
-          v-model="commonlyModel"
-          :options="commonlyOptions"
-          @deleted-select="deletedOptions"
-          @change="commonlyChange(commonlyModel, commonlyOptions)"
-          placeholder="常用条件"
-          class="ej-search-commonly-select mb-1"/>
+        <slot name="input">
+          <ej-search-input v-model="keywordModel" placeholder="请输入资料名称"  @search="search('btn')"/>
+        </slot>
+        
+        <ej-select clearable
+                   v-model="commonlyModel"
+                   :options="commonlyOptions"
+                   @deleted-select="deletedOptions"
+                   @change="commonlyChange(commonlyModel, commonlyOptions)"
+                   placeholder="常用条件"
+                   class="ej-search-commonly-select mb-1"/>
       </div>
       <slot name="input-suffix"/>
     </div>

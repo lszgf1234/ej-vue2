@@ -8,7 +8,7 @@
 |---|---|---|---|
 | `datas` | Array | | 配置项 {prop，label，options} |
 | `models` | Object | | 各项数据值 键名对应datas的prop字段 |
-| `keyword` | String | | 关键词 |
+| `keyword` | String | | 关键词 输入不会触发input实时更新，点击搜索按钮触发 |
 | `appKey` | String | | 应用key |
 | `viewId` | String\|Number | | 应用内页面id |
 | `default-tag-more` | Boolean | true | 已选条件超长默认收起/展开 |
@@ -19,7 +19,8 @@
 | Name | Default | Description |
 |---|---|---|
 | default | | 插槽内容 |
-| name | input-suffix | 输出框之后插入的内容插槽 |
+| input | | 输出框插槽 |
+| input-suffix | | 输出框之后插入的内容插槽 |
 
 ### Events
 

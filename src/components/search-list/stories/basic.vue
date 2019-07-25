@@ -101,8 +101,8 @@
         return this.$refs.ejSearchList.emitSetSelected(...args)
       },
 
-      search (...args) {
-        action('search')(...args)
+      search (type, params = {}) {
+        action('search')(type, Object.assign(params, {keyword: this.keyword}))
       },
     },
 

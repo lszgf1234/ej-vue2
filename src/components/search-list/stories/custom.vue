@@ -9,7 +9,10 @@
                     :models.sync="models"
                     :style="{'width': '1000px', margin: '50px auto'}"
                     @search="search">
-      <template>
+        <template #input>
+          <el-input v-model="models.keyword"/>
+        </template>
+
         <ej-search-option-item label="内部自定义内容" :change="models.custom" :showMore="true">
           <div v-for="n in 15"
                :key="n"
@@ -19,19 +22,19 @@
                展开收起
           </div>
         </ej-search-option-item>
-      </template>
     </ej-search-list>
   </div>
 </template>
 
 <script>
-  import {ColorPicker as ElColorPicker} from 'element-ui'
+  import {ColorPicker as ElColorPicker, Input as ElInput} from 'element-ui'
   import {action} from '@storybook/addon-actions'
 
   import EjSearchOptionItem from '../../search-options/item'
 
   export default {
     components: {
+      ElInput,
       ElColorPicker,
       EjSearchOptionItem,
     },
@@ -39,6 +42,7 @@
     data () {
       return {
         models: {
+          keyword: '',
           custom: [],
           color: [],
         },

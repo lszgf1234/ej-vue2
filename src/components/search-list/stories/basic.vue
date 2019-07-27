@@ -16,6 +16,7 @@
         <ej-search-option-list :prop="datas[4].key" v-model="models[datas[4].key]" :label="datas[4].label" :options="datas[4].options" @setSelected="setSelected"/>
         <ej-search-option-list :prop="datas[5].key" v-model="models[datas[5].key]" :label="datas[5].label" :options="datas[5].options" @setSelected="setSelected"/>
         <ej-search-option-list :prop="datas[6].key" v-model="models[datas[6].key]" :label="datas[6].label" :options="datas[6].options" @setSelected="setSelected"/>
+        <ej-search-option-radio :prop="datas[7].key" v-model="models[datas[7].key]" :label="datas[7].label" :options="datas[7].options" @setSelected="setSelected"/>
       </template>
     </ej-search-list>
   </div>
@@ -23,6 +24,7 @@
 
 <script>
   import EjSearchOptionList from '../../search-options/list'
+  import EjSearchOptionRadio from '../../search-options/radio'
   import EjSearchOptionSelect from '../../search-options/select'
   import EjSearchOptionCascader from '../../search-options/cascader'
   import SEARCH_OPTIONS from './search-options.js'
@@ -33,6 +35,7 @@
   export default {
     components: {
       EjSearchOptionList,
+      EjSearchOptionRadio,
       EjSearchOptionSelect,
       EjSearchOptionCascader,
     },
@@ -42,12 +45,13 @@
         keyword: '',
         models: {
           name: ['1', '2'],
-          base: [],
+          base: ['04', '002'],
           theme: [],
           filter: ['01', '02'],
           format: [],
           share: [],
           status: [],
+          radio: '',
           otherParam: '',
         },
         datas: [
@@ -85,6 +89,15 @@
             key: 'status',
             label: '审核状态',
             options: SEARCH_OPTIONS.status,
+          },
+          {
+            key: 'radio',
+            label: '是否临时表',
+            options: [
+              {value: '1', label: '全部'},
+              {value: '2', label: '否'},
+              {value: '3', label: '是'},
+            ],
           },
         ],
       }

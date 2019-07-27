@@ -36,7 +36,11 @@
       close (key) {
         this.$children.forEach(item => {
           if (item.prop === key) {
-            item.$listeners.input([])
+            if (typeof item.value === 'string') {
+              item.$listeners.input('')
+            } else {
+              item.$listeners.input([])
+            }
           }
         })
         this.$delete(this.options, key)

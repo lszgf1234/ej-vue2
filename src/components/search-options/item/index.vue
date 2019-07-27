@@ -29,7 +29,7 @@
         default: '',
       },
       change: {
-        type: Array,
+        type: [Array, String, Number],
         default: () => [],
       },
       showMore: {

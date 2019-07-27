@@ -67,7 +67,6 @@
          * https://github.com/ElemeFE/element/issues/16324
          */
         this.$nextTick(_ => {
-          const index = this.index
           const values = this.model
           const labels = []
           // 改用getCheckedNodes()方法，elementui 2.9.1版本去掉了内置的currentLabels

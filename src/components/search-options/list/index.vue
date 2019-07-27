@@ -47,9 +47,6 @@
     },
 
     computed: {
-      index () {
-        return this.$parent.$children.findIndex(item => item === this)
-      },
       selectedList () {
         return this.value.map(item => {
           return this.options.filter(citem => {

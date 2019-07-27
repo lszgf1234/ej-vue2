@@ -91,7 +91,6 @@
 
       changeSource () {
         this.$nextTick(_ => {
-          const index = this.index
           const values = this.models
           let labels = this.$refs.ejSelect.map(item => item.getLabels()).filter(item => item)
           

@@ -28,7 +28,7 @@
 </script>
 
 <style lang="scss">
-  @import './variables.scss';
+  @import '../variables.scss';
 
   .ej-conditions-more {
     @apply absolute text-blue cursor-pointer;

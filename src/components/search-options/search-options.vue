@@ -3,25 +3,22 @@
     <ej-search-tag :options="options"
                    :show-more="defaultTagMore"
                    :max-width="maxWidthTag"
-                   @close="close"/>
-    <slot/>
+                   @close="close">
+        <template #prefix><slot name="tag-prefix" v-on="$listeners"/></template>
+        <template #suffix><slot name="tag-suffix" v-on="$listeners"/></template>
+    </ej-search-tag>
+    <slot :setSelected="setSelected"/>
   </div>
 </template>
 
 <script>
-  import EjSearchTag from './search-option-tag'
+  import EjSearchTag from './tag/index'
 
   export default {
     name: 'EjSearchOptions',
 
     components: {
       EjSearchTag,
-    },
-
-    provide () {
-      return {
-        wrapperVm: this,
-      }
     },
 
     props: {
@@ -31,20 +28,32 @@
 
     data () {
       return {
-        options: [],
+        options: {},
       }
     },
 
     methods: {
-      close (index, item) {
-        // slot之前还有'已选条件'组件 index+1
-        this.$children[++index].$listeners.input([])
-        this.setOptions(index, item)
+      close (key) {
+        this.$children.forEach(item => {
+          if (item.prop === key) {
+            if (typeof item.value === 'string') {
+              item.$listeners.input('')
+            } else {
+              item.$listeners.input([])
+            }
+          }
+        })
+        this.$delete(this.options, key)
+        this.$emit('closeSelected', key)
       },
-      setOptions (index, item) {
-        if (index === -1) return
-        // slot之前还有'已选条件'组件 index-1
-        this.$set(this.options, index - 1, item)
+
+      setSelected ({key, label}) {
+        if (!key) return
+        if (!label) {
+          this.$delete(this.options, key)
+        } else {
+          this.$set(this.options, key, {label})
+        }
       },
     },
   }

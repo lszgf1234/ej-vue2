@@ -10,8 +10,7 @@
 
 <script>
   import {Cascader as ElCascader} from 'element-ui'
-
-  import EjSearchOptionItem from './search-option-item'
+  import EjSearchOptionItem from '../item/index'
 
   export default {
     name: 'EjSearchOptionCascader',
@@ -21,18 +20,15 @@
       EjSearchOptionItem,
     },
 
-    inject: {
-      wrapperVm: {
-        type: Object,
-        default: () => ({}),
-      },
-    },
-
     props: {
       defaultMore: Boolean,
       options: {
         type: Array,
         default: () => [],
+      },
+      prop: {
+        type: String,
+        default: '',
       },
       value: {
         type: Array,
@@ -45,9 +41,6 @@
     },
 
     computed: {
-      index () {
-        return this.$parent.$children.findIndex(item => item === this)
-      },
       model: {
         get () {
           return this.value
@@ -58,14 +51,22 @@
       },
     },
 
-    mounted () {
-      this.change()
+    watch: {
+      model: {
+        immediate: true,
+        handler () {
+          this.change()
+        },
+      },
     },
 
     methods: {
       change () {
+        /**
+         * @TODO 子集value与不同父级value相同时出现bug  需要更新到v2.11.0
+         * https://github.com/ElemeFE/element/issues/16324
+         */
         this.$nextTick(_ => {
-          const index = this.index
           const values = this.model
           const labels = []
           // 改用getCheckedNodes()方法，elementui 2.9.1版本去掉了内置的currentLabels
@@ -77,14 +78,9 @@
             checkedNodes = checkedNodes.parent
           }
 
-          this.wrapperVm.setOptions(index, {
-            label: this.label,
-            children: values.map((item, i) => {
-              return {
-                value: item,
-                label: labels[i],
-              }
-            }),
+          this.$emit('setSelected', {
+            key: this.prop,
+            label: labels.length ? `${this.label}：${labels.join('、')}` : '',
           })
         })
       },
@@ -93,7 +89,7 @@
 </script>
 
 <style lang="scss">
-  @import './variables.scss';
+  @import '../variables.scss';
 
   .ej-cascader-item.el-cascader {
     width: 250px;

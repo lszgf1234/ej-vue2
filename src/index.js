@@ -12,9 +12,13 @@ import TaskFlow from './components/task-flow'
 import TagList from './components/tag-list'
 import Highlight from './components/highlight'
 import SearchInput from './components/search-input'
+import SearchList from './components/search-list'
+import SearchSetName from './components/search-set-name'
 import SearchOptions from './components/search-options'
-import SearchOptionList from './components/search-option-list'
-import SearchOptionCascader from './components/search-option-cascader'
+import SearchOptionItem from './components/search-options/item'
+import SearchOptionList from './components/search-options/list'
+import SearchOptionSelect from './components/search-options/select'
+import SearchOptionCascader from './components/search-options/cascader'
 import UserCard from './components/user-card'
 
 import NavMenu from './components/nav-menu'
@@ -35,10 +39,14 @@ export {
   Popcard,
   TaskFlow,
   TagList,
-  SearchInput,
   Highlight,
+  SearchInput,
+  SearchList,
+  SearchSetName,
   SearchOptions,
+  SearchOptionItem,
   SearchOptionList,
+  SearchOptionSelect,
   SearchOptionCascader,
   UserCard,
 
@@ -63,6 +71,7 @@ export default {
     Vue.use(TagList)
     Vue.use(Highlight)
     Vue.use(SearchInput)
+    Vue.use(SearchList)
     Vue.use(SearchOptions)
     Vue.use(Card)
 

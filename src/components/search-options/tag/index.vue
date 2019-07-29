@@ -1,15 +1,15 @@
 <template>
   <div class="ej-search-option-tag">
-    <ej-search-option-item v-show="isShow" :show-more="showMore" :change="options" label="已选条件">
-      <div v-for="(item, index) in options" :key="index" class="ej-conditions-tag">
-        <el-tag v-if="item && item.children && item.children.length"
-                :title="`${item.label}：${mapListString(item.children, 'label', '、')}`"
-                closable
+    <ej-search-option-item v-show="isShow" :show-more="showMore" :change="optionsMap" label="已选条件">
+      <div v-for="item in optionsMap" :key="item.key" class="ej-conditions-tag">
+        <el-tag :title="item.label"
                 :style="style"
-                @close="close(index, item)">
-          {{`${item.label}：${mapListString(item.children, 'label', '、')}`}}
+                closable
+                @close="close(item.key)">
+          {{item.label}}
         </el-tag>
       </div>
+      <slot name="suffix"/>
     </ej-search-option-item>
   </div>
 </template>
@@ -17,7 +17,7 @@
 <script>
   import {Tag as ElTag} from 'element-ui'
 
-  import EjSearchOptionItem from './search-option-item.vue'
+  import EjSearchOptionItem from '../item/index.vue'
 
   export default {
     name: 'EjSearchOptionTag',
@@ -30,8 +30,8 @@
     props: {
       showMore: Boolean,
       options: {
-        type: Array,
-        default: () => [],
+        type: Object,
+        default: () => ({}),
       },
       maxWidth: {
         type: String,
@@ -41,34 +41,45 @@
 
     computed: {
       isShow () {
-        return this.options.some(item => item.children && item.children.length)
+        return Object.keys(this.options).length !== 0
       },
+
       style () {
         return {
           maxWidth: this.maxWidth,
         }
       },
+
+      optionsMap () {
+        let arr = []
+        for (let i in this.options) {
+          arr.push(Object.assign({}, this.options[i], {key: i}))
+        }
+        return arr
+      },
     },
 
     methods: {
-      mapListString (list = [], key, tag = ',') {
-        return list.map(item => {
-          return item ? item[key] : ''
-        }).join(tag)
-      },
+      // sort (arr, key) {
+      //   for (let i = 0; i < arr.length - 1; i++) {
+      //     if (arr[i][key] > arr[i + 1][key]) {
+      //       let temp = arr[i]
+      //       arr[i] = arr[i + 1]
+      //       arr[i + 1] = temp
+      //     }
+      //   }
+      //   return arr
+      // },
 
-      close (index, item) {
-        this.$emit('close', index, {
-          label: item.label,
-          children: [],
-        })
+      close (key) {
+        this.$emit('close', key)
       },
     },
   }
 </script>
 
 <style lang="scss">
-  @import './variables.scss';
+  @import '../variables.scss';
 
   .ej-search-option-tag {
     .ej-conditions-tag {
@@ -109,7 +120,7 @@
       }
     }
 
-    .ej-conditions-list__content {
+    .ej-conditions-item__content {
       line-height: $search-input-height;
     }
   }

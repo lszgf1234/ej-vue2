@@ -63,3 +63,17 @@ export function typeofData (obj) {
   /* 返回 'String' */
   return Object.prototype.toString.call(obj).slice(8, -1)
 }
+
+
+/**
+ * 数组字段转字符串
+ * @param {Array} list list
+ * @param {Object} key 键名
+ * @param {String} tag 连接符
+ * @return {String} return
+ */
+export function mapListString (list = [], key, tag = ',') {
+  return list.map(item => {
+    return item ? item[key] : ''
+  }).join(tag)
+}

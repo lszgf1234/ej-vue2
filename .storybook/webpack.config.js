@@ -27,5 +27,12 @@ module.exports = async ({config}) => {
     console.error('No CSS loader rule was found!')
   }
 
+  // gql loader
+  config.module.rules.push({
+    test: /\.(graphql|gql)$/,
+    exclude: /node_modules/,
+    loader: 'graphql-tag/loader'
+  })
+
   return config
 }

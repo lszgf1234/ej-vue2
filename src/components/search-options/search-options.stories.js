@@ -4,8 +4,12 @@ import {action} from '@storybook/addon-actions'
 import Vue from 'vue'
 
 import EjSearchOptions from '.'
+import EjSearchOptionsList from './list'
+import EjSearchOptionsCascader from './cascader'
 
 Vue.use(EjSearchOptions)
+Vue.use(EjSearchOptionsList)
+Vue.use(EjSearchOptionsCascader)
 
 const _conditionsOptions = [
   {
@@ -89,11 +93,13 @@ storiesOf('Components|SearchOptions', module)
   .add('基本用法', () => ({
     template: `
       <ej-search-options :default-tag-more="true" :max-width-tag="maxWidthTag" :style="{'width': '1000px', margin: '50px auto'}">
-        <ej-search-option-list v-model="models.model1" label="常用条件" :options="conditionsOptions1"/>
-        <ej-search-option-list :default-more="true" v-model="models.model2" label="机构名称" :options="conditionsOptions2"/>
-        <ej-search-option-list v-model="models.model3" label="常用条件" :options="conditionsOptions3"/>
-        <ej-search-option-cascader v-model="models.model4" label="基础资源" :options="cascaderOptions1"/>
-        <ej-search-option-cascader v-model="models.model5" label="主题资源" :options="cascaderOptions2"/>
+        <template #default="{setSelected}">
+          <ej-search-option-list prop="model1" v-model="models.model1" label="常用条件" :options="conditionsOptions1" @setSelected="setSelected"/>
+          <ej-search-option-list prop="model2" :default-more="true" v-model="models.model2" label="机构名称" :options="conditionsOptions2" @setSelected="setSelected"/>
+          <ej-search-option-list prop="model3" v-model="models.model3" label="常用条件" :options="conditionsOptions3" @setSelected="setSelected"/>
+          <ej-search-option-cascader prop="model4" v-model="models.model4" label="基础资源" :options="cascaderOptions1" @setSelected="setSelected"/>
+          <ej-search-option-cascader prop="model5" v-model="models.model5" label="主题资源" :options="cascaderOptions2" @setSelected="setSelected"/>
+        </template>
       </ej-search-options>
     `,
 
@@ -124,7 +130,7 @@ storiesOf('Components|SearchOptions', module)
           model1: ['cy1', 'cy3'],
           model2: [],
           model3: [],
-          model4: ['zhinan', 'daohang', 'dingbudaohang'],
+          model4: ['zhinan', 'daohang', 'cexiangdaohang'],
           model5: [],
         },
       }
@@ -143,4 +149,10 @@ storiesOf('Components|SearchOptions', module)
         },
       },
     },
+
+    methods: {
+      confirm (val) {
+        action('confirm')(val)
+      },
+    }
   }))

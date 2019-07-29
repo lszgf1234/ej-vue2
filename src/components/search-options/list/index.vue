@@ -2,7 +2,7 @@
   <ej-search-option-item :show-more="defaultMore" :label="label" :change="value">
     <div v-for="item in options"
          :key="item.value"
-         class="ej-conditions-item"
+         class="ej-conditions-list"
          :class="{'text-blue': someSelected(selectedList, item.value)}"
          @click="click(item.value)">
       {{item.label}}
@@ -15,8 +15,8 @@
 
 <script>
   import {Tag as ElTag} from 'element-ui'
-
-  import EjSearchOptionItem from './search-option-item'
+  import EjSearchOptionItem from '../item/index'
+  import {mapListString} from '../../../utils'
 
   export default {
     name: 'EjSearchOptionList',
@@ -26,18 +26,15 @@
       EjSearchOptionItem,
     },
 
-    inject: {
-      wrapperVm: {
-        type: Object,
-        default: () => ({}),
-      },
-    },
-
     props: {
       defaultMore: Boolean,
       options: {
         type: Array,
         default: () => [],
+      },
+      prop: {
+        type: String,
+        default: '',
       },
       value: {
         type: Array,
@@ -50,9 +47,6 @@
     },
 
     computed: {
-      index () {
-        return this.$parent.$children.findIndex(item => item === this)
-      },
       selectedList () {
         return this.value.map(item => {
           return this.options.filter(citem => {
@@ -62,8 +56,13 @@
       },
     },
 
-    created () {
-      this.emitLables()
+    watch: {
+      selectedList: {
+        immediate: true,
+        handler () {
+          this.emitLables()
+        },
+      },
     },
 
     methods: {
@@ -76,18 +75,18 @@
         }
         // 修改v-model值
         this.$emit('input', value)
-        this.emitLables()
       },
+
       someSelected (list, key) {
         return list.some(item => {
           return item && item.value === key
         })
       },
+
       emitLables () {
-        const index = this.index
-        this.wrapperVm.setOptions(index, {
-          label: this.label,
-          children: this.selectedList,
+        this.$emit('setSelected', {
+          key: this.prop,
+          label: this.selectedList.length ? `${this.label}：${mapListString(this.selectedList, 'label', '、')}` : '',
         })
       },
     },
@@ -95,9 +94,9 @@
 </script>
 
 <style lang="scss">
-  @import './variables.scss';
+  @import '../variables.scss';
 
-  .ej-conditions-item {
+  .ej-conditions-list {
     @apply cursor-pointer whitespace-no-wrap;
 
     margin-right: 30px;

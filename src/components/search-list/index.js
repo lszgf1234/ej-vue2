@@ -1,4 +1,4 @@
-import SearchList from '../search-options/search-option-list.vue'
+import SearchList from './search-list.vue'
 
 export default {
   ...SearchList,

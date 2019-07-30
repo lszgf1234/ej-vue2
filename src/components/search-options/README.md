@@ -33,6 +33,7 @@
 | `options` | array | | 可选项数据源[{value, label, num}]形式 |
 | `label` | string | | 标签文本 |
 | `default-more` | boolean | false | 是否默认展开
+| `no-multiple` | boolean | false | 是否单选
 
 ## SearchOptionsCascader 条件组件-联级选择器
 

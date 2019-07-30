@@ -103,6 +103,15 @@
       }
     },
 
+    watch: {
+      models: {
+        deep: true,
+        handler (newVal) {
+          console.log(newVal)
+        },
+      },
+    },
+
     props: {
       maxWidthTag: {
         default: number('maxWidthTag', 100) + '%',

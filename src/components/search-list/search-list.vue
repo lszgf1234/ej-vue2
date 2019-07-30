@@ -157,7 +157,7 @@
           variables: {
             input: {
               conditionName: label,
-              conditionContent: JSON.stringify(this.handlerParams(this.models)),
+              conditionContent: this.models,
               pageId: this.viewId,
               appKey: this.appKey,
             },
@@ -170,7 +170,7 @@
           this.commonlyOptions.push({
             label: conditionName,
             value: userConditionId,
-            params: this.handlerParams(JSON.parse(conditionContent)),
+            params: JSON.parse(conditionContent),
             component: SelectTempalte,
           })
           Message.success('设置常用条件成功')
@@ -193,7 +193,7 @@
       commonlyChange (val, options = []) {
         // 获取要预填的参数
         const selected = options.find(item => item.value === val) || {}
-        this.$emit('update:models', this.resetParams(selected.params))
+        this.$emit('update:models', selected.params)
       },
 
       // 转换参数为键值对形式
@@ -210,18 +210,18 @@
       },
 
       // 还原参数为数组形式
-      resetParams (params = {}) {
-        const obj = {}
-        for (let i in params) {
-          const item = params[i]
-          if (item) {
-            obj[i] = item.split(',')
-          } else {
-            obj[i] = []
-          }
-        }
-        return obj
-      },
+      // resetParams (params = {}) {
+      //   const obj = {}
+      //   for (let i in params) {
+      //     const item = params[i]
+      //     if (item) {
+      //       obj[i] = item.split(',')
+      //     } else {
+      //       obj[i] = []
+      //     }
+      //   }
+      //   return obj
+      // },
 
       // 常用条件的参数
       handlerCommonlyOptions (list = []) {

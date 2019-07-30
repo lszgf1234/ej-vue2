@@ -192,8 +192,21 @@
       // 预填通用条件
       commonlyChange (val, options = []) {
         // 获取要预填的参数
-        const selected = options.find(item => item.value === val) || {}
+        const selected = options.find(item => item.value === val) || {params: this.clearParams(this.models)}
         this.$emit('update:models', selected.params)
+      },
+
+      // 清空参数 仅限数组和字符串
+      clearParams (params) {
+        let obj = {}
+        for (let i in params) {
+          if (Array.isArray(params[i])) {
+            obj[i] = []
+          } else {
+            obj[i] = ''
+          }
+        }
+        return obj
       },
 
       // 转换参数为键值对形式

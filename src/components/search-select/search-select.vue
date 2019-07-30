@@ -1,39 +1,17 @@
 <template>
   <ej-search-input class="ej-search-select" v-bind="$attrs" v-on="$listeners">
-    <template #prepend>
-      <ej-select v-bind="selectProps" v-on="selectOn" @input="observerInput"/>
-    </template>
+    <slot name="prepend" slot="prepend"/>
   </ej-search-input>
 </template>
 
 <script>
   import EjSearchInput from '../search-input/search-input.vue'
-  import EjSelect from '../search-options/select/select'
 
   export default {
     name: 'EjSearchSelect',
 
     components: {
-      EjSelect,
       EjSearchInput,
-    },
-
-    props: {
-      selectProps: {
-        type: Object,
-        default: () => ({}),
-      },
-
-      selectOn: {
-        type: Object,
-        default: () => ({}),
-      },
-    },
-
-    methods: {
-      observerInput (val) {
-        this.selectProps.value = val
-      },
     },
   }
 </script>

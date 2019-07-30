@@ -157,7 +157,7 @@
           variables: {
             input: {
               conditionName: label,
-              conditionContent: this.models,
+              conditionContent: JSON.stringify(this.models),
               pageId: this.viewId,
               appKey: this.appKey,
             },

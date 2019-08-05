@@ -44,6 +44,10 @@
         type: String,
         default: '',
       },
+      noMultiple: {
+        type: Boolean,
+        default: false,
+      },
     },
 
     computed: {
@@ -71,7 +75,12 @@
         if (this.someSelected(this.selectedList, key)) {
           value.splice(value.indexOf(key), 1)
         } else {
-          value.push(key)
+          // 单选/多选
+          if (this.noMultiple) {
+            value = [key]
+          } else {
+            value.push(key)
+          }
         }
         // 修改v-model值
         this.$emit('input', value)

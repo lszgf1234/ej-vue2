@@ -13,7 +13,7 @@
         <ej-search-option-cascader :prop="datas[1].key" v-model="models[datas[1].key]" :label="datas[1].label" :options="datas[1].options" @setSelected="setSelected"/>
         <ej-search-option-select :prop="datas[2].key" v-model="models[datas[2].key]" :label="datas[2].label" :options="datas[2].options" @setSelected="setSelected"/>
         <ej-search-option-select :prop="datas[3].key" v-model="models[datas[3].key]" :label="datas[3].label" :options="datas[3].options" @setSelected="setSelected"/>
-        <ej-search-option-list :prop="datas[4].key" v-model="models[datas[4].key]" :label="datas[4].label" :options="datas[4].options" @setSelected="setSelected"/>
+        <ej-search-option-list :no-multiple="true" :prop="datas[4].key" v-model="models[datas[4].key]" :label="datas[4].label" :options="datas[4].options" @setSelected="setSelected"/>
         <ej-search-option-list :prop="datas[5].key" v-model="models[datas[5].key]" :label="datas[5].label" :options="datas[5].options" @setSelected="setSelected"/>
         <ej-search-option-list :prop="datas[6].key" v-model="models[datas[6].key]" :label="datas[6].label" :options="datas[6].options" @setSelected="setSelected"/>
         <ej-search-option-radio :prop="datas[7].key" v-model="models[datas[7].key]" :label="datas[7].label" :options="datas[7].options" @setSelected="setSelected"/>

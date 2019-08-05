@@ -1,5 +1,5 @@
 <template>
-  <el-select ref="elSelect" v-bind="$attrs" v-on="$listeners">
+  <el-select class="ej-select" ref="elSelect" v-bind="$attrs" v-on="$listeners">
       <el-option
         ref="elSelectOption"
         v-for="item in options"

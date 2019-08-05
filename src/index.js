@@ -13,6 +13,7 @@ import TagList from './components/tag-list'
 import Highlight from './components/highlight'
 import SearchInput from './components/search-input'
 import SearchList from './components/search-list'
+import SearchSelect from './components/search-select'
 import SearchSetName from './components/search-set-name'
 import SearchOptions from './components/search-options'
 import SearchOptionItem from './components/search-options/item'
@@ -42,6 +43,7 @@ export {
   Highlight,
   SearchInput,
   SearchList,
+  SearchSelect,
   SearchSetName,
   SearchOptions,
   SearchOptionItem,
@@ -72,6 +74,7 @@ export default {
     Vue.use(Highlight)
     Vue.use(SearchInput)
     Vue.use(SearchList)
+    Vue.use(SearchSelect)
     Vue.use(SearchOptions)
     Vue.use(Card)
 

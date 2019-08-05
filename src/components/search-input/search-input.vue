@@ -5,6 +5,9 @@
             class="ej-search-input"
             :style="styleObj"
             @keyup.enter.native="search">
+
+    <slot v-for="key in slots" :slot="key" :name="key"/>
+
     <ej-icon slot="suffix"
              icon="search"
              class="ej-app-search__button cursor-pointer"
@@ -59,6 +62,10 @@
           this.$emit('input', val)
         },
       },
+
+      slots () {
+        return Object.keys(this.$slots)
+      },
     },
 
     methods: {
@@ -72,7 +79,7 @@
 
 <style lang="scss">
   .ej-search-input {
-    .el-input__inner {
+    & > .el-input__inner {
       border-radius: 20px;
       height: inherit;
     }

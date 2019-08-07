@@ -21,6 +21,12 @@
       EjSearchTag,
     },
 
+    provide () {
+      return {
+        ejSearchList: this
+      }
+    },
+
     props: {
       defaultTagMore: Boolean,
       maxWidthTag: String,

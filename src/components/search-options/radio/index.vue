@@ -23,6 +23,8 @@
       EjSearchOptionItem,
     },
 
+    inject: ['ejSearchList'],
+
     props: {
       defaultMore: Boolean,
       options: {
@@ -69,7 +71,7 @@
           const value = this.model
           const label = (this.options.find(item => item.value === value) || {}).label || ''
 
-          this.$emit('setSelected', {
+          this.ejSearchList.setSelected({
             key: this.prop,
             label: label.length ? `${this.label}：${label}` : '',
           })

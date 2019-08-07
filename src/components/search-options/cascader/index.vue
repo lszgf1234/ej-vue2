@@ -2,6 +2,7 @@
   <ej-search-option-item :show-more="defaultMore" :label="label" :change="value">
     <el-cascader ref="cascader"
                  v-model="model"
+                 v-bind="$attrs"
                  :options="options"
                  class="ej-cascader-item"
                  @change="change"/>

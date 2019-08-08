@@ -45,6 +45,7 @@
 | `options` | array | | 可选项数据源（tree结构数据，参考el-cascader） |
 | `label` | string | | 标签文本 |
 | `default-more` | boolean | false | 是否默认展开
+| `...` | | | 其余属性与el-cascader相同
 
 ## SearchOptionsSelect条件组件-下拉选择器
 
@@ -56,3 +57,4 @@
 | `options` | [array] | | 可选项数据源（tree结构数据，参考el-select）|
 | `label` | string | | 标签文本 |
 | `default-more` | boolean | false | 是否默认展开
+| `select-props` | [object] | | 各项el-select的props值

@@ -5,6 +5,7 @@
                  clearable
                  :key="index"
                  v-model="item.model"
+                 v-bind="item.props"
                  :options="item.option"
                  @change="change(item.model, index)"
                  class="ej-search-option-select mr-3"/>
@@ -51,6 +52,10 @@
         type: String,
         default: '',
       },
+      selectProps: {
+        type: Array,
+        default: () => [],
+      },
     },
 
     computed: {
@@ -61,8 +66,10 @@
       params () {
         const options = this.options
         const models = this.models
+        const selectProps = this.selectProps
+
         return options.map((item, index) => {
-          return {model: models[index] || '', option: item}
+          return {model: models[index] || '', option: item, props: selectProps[index]}
         })
       },
     },

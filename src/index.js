@@ -20,6 +20,7 @@ import SearchOptionItem from './components/search-options/item'
 import SearchOptionList from './components/search-options/list'
 import SearchOptionSelect from './components/search-options/select'
 import SearchOptionCascader from './components/search-options/cascader'
+import SearchOptionRadio from './components/search-options/radio'
 import UserCard from './components/user-card'
 
 import NavMenu from './components/nav-menu'
@@ -50,6 +51,7 @@ export {
   SearchOptionList,
   SearchOptionSelect,
   SearchOptionCascader,
+  SearchOptionRadio,
   UserCard,
 
   NavMenu,

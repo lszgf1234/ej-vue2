@@ -26,6 +26,8 @@
       EjSearchOptionItem,
     },
 
+    inject: ['ejSearchList'],
+
     props: {
       defaultMore: Boolean,
       options: {
@@ -93,7 +95,7 @@
       },
 
       emitLables () {
-        this.$emit('setSelected', {
+        this.ejSearchList.setSelected({
           key: this.prop,
           label: this.selectedList.length ? `${this.label}：${mapListString(this.selectedList, 'label', '、')}` : '',
         })

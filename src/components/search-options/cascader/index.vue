@@ -21,6 +21,8 @@
       EjSearchOptionItem,
     },
 
+    inject: ['ejSearchList'],
+
     props: {
       defaultMore: Boolean,
       options: {
@@ -79,7 +81,7 @@
             checkedNodes = checkedNodes.parent
           }
 
-          this.$emit('setSelected', {
+          this.ejSearchList.setSelected({
             key: this.prop,
             label: labels.length ? `${this.label}：${labels.join('、')}` : '',
           })

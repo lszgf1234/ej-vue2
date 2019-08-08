@@ -24,9 +24,8 @@
       <template #tag-suffix>
         <ej-search-set-name  @confirm="setNameConfirm"/>
       </template>
-      <template #default="{setSelected}">
-        <slot :setSelected="setSelected"/>
-      </template>
+
+      <slot/>
     </ej-search-options>
   </div>
 </template>
@@ -61,10 +60,6 @@
     },
 
     props: {
-      datas: {
-        type: Array,
-        default: () => [],
-      },
       models: {
         type: Object,
         default: () => ({}),

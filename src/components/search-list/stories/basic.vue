@@ -1,22 +1,21 @@
 <template>
   <div>
     <ej-search-list ref="ejSearchList"
-                    :datas="datas"
                     :models.sync="models"
                     :keyword.sync="keyword"
                     :style="{'width': '1000px', margin: '50px auto'}"
                     :default-tag-more="true"
                     :max-width-tag="maxWidthTag"
                     @search="search">
-      <template #default="{setSelected}">
-        <ej-search-option-list :prop="datas[0].key" v-model="models[datas[0].key]" :label="datas[0].label" :options="datas[0].options" @setSelected="setSelected"/>
-        <ej-search-option-cascader :prop="datas[1].key" placeholder="234" :clearable="true" v-model="models[datas[1].key]" :label="datas[1].label" :options="datas[1].options" @setSelected="setSelected"/>
-        <ej-search-option-select :prop="datas[2].key" v-model="models[datas[2].key]" :label="datas[2].label" :options="datas[2].options" @setSelected="setSelected"/>
-        <ej-search-option-select :prop="datas[3].key" :select-props="datas[3].props" v-model="models[datas[3].key]" :label="datas[3].label" :options="datas[3].options" @setSelected="setSelected"/>
-        <ej-search-option-list :no-multiple="true" :prop="datas[4].key" v-model="models[datas[4].key]" :label="datas[4].label" :options="datas[4].options" @setSelected="setSelected"/>
-        <ej-search-option-list :prop="datas[5].key" v-model="models[datas[5].key]" :label="datas[5].label" :options="datas[5].options" @setSelected="setSelected"/>
-        <ej-search-option-list :prop="datas[6].key" v-model="models[datas[6].key]" :label="datas[6].label" :options="datas[6].options" @setSelected="setSelected"/>
-        <ej-search-option-radio :prop="datas[7].key" v-model="models[datas[7].key]" :label="datas[7].label" :options="datas[7].options" @setSelected="setSelected"/>
+      <template>
+        <ej-search-option-list :prop="datas[0].key" v-model="models[datas[0].key]" :label="datas[0].label" :options="datas[0].options"/>
+        <ej-search-option-cascader :prop="datas[1].key" placeholder="234" :clearable="true" v-model="models[datas[1].key]" :label="datas[1].label" :options="datas[1].options"/>
+        <ej-search-option-select :prop="datas[2].key" v-model="models[datas[2].key]" :label="datas[2].label" :options="datas[2].options"/>
+        <ej-search-option-select :prop="datas[3].key" :select-props="datas[3].props" v-model="models[datas[3].key]" :label="datas[3].label" :options="datas[3].options"/>
+        <ej-search-option-list :no-multiple="true" :prop="datas[4].key" v-model="models[datas[4].key]" :label="datas[4].label" :options="datas[4].options"/>
+        <ej-search-option-list :prop="datas[5].key" v-model="models[datas[5].key]" :label="datas[5].label" :options="datas[5].options"/>
+        <ej-search-option-list :prop="datas[6].key" v-model="models[datas[6].key]" :label="datas[6].label" :options="datas[6].options"/>
+        <ej-search-option-radio :prop="datas[7].key" v-model="models[datas[7].key]" :label="datas[7].label" :options="datas[7].options"/>
       </template>
     </ej-search-list>
   </div>

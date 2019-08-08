@@ -23,6 +23,8 @@
 
     inheritAttrs: false,
 
+    inject: ['ejSearchList'],
+
     components: {
       EjSelect,
       EjSearchOptionItem,
@@ -101,7 +103,7 @@
           const values = this.models
           let labels = this.$refs.ejSelect.map(item => item.getLabels()).filter(item => item)
           
-          this.$emit('setSelected', {
+          this.ejSearchList.setSelected({
             key: this.prop,
             label: labels.length ? `${this.label}：${labels.join('、')}` : '',
           })

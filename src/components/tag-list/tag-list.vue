@@ -1,5 +1,5 @@
 <template>
-  <div class="ej-tags flex">
+  <div class="ej-tag-list flex">
     <tag-item v-for="(tag, idx) in internalTags"
               :key="tag.name"
               v-bind="tag"
@@ -28,19 +28,17 @@
 </template>
 
 <script>
-  import Vue from 'vue'
   import {Input, Tooltip} from 'element-ui'
 
   import TagItem from './tag-item.vue'
-
-  Vue.use(Input)
-  Vue.use(Tooltip)
 
   export default {
     name: 'EjTagList',
 
     components: {
       TagItem,
+      [Input.name]: Input,
+      [Tooltip.name]: Tooltip,
     },
 
     model: {
@@ -126,7 +124,7 @@
 </script>
 
 <style lang="css">
-  .ej-tags .el-input__inner {
+  .ej-tag-list .el-input__inner {
     border: none;
   }
 
@@ -155,7 +153,7 @@
 
 <style lang="scss" scoped>
 
-  .ej-tags {
+  .ej-tag-list {
     position: relative;
     flex-wrap: wrap;
 

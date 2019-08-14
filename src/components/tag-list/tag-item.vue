@@ -1,5 +1,5 @@
 <template>
-  <div class="common-tag clearfix" @mouseenter="handleMouseenter" @mouseleave="handleMouseleave">
+  <div class="ej-tag-item clearfix" @mouseenter="handleMouseenter" @mouseleave="handleMouseleave">
     <div class="float-left tag-item">
       <el-tooltip placement="top" popper-class="tag-item-popper">
         <div slot="content" class="tooltip-content">{{name}}</div>
@@ -124,7 +124,7 @@
     word-break: break-all;
   }
 
-  .common-tag {
+  .ej-tag-item {
     position: relative;
     margin-bottom: 8px;
 

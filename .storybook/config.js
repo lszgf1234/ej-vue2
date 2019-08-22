@@ -6,8 +6,8 @@ import '../src/base.css'
 
 addDecorator(withKnobs)
 
-// automatically import all files ending in *.stories.js
-const req = require.context('../src', true, /\.stories\.js$/)
+// automatically import all files ending in *.stories.js or the index.js under stories folder (stories/index.js)
+const req = require.context('../src', true, /(\.stories\.js|stories)$/)
 
 function loadStories () {
   req.keys().forEach(filename => req(filename))

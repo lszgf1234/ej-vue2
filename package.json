@@ -10,7 +10,9 @@
   "dependencies": {
     "clipboard": "^2.0.4",
     "highlight.js": "^9.15.10",
-    "svg4everybody": "^2.1.9"
+    "lodash-es": "^4.17.15",
+    "svg4everybody": "^2.1.9",
+    "vue": "^2.6.10"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",

@@ -1,8 +1,8 @@
 <template>
-  <el-input v-model="model"
+  <ej-input v-model="model"
             v-bind="$attrs"
             v-on="$listeners"
-            class="ej-search-input"
+            class="ej-search-input w-2/3"
             :style="styleObj"
             @keyup.enter.native="search">
 
@@ -12,11 +12,12 @@
              icon="search"
              class="ej-app-search__button cursor-pointer"
              @click="search"/>
-  </el-input>
+  </ej-input>
 </template>
 
 <script>
   import {Input as ElInput} from 'element-ui'
+  import EjInput from '../input/input.vue'
 
   import {toCssSize} from '../../utils/ui'
   import EjIcon from '../icon'
@@ -28,6 +29,7 @@
 
     components: {
       ElInput,
+      EjInput,
       EjIcon,
     },
 

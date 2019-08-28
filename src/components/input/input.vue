@@ -2,6 +2,7 @@
   <el-input v-model="model"
             v-bind="$attrs"
             v-on="$listeners"
+            :style="styleObj"
             class="ej-input">
     <slot v-for="slot in slots" :slot="slot" :name="slot"/>
   </el-input>
@@ -10,6 +11,8 @@
 <script>
   import {Input as ElInput} from 'element-ui'
   import {debounce as Debounce, throttle as Throttle} from 'lodash-es'
+
+  import {toCssSize} from '../../utils/ui'
 
   export default {
     name: 'EjInput',
@@ -24,6 +27,11 @@
       value: {
         type: [String, Number],
         default: '',
+      },
+
+      width: {
+        type: [String, Number],
+        default: 552,
       },
 
       // 是否开启防抖
@@ -72,6 +80,12 @@
         },
       },
 
+      styleObj () {
+        return {
+          width: toCssSize(this.width),
+        }
+      },
+
       slots () {
         return Object.keys(this.$slots)
       },
@@ -85,7 +99,7 @@
 
           // 设置防抖函数
           this.debounce = Debounce(function (val) {
-            _this.ejInput(val, spacingTime)
+            _this.ejChange(val, spacingTime)
           }, spacingTime)
         },
       },
@@ -97,14 +111,14 @@
 
           // 设置防抖函数
           this.throttle = Throttle(function (val) {
-            _this.ejInput(val, spacingTime)
+            _this.ejChange(val, spacingTime)
           }, spacingTime)
         },
       },
     },
 
     methods: {
-      ejInput (val, spacingTime) {
+      ejChange (val, spacingTime) {
         this.$emit('ej-change', val, spacingTime)
       },
     },

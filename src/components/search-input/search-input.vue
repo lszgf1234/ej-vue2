@@ -2,8 +2,7 @@
   <ej-input v-model="model"
             v-bind="$attrs"
             v-on="$listeners"
-            class="ej-search-input w-2/3"
-            :style="styleObj"
+            class="ej-search-input"
             @keyup.enter.native="search">
 
     <slot v-for="key in slots" :slot="key" :name="key"/>
@@ -16,11 +15,8 @@
 </template>
 
 <script>
-  import {Input as ElInput} from 'element-ui'
-  import EjInput from '../input/input.vue'
-
-  import {toCssSize} from '../../utils/ui'
   import EjIcon from '../icon'
+  import EjInput from '../input/input.vue'
 
   export default {
     name: 'EjSearchInput',
@@ -28,7 +24,6 @@
     inheritAttrs: false,
 
     components: {
-      ElInput,
       EjInput,
       EjIcon,
     },
@@ -38,24 +33,9 @@
         type: [String, Number],
         default: '',
       },
-      width: {
-        type: [String, Number],
-        default: 552,
-      },
-      height: {
-        type: [String, Number],
-        default: 40,
-      },
     },
 
     computed: {
-      styleObj () {
-        return {
-          width: toCssSize(this.width),
-          height: toCssSize(this.height),
-        }
-      },
-
       model: {
         get () {
           return this.value

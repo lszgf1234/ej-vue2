@@ -10,7 +10,7 @@ Vue.use(SearchInput)
 storiesOf('Components|SearchInput', module)
   .add('基本用法', () => ({
     template: `
-      <ej-search-input v-model="model" :width="width" :height="height" :placeholder="placeholder" @search="search"/>
+      <ej-search-input clearable v-model="model" :width="width" :height="height" :placeholder="placeholder" @search="search" class="ml-8 mt-8"/>
     `,
     props: {
       placeholder: {

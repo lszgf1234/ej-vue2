@@ -82,6 +82,14 @@
     & > .el-input__inner {
       border-radius: 20px;
       height: inherit;
+
+      &:hover {
+        box-shadow: 0px 1px 8px 2px rgba(140, 171, 232, 0.3);
+      }
+
+      &:focus {
+        @apply border-blue;
+      }
     }
 
     .ej-app-search__button {
@@ -91,6 +99,10 @@
       top: 50%;
       right: 0;
       transform: translate(-50%, -50%);
+
+      & + .el-input__icon {
+        margin-right: 35px;
+      }
     }
   }
 </style>

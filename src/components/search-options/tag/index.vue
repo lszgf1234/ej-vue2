@@ -102,19 +102,14 @@
         background-color: theme('colors.blue.lighter');
 
         .el-icon-close {
-          @apply text-blue border-blue absolute;
-
           font-size: 14px;
-          background-color: white;
-          border-style: solid;
-          border-width: 1px;
-          right: 5px;
-          top: 0px;
+          line-height: 16px;
           transform: scale(0.8);
+          color: #307CF1;
+          right: -2px;
 
           &:hover {
-            @apply text-blue;
-            background-color: white;
+            @apply text-white bg-blue-light;
           }
         }
       }

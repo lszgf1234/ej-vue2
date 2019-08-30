@@ -244,7 +244,7 @@
         })
       },
 
-      // 删除已选条
+      // 删除已选条件
       closeSelected (key) {
         switch (typeof this.models[key]) {
           case 'string':
@@ -254,6 +254,8 @@
             this.models[key] = []
             break
         }
+
+        this.$emit('close', key)
       },
 
       // 抛出的方法 设置已选条件

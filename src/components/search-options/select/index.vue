@@ -1,5 +1,5 @@
 <template>
-  <ej-search-option-item :show-more="defaultMore" :label="label" :change="value">
+  <ej-search-option-item :show-more="defaultMore" :label="label" :change="options">
     <template v-for="(item, index) in params">
       <ej-select ref="ejSelect"
                  clearable

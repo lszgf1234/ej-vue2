@@ -1,5 +1,5 @@
 <template>
-  <ej-search-option-item :show-more="defaultMore" :label="label" :change="value">
+  <ej-search-option-item :show-more="defaultMore" :label="label" :change="options">
     <el-cascader ref="cascader"
                  v-model="model"
                  v-bind="$attrs"

@@ -57,7 +57,7 @@
           {
             key: 'name',
             label: '机构名称',
-            options: SEARCH_OPTIONS.name,
+            options: [],
           },
           {
             key: 'base',
@@ -125,12 +125,14 @@
 
     mounted () {
       setTimeout(() => {
+        this.$set(this.datas[0], 'options', SEARCH_OPTIONS.name)
+
         this.models.otherParam = 'otherParam'
         this.emitSetSelected({
           key: 'otherParam',
           label: '外部条件：otherParam',
         })
-      }, 1500)
+      }, 800)
     },
   }
 </script>

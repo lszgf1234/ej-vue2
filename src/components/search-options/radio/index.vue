@@ -1,5 +1,5 @@
 <template>
-  <ej-search-option-item :show-more="defaultMore" :label="label" :change="value">
+  <ej-search-option-item :show-more="defaultMore" :label="label" :change="options">
     <div class="ej-search-options-radio-item flex items-center">
       <el-radio v-for="item in options"
                 :key="item.value"

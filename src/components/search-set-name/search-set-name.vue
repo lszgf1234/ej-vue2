@@ -4,13 +4,20 @@
     trigger="click"
     class="set-name-view"
     popper-class="set-name-popper">
-    <h3>新常用条件名称</h3>
-    <el-input v-model="model" @keyup.enter.native="confirm(model)" class="mt-1"/>
+    <h3>{{title}}</h3>
+
+    <el-input v-model="model" @keyup.enter.native="confirm(model)" :placeholder="placeholder" :clearable="clearable" class="mt-1"/>
+
     <div class="text-center mt-2">
       <el-button size="small" @click="close()">取消</el-button>
       <el-button type="primary" @click="confirm(model)" size="small">确定</el-button>
     </div>
-    <p slot="reference" class="content-text text-blue cursor-pointer">设为常用条件</p>
+
+    <div slot="reference">
+      <slot>
+        <p class="content-text text-blue cursor-pointer">设为常用条件</p>
+      </slot>
+    </div>
   </el-popover>
 </template>
 
@@ -26,11 +33,45 @@
       ElPopover,
     },
 
+    props: {
+      value: {
+        type: [String, Number],
+        default: '',
+      },
+
+      title: {
+        type: String,
+        default: '新常用条件名称',
+      },
+
+      placeholder: {
+        type: Boolean,
+        default: false,
+      },
+
+      clearable: {
+        type: Boolean,
+        default: false,
+      },
+    },
+
     data () {
       return {
         visible: false,
-        model: '',
+        internalModel: '',
       }
+    },
+
+    computed: {
+      model: {
+        get () {
+          return this.value || this.internalModel
+        },
+        set (val) {
+          this.internalModel = val
+          this.$emit('input', val)
+        },
+      },
     },
 
     watch: {

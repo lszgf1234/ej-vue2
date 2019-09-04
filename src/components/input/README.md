@@ -8,10 +8,9 @@
 |---|---|---|---|
 | `value` | String | | 控件值，用于 v-model |
 | `width` | String | '552px' | 输入框宽度 |
-| `isDebounce` | Boolean | false | 是否开启防抖 |
-| `debounceTime` | Number | 0 | 防抖间隔时间（需isDebounce为true） |
-| `isThrottle` | Boolean | false | 是否开启节流 |
-| `throttleTime` | Number | 0 | 节流间隔时间（需isThrottle为true） |
+| `number` | Boolean | false | 是否转化为数字类型（强转） |
+| `debounce` | Number | 0 | 防抖间隔时间（debounce > 0） |
+| `throttle` | Number | 0 | 节流间隔时间（throttle > 0） |
 
 
 其余与 `<el-input>` 相同。

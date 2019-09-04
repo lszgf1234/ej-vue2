@@ -1,9 +1,9 @@
 <template>
-  <el-input v-model="model"
-            v-bind="$attrs"
+  <el-input v-bind="$attrs"
             v-on="$listeners"
             :style="styleObj"
-            class="ej-input">
+            class="ej-input"
+            @input="observerInput">
     <slot v-for="slot in slots" :slot="slot" :name="slot"/>
   </el-input>
 </template>
@@ -24,11 +24,6 @@
     },
 
     props: {
-      value: {
-        type: [String, Number],
-        default: '',
-      },
-
       width: {
         type: [String, Number],
         default: 552,
@@ -45,29 +40,15 @@
         type: Number,
         default: 0,
       },
+
+      // 仅数字
+      number: {
+        type: Boolean,
+        default: false,
+      },
     },
 
     computed: {
-      model: {
-        get () {
-          return this.value
-        },
-        set (val) {
-          this.$emit('input', val)
-  
-          // 防抖
-          if (this.debounce > 0) {
-            this.debounceFn(val)
-            return
-          }
-
-          // 节流
-          if (this.throttle > 0) {
-            this.throttleFn(val)
-          }
-        },
-      },
-
       styleObj () {
         return {
           width: toCssSize(this.width),
@@ -105,7 +86,35 @@
       },
     },
 
+    created () {
+      this.$listeners.input = this.observerInput
+    },
+
     methods: {
+      observerInput (val) {
+        // 数值类型
+        if (this.number && val !== '') {
+          val = Number(val.replace(/[^\d]/g, ''))
+        }
+
+        this.$emit('input', val)
+
+        this.setValue(val)
+      },
+
+      setValue (val) {
+        // 防抖
+        if (this.debounce > 0) {
+          this.debounceFn(val)
+          return
+        }
+
+        // 节流
+        if (this.throttle > 0) {
+          this.throttleFn(val)
+        }
+      },
+
       ejChange (val, spacingTime) {
         this.$emit('ej-change', val, spacingTime)
       },

@@ -6,7 +6,7 @@
     popper-class="set-name-popper">
     <h3>{{title}}</h3>
 
-    <el-input v-model="model" @keyup.enter.native="confirm(model)" :placeholder="placeholder" :clearable="clearable" class="mt-1"/>
+    <ej-input v-model="model" v-bind="$attrs" @keyup.enter.native="confirm(model)" class="mt-1"/>
 
     <div class="text-center mt-2">
       <el-button size="small" @click="close()">取消</el-button>
@@ -22,13 +22,14 @@
 </template>
 
 <script>
-  import {Input as ElInput, Button as ElButton, Popover as ElPopover} from 'element-ui'
+  import {Button as ElButton, Popover as ElPopover} from 'element-ui'
+  import EjInput from '../input/input.vue'
 
   export default {
     name: 'EjSearchSetName',
 
     components: {
-      ElInput,
+      EjInput,
       ElButton,
       ElPopover,
     },
@@ -42,16 +43,6 @@
       title: {
         type: String,
         default: '新常用条件名称',
-      },
-
-      placeholder: {
-        type: Boolean,
-        default: false,
-      },
-
-      clearable: {
-        type: Boolean,
-        default: false,
       },
     },
 

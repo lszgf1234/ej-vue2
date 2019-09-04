@@ -1,8 +1,7 @@
 <template>
   <div class="w-1/2 ml-8">
     <ej-input v-model="model"
-              :isDebounce="isDebounce"
-              :debounceTime="debounceTime"
+              :debounce="debounceTime"
               @ej-change="debounceInput"/>
     <br>输入内容：{{ejModel}}
   </div>
@@ -21,10 +20,6 @@
     },
 
     props: {
-      isDebounce: {
-        default: boolean('isDebounce', true),
-      },
-
       debounceTime: {
         default: number('debounceTime', 1005),
       },

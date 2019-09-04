@@ -1,8 +1,7 @@
 <template>
   <div class="w-1/2 ml-8">
     <ej-input v-model="model"
-              :isThrottle="isThrottle"
-              :throttleTime="throttleTime"
+              :throttle="throttleTime"
               @ej-change="throttleInput"/>
     <br>输入内容：{{ejModel}}
   </div>
@@ -21,10 +20,6 @@
     },
 
     props: {
-      isThrottle: {
-        default: boolean('isThrottle', true),
-      },
-
       throttleTime: {
         default: number('throttleTime', 1005),
       },

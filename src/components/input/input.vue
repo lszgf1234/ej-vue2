@@ -34,26 +34,14 @@
         default: 552,
       },
 
-      // 是否开启防抖
-      isDebounce: {
-        type: Boolean,
-        default: false,
-      },
-
-      // 防抖时间
-      debounceTime: {
+      // 防抖间隔
+      debounce: {
         type: Number,
         default: 0,
       },
 
-      // 节流
-      isThrottle: {
-        type: Boolean,
-        default: false,
-      },
-
       // 节流间隔
-      throttleTime: {
+      throttle: {
         type: Number,
         default: 0,
       },
@@ -68,14 +56,14 @@
           this.$emit('input', val)
   
           // 防抖
-          if (this.isDebounce && this.debounceTime > 0) {
-            this.debounce(val)
+          if (this.debounce > 0) {
+            this.debounceFn(val)
             return
           }
 
           // 节流
-          if (this.isThrottle && this.throttleTime > 0) {
-            this.throttle(val)
+          if (this.throttle > 0) {
+            this.throttleFn(val)
           }
         },
       },
@@ -92,25 +80,25 @@
     },
 
     watch: {
-      debounceTime: {
+      debounce: {
         immediate: true,
         handler (spacingTime) {
           const _this = this
 
           // 设置防抖函数
-          this.debounce = Debounce(function (val) {
+          this.debounceFn = Debounce(function (val) {
             _this.ejChange(val, spacingTime)
           }, spacingTime)
         },
       },
 
-      throttleTime: {
+      throttle: {
         immediate: true,
         handler (spacingTime) {
           const _this = this
 
           // 设置防抖函数
-          this.throttle = Throttle(function (val) {
+          this.throttleFn = Throttle(function (val) {
             _this.ejChange(val, spacingTime)
           }, spacingTime)
         },

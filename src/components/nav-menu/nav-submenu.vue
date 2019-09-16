@@ -18,11 +18,11 @@
 </script>
 
 <style lang="scss">
-  .ej-nav-submenu {
-    .el-submenu__icon-arrow {
-      @apply hidden;
-    }
-  }
+  // .ej-nav-submenu {
+  //   .el-submenu__icon-arrow {
+  //     @apply hidden;
+  //   }
+  // }
 
   .ej-nav-submenu-popper {
     .el-menu--popup {

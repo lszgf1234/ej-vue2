@@ -27,7 +27,7 @@
                       :default-expand-list="defaultExpandList"
                       @closeSelected="closeSelected">
       <template #tag-suffix>
-        <ej-search-set-name  @confirm="setNameConfirm"/>
+        <ej-popover-set  @confirm="setNameConfirm"/>
       </template>
 
       <slot/>
@@ -40,9 +40,8 @@
 
   import EjIcon from '../icon'
   import EjSearchInput from '../search-input/search-input'
-  import EjSearchSetName from '../search-set-name/search-set-name'
   import EjSearchOptions from '../search-options/'
-
+  import EjPopoverSet from '../popover-set/popover-set'
 
   import QUERY_COMMONLY_LIST from './grapgql/query_commonly_list.gql'
   import MUTATION_COMMONLY_LIST from './grapgql/mutation_commonly_list.gql'
@@ -54,8 +53,8 @@
     components: {
       EjIcon,
       EjSearchInput,
-      EjSearchSetName,
       EjSearchOptions,
+      EjPopoverSet,
     },
 
     data () {

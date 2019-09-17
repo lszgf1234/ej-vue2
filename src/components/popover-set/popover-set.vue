@@ -26,7 +26,7 @@
   import EjInput from '../input/input.vue'
 
   export default {
-    name: 'EjSearchSetName',
+    name: 'EjPopoverSet',
 
     components: {
       EjInput,

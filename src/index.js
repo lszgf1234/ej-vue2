@@ -15,7 +15,6 @@ import Highlight from './components/highlight'
 import SearchInput from './components/search-input'
 import SearchList from './components/search-list'
 import SearchSelect from './components/search-select'
-import SearchSetName from './components/search-set-name'
 import SearchOptions from './components/search-options'
 import SearchOptionItem from './components/search-options/item'
 import SearchOptionList from './components/search-options/list'
@@ -28,6 +27,7 @@ import NavMenu from './components/nav-menu'
 import NavSubmenu from './components/nav-submenu'
 
 import Loading from './directives/loading'
+import PopoverSet from './components/popover-set'
 
 export {
   AppHeader,
@@ -47,7 +47,6 @@ export {
   SearchInput,
   SearchList,
   SearchSelect,
-  SearchSetName,
   SearchOptions,
   SearchOptionItem,
   SearchOptionList,
@@ -60,6 +59,7 @@ export {
   NavSubmenu,
 
   Loading,
+  PopoverSet,
 }
 
 export default {
@@ -87,5 +87,6 @@ export default {
     Vue.use(NavSubmenu)
 
     Vue.use(Loading)
+    Vue.use(PopoverSet)
   },
 }

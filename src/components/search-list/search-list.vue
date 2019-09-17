@@ -20,7 +20,7 @@
     <ej-search-options ref="ejSearchOptions"
                       :max-width-tag="maxWidthTag"
                       :default-tag-more="defaultTagMore"
-                      :default-txpand-list="defaultExpandList"
+                      :default-expand-list="defaultExpandList"
                       @closeSelected="closeSelected">
       <template #tag-suffix>
         <ej-search-set-name  @confirm="setNameConfirm"/>

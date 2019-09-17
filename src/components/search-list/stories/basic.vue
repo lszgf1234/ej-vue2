@@ -130,7 +130,7 @@
         this.models.otherParam = 'otherParam'
         this.emitSetSelected({
           key: 'otherParam',
-          label: '外部条件：otherParam',
+          label: '外部条件：otherParam超长，otherParam超长，otherParam超长，otherParam超长，otherParam超长，otherParam超长，otherParam超长，otherParam超长',
         })
       }, 800)
     },

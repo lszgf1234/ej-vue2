@@ -88,10 +88,11 @@
       max-width: 100%;
 
       .el-tag {
-        @apply text-gray-darkest;
+        @apply text-gray-darkest relative;
 
         height: $search-input-height;
         line-height: $search-input-height;
+        padding-right: 2em;
         font-size: 14px;
         border: none;
         border-radius: 9px;
@@ -102,11 +103,14 @@
         background-color: theme('colors.blue.lighter');
 
         .el-icon-close {
+          @apply absolute;
+
           font-size: 14px;
           line-height: 16px;
           transform: scale(0.8);
           color: #307CF1;
-          right: -2px;
+          right: 0.5em;
+          top: 6px;
 
           &:hover {
             @apply text-white bg-blue-light;

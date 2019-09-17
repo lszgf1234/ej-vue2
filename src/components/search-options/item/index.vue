@@ -23,6 +23,8 @@
       EjSearchOptionMore,
     },
 
+    inject: ['ejSearchList'],
+
     props: {
       label: {
         type: String,
@@ -54,6 +56,13 @@
           this.showMoreBtn()
         },
       },
+
+      // 展开收起列表 展开时重新计算
+      'ejSearchList.isExpandList' (newVal) {
+        if (newVal) {
+          this.showMoreBtn()
+        }
+      },
     },
 
     created () {
@@ -67,7 +76,7 @@
     methods: {
       showMoreBtn () {
         this.$nextTick(() => {
-          // 减掉150的右内边距
+          // 减掉80的右内边距
           const listWrapper = this.$refs.listWrapper.offsetWidth - 80
           const listContent = this.$refs.listContent.offsetWidth
 

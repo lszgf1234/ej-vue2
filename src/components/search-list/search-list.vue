@@ -18,9 +18,10 @@
     </div>
 
     <ej-search-options ref="ejSearchOptions"
-                       :default-tag-more="defaultTagMore"
-                       :max-width-tag="maxWidthTag"
-                       @closeSelected="closeSelected">
+                      :max-width-tag="maxWidthTag"
+                      :default-tag-more="defaultTagMore"
+                      :default-expand-list="defaultExpandList"
+                      @closeSelected="closeSelected">
       <template #tag-suffix>
         <ej-search-set-name  @confirm="setNameConfirm"/>
       </template>
@@ -31,7 +32,7 @@
 </template>
 
 <script>
-  import { Message } from 'element-ui';
+  import {Message} from 'element-ui'
 
   import EjSelect from '../search-options/select/select'
   import EjSearchInput from '../search-input/search-input'
@@ -68,14 +69,10 @@
         type: String,
         default: '',
       },
-      defaultTagMore: {
-        type: Boolean,
-        default: true,
-      },
-      maxWidthTag: {
-        type: String,
-        default: '',
-      },
+      defaultTagMore: Boolean,
+      maxWidthTag: String,
+      // 列表默认展开收起
+      defaultExpandList: Boolean,
       // 应用key
       appKey: {
         type: String,

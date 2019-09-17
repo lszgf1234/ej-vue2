@@ -2,13 +2,19 @@
 
 搜索条件组件，需引入SearchOptionsItem，SearchOptionsList，SearchOptionsCascader组件配合使用
 
+### Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `max-width-tag` | String | | 已选条件组件 - 最大宽度 |
+| `default-tag-more` | Boolean | true | 已选条件组件 - 否默认展开 |
+| `default-expand-list` | Boolean | true | 是否展开列表 |
+
 ### Slot
 
 | Name | Default | Description |
 |---|---|---|
-| default | | 插槽内容 |
-| default-tag-more | false | 已选条件是否默认展开 |
-| max-width-tag | - | 已选条件最大宽度 |
+| `default` | | 插槽内容 |
 
 ## SearchOptionsItem 自定义条件组 
 

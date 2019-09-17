@@ -12,7 +12,7 @@
 | `appKey` | String | | 应用key |
 | `viewId` | String\|Number | | 应用内页面id |
 | `max-width-tag` | String | | 已选条件组件 - 最大宽度 |
-| `default-tag-more` | Boolean | true | 已选条件组件 - 否默认展开 |
+| `default-tag-more` | Boolean | true | 已选条件组件 - 是否默认展开 |
 | `default-expand-list` | Boolean | true | 是否展开列表 |
 
 ### Slot

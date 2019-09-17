@@ -20,7 +20,7 @@
     <ej-search-options ref="ejSearchOptions"
                       :max-width-tag="maxWidthTag"
                       :default-tag-more="defaultTagMore"
-                      :defaultExpandList="defaultExpandList"
+                      :default-txpand-list="defaultExpandList"
                       @closeSelected="closeSelected">
       <template #tag-suffix>
         <ej-search-set-name  @confirm="setNameConfirm"/>
@@ -69,19 +69,10 @@
         type: String,
         default: '',
       },
-      defaultTagMore: {
-        type: Boolean,
-        default: true,
-      },
-      maxWidthTag: {
-        type: String,
-        default: '',
-      },
+      defaultTagMore: Boolean,
+      maxWidthTag: String,
       // 列表默认展开收起
-      defaultExpandList: {
-        type: Boolean,
-        default: true,
-      },
+      defaultExpandList: Boolean,
       // 应用key
       appKey: {
         type: String,

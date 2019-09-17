@@ -50,9 +50,14 @@
         type: Boolean,
         default: true,
       },
-
-      defaultTagMore: Boolean,
-      maxWidthTag: String,
+      defaultTagMore: {
+        type: Boolean,
+        default: true,
+      },
+      maxWidthTag: {
+        type: String,
+        default: '',
+      },
     },
 
     data () {

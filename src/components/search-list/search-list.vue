@@ -138,7 +138,7 @@
           query: QUERY_COMMONLY_LIST,
           fetchPolicy: 'network-only',
           client: 'apolloUserClient',
-          variables: {input: {appKey}},
+          variables: {input: {appKey, pageId}},
         }).then(({data}) => {
           this.commonlyOptions = this.handlerCommonlyOptions(data.list)
         })
@@ -146,6 +146,16 @@
 
       // 设置常用条件
       setNameConfirm (label) {
+        if (!label) {
+          Message.error('请输入常用条件名称！')
+          return
+        }
+
+        if (this.commonlyOptions.findIndex(item => item.label === label) !== -1) {
+          Message.error('该条件名称已存在！')
+          return
+        }
+        
         this.$apollo.mutate({
           mutation: MUTATION_COMMONLY_LIST,
           client: 'apolloUserClient',

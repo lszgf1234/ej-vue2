@@ -18,8 +18,8 @@
     </div>
 
     <ej-search-options ref="ejSearchOptions"
-                      :default-tag-more="defaultTagMore"
                       :max-width-tag="maxWidthTag"
+                      :default-tag-more="defaultTagMore"
                       :defaultExpandList="defaultExpandList"
                       @closeSelected="closeSelected">
       <template #tag-suffix>

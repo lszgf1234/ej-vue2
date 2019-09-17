@@ -57,7 +57,7 @@
         },
       },
 
-      // 展开收起 展开时重新计算
+      // 展开收起列表 展开时重新计算
       'ejSearchList.isExpandList' (newVal) {
         if (newVal) {
           this.showMoreBtn()

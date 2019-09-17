@@ -6,7 +6,7 @@
                     :style="{'width': '1000px', margin: '50px auto'}"
                     :default-tag-more="true"
                     :max-width-tag="maxWidthTag"
-                    :isExpand="true"
+                    :default-expand-list="true"
                     @search="search">
       <template>
         <ej-search-option-list :prop="datas[0].key" v-model="models[datas[0].key]" :label="datas[0].label" :options="datas[0].options"/>

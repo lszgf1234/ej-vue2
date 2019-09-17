@@ -104,6 +104,7 @@
     .more-line {
       @apply flex justify-center absolute left-0 bottom-0 w-full bg-white;
 
+      // 线条
       &::before {
         @apply absolute;
 
@@ -117,6 +118,7 @@
         z-index: 1;
       }
 
+      // 占位留白
       &::after {
         @apply absolute h-full;
 
@@ -131,7 +133,6 @@
 
       .el-icon-arrow-down {
         font-size: 20px;
-        position: relative;
         z-index: 3;
         transition: transform .3s;
 

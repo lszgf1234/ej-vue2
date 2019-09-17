@@ -11,8 +11,9 @@
 | `keyword` | String | | 关键词 输入不会触发input实时更新，点击搜索按钮触发 |
 | `appKey` | String | | 应用key |
 | `viewId` | String\|Number | | 应用内页面id |
-| `default-tag-more` | Boolean | true | 已选条件超长默认收起/展开 |
-| `max-width-tag` | String |  | 已选条件最大宽度 |
+| `max-width-tag` | String | | 已选条件组件 - 最大宽度 |
+| `default-tag-more` | Boolean | true | 已选条件组件 - 否默认展开 |
+| `default-expand-list` | Boolean | true | 是否展开列表 |
 
 ### Slot
 

@@ -1,18 +1,22 @@
 <template>
   <div class="ej-search-list">
     <div class="input-box flex justify-between items-center mb-4">
-      <div class="flex items-end">
+      <div class="flex flex-wrap items-end">
         <slot name="input">
           <ej-search-input v-model="keywordModel" placeholder="请输入资料名称"  @search="search('btn')"/>
         </slot>
         
-        <ej-select clearable
-                   v-model="commonlyModel"
-                   :options="commonlyOptions"
-                   @deleted-select="deletedOptions"
-                   @change="commonlyChange(commonlyModel, commonlyOptions)"
-                   placeholder="常用条件"
-                   class="ej-search-commonly-select mb-1"/>
+        <!-- 常用条件 -->
+        <template v-for="(item, index) in commonlyOptions">
+          <div :key="index"
+               :class="{'ml-4': index === 0}"
+               class="commonly-item flex cursor-pointer text-blue mt-3 mr-3"
+                @click="commonlyChange(item.value, commonlyOptions)">
+            {{item.label}}
+            <ej-icon icon="close-circle-o" class="commonly-item-close hidden" @click.stop="deletedOptions(item.value)"/>
+          </div>
+        </template>
+        <!-- 常用条件 -->
       </div>
       <slot name="input-suffix"/>
     </div>
@@ -34,20 +38,21 @@
 <script>
   import {Message} from 'element-ui'
 
-  import EjSelect from '../search-options/select/select'
+  import EjIcon from '../icon'
   import EjSearchInput from '../search-input/search-input'
   import EjSearchSetName from '../search-set-name/search-set-name'
   import EjSearchOptions from '../search-options/'
-  import SelectTempalte from './select-tempalte'
+
 
   import QUERY_COMMONLY_LIST from './grapgql/query_commonly_list.gql'
   import MUTATION_COMMONLY_LIST from './grapgql/mutation_commonly_list.gql'
+  import MUTATION_COMMONLY_DELETE from './grapgql/mutation_commonly_delete.gql'
 
   export default {
     name: 'EjSearchList',
 
     components: {
-      EjSelect,
+      EjIcon,
       EjSearchInput,
       EjSearchSetName,
       EjSearchOptions,
@@ -55,7 +60,6 @@
 
     data () {
       return {
-        commonlyModel: '',
         commonlyOptions: [],
       }
     },
@@ -173,7 +177,6 @@
             label: conditionName,
             value: userConditionId,
             params: JSON.parse(conditionContent),
-            component: SelectTempalte,
           })
           Message.success('设置常用条件成功')
         }).catch((err) => {
@@ -184,11 +187,20 @@
 
       // 删除选项
       deletedOptions (id) {
-        const index = this.commonlyOptions.findIndex(item => item.value === id)
-        if (index === -1) return
-        this.commonlyOptions.splice(index, 1)
-        this.commonlyModel = ''
-        Message.success('删除常用条件成功')
+        this.$apollo.mutate({
+          mutation: MUTATION_COMMONLY_DELETE,
+          client: 'apolloUserClient',
+          variables: {input: [id]},
+        }).then(({data}) => {
+          if (!data || !data.result) return
+          const index = this.commonlyOptions.findIndex(item => item.value === id)
+          if (index === -1) return
+          this.commonlyOptions.splice(index, 1)
+          Message.success('删除常用条件成功')
+        }).catch((err) => {
+          console.error(err)
+          Message.error('删除常用条件失败')
+        })
       },
 
       // 预填通用条件
@@ -246,7 +258,7 @@
             value: userConditionId,
             label: conditionName,
             params: JSON.parse(conditionContent),
-            component: SelectTempalte,
+            // component: SelectTempalte,
           }
         })
       },
@@ -275,20 +287,16 @@
 
 <style lang="scss">
   .ej-search-list {
-    .ej-search-commonly-select {
-      width: 140px;
-      height: 26px;
-      line-height: 26px;
-      margin-left: 12px;
+    .commonly-item {
+      @apply pr-4 relative;
 
-      .el-input__inner {
-        height: 26px;
-        line-height: 26px;
+      &-close {
+        @apply absolute top-0 right-0 w-3 h-3;
       }
+    }
 
-      .el-input__icon {
-        line-height: 26px;
-      }
+    .commonly-item:hover .commonly-item-close {
+      @apply block;
     }
   }
 </style>

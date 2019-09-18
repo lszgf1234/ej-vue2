@@ -27,6 +27,7 @@
 </template>
 
 <script>
+  import Vue from 'vue'
   import {ColorPicker as ElColorPicker, Input as ElInput} from 'element-ui'
   import {action} from '@storybook/addon-actions'
 
@@ -72,6 +73,15 @@
       search (...args) {
         action('search')(...args)
       },
+    },
+
+    created () {
+      Vue.prototype.$apollo = {
+        query () {return this},
+        mutate () {return this},
+        then () {return this},
+        catch () {return this},
+      }
     },
   }
 </script>

@@ -11,14 +11,7 @@
 
         <div class="ej-app-tray flex-none ml-auto flex">
           <slot v-if="$scopedSlots.tray" name="tray"/>
-          <a href="javascript:" class="ej-app-user">
-            <img v-if="user.avatar"
-                 :src="user.avatar"
-                 alt=""
-                 class="ej-app-user__avatar flex-none rounded-full"
-                 :class="{'mr-2': user.name}">
-            <span v-if="user.name" class="flex-none">{{user.name}}</span>
-          </a>
+          <slot v-if="$scopedSlots.userMenu" name="userMenu" />
         </div>
       </div>
     </div>
@@ -95,15 +88,10 @@
       @apply flex-none flex items-center;
 
       margin-right: 30px;
-    }
-  }
 
-  .ej-app-user {
-    margin-right: 0;
-
-    &__avatar {
-      width: 26px;
-      height: 26px;
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 </style>

@@ -41,6 +41,7 @@ const directive = {
   },
 
   unbind: (el) => {
+    el.instance.$destroy()
     if (el === el.instance.$el.parentNode) {
       el.removeChild(el.instance.$el)
     }

@@ -1,6 +1,6 @@
 <template>
   <div class="app-user-menu">
-    <div class="ej-app-user" @click="handleUserMenu" ref="headerMain">
+    <div ref="headerMain" class="ej-app-user" @click="handleUserMenu">
       <img v-if="user.avatar"
         :src="user.avatar"
         alt=""
@@ -8,13 +8,19 @@
         :class="{'mr-2': user.name}">
       <span v-if="user.name" class="flex-none">{{user.name}}</span>  
       <div class="menu-wrap">
-        <ul v-if="isShowUserMenu">
-          <li class="tenant-name">{{user.tenantName || '东方金信科技有限公司'}}</li>
+        <ul v-show="isShowUserMenu">
+          <li class="tenant-name" v-show="user.tenantName">
+            {{user.tenantName}}
+          </li>
+          <li class="divider" v-show="user.tenantName"></li>
+          <li>
+            <a :href="VUE_APP_UC_URL" target="_blank" class="system-name">个人中心</a>
+          </li>
+          <li><slot name="menu-slot" /></li>
           <li class="divider"></li>
-          <li class="system-name" @click="clickUserCenter">个人中心</li>
-          <slot name="menu-slot" />
-          <li class="divider"></li>
-          <li @click="handleLogout">退出</li>
+          <li>
+            <a href="javascript:" @click="handleLogout">退出</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -26,12 +32,6 @@
   export default {
     name: 'EjAppUserMenu',
 
-    data () {
-      return {
-        isShowUserMenu: false,
-      }
-    },
-
     props: {
       user: {
         type: Object,
@@ -39,12 +39,17 @@
       },
     },
 
+    data () {
+      return {
+        isShowUserMenu: false,
+      }
+    },
+
+    computed: {
+      VUE_APP_UC_URL: () => process.env.VUE_APP_UC_URL,
+    },
+
     methods: {
-      clickUserCenter () {
-        const ucUrl = process.env.VUE_APP_UC_URL
-        // location.href = ucUrl
-        window.open(ucUrl, '_blank')
-      },
       handleUserMenu () {
         this.isShowUserMenu ? this.hideUserMenu() : this.showUserMenu()
       },
@@ -114,7 +119,6 @@
     .menu-wrap {
       @apply text-white;
 
-      width: 176px;
       background-color: #1F2E4D;
       border-radius: 4px;
       position: absolute;
@@ -126,14 +130,22 @@
       }
 
       li {
-        padding: 7.5px 20px;
-        margin: 2px 0;
         list-style: none;
-        cursor: pointer;
+
+        a {
+          padding: 7.5px 20px;
+          display: block;
+          width: 100%;
+
+          &:hover, &.active {
+            @apply bg-blue;
+          }
+        }
 
         &.tenant-name {
           @apply text-blue;
 
+          padding: 7.5px 20px;
           font-size: 12px;
 
           &:hover {
@@ -152,10 +164,6 @@
             background-color: transparent;
             cursor: default;
           }
-        }
-
-        &:hover, &.active {
-          @apply bg-blue;
         }
       }
     }

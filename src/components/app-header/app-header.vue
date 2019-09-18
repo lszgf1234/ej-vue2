@@ -11,7 +11,6 @@
 
         <div class="ej-app-tray flex-none ml-auto flex">
           <slot v-if="$scopedSlots.tray" name="tray"/>
-          <slot v-if="$scopedSlots.userMenu" name="userMenu" />
         </div>
       </div>
     </div>

@@ -1,8 +1,8 @@
 <template>
   <div>
     <ej-app-header :user="user">
-      <template #userMenu>
-        <ej-app-user-menu/>
+      <template #tray>
+        <ej-app-user-menu :user="userData"/>
       </template>
     </ej-app-header>
   </div>

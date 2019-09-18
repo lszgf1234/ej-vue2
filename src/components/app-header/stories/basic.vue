@@ -11,9 +11,6 @@
       <template #tray>
         <div class="slot">#tray</div>
       </template>
-      <template #userMenu>
-        <div class="slot">#userMenu</div>
-      </template>
     </ej-app-header>
 
     <ul class="text-center text-gray">

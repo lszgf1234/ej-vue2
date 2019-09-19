@@ -13,7 +13,7 @@
                class="commonly-item flex cursor-pointer text-blue mt-3 mr-3"
                 @click="commonlyChange(item.value, commonlyOptions)">
             {{item.label}}
-            <ej-icon icon="close-circle-o" class="commonly-item-close hidden" @click.stop="deletedOptions(item.value)"/>
+            <ej-icon icon="close-circle-o" class="commonly-item-close hidden" @click.stop="deletedOptions(item.value, item.label)"/>
           </div>
         </template>
         <!-- 常用条件 -->
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-  import {Message} from 'element-ui'
+  import {Message, MessageBox as ElMessageBox} from 'element-ui'
 
   import EjIcon from '../icon'
   import EjSearchInput from '../search-input/search-input'
@@ -195,20 +195,27 @@
       },
 
       // 删除选项
-      deletedOptions (id) {
-        this.$apollo.mutate({
-          mutation: MUTATION_COMMONLY_DELETE,
-          client: 'apolloUserClient',
-          variables: {input: [id]},
-        }).then(({data}) => {
-          if (!data || !data.result) return
-          const index = this.commonlyOptions.findIndex(item => item.value === id)
-          if (index === -1) return
-          this.commonlyOptions.splice(index, 1)
-          Message.success('删除常用条件成功')
-        }).catch((err) => {
-          console.error(err)
-          Message.error('删除常用条件失败')
+      deletedOptions (id, label) {
+        ElMessageBox.confirm(`确定删除“${label}”吗?`, '', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning',
+          center: true,
+        }).then(_ => {
+          this.$apollo.mutate({
+            mutation: MUTATION_COMMONLY_DELETE,
+            client: 'apolloUserClient',
+            variables: {input: [id]},
+          }).then(({data}) => {
+            if (!data || !data.result) return
+            const index = this.commonlyOptions.findIndex(item => item.value === id)
+            if (index === -1) return
+            this.commonlyOptions.splice(index, 1)
+            Message.success(`删除“${label}”成功`)
+          }).catch((err) => {
+            console.error(err)
+            Message.error(`删除“${label}”失败`)
+          })
         })
       },
 

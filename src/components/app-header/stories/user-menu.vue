@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ej-app-header :user="user">
+    <ej-app-header>
       <template #tray>
         <ej-app-user-menu :user="user"/>
       </template>
@@ -10,7 +10,7 @@
 
 <script>
   import EjAppUserMenu from '../../app-user-menu'
-  // import {user} from './mock-data'
+  import {user} from './mock-data'
 
   export default {
     components: {
@@ -19,13 +19,8 @@
     props: {
       user: {
         type: Object,
-        default: () => ({}),
+        default: () => user,
       },
-    },
-    data () {
-      return {
-        // user,
-      }
     },
   }
 </script>

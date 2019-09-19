@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import EjAppUserMenu from '../../app-user-menu'
+  import EjAppUserMenu from '../../app-usermenu'
   import {user} from './mock-data'
 
   export default {

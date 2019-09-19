@@ -6,7 +6,7 @@ import BasicStory from './stories/basic.vue'
 import NotificationStory from './stories/notification.vue'
 import SearchStory from './stories/search.vue'
 import SettingStory from './stories/setting.vue'
-import UserMenu from './stories/user-menu.vue'
+import UserMenu from './stories/usermenu.vue'
 
 Vue.use(AppHeader)
 

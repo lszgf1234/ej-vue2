@@ -1,14 +1,21 @@
 <template>
-  <div class="app-user-menu">
-    <div ref="headerMain" class="ej-app-user" @click="handleUserMenu">
-      <img v-if="user.avatar"
-        :src="user.avatar"
-        alt=""
-        class="ej-app-user__avatar flex-none rounded-full"
-        :class="{'mr-2': user.name}">
-      <span v-if="user.name" class="flex-none">{{user.name}}</span>  
-      <div class="menu-wrap">
-        <ul v-show="isShowUserMenu">
+  <div class="app-usermenu">
+    <el-popover
+      placement="bottom"
+      trigger="click"
+      :visible-arrow="false"
+      v-model="userMenuVisible"
+      popper-class="usermenu-wrapper">
+      <div class="ej-app-user" slot="reference">
+        <img v-if="user.avatar"
+          :src="user.avatar"
+          alt=""
+          class="ej-app-user__avatar flex-none rounded-full"
+          :class="{'mr-2': user.name}">
+        <span v-if="user.name" class="flex-none">{{user.name}}</span>
+      </div>      
+      <div class="menu-wrap" @click="userMenuVisible = false">
+        <ul>
           <li class="tenant-name" v-show="user.tenantName">
             {{user.tenantName}}
           </li>
@@ -23,14 +30,21 @@
           </li>
         </ul>
       </div>
-    </div>
+    </el-popover>
   </div>
 </template>
 
 <script>
+  import {
+    Popover as ElPopover,
+  } from 'element-ui'
   import LOGOUT from './graphql/logout.gql'
   export default {
     name: 'EjAppUserMenu',
+
+    components: {
+      ElPopover,
+    },
 
     props: {
       user: {
@@ -41,7 +55,7 @@
 
     data () {
       return {
-        isShowUserMenu: false,
+        userMenuVisible: false,
       }
     },
 
@@ -50,22 +64,6 @@
     },
 
     methods: {
-      handleUserMenu () {
-        this.isShowUserMenu ? this.hideUserMenu() : this.showUserMenu()
-      },
-      showUserMenu () {
-        this.isShowUserMenu = true
-        document.addEventListener('click', this.hideUserMenuPanel, false)
-      },
-      hideUserMenu () {
-        this.isShowUserMenu = false
-        document.removeEventListener('click', this.hideUserMenuPanel, false)
-      },
-      hideUserMenuPanel (e) {
-        if (!this.$refs.headerMain.contains(e.target)) {
-          this.hideUserMenu()
-        }
-      },
       handleLogout () {
         this.$confirm('是否退出该系统？', '提示', {
           type: 'warning',
@@ -103,7 +101,7 @@
 <style lang="scss">
   @import '../app-header/variables';
 
-  .app-user-menu {
+  .app-usermenu {
     .ej-app-user {
       @apply flex-none flex items-center;
 
@@ -114,16 +112,17 @@
         width: 26px;
         height: 26px;
       }
-    }
+    }    
+  }
+
+  .usermenu-wrapper {
+    padding: 0 !important;
 
     .menu-wrap {
       @apply text-white;
 
       background-color: #1F2E4D;
       border-radius: 4px;
-      position: absolute;
-      top: 50px;
-      right: 20px;
 
       ul {
         padding: 6px 0;

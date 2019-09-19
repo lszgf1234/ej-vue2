@@ -73,10 +73,19 @@
         type: String,
         default: '',
       },
-      defaultTagMore: Boolean,
-      maxWidthTag: String,
       // 列表默认展开收起
-      defaultExpandList: Boolean,
+      defaultExpandList: {
+        type: Boolean,
+        default: true,
+      },
+      defaultTagMore: {
+        type: Boolean,
+        default: true,
+      },
+      maxWidthTag: {
+        type: String,
+        default: '',
+      },
       // 应用key
       appKey: {
         type: String,

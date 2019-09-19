@@ -46,18 +46,10 @@
     },
 
     props: {
-      defaultExpandList: {
-        type: Boolean,
-        default: true,
-      },
-      defaultTagMore: {
-        type: Boolean,
-        default: true,
-      },
-      maxWidthTag: {
-        type: String,
-        default: '',
-      },
+      // 列表默认展开收起
+      defaultExpandList: Boolean,
+      defaultTagMore: Boolean,
+      maxWidthTag: String,
     },
 
     data () {

@@ -2,7 +2,7 @@
   <div>
     <ej-search-list ref="ejSearchList"
                     :models.sync="models"
-                    :keyword.sync="keyword"
+                    :keyword.sync="models.keyword"
                     :style="{'width': '1000px', margin: '50px auto'}"
                     :default-tag-more="true"
                     :max-width-tag="maxWidthTag"
@@ -23,12 +23,14 @@
 </template>
 
 <script>
+  import Vue from 'vue'
   import EjSearchOptionList from '../../search-options/list'
   import EjSearchOptionRadio from '../../search-options/radio'
   import EjSearchOptionSelect from '../../search-options/select'
   import EjSearchOptionCascader from '../../search-options/cascader'
   import SEARCH_OPTIONS from './search-options.js'
 
+  import {list as MockList, deleted as MockDeleted} from './mock-data'
   import {number} from '@storybook/addon-knobs'
   import {action} from '@storybook/addon-actions'
 
@@ -42,8 +44,8 @@
 
     data () {
       return {
-        keyword: '',
         models: {
+          keyword: '',
           name: ['1', '2'],
           base: ['04', '002'],
           theme: [],
@@ -114,14 +116,26 @@
       },
     },
 
-    methods: {
-      emitSetSelected (...args) {
-        return this.$refs.ejSearchList.emitSetSelected(...args)
+    watch: {
+      'models.otherParam' (newVal) {
+        if (!newVal) {
+          this.emitSetSelected({
+            key: 'otherParam',
+            label: '',
+          })
+        }
       },
+    },
 
-      search (type, params = {}) {
-        action('search')(type, Object.assign(params, {keyword: this.keyword}))
-      },
+    created () {
+      Vue.prototype.$apollo = {
+        query () {
+          return Promise.resolve(MockList)
+        },
+        mutate () {
+          return Promise.resolve(MockDeleted)
+        },
+      }
     },
 
     mounted () {
@@ -134,6 +148,16 @@
           label: '外部条件：otherParam超长，otherParam超长，otherParam超长，otherParam超长，otherParam超长，otherParam超长，otherParam超长，otherParam超长',
         })
       }, 800)
+    },
+
+    methods: {
+      emitSetSelected (...args) {
+        return this.$refs.ejSearchList.emitSetSelected(...args)
+      },
+
+      search (type, params = {}) {
+        action('search')(type, Object.assign(params, {keyword: this.keyword}))
+      },
     },
   }
 </script>

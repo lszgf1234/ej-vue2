@@ -223,7 +223,7 @@
       commonlyChange (val, options = []) {
         // 获取要预填的参数
         const selected = options.find(item => item.value === val) || {params: this.clearParams(this.models)}
-        this.$emit('update:models', selected.params)
+        this.$emit('update:models', Object.assign({}, selected.params))
       },
 
       // 清空参数 仅限数组和字符串

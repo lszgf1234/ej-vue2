@@ -2,7 +2,7 @@
   <div class="w-1/2 ml-8">
     <ej-input v-model="model"
               :throttle="throttleTime"
-              @ej-change="throttleInput"/>
+              @change="throttleInput"/>
     <br>输入内容：{{ejModel}}
   </div>
 </template>
@@ -26,9 +26,9 @@
     },
 
     methods: {
-      throttleInput (...args) {
-        this.ejModel = args[0]
-        action('节流')(...args)
+      throttleInput (val) {
+        this.ejModel = val
+        action('节流')(val)
       },
     },
   }

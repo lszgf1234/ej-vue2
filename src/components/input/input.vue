@@ -58,36 +58,29 @@
       slots () {
         return Object.keys(this.$slots)
       },
-    },
 
-    watch: {
-      debounce: {
-        immediate: true,
-        handler (spacingTime) {
-          const _this = this
+      debounceFn () {
+        const _this = this
+        const spacingTime = this.debounce
 
-          // 设置防抖函数
-          this.debounceFn = Debounce(function (val) {
-            _this.ejChange(val, spacingTime)
-          }, spacingTime)
-        },
+        return Debounce(function (val) {
+          _this.observerChange(val)
+        }, spacingTime)
       },
 
-      throttle: {
-        immediate: true,
-        handler (spacingTime) {
-          const _this = this
+      throttleFn () {
+        const _this = this
+        const spacingTime = this.throttle
 
-          // 设置防抖函数
-          this.throttleFn = Throttle(function (val) {
-            _this.ejChange(val, spacingTime)
-          }, spacingTime)
-        },
+        return Throttle(function (val) {
+          _this.observerChange(val)
+        }, spacingTime)
       },
     },
 
     created () {
       this.$listeners.input = this.observerInput
+      this.$listeners.change = () => {}
     },
 
     methods: {
@@ -102,7 +95,15 @@
         this.setValue(val)
       },
 
+      observerChange (val) {
+        this.$emit('change', val)
+      },
+
       setValue (val) {
+        if (this.debounce > 0 && this.throttle > 0) {
+          console.warn('仅执行“debounce”，"throttle"被忽略！')
+        }
+
         // 防抖
         if (this.debounce > 0) {
           this.debounceFn(val)
@@ -113,10 +114,6 @@
         if (this.throttle > 0) {
           this.throttleFn(val)
         }
-      },
-
-      ejChange (val, spacingTime) {
-        this.$emit('ej-change', val, spacingTime)
       },
     },
   }

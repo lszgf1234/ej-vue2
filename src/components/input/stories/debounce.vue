@@ -2,7 +2,7 @@
   <div class="w-1/2 ml-8">
     <ej-input v-model="model"
               :debounce="debounceTime"
-              @ej-change="debounceInput"/>
+              @change="debounceInput"/>
     <br>输入内容：{{ejModel}}
   </div>
 </template>
@@ -26,9 +26,9 @@
     },
 
     methods: {
-      debounceInput (...args) {
-        this.ejModel = args[0]
-        action('防抖')(...args)
+      debounceInput (val) {
+        this.ejModel = val
+        action('防抖')(val)
       },
     },
   }

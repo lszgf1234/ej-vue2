@@ -6,7 +6,12 @@
     popper-class="set-name-popper">
     <h3>{{title}}</h3>
 
-    <ej-input v-model="model" v-bind="$attrs" @keyup.enter.native="confirm(model)" class="mt-1"/>
+    <ej-input v-model.trim="model"
+              :number="number"
+              :clearable="clearable"
+              :placeholder="placeholder"
+              class="mt-1"
+              @keyup.enter.native="confirm(model)"/>
 
     <div class="text-center mt-2">
       <el-button size="small" @click="close()">取消</el-button>
@@ -35,7 +40,7 @@
     },
 
     props: {
-      value: {
+      defaultValue: {
         type: [String, Number],
         default: '',
       },
@@ -44,30 +49,22 @@
         type: String,
         default: '新常用条件名称',
       },
+
+      number: Boolean,
+      clearable: Boolean,
+      placeholder: String,
     },
 
     data () {
       return {
         visible: false,
-        internalModel: '',
+        model: '',
       }
-    },
-
-    computed: {
-      model: {
-        get () {
-          return this.value || this.internalModel
-        },
-        set (val) {
-          this.internalModel = val
-          this.$emit('input', val)
-        },
-      },
     },
 
     watch: {
       visible (newVal) {
-        if (newVal) this.model = ''
+        if (newVal) this.model = this.defaultValue
       },
     },
 
@@ -98,6 +95,10 @@
     .el-input {
       .el-input__inner {
         height: $search-input-height;
+        line-height: $search-input-height;
+      }
+
+      .el-input__icon {
         line-height: $search-input-height;
       }
     }

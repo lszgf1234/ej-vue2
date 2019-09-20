@@ -6,6 +6,9 @@
 |---|---|---|---|
 | `value` | String, Number | | v-model值 |
 | `title` | Object | '新常用条件名称' | 名称 |
+| `number` | Boolean | false | 是否转化为数字类型（强转） |
+| `clearable` | Boolean | false | 可清空 |
+| `placeholder` | String | | 输入框占位文本 |
 
 ### Slot
 

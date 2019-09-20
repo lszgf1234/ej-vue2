@@ -80,7 +80,10 @@
 
     created () {
       this.$listeners.input = this.observerInput
-      this.$listeners.change = () => {}
+
+      if (this.debounce > 0 || this.throttle > 0) {
+        this.$listeners.change = () => {}
+      }
     },
 
     methods: {

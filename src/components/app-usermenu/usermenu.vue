@@ -67,7 +67,7 @@
 
       user () {
         if (this.ejAppHeader.user.name) {
-          console.warn('该传参方式将会被废弃，现方式需在ej-app-usermenu组件上传参！')
+          console.warn('该传参方式将会被废弃。现方式需在ej-app-usermenu组件上传参，格式为:userInfo="userData"')
           return this.ejAppHeader.user
         } else if (this.userInfo) {
           return this.userInfo

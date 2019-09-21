@@ -1,6 +1,6 @@
-import UserMenu from './usermenu.vue'
+import Usermenu from './usermenu.vue'
 
 export default {
-  ...UserMenu,
-  install: Vue => Vue.component(UserMenu.name, UserMenu),
+  ...Usermenu,
+  install: Vue => Vue.component(Usermenu.name, Usermenu),
 }

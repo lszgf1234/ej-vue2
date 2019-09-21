@@ -23,6 +23,12 @@
   export default {
     name: 'EjAppHeader',
 
+    provide () {
+      return {
+        ejAppHeader: this,
+      }
+    },
+
     props: {
       height: {
         type: [Number, String],

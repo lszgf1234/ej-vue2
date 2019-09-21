@@ -6,7 +6,7 @@ import BasicStory from './stories/basic.vue'
 import NotificationStory from './stories/notification.vue'
 import SearchStory from './stories/search.vue'
 import SettingStory from './stories/setting.vue'
-import UserMenu from './stories/usermenu.vue'
+import Usermenu from './stories/usermenu.vue'
 
 Vue.use(AppHeader)
 
@@ -15,4 +15,4 @@ storiesOf('Components|AppHeader', module)
   .add('消息通知', () => NotificationStory)
   .add('全局搜索', () => SearchStory)
   .add('应用设置', () => SettingStory)
-  .add('用户菜单', () => UserMenu)
+  .add('用户菜单', () => Usermenu)

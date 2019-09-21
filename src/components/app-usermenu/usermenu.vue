@@ -39,19 +39,22 @@
     Popover as ElPopover,
   } from 'element-ui'
   import LOGOUT from './graphql/logout.gql'
+
   export default {
-    name: 'EjAppUserMenu',
+    name: 'EjAppUsermenu',
 
     components: {
       ElPopover,
     },
 
     props: {
-      user: {
+      userInfo: {
         type: Object,
         default: () => ({}),
       },
     },
+
+    inject: ['ejAppHeader'],
 
     data () {
       return {
@@ -61,6 +64,15 @@
 
     computed: {
       VUE_APP_UC_URL: () => process.env.VUE_APP_UC_URL,
+
+      user () {
+        if (this.ejAppHeader.user.name) {
+          console.warn('该传参方式将会被废弃，现方式需在ej-app-usermenu组件上传参！')
+          return this.ejAppHeader.user
+        } else if (this.userInfo) {
+          return this.userInfo
+        }
+      },
     },
 
     methods: {

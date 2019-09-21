@@ -1,26 +1,27 @@
 <template>
   <div>
-    <ej-app-header>
+    <ej-app-header :user="user">
       <template #tray>
-        <ej-app-user-menu :user="user"/>
+        <ej-app-usermenu :userInfo="user1"/>
       </template>
     </ej-app-header>
   </div>
 </template>
 
 <script>
-  import EjAppUserMenu from '../../app-usermenu'
-  import {user} from './mock-data'
+  import EjAppUsermenu from '../../app-usermenu'
+  import {user, user1} from './mock-data'
 
   export default {
     components: {
-      EjAppUserMenu,
+      EjAppUsermenu,
     },
-    props: {
-      user: {
-        type: Object,
-        default: () => user,
-      },
+  
+    data () {
+      return {
+        user,
+        user1,
+      }
     },
   }
 </script>

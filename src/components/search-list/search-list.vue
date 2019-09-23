@@ -27,7 +27,9 @@
                       :default-expand-list="defaultExpandList"
                       @closeSelected="closeSelected">
       <template #tag-suffix>
-        <ej-search-set-name  @confirm="setNameConfirm"/>
+        <ej-popover-set  @confirm="setNameConfirm">
+          <p class="popover-content-text text-blue cursor-pointer">设为常用条件</p>
+        </ej-popover-set>
       </template>
 
       <slot/>
@@ -40,9 +42,8 @@
 
   import EjIcon from '../icon'
   import EjSearchInput from '../search-input/search-input'
-  import EjSearchSetName from '../search-set-name/search-set-name'
   import EjSearchOptions from '../search-options/'
-
+  import EjPopoverSet from '../popover-set/popover-set'
 
   import QUERY_COMMONLY_LIST from './grapgql/query_commonly_list.gql'
   import MUTATION_COMMONLY_LIST from './grapgql/mutation_commonly_list.gql'
@@ -54,8 +55,8 @@
     components: {
       EjIcon,
       EjSearchInput,
-      EjSearchSetName,
       EjSearchOptions,
+      EjPopoverSet,
     },
 
     data () {
@@ -302,6 +303,8 @@
 </script>
 
 <style lang="scss">
+  @import '../search-options/variables.scss';
+
   .ej-search-list {
     .commonly-item {
       @apply pr-4 relative;
@@ -313,6 +316,11 @@
 
     .commonly-item:hover .commonly-item-close {
       @apply block;
+    }
+
+    .popover-content-text {
+      margin-top: 5px;
+      line-height: $search-input-height;
     }
   }
 </style>

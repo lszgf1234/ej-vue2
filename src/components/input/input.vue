@@ -26,7 +26,7 @@
     props: {
       width: {
         type: [String, Number],
-        default: 552,
+        default: 'auto',
       },
 
       // 防抖间隔

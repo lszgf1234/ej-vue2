@@ -10,7 +10,7 @@
                     :style="{'width': '1000px', margin: '50px auto'}"
                     @search="search">
         <template #input>
-          <el-input v-model="models.keyword"/>
+          <el-input width="552" v-model="models.keyword"/>
         </template>
 
         <ej-search-option-item label="内部自定义内容" :change="models.custom" :showMore="true">

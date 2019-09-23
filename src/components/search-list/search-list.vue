@@ -3,9 +3,9 @@
     <div class="input-box flex justify-between items-center mb-4">
       <div class="flex flex-wrap items-end">
         <slot name="input">
-          <ej-search-input v-model="keywordModel" placeholder="请输入资料名称"  @search="search('btn')"/>
+          <ej-search-input width="552" v-model="keywordModel" placeholder="请输入资料名称"  @search="search('btn')"/>
         </slot>
-        
+
         <!-- 常用条件 -->
         <template v-for="(item, index) in commonlyOptions">
           <div :key="index"
@@ -165,7 +165,7 @@
           Message.error('该条件名称已存在！')
           return
         }
-        
+
         this.$apollo.mutate({
           mutation: MUTATION_COMMONLY_LIST,
           client: 'apolloUserClient',

@@ -52,8 +52,9 @@
         default: () => ({}),
       },
 
-      envVariable: {
+      endpoint: {
         type: String,
+        required: true,
         default: () => '',
       },
     },
@@ -80,8 +81,7 @@
       },      
 
       avatar$ () {
-        this.envVariable ? this.envVariable : console.warn('[ej-ui] `<app-usermenu>` must be have environmental variable `:envVariable` param.')
-        return `${this.envVariable}?ambryId=${this.user$.avatar}&show=true`
+        return `${this.endpoint}?ambryId=${this.user$.avatar}&show=true`
       },
     },
 

@@ -8,7 +8,7 @@
       popper-class="usermenu-wrapper">
       <div class="ej-app-user" slot="reference">
         <img v-if="user$.avatar"
-             :src="user$.avatar"
+             :src="avatar$"
              alt=""
              class="ej-app-user__avatar flex-none rounded-full"
              :class="{'mr-2': user$.name}">
@@ -51,6 +51,11 @@
         type: Object,
         default: () => ({}),
       },
+
+      envVariable: {
+        type: String,
+        default: () => '',
+      },
     },
 
     data () {
@@ -72,6 +77,11 @@
 
       user$ () {
         return JSON.stringify(this.user) !== '{}' ? this.user : this.$header.user
+      },      
+
+      avatar$ () {
+        this.envVariable ? this.envVariable : console.warn('[ej-ui] `<app-usermenu>` must be have environmental variable `:envVariable` param.')
+        return `${this.envVariable}?ambryId=${this.user$.avatar}&show=true`
       },
     },
 

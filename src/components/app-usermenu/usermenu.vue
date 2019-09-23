@@ -8,22 +8,22 @@
       popper-class="usermenu-wrapper">
       <div class="ej-app-user" slot="reference">
         <img v-if="user.avatar"
-          :src="user.avatar"
-          alt=""
-          class="ej-app-user__avatar flex-none rounded-full"
-          :class="{'mr-2': user.name}">
+             :src="user.avatar"
+             alt=""
+             class="ej-app-user__avatar flex-none rounded-full"
+             :class="{'mr-2': user.name}">
         <span v-if="user.name" class="flex-none">{{user.name}}</span>
-      </div>      
+      </div>
       <div class="menu-wrap" @click="userMenuVisible = false">
         <ul>
-          <li class="tenant-name" v-show="user.tenantName">
-            {{user.tenantName}}
-          </li>
+          <li class="tenant-name" v-show="user.tenantName">{{user.tenantName}}</li>
           <li class="divider" v-show="user.tenantName"></li>
           <li>
             <a :href="VUE_APP_UC_URL" target="_blank" class="system-name">个人中心</a>
           </li>
-          <li><slot name="menu-slot" /></li>
+          <li>
+            <slot name="menu-slot"/>
+          </li>
           <li class="divider"></li>
           <li>
             <a href="javascript:" @click="handleLogout">退出</a>
@@ -35,9 +35,8 @@
 </template>
 
 <script>
-  import {
-    Popover as ElPopover,
-  } from 'element-ui'
+  import {Popover as ElPopover} from 'element-ui'
+
   import LOGOUT from './graphql/logout.gql'
 
   export default {
@@ -54,8 +53,6 @@
       },
     },
 
-    inject: ['ejAppHeader'],
-
     data () {
       return {
         userMenuVisible: false,
@@ -65,13 +62,16 @@
     computed: {
       VUE_APP_UC_URL: () => process.env.VUE_APP_UC_URL,
 
-      user () {
-        if (this.ejAppHeader.user.name) {
-          console.warn('该传参方式将会被废弃。现方式需在ej-app-usermenu组件上传参，格式为:userInfo="userData"')
-          return this.ejAppHeader.user
-        } else if (this.userInfo) {
-          return this.userInfo
+      $header () {
+        let target = this.$parent
+        while (target && target.$options.name !== 'EjAppHeader' && target !== this.$root) {
+          target = target.$parent
         }
+        return target
+      },
+
+      user () {
+        return JSON.stringify(this.userInfo) !== '{}' ? this.userInfo : this.$header.user
       },
     },
 
@@ -87,8 +87,8 @@
             message: '已取消退出',
           })
         })
-        
       },
+
       logout () {
         this.$apollo.mutate({
           mutation: LOGOUT,
@@ -124,7 +124,7 @@
         width: 26px;
         height: 26px;
       }
-    }    
+    }
   }
 
   .usermenu-wrapper {

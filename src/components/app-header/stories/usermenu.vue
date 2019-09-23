@@ -16,7 +16,7 @@
     components: {
       EjAppUsermenu,
     },
-  
+
     data () {
       return {
         user,

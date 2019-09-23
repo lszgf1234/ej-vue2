@@ -2,6 +2,7 @@ import AppHeader from './components/app-header'
 import AppNotification from './components/app-notification'
 import AppSetting from './components/app-setting'
 import AppSearch from './components/app-search'
+import AppUsermenu from './components/app-usermenu'
 import Icon from './components/icon'
 import InfoList from './components/info-list'
 import TextEditor from './components/text-editor'
@@ -33,6 +34,7 @@ export {
   AppNotification,
   AppSearch,
   AppSetting,
+  AppUsermenu,
   Icon,
   InfoList,
   TextEditor,
@@ -65,6 +67,7 @@ export default {
     Vue.use(AppHeader)
     Vue.use(AppNotification)
     Vue.use(AppSearch)
+    Vue.use(AppUsermenu)
     Vue.use(Icon)
     Vue.use(InfoList)
     Vue.use(TextEditor)

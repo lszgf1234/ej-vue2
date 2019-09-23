@@ -1,7 +1,7 @@
 <template>
   <div class="ej-app-header__wrap" :style="{height: height$}">
     <div class="ej-app-header w-full" :class="{fixed}" :style="{height: height$}">
-      <div class="ej-app-header__inner mx-auto flex" :class="{'h-full': true}" :style="{width: width$}">
+      <div class="ej-app-header__inner h-full mx-auto flex" :style="{width: width$}">
         <a href="javascript:" class="ej-app-logo flex-none flex items-center" @click="onClickLogo">
           <img v-if="logo" :src="logo" :alt="title" :class="{'mr-3': title}">
           <span v-if="title" class="flex-none text-lg">{{title}}</span>
@@ -11,14 +11,6 @@
 
         <div class="ej-app-tray flex-none ml-auto flex">
           <slot v-if="$scopedSlots.tray" name="tray"/>
-          <a href="javascript:" class="ej-app-user">
-            <img v-if="user.avatar"
-                 :src="user.avatar"
-                 alt=""
-                 class="ej-app-user__avatar flex-none rounded-full"
-                 :class="{'mr-2': user.name}">
-            <span v-if="user.name" class="flex-none">{{user.name}}</span>
-          </a>
         </div>
       </div>
     </div>
@@ -47,6 +39,10 @@
       },
       user: {
         type: Object,
+        validator: val => {
+          console.warn('[ej-ui] AppHeader: Prop `user` is deprecated. Please use `<app-usermenu>` instead.')
+          return val instanceof Object
+        },
         default: () => ({}),
       },
       fixed: Boolean,
@@ -95,15 +91,10 @@
       @apply flex-none flex items-center;
 
       margin-right: 30px;
-    }
-  }
 
-  .ej-app-user {
-    margin-right: 0;
-
-    &__avatar {
-      width: 26px;
-      height: 26px;
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 </style>

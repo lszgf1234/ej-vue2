@@ -35,7 +35,7 @@
 </template>
 
 <script>
-  import {Popover as ElPopover} from 'element-ui'
+  import {MessageBox as ElMessageBox, Popover as ElPopover} from 'element-ui'
 
   import LOGOUT from './graphql/logout.gql'
 
@@ -77,16 +77,11 @@
 
     methods: {
       handleLogout () {
-        this.$confirm('是否退出该系统？', '提示', {
+        ElMessageBox.confirm('是否退出该系统？', '提示', {
           type: 'warning',
         }).then(() => {
           this.logout()
-        }).catch(() => {
-          this.$message({
-            type: 'info',
-            message: '已取消退出',
-          })
-        })
+        }).catch(() => {})
       },
 
       logout () {

@@ -18,11 +18,9 @@
       <el-button type="primary" @click="confirm(model)" size="small">确定</el-button>
     </div>
 
-    <div slot="reference">
-      <slot>
-        <p class="content-text text-blue cursor-pointer">设为常用条件</p>
-      </slot>
-    </div>
+    <slot name="default" slot="reference">
+      <p class="text-blue cursor-pointer">默认内容</p>
+    </slot>
   </el-popover>
 </template>
 
@@ -84,13 +82,6 @@
 
 <style lang="scss">
   @import '../search-options/variables.scss';
-
-  .set-name-view {
-    .content-text {
-      line-height: $search-conditions-height;
-    }
-  }
-
   .set-name-popper {
     .el-input {
       .el-input__inner {

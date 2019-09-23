@@ -27,7 +27,9 @@
                       :default-expand-list="defaultExpandList"
                       @closeSelected="closeSelected">
       <template #tag-suffix>
-        <ej-popover-set  @confirm="setNameConfirm"/>
+        <ej-popover-set  @confirm="setNameConfirm">
+          <p class="popover-content-text text-blue cursor-pointer">设为常用条件</p>
+        </ej-popover-set>
       </template>
 
       <slot/>
@@ -301,6 +303,8 @@
 </script>
 
 <style lang="scss">
+  @import '../search-options/variables.scss';
+
   .ej-search-list {
     .commonly-item {
       @apply pr-4 relative;
@@ -312,6 +316,11 @@
 
     .commonly-item:hover .commonly-item-close {
       @apply block;
+    }
+
+    .popover-content-text {
+      margin-top: 5px;
+      line-height: $search-input-height;
     }
   }
 </style>

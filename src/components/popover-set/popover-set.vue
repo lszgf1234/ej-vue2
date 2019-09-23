@@ -18,9 +18,7 @@
       <el-button type="primary" @click="confirm(model)" size="small">确定</el-button>
     </div>
 
-    <slot name="default" slot="reference">
-      <p class="text-blue cursor-pointer">默认内容</p>
-    </slot>
+    <slot name="default" slot="reference"/>
   </el-popover>
 </template>
 

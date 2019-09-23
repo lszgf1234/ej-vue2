@@ -7,17 +7,17 @@
       v-model="userMenuVisible"
       popper-class="usermenu-wrapper">
       <div class="ej-app-user" slot="reference">
-        <img v-if="user.avatar"
-             :src="user.avatar"
+        <img v-if="user$.avatar"
+             :src="user$.avatar"
              alt=""
              class="ej-app-user__avatar flex-none rounded-full"
-             :class="{'mr-2': user.name}">
-        <span v-if="user.name" class="flex-none">{{user.name}}</span>
+             :class="{'mr-2': user$.name}">
+        <span v-if="user$.name" class="flex-none">{{user$.name}}</span>
       </div>
       <div class="menu-wrap" @click="userMenuVisible = false">
         <ul>
-          <li class="tenant-name" v-show="user.tenantName">{{user.tenantName}}</li>
-          <li class="divider" v-show="user.tenantName"></li>
+          <li class="tenant-name" v-show="user$.tenantName">{{user$.tenantName}}</li>
+          <li class="divider" v-show="user$.tenantName"></li>
           <li>
             <a :href="VUE_APP_UC_URL" target="_blank" class="system-name">个人中心</a>
           </li>
@@ -47,7 +47,7 @@
     },
 
     props: {
-      userInfo: {
+      user: {
         type: Object,
         default: () => ({}),
       },
@@ -70,8 +70,8 @@
         return target
       },
 
-      user () {
-        return JSON.stringify(this.userInfo) !== '{}' ? this.userInfo : this.$header.user
+      user$ () {
+        return JSON.stringify(this.user) !== '{}' ? this.user : this.$header.user
       },
     },
 

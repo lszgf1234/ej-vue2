@@ -2,7 +2,7 @@
   <div>
     <ej-app-header :user="user">
       <template #tray>
-        <ej-app-usermenu :userInfo="user1"/>
+        <ej-app-usermenu :user="user1"/>
       </template>
     </ej-app-header>
   </div>

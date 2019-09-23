@@ -55,7 +55,6 @@
       endpoint: {
         type: String,
         required: true,
-        default: () => '',
       },
     },
 

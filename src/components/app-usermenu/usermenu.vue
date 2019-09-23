@@ -8,7 +8,7 @@
       popper-class="usermenu-wrapper">
       <div class="ej-app-user" slot="reference">
         <img v-if="user$.avatar"
-             :src="user$.avatar"
+             :src="avatar$"
              alt=""
              class="ej-app-user__avatar flex-none rounded-full"
              :class="{'mr-2': user$.name}">
@@ -51,6 +51,11 @@
         type: Object,
         default: () => ({}),
       },
+
+      endpoint: {
+        type: String,
+        required: true,
+      },
     },
 
     data () {
@@ -72,6 +77,10 @@
 
       user$ () {
         return JSON.stringify(this.user) !== '{}' ? this.user : this.$header.user
+      },      
+
+      avatar$ () {
+        return `${this.endpoint}?ambryId=${this.user$.avatar}&show=true`
       },
     },
 

@@ -40,7 +40,9 @@
       user: {
         type: Object,
         validator: val => {
-          console.warn('[ej-ui] AppHeader: Prop `user` is deprecated. Please use `<app-usermenu>` instead.')
+          if (JSON.stringify(val) === '{}') {
+            console.warn('[ej-ui] AppHeader: Prop `user` is deprecated. Please use `<app-usermenu>` instead.')
+          }
           return val instanceof Object
         },
         default: () => ({}),

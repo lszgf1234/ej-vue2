@@ -8,8 +8,6 @@
                     :max-width-tag="maxWidthTag"
                     :default-expand-list="true"
                     :input-props="{
-                      width: 552,
-                      clearable: true,
                       placeholder: '自定义placeholder',
                     }"
                     :view-id="1"

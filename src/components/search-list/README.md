@@ -10,11 +10,11 @@
 | `models` | Object | | 各项数据值 键名对应datas的prop字段 |
 | `keyword` | String | | 关键词 输入不会触发input实时更新，点击搜索按钮触发 |
 | `appKey` | String | | 应用key |
-| `viewId` | String\|Number | | 应用内页面id(自定义) |
+| `viewId` | Number | | 应用内页面id(需自定义，应用内保证唯一即可) |
 | `max-width-tag` | String | | 已选条件组件 - 最大宽度 |
 | `default-tag-more` | Boolean | true | 已选条件组件 - 是否默认展开 |
 | `default-expand-list` | Boolean | true | 是否展开列表 |
-| `input-props` | Object | {width: '552px', clearable: true, placeholder: '请输入资料名称'} | input框的props |
+| `input-props` | Object | {width: '552px', clearable: true} | input框的props |
 
 ### Slot
 

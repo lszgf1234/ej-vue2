@@ -3,7 +3,7 @@
     <div class="input-box flex justify-between items-center mb-4">
       <div class="flex flex-wrap items-end">
         <slot name="input">
-          <ej-search-input width="552" v-model="keywordModel" placeholder="请输入资料名称"  @search="search('btn')"/>
+          <ej-search-input v-model="keywordModel" v-bind="inputProps" @search="search('btn')"/>
         </slot>
 
         <!-- 常用条件 -->
@@ -94,8 +94,19 @@
       },
       // 应用内页面id
       viewId: {
-        type: [String, Number],
-        default: '',
+        type: Number,
+        required: true,
+      },
+
+      inputProps: {
+        type: Object,
+        default: () => {
+          return {
+            width: '552px',
+            clearable: true,
+            placeholder: '请输入资料名称',
+          }
+        },
       },
     },
 

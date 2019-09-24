@@ -101,7 +101,7 @@
         this.$apollo.mutate({
           mutation: LOGOUT,
           fetchPolicy: 'no-cache',
-          client: 'ucClient',
+          client: this.endpoint.client,
         }).then((data) => {
           if (data.data.data) {
             const httpLogin = this.endpoint.loginUrl

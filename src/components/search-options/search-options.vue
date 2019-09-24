@@ -139,7 +139,7 @@
       }
     }
 
-    &__tooltip.el-tooltip__popper {
+    &__tooltip.el-tooltip__popper.is-dark {
       @apply text-blue bg-blue-lighter py-2;
 
       &[x-placement^=top] .popper__arrow {

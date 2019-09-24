@@ -19,7 +19,7 @@
           <li class="tenant-name" v-show="user$.tenantName">{{user$.tenantName}}</li>
           <li class="divider" v-show="user$.tenantName"></li>
           <li>
-            <a :href="VUE_APP_UC_URL" target="_blank" class="system-name">个人中心</a>
+            <a :href="endpoint.ucUrl" target="_blank" class="system-name">个人中心</a>
           </li>
           <li>
             <slot name="menu-slot"/>
@@ -36,8 +36,14 @@
 
 <script>
   import {MessageBox as ElMessageBox, Popover as ElPopover} from 'element-ui'
+  import MessageUtil from '../../utils/message'
 
   import LOGOUT from './graphql/logout.gql'
+
+  const LOGOUT_MSG = {
+    messageSuccessText: '退出成功',
+    messageErrorText: '退出失败，请重新操作',
+  }
 
   export default {
     name: 'EjAppUsermenu',
@@ -53,7 +59,7 @@
       },
 
       endpoint: {
-        type: String,
+        type: Object,
         required: true,
       },
     },
@@ -65,8 +71,6 @@
     },
 
     computed: {
-      VUE_APP_UC_URL: () => process.env.VUE_APP_UC_URL,
-
       $header () {
         let target = this.$parent
         while (target && target.$options.name !== 'EjAppHeader' && target !== this.$root) {
@@ -80,7 +84,7 @@
       },      
 
       avatar$ () {
-        return `${this.endpoint}?ambryId=${this.user$.avatar}&show=true`
+        return `${this.endpoint.avatarUrl}?ambryId=${this.user$.avatar}&show=true`
       },
     },
 
@@ -97,17 +101,15 @@
         this.$apollo.mutate({
           mutation: LOGOUT,
           fetchPolicy: 'no-cache',
+          client: this.endpoint.client,
         }).then((data) => {
           if (data.data.data) {
-            const httpLogin = process.env.VUE_APP_LOGIN_URL
+            const httpLogin = this.endpoint.loginUrl
             let url = `${httpLogin}?redirect_url=${encodeURIComponent(location.href)}`
             location.href = url
           }
         }).catch((error) => {
-          this.$message({
-            message: error.message,
-            type: 'error',
-          })
+          MessageUtil.MessageError(LOGOUT_MSG)
         })
       },
     },

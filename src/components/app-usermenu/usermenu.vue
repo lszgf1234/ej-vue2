@@ -7,7 +7,7 @@
       v-model="userMenuVisible"
       popper-class="usermenu-wrapper">
       <div class="ej-app-user" slot="reference">
-        <img v-if="user$.avatar"
+        <img v-if="avatar$"
              :src="avatar$"
              alt=""
              class="ej-app-user__avatar flex-none rounded-full"
@@ -84,7 +84,11 @@
       },      
 
       avatar$ () {
-        return `${this.endpoint.avatarUrl}?ambryId=${this.user$.avatar}&show=true`
+        let curAvatar = this.user$.avatar
+        if (curAvatar) {
+          curAvatar = curAvatar.startsWith('http') ? curAvatar : `${this.endpoint.avatarUrl}?ambryId=${curAvatar}&show=true`
+        }
+        return curAvatar
       },
     },
 
@@ -135,6 +139,7 @@
 
   .usermenu-wrapper {
     padding: 0 !important;
+    border: none;
 
     .menu-wrap {
       @apply text-white;

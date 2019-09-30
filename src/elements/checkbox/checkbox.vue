@@ -69,16 +69,11 @@
 </script>
 
 <style lang="scss">
-  $checkbox: 'e-checkbox';
-  $checkbox__input: '#{$checkbox}__input';
-  $checkbox__frame: '#{$checkbox}__frame';
-  $checkbox__checker: '#{$checkbox}__checker';
-
-  .#{$checkbox} {
+  .e-checkbox {
     @apply inline-block relative align-middle;
   }
 
-  .#{$checkbox__input} {
+  .e-checkbox__input {
     @apply absolute top-0 left-0 z-10 w-full h-full opacity-0 cursor-pointer;
 
     border-radius: 2px;
@@ -88,7 +83,7 @@
     }
   }
 
-  .#{$checkbox__frame} {
+  .e-checkbox__frame {
     @apply block border relative;
 
     width: 16px;
@@ -96,19 +91,27 @@
     border-radius: 2px;
     border-color: #D9D9D9;
 
-    @at-root #{selector_nest(selector_append('.#{$checkbox__input}:not([disabled])', ':hover, :checked'), '~ .#{$checkbox__frame}')} {
-      @apply border-blue;
+    @at-root
+    .e-checkbox__input:not([disabled]) {
+      &:hover, &:checked {
+        ~ .e-checkbox__frame {
+          @apply border-blue;
+        }
+      }
     }
 
-    @at-root .#{$checkbox__input}:checked ~ & {
+    @at-root
+    .e-checkbox__input:checked ~ & {
       @apply bg-blue;
     }
 
-    @at-root .#{$checkbox__input}[disabled] ~ & {
+    @at-root
+    .e-checkbox__input[disabled] ~ & {
       background: #F5F5F5;
     }
 
-    @at-root .#{$checkbox__input}:indeterminate ~ &::after {
+    @at-root
+    .e-checkbox__input:indeterminate ~ &::after {
       @apply block bg-blue absolute inset-0 m-auto;
 
       content: '';
@@ -117,17 +120,19 @@
     }
   }
 
-  .#{$checkbox__checker} {
+  .e-checkbox__checker {
     @apply text-white absolute inset-0 m-auto;
 
     width: 10px;
     height: 10px;
 
-    @at-root .#{$checkbox__input}:not(:checked) ~ & {
+    @at-root
+    .e-checkbox__input:not(:checked) ~ & {
       @apply invisible;
     }
 
-    @at-root .#{$checkbox__input}[disabled] ~ & {
+    @at-root
+    .e-checkbox__input[disabled] ~ & {
       color: #BFBFBF;
     }
   }

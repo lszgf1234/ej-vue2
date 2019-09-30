@@ -90,9 +90,7 @@
 </script>
 
 <style lang="scss">
-  $--root-name: 'e-switch';
-
-  .#{$--root-name} {
+  .e-switch {
     @apply inline-block rounded-full flex items-center relative;
 
     width: 44px;
@@ -108,52 +106,52 @@
       @apply absolute opacity-0 w-full h-full rounded-full cursor-pointer;
     }
 
-    &.#{$--root-name}--default {
+    &.e-switch--default {
       width: 44px;
       height: 22px;
 
-      .#{$--root-name}__toggle {
+      .e-switch__toggle {
         width: 18px;
         height: 18px;
       }
     }
 
-    &.#{$--root-name}--small {
+    &.e-switch--small {
       width: 28px;
       height: 16px;
 
-      .#{$--root-name}__toggle {
+      .e-switch__toggle {
         width: 12px;
         height: 12px;
       }
     }
 
-    &.#{$--root-name}--on {
+    &.e-switch--on {
       @apply bg-blue;
 
-      &.#{$--root-name}--disabled {
+      &.e-switch--disabled {
         background: #B5CBF6;
       }
 
-      .#{$--root-name}__toggle {
+      .e-switch__toggle {
         @apply ml-auto;
       }
     }
 
-    &.#{$--root-name}--off {
+    &.e-switch--off {
       background: #BFBFBF;
 
-      &.#{$--root-name}--disabled {
+      &.e-switch--disabled {
         background: #D9D9D9;
 
-        .#{$--root-name}__toggle {
+        .e-switch__toggle {
           background: #F6F6F6;
         }
       }
     }
 
-    &.#{$--root-name}--disabled {
-      .#{$--root-name}__input {
+    &.e-switch--disabled {
+      .e-switch__input {
         @apply cursor-default;
       }
     }

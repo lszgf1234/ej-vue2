@@ -43,16 +43,11 @@
 </script>
 
 <style lang="scss">
-  $radio: 'e-radio';
-  $radio__input: '#{$radio}__input';
-  $radio__frame: '#{$radio}__frame';
-  $radio__checker: '#{$radio}__checker';
-
-  .#{$radio} {
+  .e-radio {
     @apply inline-block align-middle relative;
   }
 
-  .#{$radio__input} {
+  .e-radio__input {
     @apply absolute top-0 left-0 z-10 w-full h-full opacity-0 rounded-full cursor-pointer;
 
     &[disabled] {
@@ -60,33 +55,41 @@
     }
   }
 
-  .#{$radio__frame} {
+  .e-radio__frame {
     @apply block border rounded-full;
 
     width: 16px;
     height: 16px;
     border-color: #D9D9D9;
 
-    @at-root #{selector_nest(selector_append('.#{$radio__input}:not([disabled])', ':hover, :checked'), '~ .#{$radio__frame}')} {
-      @apply border-blue;
+    @at-root
+    .e-radio__input:not([disabled]) {
+      &:hover, &:checked {
+        ~ .e-radio__frame {
+          @apply border-blue;
+        }
+      }
     }
 
-    @at-root .#{$radio__input}[disabled] ~ & {
+    @at-root
+    .e-radio__input[disabled] ~ & {
       background: #F5F5F5;
     }
   }
 
-  .#{$radio__checker} {
+  .e-radio__checker {
     @apply rounded-full bg-blue absolute inset-0 m-auto;
 
     width: 8px;
     height: 8px;
 
-    @at-root .#{$radio__input}:not(:checked) ~ & {
+    @at-root
+    .e-radio__input:not(:checked) ~ & {
       @apply invisible;
     }
 
-    @at-root .#{$radio__input}[disabled] ~ & {
+    @at-root
+    .e-radio__input[disabled] ~ & {
       background: #D9D9D9;
     }
   }

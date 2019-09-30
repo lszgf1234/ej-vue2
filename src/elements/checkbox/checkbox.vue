@@ -1,6 +1,12 @@
 <template>
   <span class="e-checkbox">
-    <input :id="id" type="checkbox" v-model="groupValue$" :value="value" :disabled="disabled" class="e-checkbox__input">
+    <input ref="input"
+           :id="id"
+           type="checkbox"
+           v-model="groupValue$"
+           :value="value"
+           :disabled="disabled"
+           class="e-checkbox__input">
     <a class="e-checkbox__frame"></a>
     <ej-icon icon="check" class="e-checkbox__checker"/>
   </span>
@@ -32,6 +38,11 @@
         type: Boolean,
         default: false,
       },
+
+      indeterminate: {
+        type: Boolean,
+        default: false,
+      },
     },
 
     computed: {
@@ -44,6 +55,15 @@
           this.$emit('update:groupValue', val)
         },
       },
+    },
+
+    mounted () {
+      this.$watch('indeterminate', {
+        immediate: true,
+        handler (val) {
+          this.$refs.input.indeterminate = val
+        },
+      })
     },
   }
 </script>
@@ -69,7 +89,7 @@
   }
 
   .#{$checkbox__frame} {
-    @apply block border;
+    @apply block border relative;
 
     width: 16px;
     height: 16px;
@@ -86,6 +106,14 @@
 
     @at-root .#{$checkbox__input}[disabled] ~ & {
       background: #F5F5F5;
+    }
+
+    @at-root .#{$checkbox__input}:indeterminate ~ &::after {
+      @apply block bg-blue absolute inset-0 m-auto;
+
+      content: '';
+      width: 8px;
+      height: 8px;
     }
   }
 

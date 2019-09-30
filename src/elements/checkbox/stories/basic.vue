@@ -6,6 +6,7 @@
           <td></td>
           <td><em>default</em></td>
           <td><code>disabled</code></td>
+          <td><code>indeterminate</code></td>
         </tr>
         <tr>
           <th><em>default</em></th>
@@ -22,6 +23,9 @@
             <e-checkbox id="disabled-2" v-model="value" value="two" disabled/><label for="disabled-2">Two</label>
             <br>
             <e-checkbox id="disabled-3" v-model="value" value="three" disabled/><label for="disabled-3">Three</label>
+          </td>
+          <td>
+            <e-checkbox indeterminate/>
           </td>
         </tr>
       </table>

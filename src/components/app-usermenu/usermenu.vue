@@ -19,7 +19,8 @@
           <li class="tenant-name" v-show="user$.tenantName">{{user$.tenantName}}</li>
           <li class="divider" v-show="user$.tenantName"></li>
           <li>
-            <a :href="endpoint.ucUrl" target="_blank" class="system-name">个人中心</a>
+             <!-- :class="**.indexOf('uc') >= 0 ? 'active' : ''" -->
+            <a :href="ucUrl$" target="_blank" class="system-name">个人中心</a>
           </li>
           <li>
             <slot name="menu-slot"/>
@@ -90,12 +91,31 @@
         }
         return curAvatar
       },
+
+      ucUrl$ () {
+        // 区分环境是否是jinxin.cloud；待完善客户配置的环境情况？
+        let curHost = window.location.host
+        if (curHost.indexOf('jinxin.cloud') >= 0) {
+          if (curHost.indexOf('dev') >= 0) {
+            return 'http://uc.dev.jinxin.cloud/'
+          } else if (curHost.indexOf('demo') >= 0) {
+            return 'http://uc.demo.jinxin.cloud/'
+          } else {
+            return 'http://uc.jinxin.cloud/'
+          }
+        } else if (curHost.indexOf('localhost') >= 0) {
+          return 'http://uc.dev.jinxin.cloud/'
+        } else {
+          console.log('待完善当前环境。。。')
+        }
+      }
     },
 
     methods: {
       handleLogout () {
         ElMessageBox.confirm('是否退出该系统？', '提示', {
           type: 'warning',
+          center: true,
         }).then(() => {
           this.logout()
         }).catch(() => {})

@@ -4,7 +4,7 @@
     <div ref="listWrapper"
          class="ej-conditions-item__content"
          :class="{'max-height-300': isMore}">
-      <div class="flex flex-wrap max-w-full" ref="listContent">
+      <div class="flex flex-wrap max-w-full overflow-hidden" ref="listContent">
         <slot/>
       </div>
 

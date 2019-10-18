@@ -25,6 +25,7 @@
         > * {
           margin-left: 50px;
           opacity: .65;
+          padding: 0 12px;
 
           &:first-child {
             margin-left: 0;
@@ -34,6 +35,9 @@
           &.is-opened,
           &.is-active {
             opacity: 1;
+          }
+          &.is-active {
+            background: rgba(255, 255, 255, .1) !important;
           }
         }
 
@@ -51,8 +55,11 @@
         }
 
         > .el-menu-item {
+          padding: 0 12px;
+
           &.is-active {
             @apply border-0;
+            background: rgba(255, 255, 255, .1) !important;
           }
         }
 
@@ -61,6 +68,10 @@
           }
         }
       }
+    }
+
+    @at-root .ej-app-logo + & {
+      margin-left: 172px;
     }
   }
 </style>

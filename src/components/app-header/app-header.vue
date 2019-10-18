@@ -74,7 +74,7 @@
   .ej-app-header {
     @apply text-white;
 
-    padding: 0 50px;
+    padding: 0 24px;
     background: #1F2E4D;
   }
 
@@ -92,7 +92,7 @@
     > * {
       @apply flex-none flex items-center;
 
-      margin-right: 30px;
+      margin-right: 24px;
 
       &:last-child {
         margin-right: 0;

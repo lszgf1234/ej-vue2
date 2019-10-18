@@ -32,6 +32,7 @@
       .el-submenu,
       .el-submenu__title {
         background: unset !important;
+        color: rgba(255, 255, 255, .65) !important;
 
         &:hover {
           @apply text-white #{!important};
@@ -41,11 +42,16 @@
       .el-menu-item,
       .el-submenu {
         &:hover {
-          background: theme('colors.blue.default') !important;
+
         }
 
         &.is-active {
-          @apply text-blue;
+          @apply text-white #{!important};
+          background: theme('colors.blue.default') !important;
+          > .el-submenu__title {
+            @apply text-white #{!important};
+            background: theme('colors.blue.default') !important;
+          }
         }
 
         &.is-opened {

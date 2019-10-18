@@ -8,4 +8,10 @@ export const user1 = {
   name: 'Test',
   tenantName: '东方金信科技有限公司',
 }
+export const endpoint = {
+  avatarUrl: '', /* 头像获取环境变量process.env.VUE_APP_DOWNLOAD */
+  loginUrl: '', /* 登录系统地址环境变量process.env.VUE_APP_LOGIN_URL */
+  ucUrl: '', /* 个人中心项目地址环境变量process.env.VUE_APP_UC_URL */
+  client: '', /* 调用auth-frontier中的退出接口：client名称ucClient */
+}
 

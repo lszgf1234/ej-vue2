@@ -7,7 +7,7 @@
       v-model="userMenuVisible"
       popper-class="usermenu-wrapper">
       <div class="ej-app-user" slot="reference">
-        <img v-if="user$.avatar"
+        <img v-if="avatar$"
              :src="avatar$"
              alt=""
              class="ej-app-user__avatar flex-none rounded-full"
@@ -19,7 +19,8 @@
           <li class="tenant-name" v-show="user$.tenantName">{{user$.tenantName}}</li>
           <li class="divider" v-show="user$.tenantName"></li>
           <li>
-            <a :href="VUE_APP_UC_URL" target="_blank" class="system-name">个人中心</a>
+             <!-- :class="**.indexOf('uc') >= 0 ? 'active' : ''" -->
+            <a :href="ucUrl$" target="_blank" class="system-name">个人中心</a>
           </li>
           <li>
             <slot name="menu-slot"/>
@@ -36,8 +37,14 @@
 
 <script>
   import {MessageBox as ElMessageBox, Popover as ElPopover} from 'element-ui'
+  import MessageUtil from '../../utils/message'
 
   import LOGOUT from './graphql/logout.gql'
+
+  const LOGOUT_MSG = {
+    messageSuccessText: '退出成功',
+    messageErrorText: '退出失败，请重新操作',
+  }
 
   export default {
     name: 'EjAppUsermenu',
@@ -53,7 +60,7 @@
       },
 
       endpoint: {
-        type: String,
+        type: Object,
         required: true,
       },
     },
@@ -65,8 +72,6 @@
     },
 
     computed: {
-      VUE_APP_UC_URL: () => process.env.VUE_APP_UC_URL,
-
       $header () {
         let target = this.$parent
         while (target && target.$options.name !== 'EjAppHeader' && target !== this.$root) {
@@ -80,14 +85,37 @@
       },      
 
       avatar$ () {
-        return `${this.endpoint}?ambryId=${this.user$.avatar}&show=true`
+        let curAvatar = this.user$.avatar
+        if (curAvatar) {
+          curAvatar = curAvatar.startsWith('http') ? curAvatar : `${this.endpoint.avatarUrl}?ambryId=${curAvatar}&show=true`
+        }
+        return curAvatar
       },
+
+      ucUrl$ () {
+        // 区分环境是否是jinxin.cloud；待完善客户配置的环境情况？
+        let curHost = window.location.host
+        if (curHost.indexOf('jinxin.cloud') >= 0) {
+          if (curHost.indexOf('dev') >= 0) {
+            return 'http://uc.dev.jinxin.cloud/'
+          } else if (curHost.indexOf('demo') >= 0) {
+            return 'http://uc.demo.jinxin.cloud/'
+          } else {
+            return 'http://uc.jinxin.cloud/'
+          }
+        } else if (curHost.indexOf('localhost') >= 0) {
+          return 'http://uc.dev.jinxin.cloud/'
+        } else {
+          console.log('待完善当前环境。。。')
+        }
+      }
     },
 
     methods: {
       handleLogout () {
         ElMessageBox.confirm('是否退出该系统？', '提示', {
           type: 'warning',
+          center: true,
         }).then(() => {
           this.logout()
         }).catch(() => {})
@@ -97,17 +125,15 @@
         this.$apollo.mutate({
           mutation: LOGOUT,
           fetchPolicy: 'no-cache',
+          client: this.endpoint.client,
         }).then((data) => {
           if (data.data.data) {
-            const httpLogin = process.env.VUE_APP_LOGIN_URL
+            const httpLogin = this.endpoint.loginUrl
             let url = `${httpLogin}?redirect_url=${encodeURIComponent(location.href)}`
             location.href = url
           }
         }).catch((error) => {
-          this.$message({
-            message: error.message,
-            type: 'error',
-          })
+          MessageUtil.MessageError(LOGOUT_MSG)
         })
       },
     },
@@ -133,6 +159,7 @@
 
   .usermenu-wrapper {
     padding: 0 !important;
+    border: none;
 
     .menu-wrap {
       @apply text-white;

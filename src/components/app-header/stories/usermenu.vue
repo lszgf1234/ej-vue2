@@ -2,7 +2,7 @@
   <div>
     <ej-app-header :user="user">
       <template #tray>
-        <ej-app-usermenu :user="user1"/>
+        <ej-app-usermenu :user="user1" :endpoint="endpoint"/>
       </template>
     </ej-app-header>
   </div>
@@ -10,7 +10,7 @@
 
 <script>
   import EjAppUsermenu from '../../app-usermenu'
-  import {user, user1} from './mock-data'
+  import {user, user1, endpoint} from './mock-data'
 
   export default {
     components: {
@@ -21,6 +21,7 @@
       return {
         user,
         user1,
+        endpoint,
       }
     },
   }

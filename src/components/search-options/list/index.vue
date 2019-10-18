@@ -108,7 +108,7 @@
   @import '../variables.scss';
 
   .ej-conditions-list {
-    @apply cursor-pointer whitespace-no-wrap;
+    @apply cursor-pointer whitespace-no-wrap float-left;
 
     margin-right: 30px;
   }

@@ -7,6 +7,7 @@
 
     <ej-search-list ref="ejSearchList"
                     :models.sync="models"
+                    :view-id="2"
                     :style="{'width': '1000px', margin: '50px auto'}"
                     @search="search">
         <template #input>

@@ -7,6 +7,10 @@
                     :default-tag-more="true"
                     :max-width-tag="maxWidthTag"
                     :default-expand-list="true"
+                    :input-props="{
+                      placeholder: '自定义placeholder',
+                    }"
+                    :view-id="1"
                     @search="search">
       <template>
         <ej-search-option-list :prop="datas[0].key" v-model="models[datas[0].key]" :label="datas[0].label" :options="datas[0].options"/>

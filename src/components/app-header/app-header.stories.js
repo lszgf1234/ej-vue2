@@ -7,11 +7,13 @@ import NotificationStory from './stories/notification.vue'
 import SearchStory from './stories/search.vue'
 import SettingStory from './stories/setting.vue'
 import Usermenu from './stories/usermenu.vue'
+import NavMenu from './stories/navmenu.vue'
 
 Vue.use(AppHeader)
 
 storiesOf('Components|AppHeader', module)
   .add('基本用法', () => BasicStory)
+  .add('导航菜单', () => NavMenu)
   .add('消息通知', () => NotificationStory)
   .add('全局搜索', () => SearchStory)
   .add('应用设置', () => SettingStory)

@@ -31,7 +31,7 @@
       .el-menu-item,
       .el-submenu,
       .el-submenu__title {
-        background: unset !important;
+        background: transparent !important;
         color: rgba(255, 255, 255, .65) !important;
 
         &:hover {

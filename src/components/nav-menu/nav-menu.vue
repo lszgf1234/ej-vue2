@@ -16,8 +16,9 @@
 
 <style lang="scss">
   .ej-nav-menu {
+
     &.el-menu {
-      background: unset;
+      background: #1F2E4D;
 
       &.el-menu--horizontal {
         @apply border-b-0 flex;
@@ -45,12 +46,12 @@
         > .el-submenu .el-submenu__title {
           @apply p-0 border-b-0;
 
-          height: unset;
-          line-height: unset;
+          height: inherit;
+          line-height: inherit;
 
           &:hover,
           &:focus {
-            background: unset;
+            background: transparent;
           }
         }
 

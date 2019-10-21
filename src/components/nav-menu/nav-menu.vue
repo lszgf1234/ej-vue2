@@ -47,6 +47,7 @@
           @apply p-0 border-b-0;
 
           height: inherit;
+          font-size: 16px;
           line-height: inherit;
 
           &:hover,

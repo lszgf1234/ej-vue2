@@ -18,7 +18,7 @@
         <ul>
           <li class="tenant-name" v-show="user$.tenantName">{{user$.tenantName}}</li>
           <li class="divider" v-show="user$.tenantName"></li>
-          <li v-if="isUseUc$">
+          <li v-if="noUc">
              <!-- :class="**.indexOf('uc') >= 0 ? 'active' : ''" -->
             <a :href="ucUrl$" target="_blank" class="system-name">个人中心</a>
           </li>
@@ -63,6 +63,11 @@
         type: Object,
         required: true,
       },
+
+      noUc: {
+        type: Boolean,
+        default: true,
+      },
     },
 
     data () {
@@ -90,15 +95,6 @@
           curAvatar = curAvatar.startsWith('http') ? curAvatar : `${this.endpoint.avatarUrl}?ambryId=${curAvatar}&show=true`
         }
         return curAvatar
-      },
-
-      isUseUc$ () {
-        let curIsUseUc = this.endpoint.isUseUc
-        if (curIsUseUc === 'no') {
-          return false
-        } else {
-          return true
-        }
       },
 
       ucUrl$ () {

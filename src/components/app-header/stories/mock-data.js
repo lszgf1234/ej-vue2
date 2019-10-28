@@ -13,6 +13,5 @@ export const endpoint = {
   loginUrl: '', /* 登录系统地址环境变量process.env.VUE_APP_LOGIN_URL */
   // ucUrl: '', /* 个人中心项目地址环境变量process.env.VUE_APP_UC_URL */
   client: '', /* 调用auth-frontier中的退出接口：client名称ucClient */
-  isUseUc: 'no',
 }
 

@@ -7,7 +7,7 @@
 | Prop | Type | Default | Description |
 |---|---|---|---|
 | `user` | Object | | 配置项 {avatar(头像)，name(中文名称)，tenantName(租户名称)} |
-| `endpoint` | Object | | 配置项 {avatarUrl(获取头像接口:http://auth-frontier.dev.jinxin.cloud/filesUpload)，loginUrl(登录地址:http://login.dev.jinxin.cloud/，client(自定义client配置:调用auth-frontier中的退出接口,如'ucClient'))} |
+| `endpoint` | Object | | 配置项 {avatarUrl(获取头像接口:http://auth-frontier.dev.jinxin.cloud/filesUpload)，loginUrl(登录地址:http://login.dev.jinxin.cloud/，client(自定义client配置:调用auth-frontier中的退出接口,如'ucClient'))，isUseUc(是否使用'个人中心'项:no为不使用/其他情况都使用))} |
 
 ### Slot
 

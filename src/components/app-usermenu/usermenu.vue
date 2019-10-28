@@ -18,7 +18,7 @@
         <ul>
           <li class="tenant-name" v-show="user$.tenantName">{{user$.tenantName}}</li>
           <li class="divider" v-show="user$.tenantName"></li>
-          <li>
+          <li v-if="!noUc">
              <!-- :class="**.indexOf('uc') >= 0 ? 'active' : ''" -->
             <a :href="ucUrl$" target="_blank" class="system-name">个人中心</a>
           </li>
@@ -63,6 +63,11 @@
         type: Object,
         required: true,
       },
+
+      noUc: {
+        type: Boolean,
+        default: false,
+      },
     },
 
     data () {
@@ -82,7 +87,7 @@
 
       user$ () {
         return JSON.stringify(this.user) !== '{}' ? this.user : this.$header.user
-      },      
+      },
 
       avatar$ () {
         let curAvatar = this.user$.avatar

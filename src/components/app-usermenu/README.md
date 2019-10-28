@@ -13,7 +13,7 @@
 
 | Name | Default | Description |
 |---|---|---|
-| no-uc | Boolean | 默认为true(显示'个人中心'项) |
+| no-uc | Boolean | 默认为false(显示'个人中心'项) |
 
 
 ### Slot

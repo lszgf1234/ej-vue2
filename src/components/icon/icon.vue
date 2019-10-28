@@ -1,5 +1,14 @@
 <script lang="jsx">
+  import svg4everybody from 'svg4everybody'
+
+  import {getFlag, setFlag} from './flags'
   import icons from './icons.svg'
+
+  // 第一次注册组件时应用 SVG polyfill（伺候老不死的 IE 用）
+  if (!getFlag('installed')) {
+    svg4everybody()
+    setFlag('installed', true)
+  }
 
   export default {
     name: 'EjIcon',

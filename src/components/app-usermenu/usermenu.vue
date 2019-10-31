@@ -12,6 +12,10 @@
              alt=""
              class="ej-app-user__avatar flex-none rounded-full"
              :class="{'mr-2': user$.name}">
+        <img v-else
+             src="../../assets/icon-account.svg"
+             class="ej-app-user__avatar flex-none rounded-full bg-white"
+             :class="{'mr-2': user$.name}">
         <span v-if="user$.name" class="flex-none">{{user$.name}}</span>
       </div>
       <div class="menu-wrap" @click="userMenuVisible = false">
@@ -94,6 +98,9 @@
         if (curAvatar) {
           curAvatar = curAvatar.startsWith('http') ? curAvatar : `${this.endpoint.avatarUrl}?ambryId=${curAvatar}&show=true`
         }
+        // else {
+        //   curAvatar = '../../assets/icon-account.svg'
+        // }
         return curAvatar
       },
 

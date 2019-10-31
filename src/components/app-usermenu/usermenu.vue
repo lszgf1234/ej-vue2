@@ -98,9 +98,6 @@
         if (curAvatar) {
           curAvatar = curAvatar.startsWith('http') ? curAvatar : `${this.endpoint.avatarUrl}?ambryId=${curAvatar}&show=true`
         }
-        // else {
-        //   curAvatar = '../../assets/icon-account.svg'
-        // }
         return curAvatar
       },
 

@@ -21,7 +21,7 @@ const data = [
 storiesOf('Components|IdeTabs', module)
   .add('基本使用', () => ({
     template: `
-      <ej-ide-tabs :list="data" :index.sync="index" @remove="remove"></ej-ide-tabs>
+      <ej-ide-tabs :list="data" :index.sync="index" @remove="remove"/>
     `,
     props: {
       index: {

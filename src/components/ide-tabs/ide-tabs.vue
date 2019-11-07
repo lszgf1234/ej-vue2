@@ -84,7 +84,7 @@
     }
 
     .my-icon {
-      width: 6px;
+      width: 8px;
 
       &:hover {
         color: lighten(#477de9, 20%);

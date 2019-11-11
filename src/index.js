@@ -22,6 +22,7 @@ import SearchOptionSelect from './components/search-options/select'
 import SearchOptionCascader from './components/search-options/cascader'
 import SearchOptionRadio from './components/search-options/radio'
 import UserCard from './components/user-card'
+import Tree from './components/tree'
 
 import NavMenu from './components/nav-menu'
 import NavSubmenu from './components/nav-submenu'
@@ -82,6 +83,7 @@ export default {
     Vue.use(SearchSelect)
     Vue.use(SearchOptions)
     Vue.use(Card)
+    Vue.use(Tree)
 
     Vue.use(NavMenu)
     Vue.use(NavSubmenu)

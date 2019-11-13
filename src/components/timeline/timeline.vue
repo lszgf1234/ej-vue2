@@ -5,6 +5,7 @@
                         :key="idx"
                         :color="it.color"
                         :timestamp="it.timestamp | formatDate"
+                        v-bind="$attrs"
                         placement="top">
         <div>
           <div v-if="!hasMore(it)" class="title">

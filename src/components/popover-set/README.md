@@ -9,6 +9,7 @@
 | `number` | Boolean | false | 是否转化为数字类型（强转） |
 | `clearable` | Boolean | false | 可清空 |
 | `placeholder` | String | | 输入框占位文本 |
+| `maxlength` | Number | | 最大输入长度 |
 
 ### Slot
 

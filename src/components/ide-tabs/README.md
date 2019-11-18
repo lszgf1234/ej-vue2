@@ -3,20 +3,36 @@
     2. 可标识激活的页签。
     3. 超出容器自动换行，
     4. 可进行移除
+    5. 不可关闭型标签
+    6. 页签图标
+    7. 双击页签可重命名
+    8. 页签栏自定义内容区域
+ 
+### v-model: number
+    活跃页签的序号
     
 ### Props
  | Prop | Type | Default | Description |
- | :----: | :----: | :----: | :----: |
- | `list` | Array | [] | 页签集合 |
- | `index` | Number | 0 | 页签激活项 |
-
-#### `list[0]`
+ | :----: | :----: | :----: | --- |
+ | `tabs` | Array | [] | 页签集合 |
+ 
+#### `tabs[0]`
 | prop |Type | Default | Description |
-| :----: | :----: | :----: | :----: |
-| `name` | String |  | 页签名字 |
+| :----: | :----: | :----: | --- |
+| `name` | String |  | 页签名字 |   
+| `icon` | String |  | 页签图标名字（svg） |   
+| `closable` | Boolean | false | 可关闭性（默认可关闭，显式为 false 时不可关闭） |   
 
 ### Events
-
 | Name | Payload | Description |
 |---|---|---|
-| remove | index: String, item: Object | 在用户关闭某一个页签时触发 |
+| `change-tab` | tab: Object, idx: String | 切换页签时触发，携带新活跃页签的数据和序号 |
+| `rename-tab` | tab: Object, idx: String | 重命名页签时触发，携带被重命名页签的数据和序号，处理函数同步或异步返回`false` 时中止重命名过程 |
+| `close-tab` | tab: Object, idx: String | 关闭页签时触发，携带被关闭页签的数据和序号，处理函数同步或异步返回`false`时中止关闭过程 |
+
+### Slots
+| name | Payload |说明 |
+|:----: | ---| --- |
+| `default` | tab: Tab, idx: number | 主体区域，传递活跃页签的数据和序号 |
+| `tabbar-left` | | 页签栏左侧区域 |
+| `tabbar-right` | | 页签栏右侧区域 |

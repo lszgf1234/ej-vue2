@@ -9,6 +9,8 @@ Vue.use(IdeTabs)
 const data = [
   {
     name: 'tab1',
+    icon: 'tags-o',
+    closable: false,
   },
   {
     name: 'tab2',
@@ -18,10 +20,44 @@ const data = [
   },
 ]
 
-storiesOf('Components|IdeTabs', module)
+storiesOf('Components|tabbedWorkspace', module)
   .add('基本使用', () => ({
     template: `
-      <ej-ide-tabs :list="data" :index.sync="index" @remove="remove"/>
+      <ej-tabbed-workspace :tabs="data" 
+                            v-model="index"
+                            @change-tab="change"
+                            @rename-tab="rename"
+                            @close-tab="remove">  
+      </ej-tabbed-workspace>
+    `,
+    props: {
+      index: {
+        default: number('index', 1),
+      },
+      data: {
+        default: object('list', data),
+      },
+    },
+    methods: {
+      remove (it, idx) {
+        this.data.splice(idx, 1)
+      },
+      rename (it, idx) {
+      },
+      change (it, idx) {
+      },
+    },
+  }))
+  .add('左右slot', () => ({
+    template: `
+      <ej-tabbed-workspace :tabs="data" 
+                            v-model="index"
+                            @change-tab="change"
+                            @rename-tab="rename"
+                            @close-tab="remove">
+        <div slot="tabbar-left">left</div>            
+        <div slot="tabbar-right">right</div>            
+      </ej-tabbed-workspace>
     `,
     props: {
       index: {
@@ -32,8 +68,12 @@ storiesOf('Components|IdeTabs', module)
       },
     },
     methods: {
-      remove (idx, it) {
+      remove (it, idx) {
         this.data.splice(idx, 1)
+      },
+      rename (it, idx) {
+      },
+      change (it, idx) {
       },
     },
   }))

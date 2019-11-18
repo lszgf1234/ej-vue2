@@ -81,7 +81,7 @@ export default {
     Vue.use(SearchList)
     Vue.use(SearchSelect)
     Vue.use(SearchOptions)
-    Vue.use(Card)
+    Vue.use(UserCard)
 
     Vue.use(NavMenu)
     Vue.use(NavSubmenu)

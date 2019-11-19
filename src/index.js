@@ -22,7 +22,7 @@ import SearchOptionSelect from './components/search-options/select'
 import SearchOptionCascader from './components/search-options/cascader'
 import SearchOptionRadio from './components/search-options/radio'
 import UserCard from './components/user-card'
-import IdeTabs from './components/ide-tabs'
+import TabbedWorkspace from './components/tabbed-workspace'
 
 import NavMenu from './components/nav-menu'
 import NavSubmenu from './components/nav-submenu'
@@ -55,7 +55,7 @@ export {
   SearchOptionCascader,
   SearchOptionRadio,
   UserCard,
-  IdeTabs,
+  TabbedWorkspace,
 
   NavMenu,
   NavSubmenu,

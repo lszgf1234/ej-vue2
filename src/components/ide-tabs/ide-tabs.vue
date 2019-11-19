@@ -11,7 +11,8 @@
         <slot :tab="it" :idx="idx">
           <div @click="changeTab(idx)" :class="{active: idx === number}"
                class="ide-tab-item flex items-center cursor-default">
-            <a v-show="!inputs[idx]" href="javascript:" @dbclick.stop="rename(it, idx, $event)" class="text-sm single name">{{it.name}}</a>
+            <ej-icon v-if="it.icon" :icon="it.icon" class="icon-left mr-2"></ej-icon>
+            <a v-show="!inputs[idx]" href="javascript:" @dbclick="rename(it, idx, $event)" class="text-sm single name">{{it.name}}</a>
             <input v-show="inputs[idx]"
                    ref="input" type="text"
                    v-model="item.name"
@@ -91,6 +92,9 @@
       },
 
       rename (it, idx, e) {
+        // 切换到
+        this.changeTab(idx)
+
         this.item = Object.assign({}, it)
         this.inputActive = idx
         this.width = `${e.target.offsetWidth}px`
@@ -135,7 +139,7 @@
       }
 
       .rename {
-        &:focus{
+        &:focus {
           outline: none;
         }
       }

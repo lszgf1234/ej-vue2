@@ -28,7 +28,10 @@ const data = {
 storiesOf('Components|UserCard', module)
   .add('基本使用', () => ({
     template: `
-      <ej-user-card :data="data" :has-email="hasEmail" @mail="mail">
+      <ej-user-card :data="data" 
+                    :has-email="hasEmail"
+                    placement="top-start"
+                    @mail="mail">
         <template slot="img">
           <img style="width: 25px; height: 25px" :src="imgUrl">
         </template>

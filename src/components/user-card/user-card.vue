@@ -1,52 +1,53 @@
 <template>
-  <div class="ej-card" @mouseenter="show" @mouseleave="hide">
-    <slot name="img"/>
-    <div class="position">
-      <div ref="position" :style="style" class="box-postcard bg-white">
-        <div class="flex mb-2">
-          <div>
-            <div v-if="data.userAvatar" :style="{backgroundImage: `url(${data.userAvatar})`}"
-                 class="card-img card-svg"></div>
-            <img v-else src="../../assets/icon-account.svg" class="card-img img-def">
+  <el-popover v-bind="$attrs" trigger="hover" class="ej-card">
+    <template #reference>
+      <slot name="img"></slot>
+    </template>
+    <div class="box-postcard bg-white">
+      <div class="flex mb-2">
+        <div class="flex items-center">
+          <div v-if="data.userAvatar" :style="{backgroundImage: `url(${data.userAvatar})`}"
+               class="card-img card-svg"></div>
+          <ej-icon v-else icon="user" class="card-img img-def"></ej-icon>
+        </div>
+        <div class="flex-1 ml-2 item-height">
+          <div class="text-blue mb-2 flex items-center">
+            <span class="flex-1">{{data.name}}（{{data.position}}）</span>
+            <a v-if="hasEmail" href="javascript:" @click="mail"><i class="el-icon-message text-2xl"></i></a>
           </div>
-          <div class="flex-1 ml-2 item-height">
-            <div class="text-blue mb-1 flex items-center">
-              <span class="flex-1">{{data.name}}（{{data.position}}）</span>
-              <a v-if="hasEmail" href="javascript:" @click="mail"><i class="el-icon-message text-2xl"></i></a>
-            </div>
-            <div class="mb-1 flex items-center item-height">
-              <img src="../../assets/icons/icon-id.svg" class="icon-id">
-              <span class="ml-2">{{data.jobNumber}}</span>
-            </div>
-            <div class="mb-1 flex items-center item-height">
-              <img src="../../assets/icons/icon-job.svg" class="icon-job">
-              <span class="ml-2">{{data.phone}}</span>
-            </div>
-            <div class="flex items-center item-height">
-              <ej-icon icon="phone" class="icon-job"></ej-icon>
-              <span class="ml-2">{{data.telephone}}</span>
-            </div>
+          <div class="mb-2 flex items-center item-height">
+            <img src="../../assets/icons/icon-id.svg" class="icon-id">
+            <span class="ml-2">{{data.jobNumber}}</span>
           </div>
-        </div>
-        <div class="mb-1 flex items-center item-height">
-          <i class="el-icon-message text-lg"></i>
-          <span class="ml-2 mr-8">{{data.email}}</span>
-          <a href="javascript:" @click="copy(data.email)"><i class="el-icon-document-copy"></i></a>
-        </div>
-        <div class="mb-1 flex items-center item-height">
-          <i class="el-icon-menu text-lg"></i>
-          <span class="ml-2">{{data.department}}</span>
-        </div>
-        <div class="flex items-center item-height">
-          <i class="el-icon-location-information text-lg"></i>
-          <span class="ml-2">{{data.userAddress}}</span>
+          <div class="mb-2 flex items-center item-height">
+            <img src="../../assets/icons/icon-job.svg" class="icon-job">
+            <span class="ml-2">{{data.phone}}</span>
+          </div>
+          <div class="flex items-center item-height">
+            <ej-icon icon="phone" class="icon-job"></ej-icon>
+            <span class="ml-2">{{data.telephone}}</span>
+          </div>
         </div>
       </div>
+      <div class="mb-2 flex items-center item-height">
+        <i class="el-icon-message text-4"></i>
+        <span class="ml-2 mr-4">{{data.email}}</span>
+        <a href="javascript:" @click="copy(data.email)"><i class="el-icon-document-copy"></i></a>
+      </div>
+      <div class="mb-2 flex items-center item-height">
+        <i class="el-icon-menu text-4"></i>
+        <span class="ml-2">{{data.department}}</span>
+      </div>
+      <div class="flex items-center item-height">
+        <i class="el-icon-location-information text-4"></i>
+        <span class="ml-2">{{data.userAddress}}</span>
+      </div>
     </div>
-  </div>
+  </el-popover>
 </template>
 
 <script>
+  import {Popover} from 'element-ui'
   import Clipboard from 'clipboard'
 
   import Message from '../../utils/message'
@@ -57,6 +58,7 @@
 
     components: {
       [Icon.name]: Icon,
+      [Popover.name]: Popover,
     },
 
     props: {
@@ -70,54 +72,7 @@
       },
     },
 
-    data () {
-      return {
-        style: {visibility: 'hidden'},
-        timer: null,
-      }
-    },
-
-    mounted () {
-      this.setPosition('init')
-    },
-
     methods: {
-      show () {
-        if (this.timer) {
-          window.clearTimeout(this.timer)
-          this.timer = null
-        }
-        this.setPosition()
-      },
-      hide () {
-        this.timer = window.setTimeout(() => {
-          this.style.visibility = 'hidden'
-          window.clearTimeout(this.timer)
-          this.timer = null
-        }, 300)
-      },
-      setPosition (init) {
-        let style = {
-          width: `${this.width}px`,
-          visibility: init === 'init' ? 'hidden' : 'inherit',
-        }
-        let elOffsets = this.$el.getBoundingClientRect()
-        let documentElement = document.documentElement
-        if (elOffsets.x + this.width > documentElement.clientWidth) {
-          style.right = 0
-        } else {
-          style.left = 0
-        }
-
-        let positionOffsets = this.$refs.position.getBoundingClientRect()
-        if (positionOffsets.height + elOffsets.y + elOffsets.height > documentElement.clientHeight) {
-          style.top = `${-(elOffsets.height + positionOffsets.height)}px`
-        } else {
-          style.top = 0
-        }
-
-        this.style = style
-      },
       mail () {
         this.$emit('mail')
       },
@@ -144,25 +99,10 @@
 </script>
 
 <style lang="scss">
-  .ej-card {
-    display: inline-block;
-
-    .position {
-      position: relative;
-    }
-
-    .box-postcard {
-      height: 185px;
-    }
-
-    .box-postcard {
-      padding: 15px;
-      position: absolute;
-      width: 318px;
-      top: 5px;
-      z-index: 100;
-      color: theme('colors.gray.darker');
-      box-shadow: 0 2px 6px 3px rgba(0, 0, 0, 0.1);
+  .box-postcard {
+    & {
+      @apply text-gray-darker;
+      min-width: 318px;
     }
 
     .card-img, .img-def {
@@ -195,14 +135,12 @@
     }
 
     .item-height {
-      height: 15px;
-      line-height: 15px;
+      @apply leading-none;
     }
 
     .icon-job {
       width: 16px;
       height: 15px;
     }
-
   }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-md">
+  <div class="pt-5">
     <ej-tag-list v-model="data"
                  @tag-create="handleTagCreate"
                  @tag-score="handleTagScore"

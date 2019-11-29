@@ -22,8 +22,8 @@
                         @enter="el => el.style.height = el.scrollHeight + 'px'"
                         @leave="el => el.style.height = 0">
               <div v-show="showMap[`${idx}_${it.timestamp}`]" class="more-box">
-                <div class="desc mb-xs">{{it.desc}}</div>
-                <div v-for="(file, idx) in (it.files || [])" :key="idx" class="mb-xs">
+                <div class="desc mb-1">{{it.desc}}</div>
+                <div v-for="(file, idx) in (it.files || [])" :key="idx" class="mb-1">
                   <a :href="file.href" class="download">
                     <ej-icon :icon="file.type | icon" class="icon-file"/>
                     <span class="text">{{file.name}}</span>

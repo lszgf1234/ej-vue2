@@ -3,43 +3,43 @@
     <slot name="img"/>
     <div class="position">
       <div ref="position" :style="style" class="box-postcard bg-white">
-        <div class="flex mb-sm">
+        <div class="flex mb-2">
           <div>
             <div v-if="data.userAvatar" :style="{backgroundImage: `url(${data.userAvatar})`}"
                  class="card-img card-svg"></div>
             <img v-else src="../../assets/icon-account.svg" class="card-img img-def">
           </div>
-          <div class="flex-1 ml-sm item-height">
-            <div class="text-blue mb-xs flex items-center">
+          <div class="flex-1 ml-2 item-height">
+            <div class="text-blue mb-1 flex items-center">
               <span class="flex-1">{{data.name}}（{{data.position}}）</span>
               <a v-if="hasEmail" href="javascript:" @click="mail"><i class="el-icon-message text-2xl"></i></a>
             </div>
-            <div class="mb-xs flex items-center item-height">
+            <div class="mb-1 flex items-center item-height">
               <img src="../../assets/icons/icon-id.svg" class="icon-id">
-              <span class="ml-sm">{{data.jobNumber}}</span>
+              <span class="ml-2">{{data.jobNumber}}</span>
             </div>
-            <div class="mb-xs flex items-center item-height">
+            <div class="mb-1 flex items-center item-height">
               <img src="../../assets/icons/icon-job.svg" class="icon-job">
-              <span class="ml-sm">{{data.phone}}</span>
+              <span class="ml-2">{{data.phone}}</span>
             </div>
             <div class="flex items-center item-height">
               <ej-icon icon="phone" class="icon-job"></ej-icon>
-              <span class="ml-sm">{{data.telephone}}</span>
+              <span class="ml-2">{{data.telephone}}</span>
             </div>
           </div>
         </div>
-        <div class="mb-xs flex items-center item-height">
+        <div class="mb-1 flex items-center item-height">
           <i class="el-icon-message text-lg"></i>
-          <span class="ml-sm mr-lg">{{data.email}}</span>
+          <span class="ml-2 mr-8">{{data.email}}</span>
           <a href="javascript:" @click="copy(data.email)"><i class="el-icon-document-copy"></i></a>
         </div>
-        <div class="mb-xs flex items-center item-height">
+        <div class="mb-1 flex items-center item-height">
           <i class="el-icon-menu text-lg"></i>
-          <span class="ml-sm">{{data.department}}</span>
+          <span class="ml-2">{{data.department}}</span>
         </div>
         <div class="flex items-center item-height">
           <i class="el-icon-location-information text-lg"></i>
-          <span class="ml-sm">{{data.userAddress}}</span>
+          <span class="ml-2">{{data.userAddress}}</span>
         </div>
       </div>
     </div>

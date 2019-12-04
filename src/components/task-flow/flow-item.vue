@@ -3,19 +3,19 @@
     <div class="left">
       <ej-popcard :img-url="data.user_img" :title="data.title">
         <template slot="img">
-          <div class="circle mb-sm">
+          <div class="circle mb-2">
             <ej-icon :icon="icon" class="circle-icon"/>
           </div>
         </template>
         <template slot="action">
           <a v-if="data.type === TaskType.Starting"
              href="javascript:"
-             class="ml-xs text-blue"
+             class="ml-1 text-blue"
              @click="nag">催一下</a>
         </template>
         <template slot="main">
           <div class="user-list">
-            <ej-info-list v-for="(item, idx) in taskList" :key="idx" :data="item" class="user-item mt-xs">
+            <ej-info-list v-for="(item, idx) in taskList" :key="idx" :data="item" class="user-item mt-1">
               <template slot="name" slot-scope="row">
                 <div class="name-self">
                   <span v-if="row.item.user_img" :style="{backgroundImage: `url(${row.item.user_img})`}" class="other-img" ></span>

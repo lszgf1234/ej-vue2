@@ -1,13 +1,13 @@
 <template>
   <div class="ej-tabbed-workspace clearfix">
-    <span class="float-left">
+    <span class="float-left fixed-height">
       <slot name="tabbar-left"></slot>
     </span>
-    <span class="float-right">
+    <span class="float-right fixed-height">
       <slot name="tabbar-right"></slot>
     </span>
     <ul class="clearfix">
-      <li v-for="(it, idx) of tabs" :key="idx" class="float-left">
+      <li v-for="(it, idx) of tabs" :key="idx" class="float-left fixed-height">
         <div @click="changeTab(idx)" :class="{active: idx === number}"
              class="ide-tab-item flex items-center cursor-default">
           <ej-icon v-if="it.icon" :icon="it.icon" class="icon-left mr-2"></ej-icon>
@@ -164,9 +164,15 @@
   }
 </style>
 <style lang="scss">
-  .single {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+  .ej-tabbed-workspace {
+    .single {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .fixed-height {
+      height: 28px;
+    }
   }
 </style>

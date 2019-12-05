@@ -8,28 +8,27 @@
     </span>
     <ul class="clearfix">
       <li v-for="(it, idx) of tabs" :key="idx" class="float-left">
-        <slot :tab="it" :idx="idx">
-          <div @click="changeTab(idx)" :class="{active: idx === number}"
-               class="ide-tab-item flex items-center cursor-default">
-            <ej-icon v-if="it.icon" :icon="it.icon" class="icon-left mr-2"></ej-icon>
-            <a v-show="!inputs[idx]" href="javascript:" @dbclick="rename(it, idx, $event)" class="text-sm single name">{{it.name}}</a>
-            <input v-show="inputs[idx]"
-                   ref="input" type="text"
-                   v-model="item.name"
-                   @keyup.enter="renameSure"
-                   @blur="renameCancel"
-                   :style="{width: width}"
-                   class="name rename text-gray-darkest">
-            <a v-if="closable(it.closable)"
-               href="javascript:"
-               @click.stop="remove(it, idx)"
-               class="my-icon-wrap">
-              <ej-icon icon="close" class="my-icon"/>
-            </a>
-          </div>
-        </slot>
+        <div @click="changeTab(idx)" :class="{active: idx === number}"
+             class="ide-tab-item flex items-center cursor-default">
+          <ej-icon v-if="it.icon" :icon="it.icon" class="icon-left mr-2"></ej-icon>
+          <a v-show="!inputs[idx]" href="javascript:" @dbclick="rename(it, idx, $event)" class="text-sm single name">{{it.name}}</a>
+          <input v-show="inputs[idx]"
+                 ref="input" type="text"
+                 v-model="item.name"
+                 @keyup.enter="renameSure"
+                 @blur="renameCancel"
+                 :style="{width: width}"
+                 class="name rename text-gray-darkest">
+          <a v-if="closable(it.closable)"
+             href="javascript:"
+             @click.stop="remove(it, idx)"
+             class="my-icon-wrap">
+            <ej-icon icon="close" class="my-icon"/>
+          </a>
+        </div>
       </li>
     </ul>
+    <slot :tab="tabs[number]" :idx="number"></slot>
   </div>
 </template>
 

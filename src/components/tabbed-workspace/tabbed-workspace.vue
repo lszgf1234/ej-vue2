@@ -1,5 +1,5 @@
 <template>
-  <div class="ej-ide-tabs-view clearfix">
+  <div class="ej-tabbed-workspace clearfix">
     <span class="float-left">
       <slot name="tabbar-left"></slot>
     </span>
@@ -117,7 +117,7 @@
 </script>
 
 <style lang="scss">
-  .ej-ide-tabs-view {
+  .ej-tabbed-workspace {
     .ide-tab-item {
       @apply bg-gray-light px-4;
       border: 1px solid theme('colors.gray.default');

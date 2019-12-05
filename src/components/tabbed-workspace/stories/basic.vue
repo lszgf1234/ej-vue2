@@ -4,6 +4,7 @@
       <ej-tabbed-workspace
         v-model="index"
         :tabs="data"
+        style="width: 1000px;"
         @change-tab="change"
         @rename-tab="rename"
         @close-tab="remove"

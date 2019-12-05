@@ -1,38 +1,48 @@
 <template>
   <div class="ej-tabbed-workspace clearfix">
     <span class="float-left fixed-height">
-      <slot name="tabbar-left"></slot>
+      <slot name="tabbar-left"/>
     </span>
     <span class="float-right fixed-height">
-      <slot name="tabbar-right"></slot>
+      <slot name="tabbar-right"/>
     </span>
     <ul class="clearfix">
       <li v-for="(it, idx) of tabs" :key="idx" class="float-left fixed-height">
-        <div @click="changeTab(idx)" @dbclick="rename(it, idx, $event)" :class="{active: idx === number}"
-             class="ide-tab-item flex items-center cursor-default">
-          <ej-icon v-if="it.icon" :icon="it.icon" class="icon-left mr-2"></ej-icon>
+        <div
+          class="ide-tab-item flex items-center cursor-default"
+          :class="{active: idx === number}"
+          @click="changeTab(idx)"
+          @dbclick="rename(it, idx, $event)"
+        >
+          <ej-icon v-if="it.icon" :icon="it.icon" class="icon-left mr-2"/>
           <a v-show="!inputs[idx]" class="text-sm single name">{{it.name}}</a>
-          <input v-show="inputs[idx]"
-                 ref="input" type="text"
-                 v-model="item.name"
-                 @keyup.enter="renameSure"
-                 @blur="renameCancel"
-                 :style="{width: width}"
-                 class="name rename text-gray-darkest">
-          <span v-if="closable(it.closable)"
-                 @click.stop="remove(it, idx)"
-                 class="my-icon-wrap">
-                <ej-icon icon="close" class="my-icon"/>
+          <input
+            ref="input"
+            type="text"
+            v-show="inputs[idx]"
+            v-model="item.name"
+            class="name rename text-gray-darkest"
+            :style="{width: width}"
+            @keyup.enter="renameSure"
+            @blur="renameCancel"
+          >
+          <span
+            v-if="closable(it.closable)"
+            class="my-icon-wrap"
+            @click.stop="remove(it, idx)"
+          >
+            <ej-icon icon="close" class="my-icon"/>
           </span>
         </div>
       </li>
     </ul>
-    <slot :tab="tabs[number]" :idx="number"></slot>
+    <slot :tab="tabs[number]" :idx="number"/>
   </div>
 </template>
 
 <script>
   import {MessageBox} from 'element-ui'
+
   import Icon from '../icon'
 
   export default {
@@ -118,6 +128,7 @@
   .ej-tabbed-workspace {
     .ide-tab-item {
       @apply bg-gray-light px-4;
+
       border: 1px solid theme('colors.gray.default');
       border-top-left-radius: 4px;
       border-top-right-radius: 4px;
@@ -126,11 +137,13 @@
 
       &.active {
         @apply bg-white text-blue;
+
         z-index: 10;
       }
 
       .name {
         @apply py-1 border-0 text-sm;
+
         max-width: 300px;
         min-width: 80px;
         height: 26px;
@@ -162,6 +175,7 @@
     }
   }
 </style>
+
 <style lang="scss">
   .ej-tabbed-workspace {
     .single {

@@ -8,10 +8,10 @@
     </span>
     <ul class="clearfix">
       <li v-for="(it, idx) of tabs" :key="idx" class="float-left fixed-height">
-        <div @click="changeTab(idx)" :class="{active: idx === number}"
+        <div @click="changeTab(idx)" @dbclick="rename(it, idx, $event)" :class="{active: idx === number}"
              class="ide-tab-item flex items-center cursor-default">
           <ej-icon v-if="it.icon" :icon="it.icon" class="icon-left mr-2"></ej-icon>
-          <a v-show="!inputs[idx]" href="javascript:" @dbclick="rename(it, idx, $event)" class="text-sm single name">{{it.name}}</a>
+          <a v-show="!inputs[idx]" class="text-sm single name">{{it.name}}</a>
           <input v-show="inputs[idx]"
                  ref="input" type="text"
                  v-model="item.name"
@@ -19,12 +19,11 @@
                  @blur="renameCancel"
                  :style="{width: width}"
                  class="name rename text-gray-darkest">
-          <a v-if="closable(it.closable)"
-             href="javascript:"
-             @click.stop="remove(it, idx)"
-             class="my-icon-wrap">
-            <ej-icon icon="close" class="my-icon"/>
-          </a>
+          <span v-if="closable(it.closable)"
+                 @click.stop="remove(it, idx)"
+                 class="my-icon-wrap">
+                <ej-icon icon="close" class="my-icon"/>
+          </span>
         </div>
       </li>
     </ul>
@@ -96,7 +95,7 @@
 
         this.item = Object.assign({}, it)
         this.inputActive = idx
-        this.width = `${e.target.offsetWidth}px`
+        this.width = `${e.target.querySelector('a').offsetWidth}px`
         this.$set(this.inputs, this.inputActive, true)
         this.$nextTick(() => {
           this.$refs.input[this.inputActive].focus()

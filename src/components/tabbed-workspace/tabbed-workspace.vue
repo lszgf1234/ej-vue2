@@ -15,7 +15,7 @@
             @click="changeTab(it, idx)"
             @dblclick="rename(it, idx, $event)">
             <img v-if="it.icon" :src="it.icon" class="icon-left mr-2">
-            <a v-show="!inputs[idx]" class="text-sm single name">{{it.name}}</a>
+            <a v-show="!inputs[idx]" class="text-sm truncate name">{{it.name}}</a>
             <input ref="input"
                    type="text"
                    v-show="inputs[idx]"
@@ -171,17 +171,6 @@
 
     .fixed-height {
       height: 28px;
-    }
-  }
-</style>
-
-<style lang="scss">
-  /*公共代码，考虑提到全局*/
-  .ej-tabbed-workspace {
-    .single {
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
     }
   }
 </style>

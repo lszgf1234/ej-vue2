@@ -18,6 +18,7 @@
 </template>
 
 <script>
+  import {logo} from '../../../assets/base64'
   export default {
     data () {
       return {
@@ -25,7 +26,7 @@
         data: [
           {
             name: 'tab1',
-            icon: 'tags-o',
+            icon: logo,
             closable: false,
           },
           {

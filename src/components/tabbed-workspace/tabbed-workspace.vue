@@ -14,7 +14,7 @@
             :class="{active: idx === number}"
             @click="changeTab(idx)"
             @dblclick="rename(it, idx, $event)">
-            <ej-icon v-if="it.icon" :icon="it.icon" class="icon-left mr-2"/>
+            <img v-if="it.icon" :src="it.icon" class="icon-left mr-2">
             <a v-show="!inputs[idx]" class="text-sm single name">{{it.name}}</a>
             <input
               ref="input"

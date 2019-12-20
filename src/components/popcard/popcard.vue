@@ -1,23 +1,31 @@
 <template>
-  <div class="common-popcard" @mouseenter="show" @mouseleave="hide">
-    <slot name="img"/>
-    <div class="position">
-      <div ref="position" :style="style" class="box-postcard bg-white">
-        <div class="item item-title">
-          <span v-if="imgUrl" :style="{backgroundImage: `url(${imgUrl})`}" class="card-img" ></span>
-          <img v-else src="../../assets/icon-account.svg" class="card-img img-def">
-          <a :href="href" class="user-name">{{title}}</a>
-          <slot name="action"/>
-        </div>
-        <slot name="main"/>
+  <el-popover v-bind="$attrs" trigger="hover" class="ej-popcard">
+    <template #reference>
+      <slot name="img"></slot>
+    </template>
+    <div class="popcard-box-postcard bg-white">
+      <div class="item item-title">
+        <span v-if="imgUrl" :style="{backgroundImage: `url(${imgUrl})`}" class="card-img"></span>
+        <ej-icon v-else icon="user" class="card-img img-def"></ej-icon>
+        <a :href="href" class="user-name">{{title}}</a>
+        <slot name="action"/>
       </div>
+      <slot name="main"/>
     </div>
-  </div>
+  </el-popover>
 </template>
 
 <script>
+  import {Popover} from 'element-ui'
+  import Icon from '../icon'
+
   export default {
     name: 'EjPopcard',
+
+    components: {
+      [Popover.name]: Popover,
+      [Icon.name]: Icon,
+    },
 
     props: {
       imgUrl: {
@@ -35,95 +43,16 @@
         default: 272,
       },
     },
-
-    data () {
-      return {
-        style: {visibility: 'hidden'},
-        timer: null,
-      }
-    },
-
-    mounted () {
-      this.setPosition('init')
-    },
-
-    methods: {
-      show () {
-        /*
-        * 起点
-        * 左下角
-        * 右侧展示 默认
-        *   默认，左右都展示不开
-        *   x + width > clientWidth
-        * 左侧展示
-        *   右侧展示不开时
-        *
-        * 下侧展示
-        *   默认
-        * 上侧展示
-        *   下册展示不开
-        *
-        * */
-        if (this.timer) {
-          window.clearTimeout(this.timer)
-          this.timer = null
-        }
-        this.setPosition()
-      },
-      hide () {
-        this.timer = window.setTimeout(() => {
-          this.style.visibility = 'hidden'
-          window.clearTimeout(this.timer)
-          this.timer = null
-        }, 300)
-      },
-      setPosition (init) {
-        let style = {
-          width: `${this.width}px`,
-          visibility: init === 'init' ? 'hidden' : 'inherit',
-        }
-        let elOffsets = this.$el.getBoundingClientRect()
-        let documentElement = document.documentElement
-        if (elOffsets.x + this.width > documentElement.clientWidth) {
-          style.right = 0
-        } else {
-          style.left = 0
-        }
-
-        let positionOffsets = this.$refs.position.getBoundingClientRect()
-        if (positionOffsets.height + elOffsets.y + elOffsets.height > documentElement.clientHeight) {
-          style.top = `${-(elOffsets.height + positionOffsets.height)}px`
-        } else {
-          style.top = 0
-        }
-
-        this.style = style
-      },
-    },
   }
 </script>
 
 <style lang="scss">
-  .common-popcard {
-    display: inline-block;
-
-    .position {
-      position: relative;
-    }
-
-    .box-postcard {
-      padding: 10px 20px;
-      position: absolute;
-      top: 0;
-      width: 0;
-      z-index: 100;
-      color: #666;
-      box-shadow: 0 2px 6px 3px rgba(0, 0, 0, 0.1);
+  .popcard-box-postcard {
+    & {
+      @apply text-gray-darker;
     }
 
     .item {
-      padding: 5px 0;
-      height: 20px;
       display: flex;
       align-items: center;
     }

@@ -2,20 +2,16 @@ import {storiesOf} from '@storybook/vue'
 import {number, text, withKnobs} from '@storybook/addon-knobs'
 import Vue from 'vue'
 
+import {logo} from '../../assets/base64'
 import Popcard from '.'
 
 Vue.use(Popcard)
 
 const data = {
   name: '李帅123',
-  img: 'https://jianjiaoedu.oss-cn-zhangjiakou.aliyuncs.com/avatar/201706291521585954aa9606954.jpg',
+  img: logo,
   phone: 18732700123,
 }
-/*
-两个钩子
-  操作
-  详情
-*/
 
 storiesOf('Components|Popcard', module)
   .addDecorator(withKnobs)
@@ -46,10 +42,10 @@ storiesOf('Components|Popcard', module)
           <img style="width: 25px; height: 25px" :src="data.img">
         </template>
         <template slot="action">
-          <a href="javascript:">操作插槽</a>
+          <div href="javascript:" class="ml-2">操作插槽</div>
         </template>
         <template slot="main">
-          <a href="javascript:">详情插槽</a>
+          <div href="javascript:" class="pt-3">详情插槽</div>
         </template>
       </ej-popcard>
     `,

@@ -1,0 +1,23 @@
+@tailwind base;
+
+html {
+  @apply font-sans;
+
+  font-size: 14px;
+}
+
+svg {
+  @apply fill-current;
+}
+
+@tailwind utilities;
+
+.story {
+  @apply py-12;
+
+  &-stage {
+    @apply p-8 flex items-center justify-center shadow-inner;
+
+    background: #EDF2F7;
+  }
+}

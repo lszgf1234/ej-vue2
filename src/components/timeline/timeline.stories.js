@@ -61,7 +61,7 @@ const data = [
 storiesOf('Components|Timeline', module)
   .add('基本用法', () => ({
     template: `
-      <ej-timeline :data="data" :descending="descending"/>
+      <ej-timeline :data="data" :descending="descending" :hide-timestamp="hideTimestamp" placement="top"/>
     `,
     props: {
       data: {
@@ -69,6 +69,9 @@ storiesOf('Components|Timeline', module)
       },
       descending: {
         default: boolean('descending', false),
+      },
+      hideTimestamp: {
+        default: boolean('是否隐藏时间戳', false),
       },
     },
   }))

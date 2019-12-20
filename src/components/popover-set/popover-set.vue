@@ -10,6 +10,7 @@
               :number="number"
               :clearable="clearable"
               :placeholder="placeholder"
+              :maxlength="maxlength"
               class="mt-1"
               @keyup.enter.native="confirm(model)"/>
 
@@ -49,6 +50,7 @@
       number: Boolean,
       clearable: Boolean,
       placeholder: String,
+      maxlength: Number,
     },
 
     data () {

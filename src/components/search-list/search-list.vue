@@ -27,7 +27,7 @@
                       :default-expand-list="defaultExpandList"
                       @closeSelected="closeSelected">
       <template #tag-suffix>
-        <ej-popover-set  @confirm="setNameConfirm">
+        <ej-popover-set  @confirm="setNameConfirm" :maxlength="30">
           <p class="popover-content-text text-blue cursor-pointer">设为常用条件</p>
         </ej-popover-set>
       </template>

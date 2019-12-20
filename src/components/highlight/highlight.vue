@@ -13,6 +13,7 @@
 
   const LANGS = {
     sql: () => import('highlight.js/lib/languages/sql'),
+    json: () => import('highlight.js/lib/languages/json'),
   }
   const LOADED_LANGS = {}
 

@@ -7,10 +7,9 @@
       v-model="userMenuVisible"
       popper-class="usermenu-wrapper">
       <div class="ej-app-user" slot="reference">
-        <img v-if="avatar$"
-             :src="avatar$"
+        <img :src="avatar$ || require('../../assets/icon-account.svg')"
              alt=""
-             class="ej-app-user__avatar flex-none rounded-full"
+             class="ej-app-user__avatar flex-none rounded-full bg-white"
              :class="{'mr-2': user$.name}">
         <span v-if="user$.name" class="flex-none">{{user$.name}}</span>
       </div>

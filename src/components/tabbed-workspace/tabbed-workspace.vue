@@ -11,26 +11,23 @@
         <li v-for="(it, idx) of tabs" :key="idx" class="float-left fixed-height">
           <div
             class="ide-tab-item flex items-center cursor-default"
-            :class="{active: idx === number}"
-            @click="changeTab(idx)"
+            :class="{active: idx === activeIdx}"
+            @click="changeTab(it, idx)"
             @dblclick="rename(it, idx, $event)">
             <img v-if="it.icon" :src="it.icon" class="icon-left mr-2">
             <a v-show="!inputs[idx]" class="text-sm single name">{{it.name}}</a>
-            <input
-              ref="input"
-              type="text"
-              v-show="inputs[idx]"
-              v-model="item.name"
-              class="name rename text-gray-darkest"
-              :style="{width: width}"
-              @keyup.enter="renameSure"
-              @blur="renameCancel"
-            >
+            <input ref="input"
+                   type="text"
+                   v-show="inputs[idx]"
+                   v-model="item.name"
+                   class="name rename text-gray-darkest"
+                   :style="{width: width}"
+                   @keyup.enter="renameSure"
+                   @blur="renameCancel">
             <span
               v-if="closable(it.closable)"
               class="my-icon-wrap"
-              @click.stop="remove(it, idx)"
-            >
+              @click.stop="remove(it, idx)">
             <ej-icon icon="close" class="my-icon"/>
           </span>
           </div>
@@ -38,7 +35,7 @@
       </ul>
     </div>
     <div class="tabbed-workspace-content">
-      <slot :tab="tabs[number]" :idx="number"/>
+      <slot :tab="tabs[activeIdx]" :idx="activeIdx"/>
     </div>
   </div>
 </template>
@@ -56,8 +53,8 @@
     },
 
     model: {
-      prop: 'number',
-      event: 'update:number',
+      prop: 'activeIdx',
+      event: 'update:activeIdx',
     },
 
     props: {
@@ -67,7 +64,7 @@
         },
       },
 
-      number: {
+      activeIdx: {
         type: Number,
         default: 0,
       },
@@ -97,9 +94,9 @@
         return val === undefined ? true : val
       },
 
-      changeTab (idx) {
-        this.$emit('update:number', idx)
-        this.$emit('change-tab', idx)
+      changeTab (it, idx) {
+        this.$emit('update:activeIdx', idx)
+        this.$emit('change-tab', it, idx)
       },
 
       rename (it, idx, e) {

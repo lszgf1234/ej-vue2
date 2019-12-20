@@ -1,14 +1,12 @@
 <template>
   <div class="story">
     <div class="story-stage">
-      <ej-tabbed-workspace
-        v-model="index"
-        :tabs="data"
-        style="width: 1000px;"
-        @change-tab="change"
-        @rename-tab="rename"
-        @close-tab="remove"
-      >
+      <ej-tabbed-workspace v-model="index"
+                           :tabs="data"
+                           style="width: 1000px;"
+                           @change-tab="change"
+                           @rename-tab="rename"
+                           @close-tab="remove">
         <template #default="{tab, idx}">
           <pre>{{JSON.stringify({_index: idx, ...tab}, null, 2)}}</pre>
         </template>
@@ -19,6 +17,7 @@
 
 <script>
   import {logo} from '../../../assets/base64'
+
   export default {
     data () {
       return {
@@ -47,6 +46,7 @@
         this.$set(this.data, idx, it)
       },
       change (it, idx) {
+        console.log(it, idx)
       },
     },
   }

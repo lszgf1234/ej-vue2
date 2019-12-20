@@ -2,7 +2,7 @@ import {configure, addDecorator} from '@storybook/vue'
 import {withKnobs} from '@storybook/addon-knobs'
 
 import 'element-ui/lib/theme-chalk/index.css'
-import '../src/base.css'
+import '../src/base.scss'
 
 addDecorator(withKnobs)
 

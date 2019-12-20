@@ -1,41 +1,45 @@
 <template>
   <div class="ej-tabbed-workspace clearfix">
-    <span class="float-left fixed-height">
+    <div class="tabbed-workspace-tabs">
+      <span class="float-left fixed-height">
       <slot name="tabbar-left"/>
     </span>
-    <span class="float-right fixed-height">
+      <span class="float-right fixed-height">
       <slot name="tabbar-right"/>
     </span>
-    <ul class="clearfix">
-      <li v-for="(it, idx) of tabs" :key="idx" class="float-left fixed-height">
-        <div
-          class="ide-tab-item flex items-center cursor-default"
-          :class="{active: idx === number}"
-          @click="changeTab(idx)"
-          @dblclick="rename(it, idx, $event)">
-          <ej-icon v-if="it.icon" :icon="it.icon" class="icon-left mr-2"/>
-          <a v-show="!inputs[idx]" class="text-sm single name">{{it.name}}</a>
-          <input
-            ref="input"
-            type="text"
-            v-show="inputs[idx]"
-            v-model="item.name"
-            class="name rename text-gray-darkest"
-            :style="{width: width}"
-            @keyup.enter="renameSure"
-            @blur="renameCancel"
-          >
-          <span
-            v-if="closable(it.closable)"
-            class="my-icon-wrap"
-            @click.stop="remove(it, idx)"
-          >
+      <ul class="clearfix">
+        <li v-for="(it, idx) of tabs" :key="idx" class="float-left fixed-height">
+          <div
+            class="ide-tab-item flex items-center cursor-default"
+            :class="{active: idx === number}"
+            @click="changeTab(idx)"
+            @dblclick="rename(it, idx, $event)">
+            <ej-icon v-if="it.icon" :icon="it.icon" class="icon-left mr-2"/>
+            <a v-show="!inputs[idx]" class="text-sm single name">{{it.name}}</a>
+            <input
+              ref="input"
+              type="text"
+              v-show="inputs[idx]"
+              v-model="item.name"
+              class="name rename text-gray-darkest"
+              :style="{width: width}"
+              @keyup.enter="renameSure"
+              @blur="renameCancel"
+            >
+            <span
+              v-if="closable(it.closable)"
+              class="my-icon-wrap"
+              @click.stop="remove(it, idx)"
+            >
             <ej-icon icon="close" class="my-icon"/>
           </span>
-        </div>
-      </li>
-    </ul>
-    <slot :tab="tabs[number]" :idx="number"/>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="tabbed-workspace-content">
+      <slot :tab="tabs[number]" :idx="number"/>
+    </div>
   </div>
 </template>
 

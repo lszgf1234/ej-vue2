@@ -12,8 +12,7 @@
           class="ide-tab-item flex items-center cursor-default"
           :class="{active: idx === number}"
           @click="changeTab(idx)"
-          @dblclick="rename(it, idx, $event)"
-        >
+          @dblclick="rename(it, idx, $event)">
           <ej-icon v-if="it.icon" :icon="it.icon" class="icon-left mr-2"/>
           <a v-show="!inputs[idx]" class="text-sm single name">{{it.name}}</a>
           <input
@@ -127,12 +126,7 @@
 <style lang="scss">
   .ej-tabbed-workspace {
     .ide-tab-item {
-      @apply bg-gray-light px-4;
-
-      border: 1px solid theme('colors.gray.default');
-      border-top-left-radius: 4px;
-      border-top-right-radius: 4px;
-      position: relative;
+      @apply bg-gray-light px-4 border border-solid border-gray relative rounded-tl rounded-tr;
       margin-right: -1px;
 
       &.active {

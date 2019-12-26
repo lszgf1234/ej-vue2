@@ -40,6 +40,7 @@
 | `label` | string | | 标签文本 |
 | `default-more` | boolean | false | 是否默认展开
 | `no-multiple` | boolean | false | 是否单选
+| `prop` | string | | 已选条件key |
 
 ## SearchOptionsCascader 条件组件-联级选择器
 
@@ -51,6 +52,7 @@
 | `options` | array | | 可选项数据源（tree结构数据，参考el-cascader） |
 | `label` | string | | 标签文本 |
 | `default-more` | boolean | false | 是否默认展开
+| `prop` | string | | 已选条件key |
 | `...` | | | 其余属性与el-cascader相同
 
 ## SearchOptionsSelect条件组件-下拉选择器
@@ -64,3 +66,4 @@
 | `label` | string | | 标签文本 |
 | `default-more` | boolean | false | 是否默认展开
 | `select-props` | [object] | | 各项el-select的props值
+| `prop` | string | | 已选条件key |

@@ -194,7 +194,7 @@
       }
 
       &-wrap {
-        @apply shadow-md;
+        @apply shadow;
 
         position: absolute;
         width: 230px;

@@ -27,6 +27,18 @@ module.exports = async ({config}) => {
     console.error('No CSS loader rule was found!')
   }
 
+  const jsRule = config.module.rules.find(r => r.test.toString().includes('js'))
+  if (jsRule) {
+    const babel = jsRule.use.find(l => (l.loader || '').includes('babel-loader'))
+    if (babel) {
+      babel.options.sourceType = 'unambiguous'
+    } else {
+      console.warn('No babel-loader was found!')
+    }
+  } else {
+    console.error('No JS loader was found!')
+  }
+
   // gql loader
   config.module.rules.push({
     test: /\.(graphql|gql)$/,

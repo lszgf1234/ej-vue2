@@ -16,8 +16,9 @@ svg {
   @apply py-12;
 
   &-stage {
-    @apply p-8 flex items-center justify-center shadow-inner;
+    @apply p-8 flex items-center justify-center;
 
     background: #EDF2F7;
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
   }
 }

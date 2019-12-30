@@ -23,7 +23,7 @@
                    class="name rename text-gray-darkest"
                    :style="{width: width}"
                    @keyup.enter="renameSure"
-                   @blur="renameCancel">
+                   @blur="renameSure">
             <span
               v-if="closable(it.closable)"
               class="my-icon-wrap"
@@ -76,6 +76,7 @@
         inputs: [],
         item: {},
         width: 0,
+        timer: null,
       }
     },
 
@@ -95,17 +96,29 @@
       },
 
       changeTab (it, idx) {
-        this.$emit('update:activeIdx', idx)
-        this.$emit('change-tab', it, idx)
+        const clearT = () => {
+          clearTimeout(this.timer)
+          this.timer = null
+        }
+
+        if (this.timer) {
+          clearT()
+        } else {
+          this.timer = setTimeout(() => {
+            clearT()
+            this.$emit('update:activeIdx', idx)
+            this.$emit('change-tab', it, idx)
+          }, 200)
+        }
       },
 
       rename (it, idx, e) {
         // 切换到
-        this.changeTab(idx)
+        this.changeTab(it, idx)
 
         this.item = Object.assign({}, it)
         this.inputActive = idx
-        this.width = `${e.target.querySelector('a').offsetWidth}px`
+        this.width = `${e.currentTarget.querySelector('a').offsetWidth}px`
         this.$set(this.inputs, this.inputActive, true)
         this.$nextTick(() => {
           this.$refs.input[this.inputActive].focus()

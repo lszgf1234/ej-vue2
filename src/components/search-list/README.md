@@ -6,9 +6,8 @@
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `datas` | Array | | 配置项 {prop，label，options} |
-| `models` | Object | | 各项数据值 键名对应datas的prop字段 |
-| `keyword` | String | | 关键词 输入不会触发input实时更新，点击搜索按钮触发 |
+| `models` | Object | | 数据对象，更新其子项会触发search事件 (也用于常用条件双向同步数据) |
+| `keyword` | String | | 关键词 |
 | `appKey` | String | | 应用key |
 | `viewId` | Number | | 应用内页面id(需自定义，应用内保证唯一即可) |
 | `max-width-tag` | String | | 已选条件组件 - 最大宽度 |

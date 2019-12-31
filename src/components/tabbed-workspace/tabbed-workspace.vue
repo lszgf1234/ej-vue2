@@ -103,26 +103,12 @@
       },
 
       changeTab (it, idx) {
-        const clearT = () => {
-          clearTimeout(this.timer)
-          this.timer = null
-        }
-
-        if (this.timer) {
-          clearT()
-        } else {
-          this.timer = setTimeout(() => {
-            clearT()
-            this.$emit('update:activeIdx', idx)
-            this.$emit('change-tab', it, idx)
-          }, 200)
-        }
+        if (idx === this.activeIdx) return
+        this.$emit('update:activeIdx', idx)
+        this.$emit('change-tab', it, idx)
       },
 
       rename (it, idx, e) {
-        // 切换到
-        this.changeTab(it, idx)
-
         this.item = Object.assign({}, it)
         this.inputActive = idx
         this.width = `${e.currentTarget.querySelector('a').offsetWidth}px`
@@ -145,6 +131,7 @@
         let idx = this.tabs.length
         this.$emit('create')
         if (this.tabs.length - 1 === idx) {
+          this.item = Object.assign({}, this.tabs[idx])
           this.$set(this.inputs, idx, true)
           this.inputActive = idx
           this.$nextTick(() => {

@@ -31,7 +31,7 @@
 | `change-tab` | tab: Object, idx: String | 切换页签时触发，携带新活跃页签的数据和序号 |
 | `close-tab` | tab: Object, idx: String | 关闭页签时触发，携带被关闭页签的数据和序号，处理函数同步或异步返回`false`时中止关闭过程 |
 | `rename-tab` | tab: Object, idx: String | 重命名页签时触发，携带被重命名页签的数据和序号，处理函数同步或异步返回`false` 时中止重命名过程 |
-| `create` | tab: Object | 重命名页签时触发，携带被重命名页签的数据和序号，处理函数同步或异步返回`false` 时中止重命名过程 |
+| `create` |  | 创建标签时触发 |
 
 ### Slots
 | name | Payload |说明 |

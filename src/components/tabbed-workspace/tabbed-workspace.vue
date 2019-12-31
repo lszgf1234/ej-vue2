@@ -83,7 +83,6 @@
         inputs: [],
         item: {},
         width: 0,
-        timer: null,
       }
     },
 

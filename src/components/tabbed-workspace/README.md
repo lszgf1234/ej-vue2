@@ -7,6 +7,7 @@
     6. 页签图标
     7. 双击页签可重命名
     8. 页签栏自定义内容区域
+    9. 添加标签
  
 ### v-model: number
     活跃页签的序号
@@ -15,6 +16,7 @@
  | Prop | Type | Default | Description |
  | :----: | :----: | :----: | --- |
  | `tabs` | Array | [] | 页签集合 |
+ | `hasCreate` | Boolean | false | 是否需要创建标签功能 |
  
 #### `tabs[0]`
 | prop |Type | Default | Description |
@@ -29,6 +31,7 @@
 | `change-tab` | tab: Object, idx: String | 切换页签时触发，携带新活跃页签的数据和序号 |
 | `close-tab` | tab: Object, idx: String | 关闭页签时触发，携带被关闭页签的数据和序号，处理函数同步或异步返回`false`时中止关闭过程 |
 | `rename-tab` | tab: Object, idx: String | 重命名页签时触发，携带被重命名页签的数据和序号，处理函数同步或异步返回`false` 时中止重命名过程 |
+| `create` | tab: Object | 重命名页签时触发，携带被重命名页签的数据和序号，处理函数同步或异步返回`false` 时中止重命名过程 |
 
 ### Slots
 | name | Payload |说明 |

@@ -32,6 +32,9 @@
           </span>
           </div>
         </li>
+        <li v-if="hasCreate" @click="create" class="float-left fixed-height inline-flex items-center px-1 text-blue btn-create">
+          <ej-icon icon="plus" class="icon-plus"></ej-icon>
+        </li>
       </ul>
     </div>
     <div class="tabbed-workspace-content">
@@ -60,13 +63,17 @@
     props: {
       tabs: {
         type: Array,
-        default: () => {
-        },
+        default: () => [],
       },
 
       activeIdx: {
         type: Number,
         default: 0,
+      },
+
+      hasCreate: {
+        type: Boolean,
+        default: false,
       },
     },
 
@@ -133,6 +140,18 @@
         this.$emit('rename-tab', this.item, this.inputActive)
         this.renameCancel()
       },
+
+      create () {
+        let idx = this.tabs.length
+        this.$emit('create')
+        if (this.tabs.length - 1 === idx) {
+          this.$set(this.inputs, idx, true)
+          this.inputActive = idx
+          this.$nextTick(() => {
+            this.$refs.input[idx].focus()
+          })
+        }
+      },
     },
   }
 </script>
@@ -184,6 +203,17 @@
 
     .fixed-height {
       height: 28px;
+    }
+
+    .icon-plus {
+      width: 12px;
+      height: 12px;
+    }
+
+    .btn-create {
+      &:hover {
+        @apply text-blue-light;
+      }
     }
   }
 </style>

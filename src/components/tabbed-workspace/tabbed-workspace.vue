@@ -15,7 +15,7 @@
             @click="changeTab(it, idx)"
             @dblclick="rename(it, idx, $event)">
             <img v-if="it.icon" :src="it.icon" class="icon-left mr-2">
-            <a v-show="!inputs[idx]" class="text-sm truncate name">{{it.name}}</a>
+            <a v-show="!inputs[idx]" class="text-sm truncate name">{{it.name || '未命名'}}</a>
             <input ref="input"
                    type="text"
                    v-show="inputs[idx]"
@@ -23,7 +23,7 @@
                    class="name rename text-gray-darkest"
                    :style="{width: width}"
                    @keyup.enter="renameSure"
-                   @blur="renameCancel">
+                   @blur="renameSure">
             <span
               v-if="closable(it.closable)"
               class="my-icon-wrap"
@@ -31,6 +31,9 @@
             <ej-icon icon="close" class="my-icon"/>
           </span>
           </div>
+        </li>
+        <li v-if="showCreate" @click="createTab" class="float-left fixed-height inline-flex items-center px-1 text-blue btn-create">
+          <ej-icon icon="plus" class="icon-plus"></ej-icon>
         </li>
       </ul>
     </div>
@@ -60,13 +63,27 @@
     props: {
       tabs: {
         type: Array,
-        default: () => {
-        },
+        default: () => [],
       },
 
       activeIdx: {
         type: Number,
         default: 0,
+      },
+
+      showCreate: {
+        type: Boolean,
+        default: false,
+      },
+
+      renamable: {
+        type: Boolean,
+        default: null,
+      },
+
+      renameable: {
+        type: Boolean,
+        default: null,
       },
     },
 
@@ -77,6 +94,12 @@
         item: {},
         width: 0,
       }
+    },
+
+    computed: {
+      hasRename () {
+        return typeof this.renamable === 'boolean' ? this.renamable : this.renameable
+      },
     },
 
     methods: {
@@ -95,17 +118,17 @@
       },
 
       changeTab (it, idx) {
+        if (idx === this.activeIdx) return
         this.$emit('update:activeIdx', idx)
         this.$emit('change-tab', it, idx)
       },
 
       rename (it, idx, e) {
-        // 切换到
-        this.changeTab(idx)
+        if (!this.hasRename) return
 
         this.item = Object.assign({}, it)
         this.inputActive = idx
-        this.width = `${e.target.querySelector('a').offsetWidth}px`
+        this.width = `${e.currentTarget.querySelector('a').offsetWidth}px`
         this.$set(this.inputs, this.inputActive, true)
         this.$nextTick(() => {
           this.$refs.input[this.inputActive].focus()
@@ -119,6 +142,10 @@
       renameSure () {
         this.$emit('rename-tab', this.item, this.inputActive)
         this.renameCancel()
+      },
+
+      createTab () {
+        this.$emit('create-tab')
       },
     },
   }
@@ -171,6 +198,17 @@
 
     .fixed-height {
       height: 28px;
+    }
+
+    .icon-plus {
+      width: 12px;
+      height: 12px;
+    }
+
+    .btn-create {
+      &:hover {
+        @apply text-blue-light;
+      }
     }
   }
 </style>

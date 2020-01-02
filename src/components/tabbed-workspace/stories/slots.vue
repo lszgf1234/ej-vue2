@@ -6,9 +6,7 @@
         v-model="index"
         style="width: 1000px;"
         @change-tab="change"
-        @rename-tab="rename"
-        @close-tab="remove"
-      >
+        @close-tab="remove">
         <template #tabbar-left>
           <span class="block px-2 py-1 leading-none bg-orange text-white rounded-full">left</span>
         </template>
@@ -34,8 +32,6 @@
     methods: {
       remove (it, idx) {
         this.data.splice(idx, 1)
-      },
-      rename (it, idx) {
       },
       change (it, idx) {
       },

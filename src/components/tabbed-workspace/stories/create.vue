@@ -3,11 +3,11 @@
     <div class="story-stage">
       <ej-tabbed-workspace v-model="index"
                            :tabs="data"
-                           :renamable="true"
+                           :show-create="true"
                            style="width: 1000px;"
                            @change-tab="change"
-                           @rename-tab="rename"
-                           @close-tab="remove">
+                           @close-tab="remove"
+                           @create-tab="create">
         <template #default="{tab, idx}">
           <pre>{{JSON.stringify({_index: idx, ...tab}, null, 2)}}</pre>
         </template>
@@ -43,11 +43,15 @@
       remove (it, idx) {
         this.data.splice(idx, 1)
       },
-      rename (it, idx) {
-        this.$set(this.data, idx, it)
-      },
       change (it, idx) {
         console.log(it, idx)
+      },
+      create () {
+        this.data.push({
+          name: '',
+          closable: true,
+        })
+        this.index = this.data.length - 1
       },
     },
   }

@@ -17,8 +17,7 @@
  | :----: | :----: | :----: | --- |
  | `tabs` | Array | [] | 页签集合 |
  | `show-create` | Boolean | false | 是否需要创建标签功能 |
- | `renamable` | Boolean | false | 是否需要重命名标签功能 |
- | `renameable` | Boolean | false | 是否需要重命名标签功能(`renamable`的别名，同时存在时，以`renamable`为准) |
+ | `renamable` 或 `renameable` | Boolean | false | 是否允许重命名页签（`renameable` 是别名，效用优先级次于 `renamable`） |
  
 #### `tabs[0]`
 | prop |Type | Default | Description |

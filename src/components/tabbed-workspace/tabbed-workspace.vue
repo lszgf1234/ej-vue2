@@ -98,7 +98,7 @@
 
     computed: {
       hasRename () {
-        return typeof this.renamable === 'boolean' ? this.renamable : typeof this.renameable === 'boolean' ? this.renameable : false
+        return typeof this.renamable === 'boolean' ? this.renamable : this.renameable
       },
     },
 

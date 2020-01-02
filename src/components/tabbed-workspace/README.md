@@ -16,8 +16,9 @@
  | Prop | Type | Default | Description |
  | :----: | :----: | :----: | --- |
  | `tabs` | Array | [] | 页签集合 |
- | `hasCreate` | Boolean | false | 是否需要创建标签功能 |
- | `hasRename` | Boolean | false | 是否需要重命名标签功能 |
+ | `show-create` | Boolean | false | 是否需要创建标签功能 |
+ | `renamable` | Boolean | false | 是否需要重命名标签功能 |
+ | `renameable` | Boolean | false | 是否需要重命名标签功能(`renamable`的别名，同时存在时，以`renamable`为准) |
  
 #### `tabs[0]`
 | prop |Type | Default | Description |
@@ -32,7 +33,7 @@
 | `change-tab` | tab: Object, idx: String | 切换页签时触发，携带新活跃页签的数据和序号 |
 | `close-tab` | tab: Object, idx: String | 关闭页签时触发，携带被关闭页签的数据和序号，处理函数同步或异步返回`false`时中止关闭过程 |
 | `rename-tab` | tab: Object, idx: String | 重命名页签时触发，携带被重命名页签的数据和序号，处理函数同步或异步返回`false` 时中止重命名过程 |
-| `create` |  | 创建标签时触发 |
+| `create-tab` |  | 创建标签时触发 |
 
 ### Slots
 | name | Payload |说明 |

@@ -3,12 +3,11 @@
     <div class="story-stage">
       <ej-tabbed-workspace v-model="index"
                            :tabs="data"
-                           :hasCreate="true"
+                           :show-create="true"
                            style="width: 1000px;"
                            @change-tab="change"
-                           @rename-tab="rename"
                            @close-tab="remove"
-                           @create="create">
+                           @create-tab="create">
         <template #default="{tab, idx}">
           <pre>{{JSON.stringify({_index: idx, ...tab}, null, 2)}}</pre>
         </template>

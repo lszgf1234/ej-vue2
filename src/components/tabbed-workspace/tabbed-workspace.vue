@@ -15,7 +15,7 @@
             @click="changeTab(it, idx)"
             @dblclick="rename(it, idx, $event)">
             <img v-if="it.icon" :src="it.icon" class="icon-left mr-2">
-            <a v-show="!inputs[idx]" class="text-sm truncate name">{{it.name}}</a>
+            <a v-show="!inputs[idx]" class="text-sm truncate name">{{it.name || '未命名'}}</a>
             <input ref="input"
                    type="text"
                    v-show="inputs[idx]"
@@ -32,7 +32,7 @@
           </span>
           </div>
         </li>
-        <li v-if="hasCreate" @click="create" class="float-left fixed-height inline-flex items-center px-1 text-blue btn-create">
+        <li v-if="showCreate" @click="createTab" class="float-left fixed-height inline-flex items-center px-1 text-blue btn-create">
           <ej-icon icon="plus" class="icon-plus"></ej-icon>
         </li>
       </ul>
@@ -71,14 +71,19 @@
         default: 0,
       },
 
-      hasCreate: {
+      showCreate: {
         type: Boolean,
         default: false,
       },
 
-      hasRename: {
+      renamable: {
         type: Boolean,
-        default: false,
+        default: null,
+      },
+
+      renameable: {
+        type: Boolean,
+        default: null,
       },
     },
 
@@ -89,6 +94,12 @@
         item: {},
         width: 0,
       }
+    },
+
+    computed: {
+      hasRename () {
+        return typeof this.renamable === 'boolean' ? this.renamable : typeof this.renameable === 'boolean' ? this.renameable : false
+      },
     },
 
     methods: {
@@ -133,17 +144,8 @@
         this.renameCancel()
       },
 
-      create () {
-        let idx = this.tabs.length
-        this.$emit('create')
-        if (this.tabs.length - 1 === idx) {
-          this.item = Object.assign({}, this.tabs[idx])
-          this.$set(this.inputs, idx, true)
-          this.inputActive = idx
-          this.$nextTick(() => {
-            this.$refs.input[idx].focus()
-          })
-        }
+      createTab () {
+        this.$emit('create-tab')
       },
     },
   }

@@ -3,6 +3,7 @@
     <div class="story-stage">
       <ej-tabbed-workspace v-model="index"
                            :tabs="data"
+                           :hasRename="true"
                            style="width: 1000px;"
                            @change-tab="change"
                            @rename-tab="rename"

@@ -75,6 +75,11 @@
         type: Boolean,
         default: false,
       },
+
+      hasRename: {
+        type: Boolean,
+        default: false,
+      },
     },
 
     data () {
@@ -108,6 +113,8 @@
       },
 
       rename (it, idx, e) {
+        if (!this.hasRename) return
+
         this.item = Object.assign({}, it)
         this.inputActive = idx
         this.width = `${e.currentTarget.querySelector('a').offsetWidth}px`

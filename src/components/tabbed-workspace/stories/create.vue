@@ -44,9 +44,6 @@
       remove (it, idx) {
         this.data.splice(idx, 1)
       },
-      rename (it, idx) {
-        this.$set(this.data, idx, it)
-      },
       change (it, idx) {
         console.log(it, idx)
       },

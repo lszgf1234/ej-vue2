@@ -5,9 +5,9 @@
     4. 可进行移除
     5. 不可关闭型标签
     6. 页签图标
-    7. 双击页签可重命名
+    7. 双击页签可重命名（定制有无）
     8. 页签栏自定义内容区域
-    9. 添加标签
+    9. 添加标签（定制有无）
  
 ### v-model: number
     活跃页签的序号
@@ -17,6 +17,7 @@
  | :----: | :----: | :----: | --- |
  | `tabs` | Array | [] | 页签集合 |
  | `hasCreate` | Boolean | false | 是否需要创建标签功能 |
+ | `hasRename` | Boolean | false | 是否需要重命名标签功能 |
  
 #### `tabs[0]`
 | prop |Type | Default | Description |

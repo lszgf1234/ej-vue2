@@ -148,6 +148,13 @@
       onCommand () {
         this.$emit('command', {commands: Array.from(this.commands), data: this.dropMenuItem})
       },
+      setCurrentNode (node) {
+        this.currentNode = node
+        this.tree.setCurrentNode(node)
+      },
+      getCurrentTreeData () {
+        return this.currentNode
+      },
     },
     watch: {
       commandTrigger (newVal) {

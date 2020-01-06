@@ -3,7 +3,8 @@
             collapse-icon="classic"
             show-line
             :default-expanded-ids="['0','00001']"
-            @node-click="onHandleNodeClick" />
+            @node-click="onHandleNodeClick"
+            ref="tree" />
 </template>
 
 <script>
@@ -45,6 +46,11 @@
       onHandleNodeClick ({data, node}) {
         console.log(`当前点击了${data.label}节点`)
       },
+    },
+    mounted () {
+      this.$refs['tree'].setCurrentNode(this.data[0].children[0])
+      let currentNode = this.$refs['tree'].getCurrentTreeData()
+      console.log(currentNode)
     },
   }
 </script>

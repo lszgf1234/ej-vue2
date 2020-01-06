@@ -25,6 +25,7 @@ import UserCard from './components/user-card'
 import TabbedWorkspace from './components/tabbed-workspace'
 import SelectTree from './components/select-tree'
 import EjPagination from './components/pagination'
+import Tree from './components/tree'
 
 import NavMenu from './components/nav-menu'
 import NavSubmenu from './components/nav-submenu'
@@ -61,6 +62,7 @@ export {
   TabbedWorkspace,
   SelectTree,
   EjPagination,
+  Tree,
 
   NavMenu,
   NavSubmenu,
@@ -91,6 +93,7 @@ export default {
     Vue.use(SearchOptions)
     Vue.use(UserCard)
     Vue.use(EjPagination)
+    Vue.use(Tree)
 
     Vue.use(NavMenu)
     Vue.use(NavSubmenu)

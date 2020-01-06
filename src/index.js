@@ -23,6 +23,7 @@ import SearchOptionCascader from './components/search-options/cascader'
 import SearchOptionRadio from './components/search-options/radio'
 import UserCard from './components/user-card'
 import TabbedWorkspace from './components/tabbed-workspace'
+import Tree from './components/tree'
 
 import NavMenu from './components/nav-menu'
 import NavSubmenu from './components/nav-submenu'
@@ -56,6 +57,7 @@ export {
   SearchOptionRadio,
   UserCard,
   TabbedWorkspace,
+  Tree,
 
   NavMenu,
   NavSubmenu,
@@ -84,6 +86,7 @@ export default {
     Vue.use(SearchSelect)
     Vue.use(SearchOptions)
     Vue.use(UserCard)
+    Vue.use(Tree)
 
     Vue.use(NavMenu)
     Vue.use(NavSubmenu)

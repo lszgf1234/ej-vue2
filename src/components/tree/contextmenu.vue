@@ -4,28 +4,28 @@
       <li >
         <div :class="['ej-tree-contextmenu__item', {'is-selected': isSelected}, {'is-disabled': menu.disabled}]"
              @click.stop="menuClick(menu)">
-        <!-- 非叶子节点 -->
-        <ej-tree-contextmenu-item v-if="!isLeaf" :menu="menu">
-          <div class="ej-tree-contextmenu__children">
-            <ej-tree-contextmenu v-for="(item, index) in menu.children"
-                                :key="index"
-                                :menu="item"
-                                :level="level + 1"></ej-tree-contextmenu>
-          </div>
-        </ej-tree-contextmenu-item>
-
-        <!-- 叶子节点 -->
-        <el-dropdown-item v-else :disabled="menu.disabled">
-          <ej-tree-contextmenu-item :menu="menu">
+          <!-- 非叶子节点 -->
+          <ej-tree-contextmenu-item v-if="!isLeaf" :menu="menu">
             <div class="ej-tree-contextmenu__children">
               <ej-tree-contextmenu v-for="(item, index) in menu.children"
                                   :key="index"
                                   :menu="item"
-                                  :level="level + 1"
-                                  class="ej-tree-contextmenu__children"></ej-tree-contextmenu>
+                                  :level="level + 1"></ej-tree-contextmenu>
             </div>
           </ej-tree-contextmenu-item>
-        </el-dropdown-item>
+
+          <!-- 叶子节点 -->
+          <el-dropdown-item v-else :disabled="menu.disabled">
+            <ej-tree-contextmenu-item :menu="menu">
+              <div class="ej-tree-contextmenu__children">
+                <ej-tree-contextmenu v-for="(item, index) in menu.children"
+                                    :key="index"
+                                    :menu="item"
+                                    :level="level + 1"
+                                    class="ej-tree-contextmenu__children"></ej-tree-contextmenu>
+              </div>
+            </ej-tree-contextmenu-item>
+          </el-dropdown-item>
         </div>
       </li>
     </ul>
@@ -150,7 +150,7 @@
       & > div > .ej-tree-contextmenu__children {
         @apply absolute top-0;
 
-        left: 100%;
+        left: calc(100% + 2px);
         top: -10px;
         padding: 10px 0;
         box-sizing: border-box;

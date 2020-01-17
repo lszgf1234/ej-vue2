@@ -6,21 +6,24 @@
              @click.stop="menuClick(menu)">
         <!-- 非叶子节点 -->
         <ej-tree-contextmenu-item v-if="!isLeaf" :menu="menu">
-          <ej-tree-contextmenu v-for="(item, index) in menu.children"
-                               :key="index"
-                               :menu="item"
-                               :level="level + 1"
-                               class="ej-tree-contextmenu__children"></ej-tree-contextmenu>
+          <div class="ej-tree-contextmenu__children">
+            <ej-tree-contextmenu v-for="(item, index) in menu.children"
+                                :key="index"
+                                :menu="item"
+                                :level="level + 1"></ej-tree-contextmenu>
+          </div>
         </ej-tree-contextmenu-item>
 
         <!-- 叶子节点 -->
         <el-dropdown-item v-else :disabled="menu.disabled">
           <ej-tree-contextmenu-item :menu="menu">
-            <ej-tree-contextmenu v-for="(item, index) in menu.children"
-                                 :key="index"
-                                 :menu="item"
-                                 :level="level + 1"
-                                 class="ej-tree-contextmenu__children"></ej-tree-contextmenu>
+            <div class="ej-tree-contextmenu__children">
+              <ej-tree-contextmenu v-for="(item, index) in menu.children"
+                                  :key="index"
+                                  :menu="item"
+                                  :level="level + 1"
+                                  class="ej-tree-contextmenu__children"></ej-tree-contextmenu>
+            </div>
           </ej-tree-contextmenu-item>
         </el-dropdown-item>
         </div>

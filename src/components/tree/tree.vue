@@ -130,7 +130,8 @@
     methods: {
       ...mapActions([
         'change',
-        'commandTriggerChange'
+        'commandTriggerChange',
+        'clearCommand',
       ]),
       onNodeClick (data, node) {
         this.dropMenuItem = {}
@@ -147,6 +148,7 @@
       },
       onCommand () {
         this.$emit('command', {commands: Array.from(this.commands), data: this.dropMenuItem})
+        this.clearCommand()
       },
       setCurrentNode (node) {
         this.currentNode = node
@@ -158,7 +160,9 @@
     },
     watch: {
       commandTrigger (newVal) {
-        this.onCommand()
+        if (this.commands.length) {
+          this.onCommand()
+        }
       },
     },
   }
@@ -173,7 +177,7 @@
   $leaf-line-left: -16px; // 12/2 + 10
 
   .ej-tree {
-    @apply flex flex-col bg-white;
+    @apply bg-white;
 
     &.classic {
       .el-tree-node {

@@ -41,6 +41,23 @@
               },
             ],
           },
+          {
+            id: '1',
+            label: '天津市',
+            type: 'c-government',
+            children: [
+              {
+                id: '00001',
+                label: '北京市',
+                subLabel: '直辖市',
+                children: [
+                  { id: '000010001', label: '朝阳区', subLabel: '主城区'},
+                  { id: '000010002', label: '海淀区', disabled: true},
+                  { id: '000010003', label: '东城区'},
+                ],
+              },
+            ],
+          },
         ],
         contextMenu: [
           {command: 'check', label: '查看'},

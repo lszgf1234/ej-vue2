@@ -21,6 +21,9 @@ export default new Vuex.Store({
     commandTriggerChange (state, commandTriggerChange) {
       state.commandTrigger = commandTriggerChange
     },
+    clearCommand (state) {
+      state.commands = []
+    },
   },
 
   actions: {
@@ -29,6 +32,9 @@ export default new Vuex.Store({
     },
     commandTriggerChange ({commit}, commandTriggerChange) {
       commit('commandTriggerChange', commandTriggerChange)
+    },
+    clearCommand ({commit}) {
+      commit('clearCommand')
     },
   },
 })

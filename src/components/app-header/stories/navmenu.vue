@@ -29,7 +29,7 @@
     </ej-app-header>
 
     <ul class="text-center text-gray">
-      <li v-for="n of 100">{{n}}</li>
+      <li v-for="n of 100" :key="n">{{n}}</li>
     </ul>
   </div>
 </template>

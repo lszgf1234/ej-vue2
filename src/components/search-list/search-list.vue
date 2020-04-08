@@ -118,7 +118,7 @@
         return Object.assign({
           width: '552px',
           clearable: true,
-        }, this.inputProps) 
+        }, this.inputProps)
       },
     },
 

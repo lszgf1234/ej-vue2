@@ -4,7 +4,7 @@
       <ej-tabbed-workspace v-model="index"
                            :tabs="data"
                            :self-close="true"
-                           @close-tab="remove"
+                           @close-tabs="removes"
                            style="width: 1000px;">
         <template #default="{tab, idx}">
           <pre>{{JSON.stringify({_index: idx, ...tab}, null, 2)}}</pre>
@@ -39,7 +39,7 @@
     },
 
     methods: {
-      remove (it, idx) {
+      removes (idxs) {
         Message.info({
           message: '自定义关闭方式',
         })

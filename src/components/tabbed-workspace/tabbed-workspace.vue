@@ -32,7 +32,8 @@
           </span>
           </div>
         </li>
-        <li v-if="showCreate" @click="createTab" class="float-left fixed-height inline-flex items-center px-1 text-blue btn-create">
+        <li v-if="showCreate" @click="createTab"
+            class="float-left fixed-height inline-flex items-center px-1 text-blue btn-create">
           <ej-icon icon="plus" class="icon-plus"></ej-icon>
         </li>
       </ul>
@@ -110,7 +111,7 @@
     methods: {
       remove (it, idx) {
         if (this.selfClose) {
-          this.$emit('close-tab', it, idx)
+          this.$emit('close-tabs', [idx])
           return
         }
 
@@ -120,6 +121,7 @@
           type: 'warning',
         }).then(() => {
           this.$emit('close-tab', it, idx)
+          this.$emit('close-tabs', [idx])
         })
       },
 

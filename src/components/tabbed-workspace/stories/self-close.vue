@@ -39,7 +39,8 @@
     },
 
     methods: {
-      removes (idxs) {
+      removes (tabs) {
+        debugger
         Message.info({
           message: '自定义关闭方式',
         })

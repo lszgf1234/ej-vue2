@@ -2,35 +2,49 @@
   <div class="ej-tabbed-workspace clearfix">
     <div class="tabbed-workspace-tabs">
       <span class="float-left fixed-height">
-      <slot name="tabbar-left"/>
-    </span>
+        <slot name="tabbar-left"/>
+      </span>
       <span class="float-right fixed-height">
-      <slot name="tabbar-right"/>
-    </span>
+        <slot name="tabbar-right"/>
+      </span>
       <ul class="clearfix">
         <li v-for="(it, idx) of tabs" :key="idx" class="float-left fixed-height">
-          <div
-            class="ide-tab-item flex items-center cursor-default"
-            :class="{active: idx === activeIdx}"
-            @click="changeTab(it, idx)"
-            @dblclick="rename(it, idx, $event)">
-            <img v-if="it.icon" :src="it.icon" class="icon-left mr-2">
-            <a v-show="!inputs[idx]" class="text-sm truncate name">{{it.name || '未命名'}}</a>
-            <input ref="input"
-                   type="text"
-                   v-show="inputs[idx]"
-                   v-model="item.name"
-                   class="name rename text-gray-darkest"
-                   :style="{width: width}"
-                   @keyup.enter="renameSure"
-                   @blur="renameSure">
-            <span
-              v-if="closable(it.closable)"
-              class="my-icon-wrap"
-              @click.stop="remove(it, idx)">
+          <el-popover
+            placement="bottom"
+            width="120"
+            trigger="manual"
+            popper-class="right-popover"
+            v-model="popoverStatus[idx]">
+            <div slot="reference"
+                 class="ide-tab-item flex items-center cursor-default"
+                 :class="{active: idx === activeIdx}"
+                 @click="changeTab(it, idx)"
+                 @dblclick="rename(it, idx, $event)" @contextmenu.prevent="showRight(it, idx)">
+              <img v-if="it.icon" :src="it.icon" class="icon-left mr-2">
+              <a v-show="!inputs[idx]" class="text-sm truncate name">{{it.name || '未命名'}}</a>
+              <input ref="input"
+                     type="text"
+                     v-show="inputs[idx]"
+                     v-model="item.name"
+                     class="name rename text-gray-darkest"
+                     :style="{width: width}"
+                     @keyup.enter="renameSure"
+                     @blur="renameSure">
+              <span
+                v-if="closable(it.closable)"
+                class="my-icon-wrap"
+                @click.stop="closeCur(it, idx)">
             <ej-icon icon="close" class="my-icon"/>
           </span>
-          </div>
+            </div>
+            <template #default>
+              <ul class="right-popover-detail text-gray-darkest">
+                <li><a href="javascript:" @click="closeAll">关闭所有</a></li>
+                <li><a href="javascript:" @click="closeOther(idx)" :class="{'no-event': tabs.length <= 1}">关闭其他</a></li>
+                <li><a href="javascript:">固定</a></li>
+              </ul>
+            </template>
+          </el-popover>
         </li>
         <li v-if="showCreate" @click="createTab"
             class="float-left fixed-height inline-flex items-center px-1 text-blue btn-create">
@@ -45,7 +59,16 @@
 </template>
 
 <script>
-  import {MessageBox} from 'element-ui'
+  /*
+  * 右键功能
+  *   关闭所有
+  *   关闭其他
+  *   固定
+  *
+  * */
+
+  import Lodash from 'lodash-es'
+  import {MessageBox, Popover as ElPopover} from 'element-ui'
 
   import Icon from '../icon'
 
@@ -54,6 +77,7 @@
 
     components: {
       [Icon.name]: Icon,
+      ElPopover,
     },
 
     model: {
@@ -91,6 +115,11 @@
         type: Boolean,
         default: false,
       },
+
+      rightClick: {
+        type: Boolean,
+        default: false,
+      },
     },
 
     data () {
@@ -99,6 +128,12 @@
         inputs: [],
         item: {},
         width: 0,
+        rightClickData: {
+          idx: null,
+          data: {},
+        },
+        popoverStatus: [],
+        visible: false,
       }
     },
 
@@ -108,23 +143,15 @@
       },
     },
 
+    mounted () {
+      document.body.addEventListener('click', this.clearRightStatus)
+    },
+
+    destroyed () {
+      document.body.removeEventListener('click', this.clearRightStatus)
+    },
+
     methods: {
-      remove (it, idx) {
-        if (this.selfClose) {
-          this.$emit('close-tabs', [idx])
-          return
-        }
-
-        MessageBox.confirm('确认关闭窗口?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning',
-        }).then(() => {
-          this.$emit('close-tab', it, idx)
-          this.$emit('close-tabs', [idx])
-        })
-      },
-
       closable (val) {
         return val === undefined ? true : val
       },
@@ -158,6 +185,73 @@
 
       createTab () {
         this.$emit('create-tab')
+      },
+
+      showRight (it, idx) {
+        /*
+        * 清空其他的右键状态
+        * 设置当前的右键卡片展示 */
+        this.popoverStatus = []
+        this.rightClickData = {
+          it,
+          idx,
+        }
+        this.$set(this.popoverStatus, idx, true)
+      },
+
+      clearRightStatus () {
+        // todo: 清空选中状态
+        this.popoverStatus = []
+        this.rightClickData = {
+          idx: null,
+          data: {},
+        }
+      },
+
+      closeAll () {
+        this.close(Lodash.cloneDeep(this.tabs).map((it, idx) => ({
+          it,
+          idx,
+        })))
+      },
+
+      closeOther (idx) {
+        let tabs = []
+        Lodash.cloneDeep(this.tabs).forEach((it, index) => {
+          if (index !== idx) {
+            tabs.push({
+              idx,
+              it,
+            })
+          }
+        })
+        this.close(tabs)
+      },
+
+      closeCur (it, idx) {
+        this.close([{
+          it,
+          idx,
+        }], 'current')
+      },
+
+      close (tabs, type) {
+        if (this.selfClose) {
+          this.$emit('close-tabs', tabs)
+          return
+        }
+
+        MessageBox.confirm('确认关闭窗口?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning',
+        }).then(() => {
+          this.$emit('close-tabs', tabs)
+          if (type) {
+            // 兼容上一个版本
+            this.$emit('close-tab', tabs[0].it, tabs[0].idx)
+          }
+        })
       },
     },
   }
@@ -220,6 +314,30 @@
     .btn-create {
       &:hover {
         @apply text-blue-light;
+      }
+    }
+  }
+</style>
+<style lang="scss">
+  .right-popover {
+    & {
+      @apply py-1 px-2;
+    }
+
+    &-detail {
+      & > * + * {
+        @apply mt-1;
+      }
+      a {
+        @apply flex items-center;
+      }
+
+      a:hover {
+        @apply text-blue;
+      }
+
+      .no-event {
+        @apply pointer-events-none text-gray-darker;
       }
     }
   }

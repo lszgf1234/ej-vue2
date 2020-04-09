@@ -85,6 +85,11 @@
         type: Boolean,
         default: null,
       },
+
+      removeSelf: {
+        type: Function,
+        default: null,
+      },
     },
 
     data () {
@@ -104,6 +109,11 @@
 
     methods: {
       remove (it, idx) {
+        if (this.removeSelf) {
+          this.removeSelf(it, idx)
+          return
+        }
+
         MessageBox.confirm('确认关闭窗口?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',

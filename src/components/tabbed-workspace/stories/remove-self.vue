@@ -3,7 +3,8 @@
     <div class="story-stage">
       <ej-tabbed-workspace v-model="index"
                            :tabs="data"
-                           :removeSelf="removeSelf"
+                           :self-close="true"
+                           @close-tab="remove"
                            style="width: 1000px;">
         <template #default="{tab, idx}">
           <pre>{{JSON.stringify({_index: idx, ...tab}, null, 2)}}</pre>
@@ -38,9 +39,9 @@
     },
 
     methods: {
-      removeSelf (it, idx) {
+      remove (it, idx) {
         Message.info({
-          message: '自定义移除方式',
+          message: '自定义关闭方式',
         })
       },
     },

@@ -86,9 +86,9 @@
         default: null,
       },
 
-      removeSelf: {
-        type: Function,
-        default: null,
+      selfClose: {
+        type: Boolean,
+        default: false,
       },
     },
 
@@ -109,8 +109,8 @@
 
     methods: {
       remove (it, idx) {
-        if (this.removeSelf) {
-          this.removeSelf(it, idx)
+        if (this.selfClose) {
+          this.$emit('close-tab', it, idx)
           return
         }
 

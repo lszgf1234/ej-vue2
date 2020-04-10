@@ -19,7 +19,6 @@
  | `show-create` | Boolean | false | 是否需要创建标签功能 |
  | `renamable` 或 `renameable` | Boolean | false | 是否允许重命名页签（`renameable` 是别名，效用优先级次于 `renamable`） |
  | `self-close` | Boolean | false | 关闭工作区，外部是否调用自定义ui层 |
- | `self-close` | Boolean | false | 关闭工作区，外部是否调用自定义ui层 |
  | `right-click` | Boolean | false | 是否开启右击功能，包含关闭所有、关闭其他、固定 |
  
 #### `tabs[0]`
@@ -34,7 +33,7 @@
 | Name | Payload | Description |
 |---|---|---|
 | `change-tab` | tab: Object, idx: Number | 切换页签时触发，携带新活跃页签的数据和序号 |
-| `close-tab` | tab: Object, idx: Number | `即将废弃`关闭页签时触发，携带被关闭页签的数据和序号 |
+| `close-tab` | tab: Object, idx: Number | `即将废弃,0.5.x之将不再支持`关闭页签时触发，携带被关闭页签的数据和序号 |
 | `close-tabs` | tabs:Array | 关闭页签时触发，携带被关闭页签的集合 |
 | `affix-tab` | tab: Object, idx: Number | 固定页签时触发，携带页签的数据和序号 |
 | `rename-tab` | tab: Object, idx: Number | 重命名页签时触发，携带被重命名页签的数据和序号，处理函数同步或异步返回`false` 时中止重命名过程 |

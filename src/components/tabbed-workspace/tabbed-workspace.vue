@@ -16,11 +16,13 @@
             popper-class="right-popover"
             v-model="popoverStatus[idx]">
             <div slot="reference"
-                 class="ide-tab-item flex items-center cursor-default"
                  :class="{active: idx === activeIdx}"
                  @click="changeTab(it, idx)"
-                 @dblclick="rename(it, idx, $event)" @contextmenu.prevent="showRight(it, idx)">
-              <img v-if="it.icon" :src="it.icon" class="icon-left mr-2">
+                 @dblclick="rename(it, idx, $event)"
+                 @contextmenu.prevent="showRight(it, idx)"
+                 class="ide-tab-item flex items-center cursor-default">
+              <ej-icon v-if="it.affix" icon="pin" class="icon-affix mr-2"/>
+              <img v-else-if="it.icon" :src="it.icon" class="icon-left mr-2">
               <a v-show="!inputs[idx]" class="text-sm truncate name">{{it.name || '未命名'}}</a>
               <input ref="input"
                      type="text"
@@ -30,18 +32,15 @@
                      :style="{width: width}"
                      @keyup.enter="renameSure"
                      @blur="renameSure">
-              <span
-                v-if="closable(it.closable)"
-                class="my-icon-wrap"
-                @click.stop="closeCur(it, idx)">
-            <ej-icon icon="close" class="my-icon"/>
-          </span>
+              <span v-if="closable(it.closable)" @click.stop="closeCur(it, idx)"  class="my-icon-wrap">
+                <ej-icon icon="close" class="my-icon"/>
+              </span>
             </div>
             <template #default>
               <ul class="right-popover-detail text-gray-darkest">
                 <li><a href="javascript:" @click="closeAll">关闭所有</a></li>
                 <li><a href="javascript:" @click="closeOther(idx)" :class="{'no-event': tabs.length <= 1}">关闭其他</a></li>
-                <li><a href="javascript:">固定</a></li>
+                <li><a href="javascript:" @click="affixTab">{{!it.affix ? '固定' : '取消固定'}}</a></li>
               </ul>
             </template>
           </el-popover>
@@ -59,14 +58,6 @@
 </template>
 
 <script>
-  /*
-  * 右键功能
-  *   关闭所有
-  *   关闭其他
-  *   固定
-  *
-  * */
-
   import Lodash from 'lodash-es'
   import {MessageBox, Popover as ElPopover} from 'element-ui'
 
@@ -191,6 +182,8 @@
         /*
         * 清空其他的右键状态
         * 设置当前的右键卡片展示 */
+        if (!this.rightClick) return
+
         this.popoverStatus = []
         this.rightClickData = {
           it,
@@ -200,7 +193,6 @@
       },
 
       clearRightStatus () {
-        // todo: 清空选中状态
         this.popoverStatus = []
         this.rightClickData = {
           idx: null,
@@ -252,6 +244,10 @@
             this.$emit('close-tab', tabs[0].it, tabs[0].idx)
           }
         })
+      },
+
+      affixTab () {
+        this.$emit('affix-tab', this.rightClickData.it, this.rightClickData.idx)
       },
     },
   }
@@ -315,6 +311,11 @@
       &:hover {
         @apply text-blue-light;
       }
+    }
+
+    .icon-affix {
+      width: 12px;
+      height: 12px;
     }
   }
 </style>

@@ -28,6 +28,7 @@ import NavMenu from './components/nav-menu'
 import NavSubmenu from './components/nav-submenu'
 
 import Loading from './directives/loading'
+import Scrollbar from './directives/scrollbar'
 import PopoverSet from './components/popover-set'
 
 export {
@@ -61,6 +62,7 @@ export {
   NavSubmenu,
 
   Loading,
+  Scrollbar,
   PopoverSet,
 }
 
@@ -89,6 +91,7 @@ export default {
     Vue.use(NavSubmenu)
 
     Vue.use(Loading)
+    Vue.use(Scrollbar)
     Vue.use(PopoverSet)
   },
 }

@@ -12,6 +12,7 @@
     "clipboard": "^2.0.4",
     "highlight.js": "^9.17.1",
     "lodash-es": "^4.17.15",
+    "perfect-scrollbar": "^1.5.0",
     "shortid": "^2.2.15",
     "svg4everybody": "^2.1.9"
   },

@@ -14,6 +14,7 @@
 | Name | Default | Description |
 |---|---|---|
 | no-uc | Boolean | 默认为false(显示'个人中心'项) |
+| type | String | 支持大兴(跳转cas/logout)/光大(跳转cas门户页)/自开发登录(跳转登录页)。值有三种：daxing、ceb、custom。默认为'custom'(自开发登录) |
 
 
 ### Slot

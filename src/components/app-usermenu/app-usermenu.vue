@@ -77,11 +77,6 @@
         type: Boolean,
         default: false,
       },
-
-      type: {
-        type: String,
-        default: 'custom'
-      },
     },
 
     data () {
@@ -136,7 +131,6 @@
           type: 'warning',
           center: true,
         }).then(() => {
-          console.log(111, this.type)
           this.logout()
         }).catch(() => {})
       },
@@ -148,10 +142,8 @@
           client: this.endpoint.client,
         }).then((data) => {
           if (data.data.data) {
-            if (this.type === 'ceb') {
-              location.href = `${this.endpoint.casHomeUrl}`
-            } else if (this.type === 'daxing')  {
-              location.href = `${this.endpoint.casLogoutUrl}`
+            if (this.endpoint.logoutUrl) {
+              location.href = `${this.endpoint.logoutUrl}`
             } else {
               let login_url = `${this.endpoint.loginUrl}?redirect_url=${encodeURIComponent(location.href)}`
               location.href = login_url

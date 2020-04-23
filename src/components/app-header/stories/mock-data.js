@@ -11,8 +11,7 @@ export const user1 = {
 export const endpoint = {
   avatarUrl: 'http://auth-frontier.dev.jinxin.cloud/fileDownload', /* 头像获取环境变量 */
   loginUrl: 'http://login.dev.jinxin.cloud/', /* 登录系统地址环境变量ceb：http://login-ceb.dev.jinxin.cloud/  daxing：http://login-daxing.dev.jinxin.cloud/ */
-  casHomeUrl: 'https://10.1.3.21:22001/portal', /* 光大门户地址环境变量 */
-  casLogoutUrl: 'https://10.1.3.21:22001/cas/logout', /* 大兴退出跳转地址环境变量 */
+  logoutUrl: 'https://10.1.3.21:22001/portal', /* 光大/大兴退出地址环境变量 */
   client: '', /* 调用auth-frontier中的退出接口：client名称ucClient */
 }
 

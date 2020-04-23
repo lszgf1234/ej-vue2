@@ -7,16 +7,26 @@
       v-model="userMenuVisible"
       popper-class="usermenu-wrapper">
       <div class="ej-app-user" slot="reference">
-        <img :src="avatar$ || require('../../assets/icon-account.svg')"
+        <!-- <img :src="avatar$ || require('../../assets/icon-account.svg')"
              alt=""
              class="ej-app-user__avatar flex-none rounded-full bg-white"
+             :class="{'mr-2': user$.name}"> -->
+        <img v-if="avatar$"
+             :src="avatar$"
+             alt=""
+             class="ej-app-user__avatar flex-none rounded-full"
              :class="{'mr-2': user$.name}">
+        <img v-else
+             src="../../assets/icon-account.svg"
+             class="ej-app-user__avatar flex-none rounded-full bg-white"
+             :class="{'mr-2': user$.name}">
+     
         <span v-if="user$.name" class="flex-none">{{user$.name}}</span>
       </div>
       <div class="menu-wrap" @click="userMenuVisible = false">
         <ul>
           <li class="tenant-name" v-show="user$.tenantName">{{user$.tenantName}}</li>
-          <li class="divider" v-show="user$.tenantName"></li>
+          <li class="divider" v-if="!noUc"></li>
           <li v-if="!noUc">
              <!-- :class="**.indexOf('uc') >= 0 ? 'active' : ''" -->
             <a :href="ucUrl$" target="_blank" class="system-name">个人中心</a>
@@ -132,9 +142,12 @@
           client: this.endpoint.client,
         }).then((data) => {
           if (data.data.data) {
-            const httpLogin = this.endpoint.loginUrl
-            let url = `${httpLogin}?redirect_url=${encodeURIComponent(location.href)}`
-            location.href = url
+            if (this.endpoint.logoutUrl) {
+              location.href = `${this.endpoint.logoutUrl}`
+            } else {
+              let login_url = `${this.endpoint.loginUrl}?redirect_url=${encodeURIComponent(location.href)}`
+              location.href = login_url
+            }
           }
         }).catch((error) => {
           MessageUtil.MessageError(LOGOUT_MSG)

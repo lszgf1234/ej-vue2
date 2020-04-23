@@ -2,7 +2,7 @@
   <div>
     <ej-app-header :user="user">
       <template #tray>
-        <ej-app-usermenu :user="user1" :endpoint="endpoint" :no-uc="noUc" :type="'ceb'"/>
+        <ej-app-usermenu :user="user1" :endpoint="endpoint" :no-uc="noUc"/>
       </template>
     </ej-app-header>
   </div>

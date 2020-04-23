@@ -7,7 +7,8 @@
 | Prop | Type | Default | Description |
 |---|---|---|---|
 | `user` | Object | | 配置项 {avatar(头像)，name(中文名称)，tenantName(租户名称)} |
-| `endpoint` | Object | | 配置项 {avatarUrl(获取头像接口:http://auth-frontier.dev.jinxin.cloud/filesUpload)，loginUrl(登录地址:http://login.dev.jinxin.cloud/)，client(自定义client配置:调用auth-frontier中的退出接口,如'ucClient')} |
+| `endpoint` | Object | | 配置项 {avatarUrl(获取头像接口:http://auth-frontier.dev.jinxin.cloud/filesUpload)、loginUrl(登录地址:http://login.dev.jinxin.cloud/)
+client(自定义client配置:调用auth-frontier中的退出接口,如'ucClient')、casHomeUrl(光大跳转的门户地址https://10.1.3.21:22001/portal)、casLogoutUrl(大兴退出地址https://10.1.3.21:22001/cas/logout) |
 
 ### Property
 

@@ -6,10 +6,32 @@
 
     functional: true,
 
-    render: (h, {data, children}) => {
-      data.staticClass = (data.staticClass || '') + ' ej-nav-menu'
+    render: (h, {parent, props, data, slots, children}) => {
+      const { mode, collapse } = props
 
-      return <ElMenu {...data}>{children}</ElMenu>
+      const _mode = mode === 'horizontal'
+      const _collapse = typeof(collapse) !== 'undefined'
+
+      let collapsesSlot = slots().collapses
+      // onClick={() => emit('on-collapse', collapse)}
+      const collapsesComp = (
+        collapsesSlot ? <div>{collapsesSlot}</div> :
+        <div class="text-red">展开收起</div>
+      )
+
+      console.log("collapse", collapse)
+
+      if (_mode) { // 水平导航模式，兼容老项目样式
+        data.staticClass = (data.staticClass || '') + ' ej-nav-menu'
+      }
+
+      return (
+            _mode ? <ElMenu {...data}>{children}</ElMenu> :
+            <ElMenu {...data}>
+              <div v-show={_collapse}>{collapsesComp}</div>
+              {children}
+            </ElMenu>
+      )
     },
   }
 </script>

@@ -6,9 +6,16 @@
 
     functional: true,
 
-    render: (h, {data, slots, children}) => {
-      data.staticClass = (data.staticClass || '') + ' ej-nav-submenu'
-      data.attrs['popper-class'] = (data.attrs['popper-class'] || '') + ' ej-nav-submenu-popper'
+    render: (h, {props, data, slots, children}) => {
+      const { mode } = props
+
+      if (mode === 'horizontal') {
+        data.staticClass = (data.staticClass || '') + ' ej-nav-submenu'
+        data.attrs['popper-class'] = (data.attrs['popper-class'] || '') + ' ej-nav-submenu-popper'
+      } else {
+        data.staticClass = (data.staticClass || '')
+        data.attrs['popper-class'] = (data.attrs['popper-class'] || '')
+      }
 
       return (
         <ElSubmenu {...{...data, slots}}>{children}</ElSubmenu>

@@ -1,34 +1,41 @@
 <script lang="jsx">
+  import Vue from 'vue'
   import {Menu as ElMenu} from 'element-ui'
+  import CollapsesButton from './collapses-btn'
+
+  Vue.use(CollapsesButton)
 
   export default {
     name: 'EjNavMenu',
 
     functional: true,
 
-    render: (h, {parent, props, data, slots, children}) => {
-      const { mode, collapse } = props
+    render: (h, {parent, props, data, slots, children, listeners}) => {
+      const { mode, collapse, toggleButton } = props
+
+      if (!mode) {
+        mode = 'horizontal'
+        console.warn(`EjNavMenu: 建议手动设置mode，否则会默认为 horizontal`)
+      }
 
       const _mode = mode === 'horizontal'
       const _collapse = typeof(collapse) !== 'undefined'
+      const _toggleButton =  typeof(toggleButton) !== 'undefined' ? toggleButton : true
 
-      let collapsesSlot = slots().collapses
-      // onClick={() => emit('on-collapse', collapse)}
-      const collapsesComp = (
-        collapsesSlot ? <div>{collapsesSlot}</div> :
-        <div class="text-red">展开收起</div>
-      )
-
-      console.log("collapse", collapse)
+      const collapsesComp = (<CollapsesButton {...{props, on: listeners}}/>)
 
       if (_mode) { // 水平导航模式，兼容老项目样式
         data.staticClass = (data.staticClass || '') + ' ej-nav-menu'
+      } else {
+        data.staticClass = (data.staticClass || '') + ' ej-nav-menu__vertical'
       }
 
       return (
-            _mode ? <ElMenu {...data}>{children}</ElMenu> :
+            _mode ?
+            <ElMenu {...data}>{children}</ElMenu>
+            :
             <ElMenu {...data}>
-              <div v-show={_collapse}>{collapsesComp}</div>
+              <div v-show={_collapse && _toggleButton}>{collapsesComp}</div>
               {children}
             </ElMenu>
       )
@@ -38,6 +45,11 @@
 
 <style lang="scss">
   .ej-nav-menu {
+    &__vertical {
+      @apply relative;
+
+      padding-top: 26px;
+    }
 
     &.el-menu {
       background: #1F2E4D;

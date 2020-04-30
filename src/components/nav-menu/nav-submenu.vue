@@ -8,6 +8,10 @@
 
     render: (h, {props, data, slots, children}) => {
       const { mode } = props
+      if (!mode) {
+        mode = 'horizontal'
+        console.warn(`EjNavSubmenu: 建议手动设置mode，否则会默认为 horizontal`)
+      }
 
       if (mode === 'horizontal') {
         data.staticClass = (data.staticClass || '') + ' ej-nav-submenu'

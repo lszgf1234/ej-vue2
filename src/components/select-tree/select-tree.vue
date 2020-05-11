@@ -1,7 +1,16 @@
 <template>
   <div class="ej-select-tree">
-    <el-select ref="ejSelect" :value="valueTitle" :placeholder="placeholder" :clearable="clearable" @clear="clearHandle" class="select-tree">
-      <el-option :value="valueId" :label="valueTitle" class="selectTree">
+    <el-select
+      ref="ejSelect"
+      :value="valueTitle"
+      :placeholder="placeholder"
+      :clearable="clearable"
+      @clear="clearHandle"
+      class="select-tree">
+      <el-option
+        :value="valueId"
+        :label="valueTitle"
+        class="selectTree">
         <el-tree id="tree-option"
           ref="ejSelectOptionTree"
           :accordion="accordion"
@@ -18,7 +27,6 @@
 </template>
 
 <script>
-  import Vue from 'vue'
   import {Select, Option, Tree} from 'element-ui'
   export default {
     name: 'EjSelectTree',
@@ -139,7 +147,6 @@
       .is-focus {
         .el-icon-circle-close {
           line-height: 29px;
-          margin-top: 5px;
         }
       }
     }
@@ -156,16 +163,6 @@
     .el-tree-node__label{
       font-weight: normal;
     }
-
-    // .el-tree >>>.is-current .el-tree-node__label{
-    //   color: #409EFF;
-    //   font-weight: 700;
-    // }
-
-    // .el-tree >>>.is-current .el-tree-node__children .el-tree-node__label{
-    //   color:#606266;
-    //   font-weight: normal;
-    // }
 
     .is-current {
       color:rgb(71, 125, 233);

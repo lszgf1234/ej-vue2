@@ -1,12 +1,13 @@
 <template>
   <div class="ej-select-tree">
-    <el-select ref="ejSelect" :value="selValue" :placeholder="placeholder" :clearable="clearable" @clear="clearHandle" class="select-tree">
-      <el-option :value="valueId" :label="selValue" class="selectTree">
+    <el-select ref="ejSelect" :value="valueTitle" :placeholder="placeholder" :clearable="clearable" @clear="clearHandle" class="select-tree">
+      <el-option :value="valueId" :label="valueTitle" class="selectTree">
         <el-tree id="tree-option"
           ref="ejSelectOptionTree"
-          :data="treeData"
-          :props="treeProps"
-          :node-key="nodeKey"
+          :accordion="accordion"
+          :data="options"
+          :props="props"
+          :node-key="props.value"
           :default-expanded-keys="defaultExpandedKey"
           :expand-on-click-node="false"
           @node-click="handleNodeClick">
@@ -19,7 +20,6 @@
 <script>
   import Vue from 'vue'
   import {Select, Option, Tree} from 'element-ui'
-  import QUERY_ORGANIZATION_LIST from './grapgql/query_organization_list.gql'
   export default {
     name: 'EjSelectTree',
 
@@ -30,10 +30,24 @@
     },
 
     props: {
+      /* 配置项 */
+      props:{
+        type: Object,
+        default: () => ({
+          value: 'organizationId',
+          label: 'organizationName',
+          children: 'children',
+        }),
+      },
+      /* 选项列表数据(树形结构的对象数组) */
+      options:{
+        type: Array,       
+        default: () => {[]}
+      },
       /* 初始值 */
       value: {
         type: String,
-        default: '',
+        default: null,
       },
       placeholder: {
         type: String,
@@ -44,133 +58,72 @@
         type: Boolean,
         default: true,
       },
-      treeProps: {
-        type: Object,
-        default: () => ({
-          value: 'organizationId',
-          label: 'organizationName',
-          children: 'children',
-        }),
-      },
-      nodeKey: {
-        type: String,
-        default: 'organizationId',
+      /* 自动收起 */
+      accordion:{
+        type: Boolean,
+        default: false,
       },
     },
 
     data () {
       return {
-        treeData: [],
-        valueId: '',
-        selValue: '',
+        valueId: null,
+        valueTitle: '',
         defaultExpandedKey: [],
       }
     },
 
     watch: {
       value () {
-        this.valueId = this.value ? this.value : ''
+        this.valueId = this.value
+        this.initHandle()
       },
-    },
-
-    created () {
-      Vue.prototype.$apollo = {
-        query () {return this},
-        mutate () {return this},
-        then () {return this},
-        catch () {return this},
-      }
-      this.getOrganizationList()
     },
 
     mounted () {
-      this.valueId = this.value ? this.value : ''
+      this.initHandle()
     },
 
     methods: {
-      getOrganizationList () {
-        this.$apollo.query({
-          query: QUERY_ORGANIZATION_LIST,
-          client: 'ucClient',
-          fetchPolicy: 'no-cache',
-        }).then(data => {
-          if (data) {
-            let curData = data.data.data
-            if (curData) {
-              this.treeData = this.covertChildrenData(curData)
-              if (this.treeData.length > 0) {
-                this.$nextTick(function () {
-                  this.$refs.ejSelectOptionTree.setCurrentKey(this.valueId)
-                  this.selValue = this.valueId ? this.$refs.ejSelectOptionTree.getNode(this.valueId).data[this.organProps.label] : ''
-                  this.defaultExpandedKey = this.valueId ? [this.valueId] : []
-                })
-              }
-              this.$nextTick(() => {
-                let scrollWrap = document.querySelectorAll('.el-scrollbar .el-select-dropdown__wrap')[0]
-                let scrollBar = document.querySelectorAll('.el-scrollbar .el-scrollbar__bar')
-                scrollWrap.style.cssText = 'margin: 0px; max-height: none; overflow: hidden;'
-                scrollBar.forEach(ele => {
-                  ele.style.width = 0
-                })
-              })
-            }
-          }
+      // 初始化值
+      initHandle () {
+        if (this.valueId) {
+          this.valueTitle = this.$refs.ejSelectOptionTree.getNode(this.valueId).data[this.props.label] // 初始化显示
+          this.$refs.ejSelectOptionTree.setCurrentKey(this.valueId) // 设置默认选中
+          this.defaultExpandedKey = [this.valueId] // 设置默认展开
+        }
+        this.initScroll()
+      },
+      // 初始化滚动条
+      initScroll(){
+        this.$nextTick(()=>{
+          let scrollWrap = document.querySelectorAll('.el-scrollbar .el-select-dropdown__wrap')[0]
+          let scrollBar = document.querySelectorAll('.el-scrollbar .el-scrollbar__bar')
+          scrollWrap.style.cssText = 'margin: 0px; max-height: none; overflow: hidden;'
+          scrollBar.forEach(ele => {
+            ele.style.width = 0
+          })
         })
       },
-      covertChildrenData (rows) {
-        function exists (rows, parentId) {
-          for (var i = 0; i < rows.length; i++) {
-            if (rows[i].organizationId === parentId.toString()) return true
-          }
-          return false
-        }
-        let nodes = []
-        // get the top level nodes
-        for (var j = 0; j < rows.length; j++) {
-          let row = rows[j]
-          if (!exists(rows, row.parentId)) {
-            nodes.push(row)
-          }
-        }
-        let parentNode = []
-        for (var i = 0; i < nodes.length; i++) {
-          parentNode.push(nodes[i])
-        }
-        while (parentNode.length) {
-          let node = parentNode.shift()
-          for (var x = 0; x < rows.length; x++) {
-            let rowC = rows[x]
-            if (rowC.parentId.toString() === node.organizationId) {
-              if (node.children) {
-                node.children.push(rowC)
-              } else {
-                node.children = [rowC]
-              }
-              parentNode.push(rowC)
-            }
-          }
-        }
-        return nodes
+      handleNodeClick (node) {
+        this.valueTitle = node[this.props.label]
+        this.valueId = node[this.props.value]
+        this.$emit('getValue', this.valueId)
+        this.defaultExpandedKey = []
+        this.$refs.ejSelect.handleClose()
       },
       // 清除选中
       clearHandle () {
-        this.selValue = ''
+        this.valueTitle = ''
         this.valueId = null
         this.defaultExpandedKey = []
         this.clearSelected()
-        this.$emit('getValue', [])
+        this.$emit('getValue', null)
       },
       /* 清空选中样式 */
       clearSelected () {
         let allNode = document.querySelectorAll('#tree-option .el-tree-node')
         allNode.forEach((element) => element.classList.remove('is-current'))
-      },
-      handleNodeClick (node) {
-        this.selValue = node[this.organProps.label]
-        this.valueId = node[this.organProps.value]
-        this.$emit('getValue', this.valueId)
-        this.defaultExpandedKey = []
-        this.$refs.ejSelect.handleClose()
       },
     },
   }

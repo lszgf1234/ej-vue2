@@ -13,12 +13,12 @@
         console.warn(`EjNavSubmenu: 建议手动设置mode，否则会默认为 horizontal`)
       }
 
-      if (mode === 'horizontal') {
+      if (mode === 'vertical') {
+        data.staticClass = (data.staticClass || '') + ' ej-nav-submenu__vertical'
+        data.attrs['popper-class'] = (data.attrs['popper-class'] || '') + ' ej-nav-submenu__vertical-popper'
+      } else {
         data.staticClass = (data.staticClass || '') + ' ej-nav-submenu'
         data.attrs['popper-class'] = (data.attrs['popper-class'] || '') + ' ej-nav-submenu-popper'
-      } else {
-        data.staticClass = (data.staticClass || '')
-        data.attrs['popper-class'] = (data.attrs['popper-class'] || '')
       }
 
       return (
@@ -29,11 +29,53 @@
 </script>
 
 <style lang="scss">
-  // .ej-nav-submenu {
-  //   .el-submenu__icon-arrow {
-  //     @apply hidden;
-  //   }
-  // }
+  $menu-layout--gray-darkest: #161616;
+  $menu-layout--gray-darker: #262626;
+  $menu-layout--gray-dark: #525252;
+  $menu-layout--gray-lighter: #F4F4F4;
+  $menu-layout--blue: #0C64EB;
+  $menu-layout--blue-lighter: #D0E2FF;
+  $menu-layout--white: #fff;
+  $menu-layout--size-18: 18px;
+
+  @mixin ej-nav-menu__vertical--font-class ($active-bg-color:$menu-layout--blue, $active-font-color:$menu-layout--white) {
+    @apply font-medium;
+    font-size: $menu-layout--size-18;
+    color: $menu-layout--gray-darkest;
+    background: transparent;
+
+    .ej-icon {
+      width: 20px;
+      height: 20px;
+    }
+    &.is-active {
+      color: $active-font-color;
+      background: $active-bg-color;
+
+      &:hover {
+        &, & > i {
+          color: $active-font-color;
+        }
+      }
+    }
+    &:hover {
+      color: $menu-layout--blue;
+      & > i {
+        color: $menu-layout--blue;
+      }
+    }
+  }
+
+  .ej-nav-submenu__vertical-popper {
+    .el-menu--popup {
+      .el-menu-item {
+        @include ej-nav-menu__vertical--font-class($menu-layout--blue-lighter, $menu-layout--blue);
+
+        height: 40px;
+        line-height: 40px;
+      }
+    }
+  }
 
   .ej-nav-submenu-popper {
     .el-menu--popup {

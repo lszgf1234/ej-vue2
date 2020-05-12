@@ -1,8 +1,11 @@
 <template>
   <div>
-    <ej-nav-menu  mode="vertical"
+    <ej-nav-menu  mode="horizontal"
                   :toggle-button="true"
                   :collapse="collapse"
+                  text-color="#fff"
+                  active-text-color="#fff"
+                  class="app-nav__menu flex"
                   @current-collapses="handleCollapses">
 
       <el-menu-item index="_0">
@@ -12,7 +15,7 @@
 
       <ej-nav-submenu index="_3"
                       :show-timeout="100"
-                      mode="vertical">
+                      mode="horizontal">
         <template #title>
           <i class="el-icon-setting"></i>
           <span>更多</span>
@@ -26,7 +29,7 @@
       </ej-nav-submenu>
     </ej-nav-menu>
 
-    <div class="w-20 border border-yellow border-solid text-center mt-10 cursor-pointer" @click="collapse = !collapse">收缩菜单</div>
+    <div @click="collapse = !collapse">收缩菜单</div>
   </div>
 </template>
 

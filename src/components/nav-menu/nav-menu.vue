@@ -25,30 +25,146 @@
       const collapsesComp = (<CollapsesButton {...{props, on: listeners}}/>)
 
       if (_mode) { // 水平导航模式，兼容老项目样式
-        data.staticClass = (data.staticClass || '') + ' ej-nav-menu'
-      } else {
         data.staticClass = (data.staticClass || '') + ' ej-nav-menu__vertical'
+      } else {
+        data.staticClass = (data.staticClass || '') + ' ej-nav-menu'
       }
 
       return (
             _mode ?
-            <ElMenu {...data}>{children}</ElMenu>
-            :
             <ElMenu {...data}>
               <div v-show={_collapse && _toggleButton}>{collapsesComp}</div>
               {children}
             </ElMenu>
+            :
+            <ElMenu {...data}>{children}</ElMenu>
       )
     },
   }
 </script>
 
 <style lang="scss">
+
+  $menu-layout--gray-darkest: #161616;
+  $menu-layout--gray-darker: #262626;
+  $menu-layout--gray-dark: #525252;
+  $menu-layout--gray-lighter: #F4F4F4;
+  $menu-layout--blue: #0C64EB;
+  $menu-layout--blue-lighter: #D0E2FF;
+  $menu-layout--white: #fff;
+  $menu-layout--size-18: 18px;
+
+  @mixin ej-nav-menu__vertical--padding-class {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    i:first-child {
+      padding-right: 16px !important;
+    }
+  }
+  @mixin ej-nav-menu__vertical--font-class ($active-bg-color:$menu-layout--blue, $active-font-color:$menu-layout--white) {
+    @apply font-medium;
+    font-size: $menu-layout--size-18;
+    color: $menu-layout--gray-darkest;
+    background: transparent;
+
+    .ej-icon {
+      width: 20px;
+      height: 20px;
+    }
+    &.is-active {
+      color: $active-font-color;
+      background: $active-bg-color;
+
+      &:hover {
+        &, & > i {
+          color: $active-font-color;
+        }
+      }
+    }
+    &:hover {
+      color: $menu-layout--blue;
+      & > i {
+        color: $menu-layout--blue;
+      }
+    }
+  }
+
   .ej-nav-menu {
     &__vertical {
-      @apply relative;
+      @apply z-10 relative;
 
       padding-top: 26px;
+      box-shadow: 6px 0px 16px -8px rgba(0,0,0,0.2);
+      &:not(.el-menu--collapse) {
+        width: 300px;
+      }
+
+      .el {
+        &-submenu__title, &-menu-item {
+          @include ej-nav-menu__vertical--padding-class;
+        }
+        &-menu-item {
+          @include ej-nav-menu__vertical--font-class;
+        }
+        &-submenu {
+          &__title {
+            @include ej-nav-menu__vertical--font-class;
+            span + i {
+              right: 24px;
+            }
+          }
+          &.is-active {
+            background: $menu-layout--gray-lighter;
+          }
+          .el-menu-item {
+            color: $menu-layout--gray-darker;
+            &.is-active {
+              @apply text-white;
+            }
+            &:not(.is-active):hover {
+              color: $menu-layout--blue;
+              & > i {
+                color: $menu-layout--blue;
+              }
+            }
+          }
+          &__icon-arrow {
+            @apply text-base;
+            color: $menu-layout--gray-dark;
+          }
+          .el-menu--inline {
+            li {
+              padding-left: 64px !important;
+            }
+          }
+        }
+      }
+
+      &.el-menu--collapse {
+        width: 78px;
+        .el {
+          &-submenu {
+            &.is-active {
+              background: $menu-layout--blue;
+              .el-submenu__title i {
+                @apply text-white;
+              }
+            }
+            .el-menu-item {
+              color: $menu-layout--gray-darker;
+              &.is-active {
+                @apply text-white;
+              }
+            }
+          }
+          &-menu-item:not(.is-active):hover {
+            background: $menu-layout--gray-lighter;
+            & > i {
+              background: $menu-layout--gray-lighter;
+            }
+          }
+        }
+      }
     }
 
     &.el-menu {

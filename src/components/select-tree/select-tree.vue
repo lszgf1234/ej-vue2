@@ -41,7 +41,7 @@
 
     props: {
       /* 配置项 */
-      props:{
+      props: {
         type: Object,
         default: () => ({
           value: 'organizationId',
@@ -50,9 +50,9 @@
         }),
       },
       /* 选项列表数据(树形结构的对象数组) */
-      options:{
-        type: Array,       
-        default: () => []
+      options: {
+        type: Array,
+        default: () => [],
       },
       /* 初始值 */
       value: {
@@ -69,7 +69,7 @@
         default: true,
       },
       /* 自动收起 */
-      accordion:{
+      accordion: {
         type: Boolean,
         default: true,
       },

@@ -2,6 +2,7 @@
   <div class="ej-select-tree">
     <el-select
       ref="ejSelect"
+      popper-class="ej-select-tree-dropdown"
       :value="valueTitle"
       :placeholder="placeholder"
       :clearable="clearable"
@@ -11,7 +12,8 @@
         :value="valueId"
         :label="valueTitle"
         class="selectTree">
-        <el-tree id="tree-option"
+        <el-tree
+          id="ej-select-tree-option"
           ref="ejSelectOptionTree"
           :accordion="accordion"
           :data="options"
@@ -50,7 +52,7 @@
       /* 选项列表数据(树形结构的对象数组) */
       options:{
         type: Array,       
-        default: () => {[]}
+        default: () => []
       },
       /* 初始值 */
       value: {
@@ -69,7 +71,7 @@
       /* 自动收起 */
       accordion:{
         type: Boolean,
-        default: false,
+        default: true,
       },
     },
 
@@ -89,6 +91,7 @@
     },
 
     mounted () {
+      this.valueId = this.value // 初始值
       this.initHandle()
     },
 
@@ -103,10 +106,10 @@
         this.initScroll()
       },
       // 初始化滚动条
-      initScroll(){
-        this.$nextTick(()=>{
-          let scrollWrap = document.querySelectorAll('.el-scrollbar .el-select-dropdown__wrap')[0]
-          let scrollBar = document.querySelectorAll('.el-scrollbar .el-scrollbar__bar')
+      initScroll () {
+        this.$nextTick(() => {
+          let scrollWrap = document.querySelectorAll('.ej-select-tree-dropdown .el-scrollbar .el-select-dropdown__wrap')[0]
+          let scrollBar = document.querySelectorAll('.ej-select-tree-dropdown .el-scrollbar .el-scrollbar__bar')
           scrollWrap.style.cssText = 'margin: 0px; max-height: none; overflow: hidden;'
           scrollBar.forEach(ele => {
             ele.style.width = 0
@@ -118,7 +121,6 @@
         this.valueId = node[this.props.value]
         this.$emit('getValue', this.valueId)
         this.defaultExpandedKey = []
-        this.$refs.ejSelect.handleClose()
       },
       // 清除选中
       clearHandle () {
@@ -130,7 +132,7 @@
       },
       /* 清空选中样式 */
       clearSelected () {
-        let allNode = document.querySelectorAll('#tree-option .el-tree-node')
+        let allNode = document.querySelectorAll('#ej-select-tree-option .el-tree-node')
         allNode.forEach((element) => element.classList.remove('is-current'))
       },
     },
@@ -138,37 +140,13 @@
 </script>
 
 <style lang="scss">
-  .ej-select-tree {
-
-    .select-tree {
-      .el-input__suffix, .el-input__suffix-inner {
-        outline: none;
-      }
-      .is-focus {
-        .el-icon-circle-close {
-          line-height: 29px;
-        }
-      }
-    }
-
-    .el-select-dropdown__item.selected{
-      font-weight: normal;
-    }
-
-    ul li >>>.el-tree .el-tree-node__content{
-      height:auto;
-      padding: 0 20px;
-    }
-
-    .el-tree-node__label{
-      font-weight: normal;
-    }
-
+  .ej-select-tree-dropdown {
     .is-current {
       color:rgb(71, 125, 233);
       background: #F5F5F5;
     }
 
+    // 有子项时，子项样式不选中
     .is-expanded {
       &.is-current {
         .el-tree-node__children {
@@ -179,12 +157,35 @@
     }
   }
 </style>
-<style scoped>
-  .el-scrollbar .el-scrollbar__view .selectTree{
+<style lang="css" scoped>
+  .ej-select-tree-dropdown .el-scrollbar__view .selectTree{
     height: auto;
     max-height: 274px;
     padding: 0;
     overflow: hidden;
     overflow-y: auto;
+  }
+
+  .el-select-dropdown__item.selected{
+    font-weight: normal;
+  }
+
+  ul li >>>.el-tree .el-tree-node__content{
+    height:auto;
+    padding: 0 20px;
+  }
+
+  .el-tree-node__label{
+    font-weight: normal;
+  }
+
+  .el-tree >>>.is-current .el-tree-node__label{
+    color: #409EFF;
+    font-weight: 700;
+  }
+
+  .el-tree >>>.is-current .el-tree-node__children .el-tree-node__label{
+    color:#606266;
+    font-weight: normal;
   }
 </style>

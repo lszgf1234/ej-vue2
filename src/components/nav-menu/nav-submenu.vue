@@ -1,25 +1,35 @@
 <script lang="jsx">
   import {Submenu as ElSubmenu} from 'element-ui'
 
+  const _classNameVertical = {
+    main: 'ej-nav-submenu__vertical',
+    popper: 'ej-nav-submenu__vertical-popper',
+  }
+
+  const _classNameHorizontal = {
+    main: 'ej-nav-submenu',
+    popper: 'ej-nav-submenu-popper',
+  }
+
+  let _defaultMode = 'horizontal'
+
   export default {
     name: 'EjNavSubmenu',
 
     functional: true,
 
-    render: (h, {props, data, slots, children}) => {
-      const { mode } = props
+    render: (h, {props, data, slots, children, parent}) => {
+      let { mode } = props
+
       if (!mode) {
-        mode = 'horizontal'
+        mode = _defaultMode
         console.warn(`EjNavSubmenu: 建议手动设置mode，否则会默认为 horizontal`)
       }
 
-      if (mode === 'vertical') {
-        data.staticClass = (data.staticClass || '') + ' ej-nav-submenu__vertical'
-        data.attrs['popper-class'] = (data.attrs['popper-class'] || '') + ' ej-nav-submenu__vertical-popper'
-      } else {
-        data.staticClass = (data.staticClass || '') + ' ej-nav-submenu'
-        data.attrs['popper-class'] = (data.attrs['popper-class'] || '') + ' ej-nav-submenu-popper'
-      }
+      let _staticClass = mode === _defaultMode ? _classNameHorizontal : _classNameVertical
+
+      data.staticClass = (data.staticClass || '') + ` ${_staticClass.main}`
+      data.attrs['popper-class'] = (data.attrs['popper-class'] || '') + ` ${_staticClass.popper}`
 
       return (
         <ElSubmenu {...{...data, slots}}>{children}</ElSubmenu>

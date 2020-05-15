@@ -24,6 +24,7 @@ import SearchOptionRadio from './components/search-options/radio'
 import UserCard from './components/user-card'
 import TabbedWorkspace from './components/tabbed-workspace'
 import SelectTree from './components/select-tree'
+import EjPagination from './components/pagination'
 
 import NavMenu from './components/nav-menu'
 import NavSubmenu from './components/nav-submenu'
@@ -59,6 +60,7 @@ export {
   UserCard,
   TabbedWorkspace,
   SelectTree,
+  EjPagination,
 
   NavMenu,
   NavSubmenu,
@@ -88,6 +90,7 @@ export default {
     Vue.use(SearchSelect)
     Vue.use(SearchOptions)
     Vue.use(UserCard)
+    Vue.use(EjPagination)
 
     Vue.use(NavMenu)
     Vue.use(NavSubmenu)

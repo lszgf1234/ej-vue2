@@ -27,7 +27,12 @@
               <ej-tree-contextmenu v-for="(item, index) in contextmenu"
                                    :key="index"
                                    :menu="item"
-                                   @command="onCommand"></ej-tree-contextmenu>
+                                   :level="0"
+                                   :commands="commands"
+                                   :commandTrigger="commandTrigger"
+                                   @command="onCommand"
+                                   @change="onChange"
+                                   @commandTriggerChange="commandTriggerChange"></ej-tree-contextmenu>
             </el-dropdown-menu>
           </el-dropdown>
         </div>
@@ -37,9 +42,6 @@
 </template>
 
 <script>
-  import {mapGetters, mapActions} from 'vuex'
-  import store from './store'
-
   import {
     Tree as ElTree,
     Dropdown as ElDropdown,
@@ -49,7 +51,6 @@
   import EjTreeContextmenu from './contextmenu'
 
   export default {
-    store,
     name: 'EjTree',
 
     inheritAttrs: false,
@@ -103,12 +104,8 @@
     },
 
     computed: {
-      ...mapGetters([
-        'commands',
-        'commandTrigger',
-      ]),
       commandsString () {
-        return this.commands.join('')
+        return this.$commands.join('')
       },
       tree () {
         return this.$refs['tree']
@@ -120,6 +117,8 @@
 
     data () {
       return {
+        commandTrigger: 0,
+        commands: [],
         keywords: null,
         currentNode: null,
         dropMenuItem: {},
@@ -128,11 +127,12 @@
     },
 
     methods: {
-      ...mapActions([
-        'change',
-        'commandTriggerChange',
-        'clearCommand',
-      ]),
+      onChange ({index, command}) {
+        this.commands.splice(index, this.commands.length - index, command)
+      },
+      onClearCommand () {
+        this.commands = []
+      },
       onNodeClick (data, node) {
         this.dropMenuItem = {}
         this.currentNode = data
@@ -142,13 +142,13 @@
         return this.filter({value, data})
       },
       handleMoreClick (data) {
-        this.change({index: 0, command: undefined})
+        this.onChange({index: 0, command: undefined})
         this.dropMenuItem = data
         this.$emit('more-click', {data})
       },
       onCommand () {
         this.$emit('command', {commands: Array.from(this.commands), data: this.dropMenuItem})
-        this.clearCommand()
+        this.onClearCommand()
       },
       setCurrentNode (node) {
         this.currentNode = node
@@ -156,6 +156,9 @@
       },
       getCurrentTreeData () {
         return this.currentNode
+      },
+      commandTriggerChange (val) {
+        this.commandTrigger = val
       },
     },
     watch: {

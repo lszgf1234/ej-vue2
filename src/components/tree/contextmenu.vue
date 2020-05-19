@@ -5,23 +5,31 @@
         <div :class="['ej-tree-contextmenu__item', {'is-selected': isSelected}, {'is-disabled': menu.disabled}]"
              @click.stop="menuClick(menu)">
           <!-- 非叶子节点 -->
-          <ej-tree-contextmenu-item v-if="!isLeaf" :menu="menu">
+          <ej-tree-contextmenu-item v-if="!isLeaf" :menu="menu" :commands="commands" :level="level">
             <div class="ej-tree-contextmenu__children">
               <ej-tree-contextmenu v-for="(item, index) in menu.children"
                                   :key="index"
                                   :menu="item"
-                                  :level="level + 1"></ej-tree-contextmenu>
+                                  :level="level + 1"
+                                  :commands="commands"
+                                  :commandTrigger="commandTrigger"
+                                  @change="onChange"
+                                  @commandTriggerChange="onCommandTriggerChange"></ej-tree-contextmenu>
             </div>
           </ej-tree-contextmenu-item>
 
           <!-- 叶子节点 -->
           <el-dropdown-item v-else :disabled="menu.disabled">
-            <ej-tree-contextmenu-item :menu="menu">
+            <ej-tree-contextmenu-item :menu="menu" :commands="commands" :level="level">
               <div class="ej-tree-contextmenu__children">
                 <ej-tree-contextmenu v-for="(item, index) in menu.children"
                                     :key="index"
                                     :menu="item"
                                     :level="level + 1"
+                                    :commands="commands"
+                                    :commandTrigger="commandTrigger"
+                                    @change="onChange"
+                                    @commandTriggerChange="onCommandTriggerChange"
                                     class="ej-tree-contextmenu__children"></ej-tree-contextmenu>
               </div>
             </ej-tree-contextmenu-item>
@@ -33,9 +41,6 @@
 </template>
 
 <script>
-  import {mapGetters, mapActions} from 'vuex'
-  import store from './store'
-
   import {
     DropdownItem as ElDropdownItem,
   } from 'element-ui'
@@ -43,7 +48,6 @@
   import EjTreeContextmenuItem from './contextmenu-item'
 
   export default {
-    store,
     name: 'EjTreeContextmenu',
     components: {
       ElDropdownItem,
@@ -54,9 +58,17 @@
         type: Object,
         default: () => ({})
       },
+      commands: {
+        type: Array,
+        default: () => []
+      },
+      commandTrigger: {
+        type: Number,
+        default: 0,
+      },
       command: {
         type: Array,
-        default: () => ([])
+        default: () => []
       },
       level: {
         type: Number,
@@ -64,10 +76,6 @@
       },
     },
     computed: {
-      ...mapGetters([
-        'commands',
-        'commandTrigger',
-      ]),
       isSelected () {
         const commands = this.commands || []
         return commands[this.level] === this.menu.command
@@ -82,14 +90,16 @@
       }
     },
     methods: {
-      ...mapActions([
-        'change',
-        'commandTriggerChange',
-      ]),
+      onChange (params) {
+        this.$emit('change', params)
+      },
+      onCommandTriggerChange () {
+          this.$emit('commandTriggerChange', this.commandTrigger + 1)
+      },
       menuClick (menu) {
-        this.change({index: this.level, command: menu.command})
+        this.onChange({index: this.level, command: menu.command})
         if (this.isLeaf) {
-          this.commandTriggerChange(this.commandTrigger + 1)
+          this.$emit('commandTriggerChange', this.commandTrigger + 1)
         }
       },
       observableMenu(item) {

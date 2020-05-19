@@ -10,16 +10,16 @@
 </template>
 
 <script>
-  import {mapGetters, mapActions} from 'vuex'
-  import store from './store'
-
   export default {
-    store,
     name: 'EjTreeContextmenuItem',
     props: {
       menu: {
         type: Object,
         default: () => ({})
+      },
+      commands: {
+        type: Array,
+        default: () => [],
       },
       level: {
         type: Number,
@@ -27,9 +27,6 @@
       },
     },
     computed: {
-      ...mapGetters([
-        'commands',
-      ]),
       isSelected () {
         const commands = this.commands || []
         return commands[this.level] === this.menu.command

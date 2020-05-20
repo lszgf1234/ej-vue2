@@ -66,14 +66,6 @@
         type: Number,
         default: 0,
       },
-      commands: {
-        type: Array,
-        default: () => []
-      },
-      commandTrigger: {
-        type: Number,
-        default: 0,
-      },
       command: {
         type: Array,
         default: () => [],

@@ -160,16 +160,6 @@
       commandTriggerChange (val) {
         this.commandTrigger = val
       },
-      setCurrentNode (node) {
-        this.currentNode = node
-        this.tree.setCurrentNode(node)
-      },
-      getCurrentTreeData () {
-        return this.currentNode
-      },
-      commandTriggerChange (val) {
-        this.commandTrigger = val
-      },
     },
     watch: {
       commandTrigger (newVal) {

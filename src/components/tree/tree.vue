@@ -1,31 +1,18 @@
 <template>
   <el-tree ref="tree"
-<<<<<<< HEAD
            :class="[ 'ej-tree', `${collapseIcon}`, { 'line': showLine } ]"
            :data="data"
            :props="{ label: 'label', children: 'children' }"
-=======
-           :class="['ej-tree', `${collapseIcon}`, {'line': showLine}]"
-           :data="data"
-           :props="{label: 'label', children: 'children'}"
->>>>>>> a1f49c9cae9dc1a7e8467ab7e752c0eb0cb07a9d
            :default-expand-all="defaultExpandAll"
            :filter-node-method="onFilteronNode"
            :expand-on-click-node="expandOnClickNode"
            :default-expanded-keys="defaultExpandedIds"
            node-key="id"
            @node-click="onNodeClick">
-<<<<<<< HEAD
     <template #default="{ node, data }">
       <div :class="[ 'el-tree-node', { 'is-leaf': node.isLeaf } ]">
         <!-- {{node.isLeaf}}{{node.expanded}} -->
         <i v-if="data.iconClass" :class="[ 'el-tree-node__icon', data.iconClass ]"></i>
-=======
-    <template #default="{node, data}">
-      <div :class="['el-tree-node', {'is-leaf': node.isLeaf}]">
-        <!-- {{node.isLeaf}}{{node.expanded}} -->
-        <i v-if="data.iconClass" :class="['el-tree-node__icon', data.iconClass]"></i>
->>>>>>> a1f49c9cae9dc1a7e8467ab7e752c0eb0cb07a9d
         <div class="el-tree-node__label">
           <slot :node="node" :data="data">{{ data.label }}</slot>
         </div>
@@ -34,11 +21,7 @@
           <el-dropdown v-if="showContextmenu"
                        trigger="click"
                        class="tree-dropdown">
-<<<<<<< HEAD
             <div :class="['more-icon', { 'is-selected': dropMenuItem.id === data.id }]"
-=======
-            <div :class="['more-icon', {'is-selected': dropMenuItem.id === data.id}]"
->>>>>>> a1f49c9cae9dc1a7e8467ab7e752c0eb0cb07a9d
                  @click.stop="handleMoreClick(data)"/>
             <el-dropdown-menu slot="dropdown" ref="dropdown">
               <ej-tree-contextmenu v-for="(item, index) in contextmenu"

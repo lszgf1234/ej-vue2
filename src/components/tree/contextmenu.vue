@@ -94,11 +94,7 @@
         this.$emit('change', params)
       },
       onCommandTriggerChange () {
-<<<<<<< HEAD
         this.$emit('commandTriggerChange', this.commandTrigger + 1)
-=======
-          this.$emit('commandTriggerChange', this.commandTrigger + 1)
->>>>>>> a1f49c9cae9dc1a7e8467ab7e752c0eb0cb07a9d
       },
       menuClick (menu) {
         this.onChange({index: this.level, command: menu.command})

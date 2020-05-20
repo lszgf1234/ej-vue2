@@ -237,7 +237,6 @@
           }
         }
 
-
         &.is-leaf {
           @apply relative;
 

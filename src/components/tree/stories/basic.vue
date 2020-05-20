@@ -55,7 +55,6 @@
   }
 </script>
 
-
 <style lang="scss">
   .ej-tree {
     .folder,

@@ -102,7 +102,7 @@
           this.$emit('commandTriggerChange', this.commandTrigger + 1)
         }
       },
-      observableMenu(item) {
+      observableMenu (item) {
         if (item.disabled === undefined) {
           this.$set(item, 'disabled', false)
         }
@@ -133,7 +133,6 @@
       &:not(.is-disabled),
       & > .el-dropdown-menu__item:focus,
       & > .el-dropdown-menu__item:not(.is-disabled) {
-
 
         &:hover {
           @apply text-gray-darkest;

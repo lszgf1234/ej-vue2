@@ -12,6 +12,8 @@
 | `options` | Array | [] | 选项列表数据(树形结构的对象数组) |
 | `clearable` | Boolean | false | 是否可以清空选项，默认不可清空 |
 | `accordion` | Boolean | false | 是否每次只打开一个同级树节点展开 |
+| `multiple` | Boolean | false | 是否启用多选 |
+| `collapse-tags` | Boolean | false | 多选时是否将选中值按文字的形式展示 |
 
 ### options
 
@@ -33,5 +35,5 @@
 
 | 事件名称 | 说明 | 回调参数 |
 |---|---|---|
-| `getValue` | 选中/修改值事件触发 | 选中/修改时，返回选中的对象 |
+| `getValue` | 选中/修改值事件触发 | 选中/修改时，返回选中的对象/数组 |
 

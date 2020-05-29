@@ -5,12 +5,16 @@
       popper-class="ej-select-tree-dropdown"
       :value="valueTitle"
       :placeholder="placeholder"
+      filterable
+      :multiple="multiple"
+      :collapse-tags="multiple"
+      :filter-method="filterMethod"
       :clearable="clearable"
       @clear="clearHandle"
       class="select-tree">
       <el-option
         :value="valueId"
-        :label="valueTitle"
+        :label="multiple ? null : valueTitle"
         class="selectTree">
         <el-tree
           id="ej-select-tree-option"
@@ -19,8 +23,11 @@
           :data="options"
           :props="props"
           :node-key="props.value"
+          :show-checkbox="multiple"
           :default-expanded-keys="defaultExpandedKey"
           :expand-on-click-node="false"
+          :filter-node-method="filterNode"
+          @check-change="handleCheckChange"
           @node-click="handleNodeClick">
         </el-tree>
       </el-option>
@@ -31,7 +38,7 @@
 <script>
   import {Select, Option, Tree} from 'element-ui'
   export default {
-    name: 'EjSelectTree',
+    name: 'EjSelectTreeSingleMultiple',
 
     components: {
       [Select.name]: Select,
@@ -54,10 +61,15 @@
         type: Array,
         default: () => [],
       },
+      /* 多选 */
+      multiple: {
+        type: Boolean,
+        default: false,
+      },
       /* 初始值 */
       value: {
-        type: String,
-        default: null,
+        type: Array,
+        default: () => [],
       },
       placeholder: {
         type: String,
@@ -71,37 +83,57 @@
       /* 自动收起 */
       accordion: {
         type: Boolean,
-        default: true,
+        default: false,
       },
     },
 
     data () {
       return {
-        valueId: null,
-        valueTitle: '',
+        valueId: this.multiple ? [] : '',
+        valueTitle: this.multiple ? [] : '',
         defaultExpandedKey: [],
+        filterText: '',
       }
     },
 
     watch: {
-      value () {
-        this.valueId = this.value
+      value (val) {
+        if (this.multiple) {
+          this.valueId = this.arrUnique(this.value)
+        } else {
+          this.valueId = this.value[0]
+        }
         this.initHandle()
       },
+      filterText(val) {
+        this.$refs.ejSelectOptionTree.filter(val);
+      }
     },
 
     mounted () {
-      this.valueId = this.value // 初始值
+      this.valueId = this.multiple ? this.value : this.value[0] // 初始值
       this.initHandle()
     },
 
     methods: {
       // 初始化值
       initHandle () {
-        if (this.valueId) {
-          this.valueTitle = this.$refs.ejSelectOptionTree.getNode(this.valueId).data[this.props.label] // 初始化显示
-          this.$refs.ejSelectOptionTree.setCurrentKey(this.valueId) // 设置默认选中
-          this.defaultExpandedKey = [this.valueId] // 设置默认展开
+        if (this.multiple) {
+          if (this.valueId.length > 0) {
+            this.valueTitle = []
+            this.valueId.forEach(item => {
+              let curTitle = this.$refs.ejSelectOptionTree.getNode(item).data[this.props.label] // 初始化显示
+              this.valueTitle.push(curTitle)
+            })
+            this.$refs.ejSelectOptionTree.setCheckedKeys(this.valueId) // 设置默认选中
+            this.defaultExpandedKey = this.valueId// 设置默认展开
+          }
+        } else {
+          if (this.valueId) {
+            this.valueTitle = this.$refs.ejSelectOptionTree.getNode(this.valueId).data[this.props.label] // 初始化显示
+            this.$refs.ejSelectOptionTree.setCurrentKey(this.valueId) // 设置默认选中
+            this.defaultExpandedKey = [this.valueId] // 设置默认展开
+          }
         }
         this.initScroll()
       },
@@ -116,25 +148,63 @@
           })
         })
       },
-      handleNodeClick (node) {
-        this.valueTitle = node[this.props.label]
-        this.valueId = node[this.props.value]
-        this.$emit('getValue', node)
-        this.defaultExpandedKey = []
-        this.$refs.ejSelect.handleClose() // 选中节点后收缩下拉框
-      },
       // 清除选中
       clearHandle () {
-        this.valueTitle = ''
-        this.valueId = null
+        this.valueTitle = this.multiple ? [] : ''
+        this.valueId = this.multiple ? [] : ''
         this.defaultExpandedKey = []
+        this.$refs.ejSelectOptionTree.setCheckedKeys([])
         this.clearSelected()
-        this.$emit('getValue', null)
+        this.$emit('getValue', this.multiple ? [] : '')
       },
       /* 清空选中样式 */
       clearSelected () {
         let allNode = document.querySelectorAll('#ej-select-tree-option .el-tree-node')
         allNode.forEach((element) => element.classList.remove('is-current'))
+      },
+      // 搜索
+      filterMethod (val) {
+        this.filterText = val
+      },
+      // 过滤查找树节点
+      filterNode (value, data) {
+        if (!value) return true
+        return data[this.props.label].indexOf(value) !== -1
+      },
+      // 树复选框-多选事件
+      handleCheckChange (data, checked, indeterminate) {
+        // 获取半选中父节点、子节点：合并
+        console.log(555)
+        let curSNodes = this.$refs.ejSelectOptionTree.getCheckedNodes()
+        this.valueTitle = []
+        curSNodes.forEach(item => {
+          let curTitle = this.$refs.ejSelectOptionTree.getNode(item).data[this.props.label] // 初始化显示
+          let curID = this.$refs.ejSelectOptionTree.getNode(item).data[this.props.value]
+          this.valueTitle.push(curTitle)
+          this.valueId.push(curID)
+        })
+        this.$emit('getValue', curSNodes)
+        // this.$refs.ejSelect.handleClose()
+      },
+      // 树单选事件
+      handleNodeClick (node) {
+        if (!this.multiple) {
+          this.valueTitle = node[this.props.label]
+          this.valueId = node[this.props.value]
+          this.$emit('getValue', node)
+          this.defaultExpandedKey = []
+          this.$refs.ejSelect.handleClose() // 选中后，收缩树形下拉框组件
+        }
+      },
+      // 数组去重
+      arrUnique (arr) {
+        var newArr = []
+        for (let i = 0; i < arr.length; i++) {
+          if (newArr.indexOf(arr[i]) === -1) {
+            newArr.push(arr[i])
+          }
+        }
+        return newArr
       },
     },
   }

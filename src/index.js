@@ -24,6 +24,7 @@ import SearchOptionRadio from './components/search-options/radio'
 import UserCard from './components/user-card'
 import TabbedWorkspace from './components/tabbed-workspace'
 import SelectTree from './components/select-tree'
+import SelectTreeSingleMultiple from './components/select-tree-single-multiple'
 import EjPagination from './components/pagination'
 import Tree from './components/tree'
 
@@ -61,6 +62,7 @@ export {
   UserCard,
   TabbedWorkspace,
   SelectTree,
+  SelectTreeSingleMultiple,
   EjPagination,
   Tree,
 
@@ -89,6 +91,8 @@ export default {
     Vue.use(Highlight)
     Vue.use(SearchInput)
     Vue.use(SearchList)
+    Vue.use(SelectTree)
+    Vue.use(SelectTreeSingleMultiple)
     Vue.use(SearchSelect)
     Vue.use(SearchOptions)
     Vue.use(UserCard)

@@ -1,6 +1,6 @@
 <template>
   <div :class="['collapses-toggle__btn', currentCollapse ? 'menu-expand' : 'menu-packup']" @click="handleToggle">
-    <ej-icon :icon="currentCollapse ? 'menu-expand' : 'menu-packup'" class="blue-color"/>
+    <ej-icon :icon="currentCollapse ? 'menu-expand' : 'menu-packup'"/>
   </div>
 </template>
 
@@ -38,18 +38,24 @@
 
 <style lang="scss">
   $menu-layout--blue: #0C64EB;
+  $menu-layout--gray-darker: #262626;
 
   .collapses-toggle__btn {
     @apply absolute cursor-pointer;
 
     border-radius: 4px;
-    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.2);
     top: 0;
-    right: -25px;
+    right: -20px;
     z-index: 2;
 
     .blue-color {
       color: $menu-layout--blue;
+    }
+
+    .ej-icon {
+      width: 18px;
+      height: 15px;
+      color: $menu-layout--gray-darker;
     }
   }
 </style>

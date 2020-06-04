@@ -48,6 +48,22 @@
   $menu-layout--white: #fff;
   $menu-layout--size-18: 18px;
 
+  // 滚动条
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 13px;
+    background-color: #D8D8D8;
+  }
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+
   @mixin ej-nav-menu__vertical--font-class ($active-bg-color:$menu-layout--blue, $active-font-color:$menu-layout--white) {
     @apply font-medium;
     font-size: $menu-layout--size-18;
@@ -77,12 +93,18 @@
   }
 
   .ej-nav-submenu__vertical-popper {
+    max-height: 600px;
+    overflow: hidden auto;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
     .el-menu--popup {
       .el-menu-item {
         @include ej-nav-menu__vertical--font-class($menu-layout--blue-lighter, $menu-layout--blue);
 
         height: 40px;
         line-height: 40px;
+      }
+      &-right-start {
+        margin-right: 0;
       }
     }
   }

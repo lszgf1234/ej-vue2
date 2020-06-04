@@ -104,9 +104,6 @@
 
       padding-top: 26px;
       box-shadow: 6px 0px 16px -8px rgba(0,0,0,0.2);
-      &:not(.el-menu--collapse) {
-        width: 300px;
-      }
 
       .el {
         &-submenu__title, &-menu-item {
@@ -145,6 +142,15 @@
             li {
               padding-left: 64px !important;
             }
+          }
+        }
+      }
+
+      &:not(.el-menu--collapse) {
+        width: 300px;
+        .el {
+          &-menu-item {
+            @apply truncate;
           }
         }
       }

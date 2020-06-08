@@ -3,19 +3,17 @@
     <el-select
       ref="ejSelect"
       popper-class="ej-select-tree-dropdown"
-      :value="valueTitle"
+      :value="model"
       :placeholder="placeholder"
       filterable
       :multiple="multiple"
       :collapse-tags="multiple"
       :filter-method="filterMethod"
       :clearable="clearable"
+      @remove-tag="remove"
       @clear="clearHandle"
       class="select-tree">
-      <el-option
-        :value="valueId"
-        :label="multiple ? null : valueTitle"
-        class="selectTree">
+      <el-option :value="model" class="selectTree">
         <el-tree
           id="ej-select-tree-option"
           ref="ejSelectOptionTree"
@@ -31,6 +29,14 @@
           @node-click="handleNodeClick">
         </el-tree>
       </el-option>
+      <!-- 隐藏option，用于回显 -->
+      <el-option
+        v-for="item in hiddenLabels"
+        :key="item.value"
+        :value="item.value"
+        :label="item.label"
+        class="hidden"
+      />
     </el-select>
   </div>
 </template>
@@ -68,7 +74,7 @@
       },
       /* 初始值 */
       value: {
-        type: Array,
+        type: [Array, String],
         default: () => [],
       },
       placeholder: {
@@ -89,78 +95,108 @@
 
     data () {
       return {
-        valueId: this.multiple ? [] : '',
-        valueTitle: this.multiple ? [] : '',
         defaultExpandedKey: [],
         filterText: '',
+        hiddenLabels: [],
       }
+    },
+
+    computed: {
+      // 双向绑定value
+      model: {
+        get () {
+          return this.value
+        },
+        set (val) {
+          this.$emit('input', this.multiple ? this.arrUnique(val) : val)
+        },
+      },
     },
 
     watch: {
-      value (val) {
-        if (this.multiple) {
-          this.valueId = this.arrUnique(this.value)
-        } else {
-          this.valueId = this.value[0]
-        }
-        this.initHandle()
+      filterText (val) {
+        this.$refs.ejSelectOptionTree.filter(val)
       },
-      filterText(val) {
-        this.$refs.ejSelectOptionTree.filter(val);
-      }
-    },
-
-    mounted () {
-      this.valueId = this.multiple ? this.value : this.value[0] // 初始值
-      this.initHandle()
+      model: {
+        immediate: true,
+        handler (newVal) {
+          this.setInit()
+        },
+      },
     },
 
     methods: {
-      // 初始化值
-      initHandle () {
-        if (this.multiple) {
-          if (this.valueId.length > 0) {
-            this.valueTitle = []
-            this.valueId.forEach(item => {
-              let curTitle = this.$refs.ejSelectOptionTree.getNode(item).data[this.props.label] // 初始化显示
-              this.valueTitle.push(curTitle)
-            })
-            this.$refs.ejSelectOptionTree.setCheckedKeys(this.valueId) // 设置默认选中
-            this.defaultExpandedKey = this.valueId// 设置默认展开
-          }
-        } else {
-          if (this.valueId) {
-            this.valueTitle = this.$refs.ejSelectOptionTree.getNode(this.valueId).data[this.props.label] // 初始化显示
-            this.$refs.ejSelectOptionTree.setCurrentKey(this.valueId) // 设置默认选中
-            this.defaultExpandedKey = [this.valueId] // 设置默认展开
-          }
-        }
-        this.initScroll()
-      },
-      // 初始化滚动条
-      initScroll () {
-        this.$nextTick(() => {
-          let scrollWrap = document.querySelectorAll('.ej-select-tree-dropdown .el-scrollbar .el-select-dropdown__wrap')[0]
-          let scrollBar = document.querySelectorAll('.ej-select-tree-dropdown .el-scrollbar .el-scrollbar__bar')
-          scrollWrap.style.cssText = 'margin: 0px; max-height: none; overflow: hidden;'
-          scrollBar.forEach(ele => {
-            ele.style.width = 0
+      setInit () {
+        const values = this.model
+        // 清空
+        if (!values || !values.length) {
+          this.hiddenLabels = []
+          this.defaultExpandedKey = []
+          this.$nextTick(() => {
+            this.$refs.ejSelectOptionTree.setCheckedKeys([])
+            this.$refs.ejSelectOptionTree.setCurrentKey(null)
+            // setCheckedKeys(null)
           })
+          return
+        }
+
+        // 设置关联值
+        this.$nextTick(() => {
+          const treeEl = this.$refs.ejSelectOptionTree
+          if (treeEl) {
+            // 多选
+            if (this.multiple) {
+              // 设置选中项
+              treeEl.setCheckedKeys(values)
+              // 设置展开项
+              this.defaultExpandedKey = [...values]
+              this.hiddenLabels = values.map(id => {
+                const label = treeEl.getNode(id).data[this.props.label] 
+                return {
+                  value: id,
+                  label,
+                }
+              })
+            } else {
+              // 单选
+              treeEl.setCurrentKey(values)
+              // 设置展开项
+              this.defaultExpandedKey = [values]
+              this.hiddenLabels = [
+                {
+                  value: values,
+                  label: treeEl.getNode(values).data[this.props.label],
+                },
+              ]
+            }
+          }
         })
       },
+
+      remove (id) {
+        const removeIndex = this.model.findIndex(item => item === id)
+        if (removeIndex !== -1) {
+          this.model.splice(removeIndex, 1)
+        }
+      },
+
+      // // 初始化滚动条
+      // initScroll () {
+      //   this.$nextTick(() => {
+      //     let scrollWrap = document.querySelectorAll('.ej-select-tree-dropdown .el-scrollbar .el-select-dropdown__wrap')[0]
+      //     let scrollBar = document.querySelectorAll('.ej-select-tree-dropdown .el-scrollbar .el-scrollbar__bar')
+      //     scrollWrap.style.cssText = 'margin: 0px; max-height: none; overflow: hidden;'
+      //     scrollBar.forEach(ele => {
+      //       ele.style.width = 0
+      //     })
+      //   })
+      // },
+
       // 清除选中
       clearHandle () {
-        this.valueTitle = this.multiple ? [] : ''
-        this.valueId = this.multiple ? [] : ''
-        this.defaultExpandedKey = []
-        this.$refs.ejSelectOptionTree.setCheckedKeys([])
-        this.clearSelected()
-        this.$emit('getValue', this.multiple ? [] : '')
-      },
-      /* 清空选中样式 */
-      clearSelected () {
-        let allNode = document.querySelectorAll('#ej-select-tree-option .el-tree-node')
-        allNode.forEach((element) => element.classList.remove('is-current'))
+        this.model = this.multiple ? [] : ''
+        this.$emit('getValue', this.model)
+        this.filterText = ''
       },
       // 搜索
       filterMethod (val) {
@@ -174,25 +210,16 @@
       // 树复选框-多选事件
       handleCheckChange (data, checked, indeterminate) {
         // 获取半选中父节点、子节点：合并
-        console.log(555)
-        let curSNodes = this.$refs.ejSelectOptionTree.getCheckedNodes()
-        this.valueTitle = []
-        curSNodes.forEach(item => {
-          let curTitle = this.$refs.ejSelectOptionTree.getNode(item).data[this.props.label] // 初始化显示
-          let curID = this.$refs.ejSelectOptionTree.getNode(item).data[this.props.value]
-          this.valueTitle.push(curTitle)
-          this.valueId.push(curID)
-        })
-        this.$emit('getValue', curSNodes)
-        // this.$refs.ejSelect.handleClose()
+        const curNodes = this.$refs.ejSelectOptionTree.getCheckedNodes(true)
+        this.model = curNodes.map(item => item[this.props.value])
+        this.$emit('getValue', curNodes)
+        this.$refs.ejSelect.handleClose()
       },
       // 树单选事件
-      handleNodeClick (node) {
+      handleNodeClick (data) {
         if (!this.multiple) {
-          this.valueTitle = node[this.props.label]
-          this.valueId = node[this.props.value]
-          this.$emit('getValue', node)
-          this.defaultExpandedKey = []
+          this.model = data[this.props.value]
+          this.$emit('getValue', data)
           this.$refs.ejSelect.handleClose() // 选中后，收缩树形下拉框组件
         }
       },

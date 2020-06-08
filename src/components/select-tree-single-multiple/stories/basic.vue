@@ -1,11 +1,12 @@
 <template>
   <div style="width: 800px; margin: 50px auto;">
     <ej-select-tree-single-multiple
-      v-model="selOrganizationId"
+      v-model="selOrganizationIds"
       :placeholder="placeholder"
       :props="sTProps"
       :options="sTData"
       :clearable="isClearable"
+      multiple
       @getValue="getValue"/>
   </div>
 </template>
@@ -19,7 +20,7 @@
     },
     data () {
       return {
-        selOrganizationId: ['207895470398376879'], // 单选选中值
+        selOrganizationId: '207895470398376879', // 单选选中值
         selOrganizationIds: ['203521973110837248', '220234370525564928', '185033672389431296'], // 复选选中值
         placeholder: '请选择机构名称',
         sTData: MockList,

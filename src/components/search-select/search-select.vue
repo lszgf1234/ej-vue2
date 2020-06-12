@@ -27,7 +27,7 @@
       @apply w-auto p-0 bg-white overflow-hidden;
 
       width: 145px;
-      border-radius: 20px 0 0 20px;
+      border-radius: 4px 0 0 4px;
       transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 
       &:hover {

@@ -62,7 +62,7 @@
 <style lang="scss">
   .ej-search-input {
     & > .el-input__inner {
-      border-radius: 20px;
+      border-radius: 4px;
       height: inherit;
 
       &:hover {

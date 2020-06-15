@@ -95,7 +95,7 @@
         padding-right: 2em;
         font-size: 14px;
         border: none;
-        border-radius: 9px;
+        border-radius: 4px;
         margin-right: 10px;
         overflow: hidden;
         text-overflow: ellipsis;

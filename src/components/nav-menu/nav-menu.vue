@@ -43,10 +43,14 @@
             _mode ?
             <ElMenu {...{...data, ...props}}>{children}</ElMenu>
             :
-            <ElMenu {...{...data, ...props}}>
-              <div v-show={_collapse && _toggleButton}>{collapsesComp}</div>
-              {children}
-            </ElMenu>
+            <div class="ej-nav-menu__vertical--wapper">
+              <div>
+                <ElMenu {...{...data, ...props}}>
+                  {children}
+                </ElMenu>
+              </div>
+              <div class="collapse--wapper" vShow={_collapse && _toggleButton}>{collapsesComp}</div>
+            </div>
       )
     },
   }
@@ -64,8 +68,8 @@
   $menu-layout--size-18: 18px;
 
   @mixin ej-nav-menu__vertical--padding-class {
-    padding-left: 24px !important;
-    padding-right: 24px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
     i:first-child {
       padding-right: 16px !important;
     }
@@ -100,8 +104,9 @@
 
   .ej-nav-menu {
     &__vertical {
-      @apply z-10 relative;
+      @apply z-10 relative h-full overflow-y-auto overflow-x-hidden;
 
+      border-right: none;
       padding-top: 26px;
       box-shadow: 6px 0px 16px -8px rgba(0,0,0,0.2);
 
@@ -147,7 +152,7 @@
       }
 
       &:not(.el-menu--collapse) {
-        width: 300px;
+        width: 306px;
         .el {
           &-menu-item {
             @apply truncate;
@@ -156,7 +161,7 @@
       }
 
       &.el-menu--collapse {
-        width: 78px;
+        width: 60px;
         .el {
           &-submenu {
             &.is-active {
@@ -182,6 +187,20 @@
       }
     }
 
+    &__vertical--wapper {
+      @apply h-full flex overflow-y-auto overflow-x-hidden flex-col justify-between z-50;
+      max-width: 300px;
+      border-right: 1px solid #e4e4e4;
+
+      & > div {
+        @apply overflow-hidden h-full;
+      }
+
+      .collapse--wapper {
+        @apply bg-white;
+        height: 70px;
+      }
+    }
     &.el-menu {
       background: #1F2E4D;
 
@@ -239,6 +258,20 @@
 
     @at-root .ej-app-logo + & {
       margin-left: 172px;
+    }
+  }
+
+  .el-tooltip__popper {
+    &.is-dark {
+      background-color: $menu-layout--white;
+      color: $menu-layout--gray-darker;
+      box-shadow: -1px 1px 3px 1px rgba(0, 0, 0, 0.1), 1px 1px 3px 1px rgba(0, 0, 0, 0.1);
+    }
+
+    .popper__arrow,
+    .popper__arrow::after {
+      color: $menu-layout--white !important;
+      border-right-color: $menu-layout--white !important;
     }
   }
 </style>

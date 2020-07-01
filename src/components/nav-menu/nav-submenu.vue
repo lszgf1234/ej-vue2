@@ -92,19 +92,27 @@
     }
   }
 
-  .ej-nav-submenu__vertical-popper {
-    max-height: 600px;
-    overflow: hidden auto;
-    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
-    .el-menu--popup {
-      .el-menu-item {
-        @include ej-nav-menu__vertical--font-class($menu-layout--blue-lighter, $menu-layout--blue);
+  .ej-nav-submenu__vertical {
+    &-popper {
+      max-height: 600px;
+      overflow: hidden auto;
+      box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+      .el-menu--popup {
+        .el-menu-item {
+          @include ej-nav-menu__vertical--font-class($menu-layout--blue-lighter, $menu-layout--blue);
 
-        height: 40px;
-        line-height: 40px;
+          height: 40px;
+          line-height: 40px;
+        }
+        &-right-start {
+          margin-right: 0;
+        }
       }
-      &-right-start {
-        margin-right: 0;
+    }
+    &.is-opened {
+      > .el-menu--inline {
+        @apply overflow-hidden overflow-y-auto;
+        max-height: 300px;
       }
     }
   }

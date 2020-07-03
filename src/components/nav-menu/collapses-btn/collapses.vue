@@ -1,6 +1,9 @@
 <template>
-  <div :class="['collapses-toggle__btn', currentCollapse ? 'menu-expand' : 'menu-packup']" @click="handleToggle">
-    <ej-icon :icon="currentCollapse ? 'menu-expand' : 'menu-packup'"/>
+  <div :class="['collapses-toggle__btn', currentCollapse ? 'w-60 b-r-0' : 'w-300 b-r-1']" @click="handleToggle">
+    <div class="wapper">
+      <ej-icon :icon="currentCollapse ? 'double-right' : 'double-left'"/>
+      <span v-if="!currentCollapse">收起侧边栏</span>
+    </div>
   </div>
 </template>
 
@@ -38,24 +41,43 @@
 
 <style lang="scss">
   $menu-layout--blue: #0C64EB;
+  $menu-layout--gray-dark: #525252;
   $menu-layout--gray-darker: #262626;
+  $menu-layout--gray-light: #909399;
+  $menu-layout--gray-lighter: #e6e6e6;
 
   .collapses-toggle__btn {
-    @apply absolute cursor-pointer;
+    @apply p-5 bg-white absolute bottom-0 overflow-hidden z-50 cursor-pointer;
 
-    border-radius: 4px;
-    top: 0;
-    right: -20px;
-    z-index: 2;
+    box-shadow: 0 -3px 8px 0 rgba(0, 0, 0, 0.05);
+    transition: .3s ease-in-out;
 
-    .blue-color {
-      color: $menu-layout--blue;
+    &.w-60 {
+      width: 60px;
+    }
+    &.w-300 {
+      width: 300px;
+    }
+    &.b-r-0 {
+      border-right-color: transparent;
+    }
+    &.b-r-1 {
+      border-right: solid 1px $menu-layout--gray-lighter;
+    }
+
+    .wapper {
+      @apply flex;
+      min-width: 200px;
     }
 
     .ej-icon {
-      width: 18px;
-      height: 15px;
       color: $menu-layout--gray-darker;
+      width: 14px;
+    }
+
+    span {
+      @apply text-lg ml-2;
+      color: $menu-layout--gray-dark;
     }
   }
 </style>

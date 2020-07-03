@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex flex-col">
     <ej-nav-menu  mode="vertical"
                   :toggle-button="true"
                   :collapse="collapse"
@@ -26,7 +26,7 @@
       </ej-nav-submenu>
     </ej-nav-menu>
 
-    <div class="w-20 border border-yellow border-solid text-center mt-10 cursor-pointer" @click="collapse = !collapse">收缩菜单</div>
+    <!-- <div class="w-20 border border-yellow border-solid text-center mt-10 cursor-pointer" @click="collapse = !collapse">收缩菜单</div> -->
   </div>
 </template>
 

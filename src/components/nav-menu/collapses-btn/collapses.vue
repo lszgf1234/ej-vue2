@@ -1,7 +1,7 @@
 <template>
   <div :class="['collapses-toggle__btn', currentCollapse ? 'w-60 b-r-0' : 'w-300 b-r-1']" @click="handleToggle">
     <div class="wapper">
-      <ej-icon :icon="currentCollapse ? 'double-left' : 'double-right'"/>
+      <ej-icon :icon="currentCollapse ? 'double-right' : 'double-left'"/>
       <span v-if="!currentCollapse">收起侧边栏</span>
     </div>
   </div>

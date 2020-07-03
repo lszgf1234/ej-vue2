@@ -109,10 +109,13 @@
         }
       }
     }
+    > .el-menu--inline {
+      max-height: 300px;
+    }
+
     &.is-opened {
       > .el-menu--inline {
         @apply overflow-hidden overflow-y-auto;
-        max-height: 300px;
       }
     }
   }

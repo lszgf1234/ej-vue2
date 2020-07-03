@@ -152,7 +152,7 @@
       }
 
       &:not(.el-menu--collapse) {
-        width: 306px;
+        width: 305px;
         .el {
           &-menu-item {
             @apply truncate;

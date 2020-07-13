@@ -26,6 +26,7 @@ import TabbedWorkspace from './components/tabbed-workspace'
 import SelectTree from './components/select-tree'
 import EjPagination from './components/pagination'
 import Tree from './components/tree'
+import Split from './components/split'
 
 import NavMenu from './components/nav-menu'
 import NavSubmenu from './components/nav-submenu'
@@ -33,6 +34,7 @@ import NavSubmenu from './components/nav-submenu'
 import Loading from './directives/loading'
 import Scrollbar from './directives/scrollbar'
 import PopoverSet from './components/popover-set'
+
 
 export {
   AppHeader,
@@ -63,6 +65,7 @@ export {
   SelectTree,
   EjPagination,
   Tree,
+  Split,
 
   NavMenu,
   NavSubmenu,
@@ -94,6 +97,7 @@ export default {
     Vue.use(UserCard)
     Vue.use(EjPagination)
     Vue.use(Tree)
+    Vue.use(Split)
 
     Vue.use(NavMenu)
     Vue.use(NavSubmenu)

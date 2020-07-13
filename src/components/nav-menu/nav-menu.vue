@@ -106,7 +106,7 @@
     &__vertical {
       @apply z-10 relative h-full overflow-y-auto overflow-x-hidden;
 
-      border-right: none;
+      border-right: none !important;
       padding-top: 26px;
       box-shadow: 6px 0px 16px -8px rgba(0,0,0,0.2);
 

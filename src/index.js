@@ -97,6 +97,7 @@ export default {
     Vue.use(UserCard)
     Vue.use(EjPagination)
     Vue.use(Tree)
+    Vue.use(Split)
 
     Vue.use(NavMenu)
     Vue.use(NavSubmenu)

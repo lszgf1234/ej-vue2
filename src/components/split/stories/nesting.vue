@@ -1,6 +1,6 @@
 <template>
   <ej-split 
-    v-model="splitRate" 
+    :split="splitRate" 
     mode="horizontal" 
     :min="100" 
     :max="200" 
@@ -13,7 +13,7 @@
     </template>
 
     <template #right>
-      <ej-split v-model="splitRate" mode="vertical">
+      <ej-split :split="splitRate" mode="vertical">
 
         <template #left>
           <div>222</div>

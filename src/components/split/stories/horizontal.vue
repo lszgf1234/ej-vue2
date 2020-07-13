@@ -1,5 +1,5 @@
 <template>
-  <ej-split v-model="splitRate" mode="horizontal">
+  <ej-split :split="splitRate" mode="horizontal">
 
     <template #left>
       <div>111</div>

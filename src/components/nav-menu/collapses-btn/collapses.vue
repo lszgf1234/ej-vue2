@@ -47,9 +47,10 @@
   $menu-layout--gray-lighter: #e6e6e6;
 
   .collapses-toggle__btn {
-    @apply p-5 bg-white absolute bottom-0 overflow-hidden z-50 cursor-pointer;
+    // absolute bottom-0
+    @apply p-5 bg-white overflow-hidden z-50 cursor-pointer;
 
-    box-shadow: 0 -3px 8px 0 rgba(0, 0, 0, 0.05);
+    // box-shadow: 0 -3px 8px 0 rgba(0, 0, 0, 0.05);
     transition: .3s ease-in-out;
 
     &.w-60 {

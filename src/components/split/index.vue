@@ -43,6 +43,11 @@
         default: () => 'horizontal'
       },
 
+      split: {
+        type: String | Number,
+        default: () => 0.5,
+      },
+
       min: {
         type: Number,
         default: () => 50,
@@ -56,7 +61,7 @@
 
     data() {
       return {
-        split: null,
+        splitTrans: this.split,
       }
     },
 
@@ -65,13 +70,13 @@
         const mode = this.mode
 
         // 转义split
-        let split = this.split
-        split = typeof split === 'number' ? `${split * 100}%` : split
+        let splitTrans = this.splitTrans
+        splitTrans = typeof splitTrans === 'number' ? `${splitTrans * 100}%` : splitTrans
         
         let sty = mode === 'vertical' ? {
-          height: split
+          height: splitTrans
         } : {
-          width: split
+          width: splitTrans
         }
 
         return sty
@@ -115,14 +120,10 @@
         // 判断边距
         if(newPosX > offsetWidth - max || newPosY > offsetHeight - max || newPosX < min || newPosY < min) return
         
-        this.split = `${mode === 'vertical' ? newPosY : newPosX}px`
+        this.splitTrans = `${mode === 'vertical' ? newPosY : newPosX}px`
         this.$emit('moving', ev)
       },
 
-    },
-
-    created() {
-      this.split = this.$attrs.value || 0.5
     },
   }
 </script>

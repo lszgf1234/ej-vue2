@@ -5,7 +5,7 @@
            @node-click="onHandleNodeClick"
            @more-click="onHandleMoreClick"
            @command="onHandleCommand"
-           style="width: 50%;" />
+           style="width: 80%;"/>
 </template>
 
 <script>

@@ -1,26 +1,12 @@
 <template>
   <el-tree ref="tree"
-           :class="[ 'ej-tree', `${collapseIcon}`, { 'line': showLine }, {'checkbox': showCheckbox} ]"
-           :data="data"
-           :show-checkbox="showCheckbox"
-           :check-strictly="checkStrictly"
-           :draggable="draggable"
+           :class="[ 'ej-tree', `${collapseIcon}`, { 'line': treeAttrs['show-line'] === '' }, {'checkbox': treeAttrs['show-checkbox'] === ''} ]"
            :props="{ label: 'label', children: 'children' }"
-           :default-expand-all="defaultExpandAll"
-           :filter-node-method="onFilteronNode"
            :expand-on-click-node="expandOnClickNode"
            :default-expanded-keys="defaultExpandedIds"
-           :allow-drop="allowDrop"
-           :allow-drag="allowDrag"
-           @node-drag-start="handleDragStart"
-           @node-drag-enter="handleDragEnter"
-           @node-drag-leave="handleDragLeave"
-           @node-drag-over="handleDragOver"
-           @node-drag-end="handleDragEnd"
-           @node-drop="handleDrop"
            node-key="id"
-           @node-click="onNodeClick"
-           @check-change="onHandleCheckChange">
+           v-bind="treeAttrs"
+           v-on="treeListeners">
     <template #default="{ node, data }">
       <div :class="[ 'el-tree-node el-tree-menu', { 'is-leaf': node.isLeaf } ]">
         <!-- {{node.isLeaf}}{{node.expanded}} -->
@@ -79,8 +65,6 @@
   export default {
     name: 'EjTree',
 
-    inheritAttrs: false,
-
     components: {
       ElTree,
       ElDropdown,
@@ -97,18 +81,6 @@
         type: String,
         default: 'caret',
       },
-
-      // 数据源
-      data: {
-        type: Array,
-        default: () => ({}),
-      },
-
-      // 过滤方法
-      filter: Function,
-
-      // 是否默认展开所有节点
-      defaultExpandAll: Boolean,
 
       // 默认展开的节点的 id 的数组
       defaultExpandedIds: {
@@ -127,19 +99,6 @@
         type: Array,
         default: () => ([]),
       },
-
-      // 是否显示折叠线
-      showLine: Boolean,
-
-      // 是否显示checkbox
-      showCheckbox: Boolean,
-      
-      // 在显示复选框的情况下，是否严格的遵循父子不互相关联的做法
-      checkStrictly: Boolean,
-
-      draggable: Boolean,
-      allowDrag: Function,
-      allowDrop: Function,
     },
 
     computed: {
@@ -151,6 +110,18 @@
       },
       showContextmenu () {
         return this.contextmenu.length > 0
+      },
+      treeListeners () {
+        return Object.assign({}, this.$listeners, {
+          'node-click': this.onNodeClick,
+          'more-click': this.handleMoreClick,
+          'command': this.onCommand,
+        })
+      },
+      treeAttrs () {
+        return Object.assign({}, this.$attrs, {
+          'filter-node-method': (value, data) => this.$attrs.filter({value, data}),
+        })
       },
     },
 
@@ -177,9 +148,6 @@
         this.currentNode = data
         this.$emit('node-click', {data, node})
       },
-      onFilteronNode (value, data) {
-        return this.filter({value, data})
-      },
       handleMoreClick (data) {
         this.onChange({index: 0, command: undefined})
         this.dropMenuItem = data
@@ -198,27 +166,6 @@
       },
       commandTriggerChange (val) {
         this.commandTrigger = val
-      },
-      onHandleCheckChange () {
-        this.$emit('check-change', ...arguments)
-      },
-      handleDragStart () {
-        this.$emit('node-drag-start', ...arguments)
-      },
-      handleDragEnter () {
-        this.$emit('node-drag-enter', ...arguments)
-      },
-      handleDragLeave () {
-        this.$emit('node-drag-leave', ...arguments)
-      },
-      handleDragEnd () {
-        this.$emit('node-drag-end', ...arguments)
-      },
-      handleDrop () {
-        this.$emit('node-drop', ...arguments)
-      },
-      handleDragOver () {
-        this.$emit('node-drag-over', ...arguments)
       },
     },
     watch: {
@@ -384,6 +331,7 @@
 
         > .el-tree-node__children {
           margin-left: 16px;
+          padding-left: 6px;
         }
       }
     }

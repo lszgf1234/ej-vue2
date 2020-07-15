@@ -16,6 +16,8 @@
             id: '-1',
             label: '我的文档',
             children: [
+              {id: '2', label: 'index'},
+              {id: '3', label: 'about'},
               {
                 id: '0',
                 label: '照片',
@@ -32,8 +34,6 @@
                   {id: '10002', label: '游戏'},
                 ],
               },
-              {id: '2', label: 'index'},
-              {id: '3', label: 'about'},
             ],
           },
         ],

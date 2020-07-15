@@ -79,7 +79,7 @@
           },
         ],
         contextMenu: [
-          {command: 'check', label: '查看', disabled: true},
+          {command: 'check', label: '查看'},
           {command: 'remove', label: '删除', disabled: true},
         ],
       }

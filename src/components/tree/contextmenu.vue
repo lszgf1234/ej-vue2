@@ -115,6 +115,9 @@
 </script>
 
 <style lang="scss">
+  $primary: #0C64EB;
+  $text-second-color: #161616;
+
   .ej-tree-contextmenu {
     @apply relative bg-white;
 
@@ -123,8 +126,9 @@
     }
 
     &__item {
-      @apply text-blue cursor-pointer relative;
-
+      @apply cursor-pointer relative;
+      
+      color: $primary;
       font-size: 14px;
       line-height: 22px;
       white-space: nowrap;
@@ -135,20 +139,20 @@
       & > .el-dropdown-menu__item:not(.is-disabled) {
 
         &:hover {
-          @apply text-gray-darkest;
-
-          background-color: #edf2fd;
+          color: $text-second-color;
+          background-color: transparent;
         }
       }
 
       &.is-selected {
-        @apply text-gray-darkest;
-
-        background-color: #ecf2fc !important;
+        color: $text-second-color;
+        background-color: transparent !important;
       }
 
       &.is-disabled {
-        @apply text-gray-dark cursor-default;
+        @apply cursor-default;
+
+        color: $text-second-color;
       }
 
       & > div,
@@ -174,9 +178,10 @@
         padding: 0;
         font-size: 14px;
         line-height: 22px;
+        color: $text-second-color;
 
         &.is-disabled {
-          @apply text-gray-dark;
+          color: $text-second-color;
         }
       }
     }

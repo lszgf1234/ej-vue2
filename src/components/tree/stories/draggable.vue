@@ -2,12 +2,19 @@
   <ej-tree :data="data"
             collapse-icon="classic"
             show-line
+            draggable
             :default-expanded-ids="['0','00001']"
+            :allow-drop="allowDrop"
+            :allow-drag="allowDrag"
             @node-click="onHandleNodeClick"
             ref="tree" />
 </template>
 
 <script>
+  import {
+    Message,
+  } from 'element-ui'
+
   export default {
     data () {
       return {
@@ -35,8 +42,8 @@
                   {id: '10002', label: '游戏', iconClass: 'file'},
                 ],
               },
-              {id: '2', label: 'index', iconClass: 'file'},
-              {id: '3', label: 'about', iconClass: 'file'},
+              {id: '2', label: '不可拖拽节点', iconClass: 'file', draggable: false},
+              {id: '3', label: '不可以放置子节点', iconClass: 'file', dropForbidden: ['inner']},
             ],
           },
         ],
@@ -45,6 +52,14 @@
     methods: {
       onHandleNodeClick ({data, node}) {
         console.log(`当前点击了${data.label}节点`)
+      },
+      allowDrag (node) {
+        const {data: {draggable}} = node
+        return draggable !== false
+      },
+      allowDrop (draggingNode, dropNode, type) {
+        const {data: {dropForbidden = []}} = dropNode
+        return !dropForbidden.includes(type)
       },
     },
     mounted () {
@@ -57,11 +72,6 @@
 
 <style lang="scss">
   .ej-tree {
-    .folder,
-    .file {
-      border-radius: 50%;
-      box-sizing: border-box;
-    }
 
     .folder {
       background-color: wheat;

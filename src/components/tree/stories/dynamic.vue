@@ -7,11 +7,15 @@
             class="dynamic-tree"
             @node-click="onNodeClick"
             @more-click="onMoreClick"
-            @command="onCommand">
+            @command="onCommand"
+            style="width: 30%;">
     <template #default="{node, data}">
-      <span class="node-label">
-        {{ data.label }}<span class="node-label__subLabel" v-if="data.subLabel">({{ data.subLabel }})</span>
-      </span>
+      <el-tooltip effect="dark" :content="`${data.label}${data.subLabel ? `(${data.subLabel})` : ''}`" placement="top" popper-class="tree-tooltip">
+        <div class="node-label">
+          <!-- <ej-icon :icon="data.icon" /> -->
+          {{ data.label }}<div class="node-label__subLabel" v-if="data.subLabel">({{ data.subLabel }})</div>
+        </div>
+      </el-tooltip>
     </template>
     <template #morePrefix="{ node, data }">
       <span class="node-operate">查看详情</span>
@@ -20,7 +24,18 @@
 </template>
 
 <script>
+  import {
+    Tooltip as ElTooltip,
+  } from 'element-ui'
+
+  import EjIcon from '../../icon'
+
   export default {
+    components: {
+      ElTooltip,
+
+      EjIcon,
+    },
     data () {
       return {
         data: [
@@ -28,15 +43,17 @@
             id: '0',
             label: '北京市',
             subLabel: '首都',
+            icon: 'folder',
             children: [
               {
                 id: '00001',
                 label: '北京市',
                 subLabel: '直辖市',
+                icon: 'folder',
                 children: [
-                  {id: '000010001', label: '朝阳区', subLabel: '主城区'},
-                  {id: '000010002', label: '海淀区', disabled: true},
-                  {id: '000010003', label: '东城区'},
+                  {id: '000010001', label: '朝阳区', subLabel: '主城区', icon: 'file'},
+                  {id: '000010002', label: '海淀区', disabled: true, icon: 'file'},
+                  {id: '000010003', label: '东城区', icon: 'file'},
                 ],
               },
             ],
@@ -45,23 +62,25 @@
             id: '1',
             label: '天津市',
             type: 'c-government',
+            icon: 'folder',
             children: [
               {
                 id: '00001',
                 label: '北京市',
                 subLabel: '直辖市',
+                icon: 'folder',
                 children: [
-                  {id: '000010001', label: '朝阳区', subLabel: '主城区'},
-                  {id: '000010002', label: '海淀区', disabled: true},
-                  {id: '000010003', label: '东城区'},
+                  {id: '000010001', label: '朝阳区', subLabel: '主城区', icon: 'file'},
+                  {id: '000010002', label: '海淀区', disabled: true, icon: 'file'},
+                  {id: '000010003', label: '东城区', icon: 'file'},
                 ],
               },
             ],
           },
         ],
         contextMenu: [
-          {command: 'check', label: '查看'},
-          {command: 'remove', label: '删除'},
+          {command: 'check', label: '查看', disabled: true},
+          {command: 'remove', label: '删除', disabled: true},
         ],
       }
     },
@@ -91,6 +110,14 @@
         line-height: 12px;
         height: 12px;
       }
+    }
+
+    .el-tree-node__more {
+      font-size: 0;
+    }
+
+    .node-operate {
+      font-size: 14px;
     }
   }
 </style>

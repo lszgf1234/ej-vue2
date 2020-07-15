@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="tree-filter-stories">
     <ej-search-input v-model="keywords"
                         width="100%"
                         height="34"
@@ -47,3 +47,15 @@
     },
   }
 </script>
+
+<style lang="scss">
+  .tree-filter-stories {
+    .el-input__inner {
+      line-height: 30px;
+    }
+
+    .ej-tree {
+      margin-top: 16px;
+    }
+  }
+</style>

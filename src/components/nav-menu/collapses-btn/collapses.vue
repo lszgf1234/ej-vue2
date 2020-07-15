@@ -57,7 +57,7 @@
       width: 60px;
     }
     &.w-300 {
-      width: 300px;
+      width: 220px;
     }
     &.b-r-0 {
       border-right-color: transparent;

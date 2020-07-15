@@ -93,6 +93,7 @@ export default {
     Vue.use(SearchOptions)
     Vue.use(UserCard)
     Vue.use(EjPagination)
+    Vue.use(Card)
     Vue.use(Tree)
 
     Vue.use(NavMenu)

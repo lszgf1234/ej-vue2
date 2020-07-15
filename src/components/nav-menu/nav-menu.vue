@@ -65,7 +65,7 @@
   $menu-layout--blue: #0C64EB;
   $menu-layout--blue-lighter: #D0E2FF;
   $menu-layout--white: #fff;
-  $menu-layout--size-18: 18px;
+  $menu-layout--size-16: 16px;
 
   @mixin ej-nav-menu__vertical--padding-class {
     padding-left: 20px !important;
@@ -76,13 +76,15 @@
   }
   @mixin ej-nav-menu__vertical--font-class ($active-bg-color:$menu-layout--blue, $active-font-color:$menu-layout--white) {
     @apply font-medium;
-    font-size: $menu-layout--size-18;
+    font-size: $menu-layout--size-16;
     color: $menu-layout--gray-darkest;
     background: transparent;
+    height: 40px;
+    line-height: 40px;
 
     .ej-icon {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
     }
     &.is-active {
       color: $active-font-color;
@@ -152,7 +154,7 @@
       }
 
       &:not(.el-menu--collapse) {
-        width: 305px;
+        width: 225px;
         .el {
           &-menu-item {
             @apply truncate;
@@ -189,7 +191,7 @@
 
     &__vertical--wapper {
       @apply h-full flex overflow-y-auto overflow-x-hidden flex-col justify-between z-50;
-      max-width: 300px;
+      max-width: 220px;
       border-right: 1px solid #e4e4e4;
 
       & > div {

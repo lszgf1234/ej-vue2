@@ -23,7 +23,7 @@
                 label: '北京市',
                 type: 'c-government',
                 children: [
-                  {id: '000010001', label: '朝阳区'},
+                  {id: '000010001', label: '朝阳区， 没有删除菜单项'},
                   {id: '000010002', label: '海淀区', disabled: true},
                   {id: '000010003', label: '东城区'},
                 ],
@@ -41,7 +41,7 @@
             command: 'remove',
             label: '删除',
             children: [
-              {command: 'remove-status', label: '删除状态'},
+              {command: 'remove-status', label: '删除状态', hidden: true},
               {command: 'remove-relation', label: '删除关系'},
             ],
           },
@@ -53,10 +53,11 @@
         console.log(`当前点击了${data.label}节点`)
       },
       onHandleMoreClick ({data}) {
-        console.log(`${data.label}的更多操作`)
+        console.log(`${data.label}的更多操作`, data.id, data.id === '000010001')
         const {type} = data
         this.contextMenu.forEach(x => {
           x.disabled = false
+          x.hidden = data.id === '000010001' && x.command === 'remove'
           x.children.forEach(c => { c.disabled = false })
         })
         if (type === 'c-government') {

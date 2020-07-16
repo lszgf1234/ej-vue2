@@ -103,9 +103,19 @@
         }
       },
       observableMenu (item) {
-        if (item.disabled === undefined) {
-          this.$set(item, 'disabled', false)
-        }
+        // 设置默认值
+        let falseKeys = ['disabled', 'hidden']
+        falseKeys.map(x => {
+          if (item[x] === undefined) {
+            this.$set(item, x, false)
+          }
+        })
+        // if (item.disabled === undefined) {
+        //   this.$set(item, 'disabled', false)
+        // }
+        // if (item.hidden === undefined) {
+        //   this.$set(item, 'hidden', false)
+        // }
       },
     },
     mounted () {
@@ -128,7 +138,7 @@
     &__item {
       @apply cursor-pointer relative;
       
-      color: $primary;
+      color: $text-second-color;
       font-size: 14px;
       line-height: 22px;
       white-space: nowrap;
@@ -139,7 +149,7 @@
       & > .el-dropdown-menu__item:not(.is-disabled) {
 
         &:hover {
-          color: $text-second-color;
+          color: $primary;
           background-color: transparent;
         }
       }

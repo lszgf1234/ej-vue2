@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="ej-tree-contextmenu-item" v-show="!menu.hidden">
     <span>{{ menu.label }}</span>
     <span v-if="menu.children" class="el-icon-arrow-right"></span>
     <!-- 循环 -->

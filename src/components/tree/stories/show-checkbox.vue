@@ -4,7 +4,8 @@
             :default-expanded-ids="['0','00001']"
             @node-click="onHandleNodeClick"
             @check-change="onHandleCheckChange"
-            ref="tree" />
+            ref="tree"
+            style="width: 30%;" />
 </template>
 
 <script>
@@ -16,7 +17,7 @@
             id: '-1',
             label: '我的文档',
             children: [
-              {id: '2', label: 'index'},
+              {id: '2', label: '这是一条很长很长很长的数据，这是一条很长很长很长的数据，这是一条很长很长很长的数据，这是一条很长很长很长的数据'},
               {id: '3', label: 'about'},
               {
                 id: '0',
@@ -24,6 +25,7 @@
                 children: [
                   {id: '00001', label: '朋友'},
                   {id: '00002', label: '同事'},
+                  {id: '00003', label: '这是一条很长很长很长的数据，这是一条很长很长很长的数据，这是一条很长很长很长的数据，这是一条很长很长很长的数据'},
                 ],
               },
               {

@@ -7,7 +7,8 @@
             :allow-drop="allowDrop"
             :allow-drag="allowDrag"
             @node-click="onHandleNodeClick"
-            ref="tree" />
+            ref="tree"
+            style="width: 30%;" />
 </template>
 
 <script>
@@ -44,6 +45,14 @@
               },
               {id: '2', label: '不可拖拽节点', iconClass: 'file', draggable: false},
               {id: '3', label: '不可以放置子节点', iconClass: 'file', dropForbidden: ['inner']},
+              {
+                id: '4',
+                label: '这是一条很长很长很长的数据，这是一条很长很长很长的数据，这是一条很长很长很长的数据，这是一条很长很长很长的数据',
+                iconClass: 'folder',
+                children: [
+                  {id: '40001', label: '这是一条很长很长很长的数据，这是一条很长很长很长的数据，这是一条很长很长很长的数据，这是一条很长很长很长的数据', iconClass: 'file'},
+                ],
+              },
             ],
           },
         ],

@@ -9,6 +9,8 @@
            v-on="treeListeners">
     <template #default="{ node, data }">
       <div :class="[ 'el-tree-node el-tree-menu', { 'is-leaf': node.isLeaf } ]">
+        <div class="line-vertical"></div>
+        <div class="line-horizontal"></div>
         <!-- {{node.isLeaf}}{{node.expanded}} -->
         <!-- 自定义icon样式 -->
         <i v-if="data.iconClass" :class="[ 'el-tree-node__icon', data.iconClass ]"></i>
@@ -187,7 +189,6 @@
   $text-padding: 4px;
   $children-padding: 22px; // $icon-width + margin-right + text-padding
   $content-padding-left: 16px; // 12/2 + 10
-  $leaf-line-left: -16px; // 12/2 + 10
 
   .ej-tree {
     @apply bg-white;
@@ -237,8 +238,10 @@
               >.el-tree-node__content {
                 >.el-tree-node {
                   &.is-leaf {
-                    &::before {
-                      height: calc(50% + 4px);
+
+                    .line-vertical {
+                      height: 11px;
+                      transform: translateY(-50%);
                     }
                   }
                 }
@@ -248,44 +251,47 @@
         }
 
         &.is-leaf {
-          @apply relative;
+          padding-left: 6px;
 
-          margin-left: $children-padding;
+          .line {
+            &-vertical {
+              height: 22px;
+              width: 0;
+              border-left: 1px dashed #bbb;
+            }
 
-          &::before,
-          &::after {
-            @apply absolute;
-
-            content: '';
-            left: $leaf-line-left;
+            &-horizontal {
+              width: $margin-right;
+              height: 0;
+              border-top: 1px dashed #bbb;
+            }
           }
+        }
 
-          &:before { // |
-            top: -4px;
-            height: calc(100% + 8px);
-            width: 0;
-            border-left: 1px dashed #bbb;
-          }
-
-          &::after { // -
-            top: 50%;
-            height: 0;
-            width: $margin-right;
-            border-top: 1px dashed #bbb;
+        &__expand-icon {
+          &.is-leaf {
+            display: none;
           }
         }
       }
 
-      >.el-tree-node {
-        >.el-tree-node__children {
-          border-left: none;
-        }
-      }
+      // >.el-tree-node {
+      //   >.el-tree-node__children {
+      //     border-left: none;
+      //   }
+      // }
     }
 
     &.caret {
       .el-tree-menu.is-leaf {
         margin-left: 2px;
+      }
+
+      .el-tree-node__expand-icon {
+        &.is-leaf {
+          display: block;
+          opacity: 0;
+        }
       }
     }
 
@@ -399,9 +405,10 @@
         .el-tree-node__expand-icon {
           color: $text-second-color;
 
-          &.is-leaf {
-            display: none;
-          }
+          // &.is-leaf {
+          //   // display: none;
+          //   // opacity: 0;
+          // }
         }
       }
 
@@ -430,6 +437,14 @@
         padding: 0 $text-padding;
         font-size: 14px;
         flex: 1;
+        overflow-x: hidden;
+
+        [class^='el-tooltip'] {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          word-break: break-all;
+        }
       }
 
       // 更多按钮
@@ -469,6 +484,8 @@
       margin-top: 2px;
       margin-bottom: 2px;
       color: $text-second-color;
+      max-width: 100%;
+      overflow-x: hidden;
 
       &:hover {
         color: $primary;

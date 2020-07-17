@@ -32,7 +32,7 @@
                        trigger="click"
                        class="tree-dropdown">
             <div :class="['more-icon', { 'is-selected': dropMenuItem.id === data.id }]"
-                 @click.stop="handleMoreClick(data)"/>
+                 @click.stop="handleMoreClick({data, node})"/>
             <el-dropdown-menu slot="dropdown" ref="dropdown">
               <ej-tree-contextmenu v-for="(item, index) in contextmenu"
                                    :key="index"
@@ -148,10 +148,10 @@
         this.currentNode = data
         this.$emit('node-click', {data, node})
       },
-      handleMoreClick (data) {
+      handleMoreClick ({data, node}) {
         this.onChange({index: 0, command: undefined})
         this.dropMenuItem = data
-        this.$emit('more-click', {data})
+        this.$emit('more-click', {data, node})
       },
       onCommand () {
         this.$emit('command', {commands: Array.from(this.commands), data: this.dropMenuItem})

@@ -1,7 +1,7 @@
 <template>
   <ej-tree :data="data"
            :contextmenu="contextMenu"
-            default-expand-all
+           :default-expanded-ids="defaultExpandedIds"
             show-line
             collapse-icon="classic"
             class="dynamic-tree"
@@ -65,14 +65,14 @@
             icon: 'folder',
             children: [
               {
-                id: '00001',
+                id: '000001',
                 label: '北京市',
                 subLabel: '直辖市',
                 icon: 'folder',
                 children: [
-                  {id: '000010001', label: '朝阳区', subLabel: '主城区', icon: 'file'},
-                  {id: '000010002', label: '海淀区', disabled: true, icon: 'file'},
-                  {id: '000010003', label: '东城区', icon: 'file'},
+                  {id: '0000100001', label: '朝阳区', subLabel: '主城区', icon: 'file'},
+                  {id: '0000100002', label: '海淀区', disabled: true, icon: 'file'},
+                  {id: '0000100003', label: '东城区', icon: 'file'},
                 ],
               },
             ],
@@ -82,14 +82,15 @@
           {command: 'check', label: '查看'},
           {command: 'remove', label: '删除', disabled: true},
         ],
+        defaultExpandedIds: ['000010001'],
       }
     },
     methods: {
       onNodeClick ({data, node}) {
         console.log(`当前点击的节点为${data.label}`)
       },
-      onMoreClick ({data}) {
-        console.log(`${data.label}的更多操作列表`)
+      onMoreClick ({data, node}) {
+        console.log(`${data.label}的更多操作列表`, node)
       },
       onCommand ({commands, data}) {
         console.log(`${data.label}的当前操作是： ${commands}`)

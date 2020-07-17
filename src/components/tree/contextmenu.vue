@@ -110,12 +110,6 @@
             this.$set(item, x, false)
           }
         })
-        // if (item.disabled === undefined) {
-        //   this.$set(item, 'disabled', false)
-        // }
-        // if (item.hidden === undefined) {
-        //   this.$set(item, 'hidden', false)
-        // }
       },
     },
     mounted () {

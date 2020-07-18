@@ -8,18 +8,23 @@
            v-bind="treeAttrs"
            v-on="treeListeners">
     <template #default="{ node, data }">
-      <div :class="[ 'el-tree-node el-tree-menu', { 'is-leaf': node.isLeaf } ]">
+      <div :class="[ 'el-tree-menu', { 'is-leaf': node.isLeaf } ]">
         <div class="line-vertical"></div>
         <div class="line-horizontal"></div>
         <!-- {{node.isLeaf}}{{node.expanded}} -->
         <!-- 自定义icon样式 -->
-        <i v-if="data.iconClass" :class="[ 'el-tree-node__icon', data.iconClass ]"></i>
+        <i v-if="data.iconClass" :class="[ 'el-tree-menu__icon', data.iconClass ]"></i>
         
         <!-- ej-icon -->
-        <ej-icon v-if="data.icon" :class="[ 'el-tree-node__icon']" :icon="data.icon"></ej-icon>
+        <template v-if="data.icon">
+          <template v-if="data.icon === 'folder'">
+            <ej-icon :class="[ 'el-tree-menu__icon']" :icon="`${data.icon}${node.expanded? '-open': ''}`"></ej-icon>
+          </template>
+          <ej-icon v-else :class="[ 'el-tree-menu__icon']" :icon="data.icon"></ej-icon>
+        </template>
         
         <!-- label部分 -->
-        <div class="el-tree-node__label">
+        <div class="el-tree-menu__label">
             <slot :node="node" :data="data">
               <el-tooltip effect="dark" :content="`${data.label}`" placement="top" popper-class="tree-tooltip">
                 <div>{{ data.label }}</div>
@@ -28,7 +33,7 @@
         </div>
 
         <!-- 更多操作 -->
-        <div class="el-tree-node__more">
+        <div class="el-tree-menu__more">
           <slot name="morePrefix" :node="node" :data="data"></slot>
           <el-dropdown v-if="showContextmenu"
                        trigger="click"
@@ -236,7 +241,7 @@
               @apply relative;
 
               >.el-tree-node__content {
-                >.el-tree-node {
+                >.el-tree-menu {
                   &.is-leaf {
 
                     .line-vertical {
@@ -250,6 +255,14 @@
           }
         }
 
+        &__expand-icon {
+          &.is-leaf {
+            display: none;
+          }
+        }
+      }
+
+      .el-tree-menu {
         &.is-leaf {
           padding-left: 6px;
 
@@ -267,19 +280,7 @@
             }
           }
         }
-
-        &__expand-icon {
-          &.is-leaf {
-            display: none;
-          }
-        }
       }
-
-      // >.el-tree-node {
-      //   >.el-tree-node__children {
-      //     border-left: none;
-      //   }
-      // }
     }
 
     &.caret {
@@ -348,16 +349,6 @@
       font-size: 0;
       // margin: 4px 0;
 
-      .ej-icon {
-        width: $icon-width;
-        height: $icon-height;
-        margin: 0;
-        padding: 0;
-        margin-right: 8px;
-        color: $primary;
-        display: inline-block;
-      }
-
       >.el-tree-node__children {
         // margin-left: $margin-right;
         margin-left: 6px;
@@ -366,7 +357,7 @@
       &.is-current {
         >.el-tree-node {
           &__content {
-            .el-tree-node__label {
+            .el-tree-menu__label {
               @apply text-gray-darkest;
 
               background-color: #d4e4ff;
@@ -404,11 +395,6 @@
 
         .el-tree-node__expand-icon {
           color: $text-second-color;
-
-          // &.is-leaf {
-          //   // display: none;
-          //   // opacity: 0;
-          // }
         }
       }
 
@@ -425,6 +411,31 @@
             }
           }
         }
+      }
+    }
+
+    .el-tree-menu {
+      @apply flex flex-row justify-between items-center;
+
+      flex: 1;
+      margin-top: 2px;
+      margin-bottom: 2px;
+      color: $text-second-color;
+      max-width: 100%;
+      overflow-x: hidden;
+
+      &:hover {
+        color: $primary;
+      }
+
+      .ej-icon {
+        width: $icon-width;
+        height: $icon-height;
+        margin: 0;
+        padding: 0;
+        margin-right: 8px;
+        color: $primary;
+        display: inline-block;
       }
 
       &__icon {
@@ -476,20 +487,7 @@
           }
         }
       }
-    }
 
-    .el-tree-menu {
-      @apply flex flex-row justify-between items-center;
-
-      margin-top: 2px;
-      margin-bottom: 2px;
-      color: $text-second-color;
-      max-width: 100%;
-      overflow-x: hidden;
-
-      &:hover {
-        color: $primary;
-      }
     }
 
     .el-checkbox {

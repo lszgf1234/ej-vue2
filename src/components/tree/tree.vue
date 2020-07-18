@@ -1,6 +1,6 @@
 <template>
   <el-tree ref="tree"
-           :class="[ 'ej-tree', `${collapseIcon}`, { 'line': treeAttrs['show-line'] === '' }, {'checkbox': treeAttrs['show-checkbox'] === ''} ]"
+           :class="[ 'ej-tree', `${collapseIcon}`, { 'line': treeAttrs['show-line'] }, {'checkbox': treeAttrs['show-checkbox']} ]"
            :props="{ label: 'label', children: 'children' }"
            :expand-on-click-node="expandOnClickNode"
            :default-expanded-keys="defaultExpandedIds"
@@ -126,9 +126,17 @@
         })
       },
       treeAttrs () {
-        return Object.assign({}, this.$attrs, {
+        let attrs = Object.assign({}, this.$attrs, {
           'filter-node-method': (value, data) => this.$attrs.filter({value, data}),
         })
+        let keys = Object.keys(attrs)
+        let boolDefaultKeys = ['show-checkbox', 'show-line']
+        boolDefaultKeys.forEach(x => {
+          if (keys.includes(x) && attrs[x] !== false) {
+            attrs[x] = true
+          }
+        })
+        return attrs
       },
     },
 

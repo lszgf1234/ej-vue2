@@ -2,7 +2,7 @@
   <ej-tree :data="data"
            :contextmenu="contextMenu"
            :default-expanded-ids="defaultExpandedIds"
-            show-line
+           show-line
             collapse-icon="classic"
             class="dynamic-tree"
             @node-click="onNodeClick"
@@ -126,7 +126,7 @@
     }
 
     .node-operate {
-      font-size: 14px;
+      font-size: 12px;
     }
   }
 </style>

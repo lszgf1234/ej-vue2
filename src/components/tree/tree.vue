@@ -277,6 +277,7 @@
               width: $margin-right;
               height: 0;
               border-top: 1px dashed #bbb;
+              margin-right: 8px;
             }
           }
         }

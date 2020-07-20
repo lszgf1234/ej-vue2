@@ -1,30 +1,30 @@
 <template>
   <div style="width: 800px; margin: 50px auto;">
-    <ej-select-tree
-      v-model="selOrganizationId"
+    <ej-select-tree-single-multiple
+      v-model="selOrganizationIds"
       :placeholder="placeholder"
       :props="sTProps"
       :options="sTData"
-      :accordion="isAccordion"
       :clearable="isClearable"
+      multiple
       @getValue="getValue"/>
   </div>
 </template>
 
 <script>
   import {sTData as MockList, sTProps as MockProps} from './mock-data'
-  import EjSelectTree from '../select-tree'
+  import EjSelectTreeSingleMultiple from '../select-tree-single-multiple'
   export default {
     components: {
-      EjSelectTree,
+      EjSelectTreeSingleMultiple,
     },
     data () {
       return {
-        selOrganizationId: '207895470398377984',
+        selOrganizationId: '207895470398376879', // 单选选中值
+        selOrganizationIds: ['203521973110837248', '220234370525564928', '185033672389431296'], // 复选选中值
         placeholder: '请选择机构名称',
         sTData: MockList,
         sTProps: MockProps, // 配置参数（必选）
-        isAccordion: true, // 可收起（可选）
         isClearable: true, // 可清空（可选）
       }
     },

@@ -3,13 +3,13 @@
     <el-select
       ref="ejSelect"
       popper-class="ej-select-tree-dropdown"
-      :value="valueTitle"
+      :value="model"
       :placeholder="placeholder"
       :clearable="clearable"
       @clear="clearHandle"
       class="select-tree">
       <el-option
-        :value="valueId"
+        :value="model"
         :label="valueTitle"
         class="selectTree">
         <el-tree
@@ -77,63 +77,84 @@
 
     data () {
       return {
-        valueId: null,
         valueTitle: '',
         defaultExpandedKey: [],
       }
     },
 
-    watch: {
-      value () {
-        this.valueId = this.value
-        this.initHandle()
+    computed: {
+      // 双向绑定value
+      model: {
+        get () {
+          return this.value
+        },
+        set (val) {
+          this.$emit('input', val)
+        },
       },
     },
 
-    mounted () {
-      this.valueId = this.value // 初始值
-      this.initHandle()
+    watch: {
+      model: {
+        immediate: true,
+        handler (newVal) {
+          if (!newVal) {
+            // 清空关联值
+            this.valueTitle = ''
+            this.defaultExpandedKey = []
+            this.$nextTick(() => {
+              this.$refs.ejSelectOptionTree.setCurrentKey(null)
+            })
+            return
+          }
+          // 设置关联值
+          this.$nextTick(() => {
+            const treeEl = this.$refs.ejSelectOptionTree
+            if (treeEl) {
+              // 设置选中项
+              treeEl.setCurrentKey(newVal)
+              // 设置展开项
+              this.defaultExpandedKey = [newVal]
+              if (treeEl.getNode(newVal).data) {
+                // 更改valueTitle
+                this.valueTitle = treeEl.getNode(newVal).data[this.props.label] 
+              }
+            }
+          })
+        },
+      },
     },
 
     methods: {
       // 初始化值
-      initHandle () {
-        if (this.valueId) {
-          this.valueTitle = this.$refs.ejSelectOptionTree.getNode(this.valueId).data[this.props.label] // 初始化显示
-          this.$refs.ejSelectOptionTree.setCurrentKey(this.valueId) // 设置默认选中
-          this.defaultExpandedKey = [this.valueId] // 设置默认展开
-        }
-        this.initScroll()
-      },
-      // 初始化滚动条
-      initScroll () {
-        this.$nextTick(() => {
-          let scrollWrap = document.querySelectorAll('.ej-select-tree-dropdown .el-scrollbar .el-select-dropdown__wrap')[0]
-          let scrollBar = document.querySelectorAll('.ej-select-tree-dropdown .el-scrollbar .el-scrollbar__bar')
-          scrollWrap.style.cssText = 'margin: 0px; max-height: none; overflow: hidden;'
-          scrollBar.forEach(ele => {
-            ele.style.width = 0
-          })
-        })
-      },
-      handleNodeClick (node) {
-        this.valueTitle = node[this.props.label]
-        this.valueId = node[this.props.value]
-        this.$emit('getValue', this.valueId)
-        this.defaultExpandedKey = []
+      // initHandle () {
+      //   if (this.model) {
+      //     this.$refs.ejSelectOptionTree. // 设置默认选中
+      //     this.defaultExpandedKey = [this.model] // 设置默认展开
+      //   }
+      //   this.initScroll()
+      // },
+      // // 初始化滚动条
+      // initScroll () {
+      //   this.$nextTick(() => {
+      //     let scrollWrap = document.querySelectorAll('.ej-select-tree-dropdown .el-scrollbar .el-select-dropdown__wrap')[0]
+      //     let scrollBar = document.querySelectorAll('.ej-select-tree-dropdown .el-scrollbar .el-scrollbar__bar')
+      //     scrollWrap.style.cssText = 'margin: 0px; max-height: none; overflow: hidden;'
+      //     scrollBar.forEach(ele => {
+      //       ele.style.width = 0
+      //     })
+      //   })
+      // },
+
+      handleNodeClick (data) {
+        this.model = data[this.props.value]
+        this.$emit('getValue', data)
+        this.$refs.ejSelect.handleClose() // 选中节点后收缩下拉框
       },
       // 清除选中
       clearHandle () {
-        this.valueTitle = ''
-        this.valueId = null
-        this.defaultExpandedKey = []
-        this.clearSelected()
+        this.model = null
         this.$emit('getValue', null)
-      },
-      /* 清空选中样式 */
-      clearSelected () {
-        let allNode = document.querySelectorAll('#ej-select-tree-option .el-tree-node')
-        allNode.forEach((element) => element.classList.remove('is-current'))
       },
     },
   }

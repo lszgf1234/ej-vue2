@@ -10,30 +10,23 @@ export const sTData = [
     parentId: '0',
   },
   {
-    id: '203521973110830001',
-    organizationName: '大数据实施二部1',
-    parentId: '0',
-  },
-  {
-    id: '20353259371770002',
-    organizationName: '市场部2',
-    parentId: '0',
-  },
-  {
-    id: '20352197311080002',
-    organizationName: '大数据实施二部3',
-    parentId: '0',
-  },
-  {
-    id: '20353259371770004',
-    organizationName: '市场部4',
-    parentId: '0',
-  },
-  {
     id: '207901772214308864',
     organizationName: '55',
     parentId: '203531177011843072',
     children: [
+      {
+        id: '220234370342112355',
+        organizationName: '88',
+        parentId: '207901772214308864',
+        children: [
+          {
+            id: '207895470398376879',
+            organizationName: 'o1',
+            parentId: '220234370342112355',
+            disabled: true,
+          }
+        ],
+      },
       {
         id: '220234370525564928',
         organizationName: '99',
@@ -41,7 +34,7 @@ export const sTData = [
         children: [
           {
             id: '207895470398377984',
-            organizationName: 'o1',
+            organizationName: 'o2',
             parentId: '220234370525564928',
           }
         ],

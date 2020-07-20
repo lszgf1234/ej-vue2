@@ -68,7 +68,7 @@
   $menu-layout--size-16: 16px;
 
   @mixin ej-nav-menu__vertical--padding-class {
-    padding-left: 20px !important;
+    padding-left: 24px !important;
     padding-right: 20px !important;
     margin-bottom: 4px;
     i:first-child {
@@ -160,7 +160,7 @@
           }
           .el-menu--inline {
             li {
-              padding-left: 64px !important;
+              padding-left: 60px !important;
             }
           }
         }

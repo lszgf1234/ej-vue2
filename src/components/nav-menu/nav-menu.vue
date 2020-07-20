@@ -192,6 +192,11 @@
               }
             }
           }
+          &-menu-item {
+            .el-tooltip {
+              padding-left: 24px !important;
+            }
+          }
           &-menu-item:not(.is-active):hover {
             background: $menu-layout--gray-lighter;
             & > i {

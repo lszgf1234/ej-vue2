@@ -65,29 +65,34 @@
   $menu-layout--blue: #0C64EB;
   $menu-layout--blue-lighter: #D0E2FF;
   $menu-layout--white: #fff;
-  $menu-layout--size-18: 18px;
+  $menu-layout--size-16: 16px;
 
   @mixin ej-nav-menu__vertical--padding-class {
-    padding-left: 20px !important;
+    padding-left: 24px !important;
     padding-right: 20px !important;
+    margin-bottom: 4px;
     i:first-child {
       padding-right: 16px !important;
     }
   }
   @mixin ej-nav-menu__vertical--font-class ($active-bg-color:$menu-layout--blue, $active-font-color:$menu-layout--white) {
     @apply font-medium;
-    font-size: $menu-layout--size-18;
-    color: $menu-layout--gray-darkest;
+    font-size: $menu-layout--size-16;
+    color: $menu-layout--gray-darker;
     background: transparent;
+    height: 40px;
+    line-height: 40px;
 
     .ej-icon {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
     }
     &.is-active {
       color: $active-font-color;
       background: $active-bg-color;
-
+      i {
+        color: $active-font-color;
+      }
       &:hover {
         &, & > i {
           color: $active-font-color;
@@ -107,11 +112,14 @@
       @apply z-10 relative h-full overflow-y-auto overflow-x-hidden;
 
       border-right: none !important;
-      padding-top: 26px;
+      padding-top: 30px;
       box-shadow: 6px 0px 16px -8px rgba(0,0,0,0.2);
 
       .el {
         &-submenu__title, &-menu-item {
+          i {
+            color: $menu-layout--gray-darker;
+          }
           @include ej-nav-menu__vertical--padding-class;
         }
         &-menu-item {
@@ -142,17 +150,24 @@
           &__icon-arrow {
             @apply text-base;
             color: $menu-layout--gray-dark;
+            &::before {
+              content: '';
+              display: block;
+              width: 18px;
+              height: 18px;
+              background: url('../../assets/icons/arrow-up.svg') no-repeat center;
+            }
           }
           .el-menu--inline {
             li {
-              padding-left: 64px !important;
+              padding-left: 60px !important;
             }
           }
         }
       }
 
       &:not(.el-menu--collapse) {
-        width: 305px;
+        width: 226px;
         .el {
           &-menu-item {
             @apply truncate;
@@ -177,6 +192,11 @@
               }
             }
           }
+          &-menu-item {
+            .el-tooltip {
+              padding-left: 24px !important;
+            }
+          }
           &-menu-item:not(.is-active):hover {
             background: $menu-layout--gray-lighter;
             & > i {
@@ -189,17 +209,18 @@
 
     &__vertical--wapper {
       @apply h-full flex overflow-y-auto overflow-x-hidden flex-col justify-between z-50;
-      max-width: 300px;
-      border-right: 1px solid #e4e4e4;
+      max-width: 220px;
+      box-shadow: 6px 0px 16px -8px rgba(0,0,0,0.2);
 
       & > div {
         @apply overflow-hidden h-full;
       }
 
       .collapse--wapper {
-        @apply bg-white z-50;
-        height: 70px;
-        box-shadow: 0 -3px 8px 0 rgba(0, 0, 0, 0.05);
+        @apply bg-white z-50 border-t border-solid ;
+        height: 54px;
+        border-top-color: #C1C7CD;
+        // box-shadow: 0 -3px 8px 0 rgba(0, 0, 0, 0.05);
       }
     }
     &.el-menu {

@@ -195,8 +195,8 @@
       // 清除选中
       clearHandle () {
         this.model = this.multiple ? [] : ''
-        this.$emit('getValue', this.model)
         this.filterText = ''
+        this.$emit('getValue', this.model)
       },
       // 搜索
       filterMethod (val) {
@@ -238,6 +238,10 @@
 </script>
 
 <style lang="scss">
+  .el-select-dropdown__wrap {
+    max-height: 474px;
+  }
+
   .ej-select-tree-dropdown {
     .is-current {
       color:rgb(71, 125, 233);
@@ -258,7 +262,7 @@
 <style lang="css" scoped>
   .ej-select-tree-dropdown .el-scrollbar__view .selectTree{
     height: auto;
-    max-height: 274px;
+    max-height: 474px;
     padding: 0;
     overflow: hidden;
     overflow-y: auto;

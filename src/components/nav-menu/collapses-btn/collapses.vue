@@ -1,5 +1,5 @@
 <template>
-  <div :class="['collapses-toggle__btn', currentCollapse ? 'w-60 b-r-0' : 'w-300 b-r-1']" @click="handleToggle">
+  <div :class="['collapses-toggle__btn', currentCollapse ? 'w-60 b-r-0' : 'w-300']" @click="handleToggle">
     <div class="wapper">
       <ej-icon :icon="currentCollapse ? 'double-right' : 'double-left'"/>
       <span v-if="!currentCollapse">收起侧边栏</span>
@@ -47,10 +47,8 @@
   $menu-layout--gray-lighter: #e6e6e6;
 
   .collapses-toggle__btn {
-    // absolute bottom-0
-    @apply p-5 bg-white overflow-hidden z-50 cursor-pointer;
+    @apply py-3 pl-5 bg-white overflow-hidden z-50 cursor-pointer;
 
-    // box-shadow: 0 -3px 8px 0 rgba(0, 0, 0, 0.05);
     transition: .3s ease-in-out;
 
     &.w-60 {
@@ -61,9 +59,6 @@
     }
     &.b-r-0 {
       border-right-color: transparent;
-    }
-    &.b-r-1 {
-      border-right: solid 1px $menu-layout--gray-lighter;
     }
 
     .wapper {
@@ -77,7 +72,7 @@
     }
 
     span {
-      @apply text-lg ml-2;
+      @apply text-lg ml-3;
       color: $menu-layout--gray-dark;
     }
   }

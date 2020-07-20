@@ -47,9 +47,10 @@
   $menu-layout--gray-lighter: #e6e6e6;
 
   .collapses-toggle__btn {
-    @apply py-3 pl-5 bg-white overflow-hidden z-50 cursor-pointer;
+    @apply py-3 bg-white overflow-hidden z-50 cursor-pointer;
 
     transition: .3s ease-in-out;
+    padding-left: 24px;
 
     &.w-60 {
       width: 60px;

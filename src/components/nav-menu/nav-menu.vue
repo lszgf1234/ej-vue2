@@ -69,7 +69,7 @@
 
   @mixin ej-nav-menu__vertical--padding-class {
     padding-left: 24px !important;
-    padding-right: 20px !important;
+    padding-right: 24px !important;
     margin-bottom: 4px;
     i:first-child {
       padding-right: 16px !important;
@@ -176,7 +176,7 @@
       }
 
       &.el-menu--collapse {
-        width: 60px;
+        width: 68px;
         .el {
           &-submenu {
             &.is-active {

@@ -12,6 +12,7 @@
       :clearable="clearable"
       @remove-tag="remove"
       @clear="clearHandle"
+      @visible-change="visibleChange"
       class="select-tree">
       <el-option :value="model" class="selectTree">
         <el-tree
@@ -177,6 +178,13 @@
         const removeIndex = this.model.findIndex(item => item === id)
         if (removeIndex !== -1) {
           this.model.splice(removeIndex, 1)
+        }
+      },
+
+      visibleChange (val) {
+        // console.log(999, val)
+        if (!val) {
+          this.filterText = ''
         }
       },
 

@@ -137,6 +137,13 @@
             this.$refs.ejSelectOptionTree.setCheckedKeys([])
             this.$refs.ejSelectOptionTree.setCurrentKey(null)
             // setCheckedKeys(null)
+            // 初始化滚动条
+            let scrollWrap = document.querySelectorAll('.ej-select-tree-dropdown .el-scrollbar .el-select-dropdown__wrap')[0]
+            let scrollBar = document.querySelectorAll('.ej-select-tree-dropdown .el-scrollbar .el-scrollbar__bar')
+            scrollWrap.style.cssText = 'margin: 0px; max-height: none; overflow: hidden;'
+            scrollBar.forEach(ele => {
+              ele.style.width = 0
+            })
           })
           return
         }

@@ -176,7 +176,7 @@
 
   .usermenu-wrapper {
     padding: 0 !important;
-    border: none;
+    border: none !important;
 
     .menu-wrap {
       @apply text-white;

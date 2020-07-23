@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="tree-filter-stories" style="width: 30%">
     <ej-search-input v-model="keywords"
                         width="100%"
                         height="34"
@@ -33,6 +33,19 @@
               },
             ],
           },
+          {
+            id: '1',
+            label: '这是一条很长很长很长的数据，这是一条很长很长很长的数据，这是一条很长很长很长的数据，这是一条很长很长很长的数据',
+            children: [
+              {
+                id: '1000002',
+                label: '这是一条很长很长很长的数据，这是一条很长很长很长的数据，这是一条很长很长很长的数据，这是一条很长很长很长的数据',
+                children: [
+                  {id: '10000020001', label: '这是一条很长很长很长的数据，这是一条很长很长很长的数据，这是一条很长很长很长的数据，这是一条很长很长很长的数据'},
+                ],
+              },
+            ],
+          },
         ],
       }
     },
@@ -47,3 +60,15 @@
     },
   }
 </script>
+
+<style lang="scss">
+  .tree-filter-stories {
+    .el-input__inner {
+      line-height: 30px;
+    }
+
+    .ej-tree {
+      margin-top: 16px;
+    }
+  }
+</style>

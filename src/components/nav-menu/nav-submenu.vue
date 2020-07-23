@@ -46,7 +46,7 @@
   $menu-layout--blue: #0C64EB;
   $menu-layout--blue-lighter: #D0E2FF;
   $menu-layout--white: #fff;
-  $menu-layout--size-18: 18px;
+  $menu-layout--size-16: 16px;
 
   // 滚动条
   ::-webkit-scrollbar {
@@ -66,7 +66,7 @@
 
   @mixin ej-nav-menu__vertical--font-class ($active-bg-color:$menu-layout--blue, $active-font-color:$menu-layout--white) {
     @apply font-medium;
-    font-size: $menu-layout--size-18;
+    font-size: $menu-layout--size-16;
     color: $menu-layout--gray-darkest;
     background: transparent;
 

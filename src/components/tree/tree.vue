@@ -1,28 +1,45 @@
 <template>
   <el-tree ref="tree"
-           :class="[ 'ej-tree', `${collapseIcon}`, { 'line': showLine } ]"
-           :data="data"
+           :class="[ 'ej-tree', `${collapseIcon}`, { 'line': treeAttrs['show-line'] }, {'checkbox': treeAttrs['show-checkbox']} ]"
            :props="{ label: 'label', children: 'children' }"
-           :default-expand-all="defaultExpandAll"
-           :filter-node-method="onFilteronNode"
            :expand-on-click-node="expandOnClickNode"
            :default-expanded-keys="defaultExpandedIds"
            node-key="id"
-           @node-click="onNodeClick">
+           v-bind="treeAttrs"
+           v-on="treeListeners">
     <template #default="{ node, data }">
-      <div :class="[ 'el-tree-node', { 'is-leaf': node.isLeaf } ]">
+      <div :class="[ 'el-tree-menu', { 'is-leaf': node.isLeaf } ]">
+        <div class="line-vertical"></div>
+        <div class="line-horizontal"></div>
         <!-- {{node.isLeaf}}{{node.expanded}} -->
-        <i v-if="data.iconClass" :class="[ 'el-tree-node__icon', data.iconClass ]"></i>
-        <div class="el-tree-node__label">
-          <slot :node="node" :data="data">{{ data.label }}</slot>
+        <!-- 自定义icon样式 -->
+        <i v-if="data.iconClass" :class="[ 'el-tree-menu__icon', data.iconClass ]"></i>
+        
+        <!-- ej-icon -->
+        <template v-if="data.icon">
+          <template v-if="data.icon === 'folder'">
+            <ej-icon :class="[ 'el-tree-menu__icon']" :icon="`${data.icon}${node.expanded? '-open': ''}`"></ej-icon>
+          </template>
+          <ej-icon v-else :class="[ 'el-tree-menu__icon']" :icon="data.icon"></ej-icon>
+        </template>
+        
+        <!-- label部分 -->
+        <div class="el-tree-menu__label">
+            <slot :node="node" :data="data">
+              <el-tooltip effect="dark" :content="`${data.label}`" placement="top" popper-class="tree-tooltip">
+                <div>{{ data.label }}</div>
+              </el-tooltip>
+            </slot>
         </div>
-        <div class="el-tree-node__more">
+
+        <!-- 更多操作 -->
+        <div class="el-tree-menu__more">
           <slot name="morePrefix" :node="node" :data="data"></slot>
           <el-dropdown v-if="showContextmenu"
                        trigger="click"
                        class="tree-dropdown">
             <div :class="['more-icon', { 'is-selected': dropMenuItem.id === data.id }]"
-                 @click.stop="handleMoreClick(data)"/>
+                 @click.stop="handleMoreClick({data, node})"/>
             <el-dropdown-menu slot="dropdown" ref="dropdown">
               <ej-tree-contextmenu v-for="(item, index) in contextmenu"
                                    :key="index"
@@ -46,20 +63,23 @@
     Tree as ElTree,
     Dropdown as ElDropdown,
     DropdownMenu as ElDropdownMenu,
+    Tooltip as ElTooltip,
   } from 'element-ui'
 
   import EjTreeContextmenu from './contextmenu'
+  import EjIcon from '../icon'
 
   export default {
     name: 'EjTree',
-
-    inheritAttrs: false,
 
     components: {
       ElTree,
       ElDropdown,
       EjTreeContextmenu,
       ElDropdownMenu,
+      ElTooltip,
+
+      EjIcon,
     },
 
     props: {
@@ -68,18 +88,6 @@
         type: String,
         default: 'caret',
       },
-
-      // 数据源
-      data: {
-        type: Array,
-        default: () => ({}),
-      },
-
-      // 过滤方法
-      filter: Function,
-
-      // 是否默认展开所有节点
-      defaultExpandAll: Boolean,
 
       // 默认展开的节点的 id 的数组
       defaultExpandedIds: {
@@ -98,9 +106,6 @@
         type: Array,
         default: () => ([]),
       },
-
-      // 是否显示折叠线
-      showLine: Boolean,
     },
 
     computed: {
@@ -112,6 +117,26 @@
       },
       showContextmenu () {
         return this.contextmenu.length > 0
+      },
+      treeListeners () {
+        return Object.assign({}, this.$listeners, {
+          'node-click': this.onNodeClick,
+          'more-click': this.handleMoreClick,
+          'command': this.onCommand,
+        })
+      },
+      treeAttrs () {
+        let attrs = Object.assign({}, this.$attrs, {
+          'filter-node-method': (value, data) => this.$attrs.filter({value, data}),
+        })
+        let keys = Object.keys(attrs)
+        let boolDefaultKeys = ['show-checkbox', 'show-line']
+        boolDefaultKeys.forEach(x => {
+          if (keys.includes(x) && attrs[x] !== false) {
+            attrs[x] = true
+          }
+        })
+        return attrs
       },
     },
 
@@ -138,13 +163,10 @@
         this.currentNode = data
         this.$emit('node-click', {data, node})
       },
-      onFilteronNode (value, data) {
-        return this.filter({value, data})
-      },
-      handleMoreClick (data) {
+      handleMoreClick ({data, node}) {
         this.onChange({index: 0, command: undefined})
         this.dropMenuItem = data
-        this.$emit('more-click', {data})
+        this.$emit('more-click', {data, node})
       },
       onCommand () {
         this.$emit('command', {commands: Array.from(this.commands), data: this.dropMenuItem})
@@ -172,12 +194,14 @@
 </script>
 
 <style lang="scss">
-  $icon-width: 12px;
-  $margin-right: 10px;
+  $primary: #0C64EB;
+  $text-second-color: #161616;
+  $icon-width: 11px;
+  $icon-height: 11px;
+  $margin-right: 12px;
   $text-padding: 4px;
-  $children-padding: 26px; // $icon-width + margin-right + text-padding
+  $children-padding: 22px; // $icon-width + margin-right + text-padding
   $content-padding-left: 16px; // 12/2 + 10
-  $leaf-line-left: -16px; // 12/2 + 10
 
   .ej-tree {
     @apply bg-white;
@@ -192,9 +216,9 @@
             padding: 0;
             transform: none;
             transition: none;
-            margin-left: $text-padding;
-            width: $icon-width;
-            height: $icon-width;
+            margin-left: 0;
+            width: 12px;
+            height: 12px;
             background-image: url('./stories/assets/extend.svg');
 
             &.expanded {
@@ -225,10 +249,12 @@
               @apply relative;
 
               >.el-tree-node__content {
-                >.el-tree-node {
+                >.el-tree-menu {
                   &.is-leaf {
-                    &::before {
-                      height: calc(50% + 4px);
+
+                    .line-vertical {
+                      height: 11px;
+                      transform: translateY(-50%);
                     }
                   }
                 }
@@ -237,62 +263,110 @@
           }
         }
 
-        &.is-leaf {
-          @apply relative;
-
-          margin-left: $children-padding;
-
-          &::before,
-          &::after {
-            @apply absolute;
-
-            content: '';
-            left: $leaf-line-left;
-          }
-
-          &:before { // |
-            top: -4px;
-            height: calc(100% + 8px);
-            width: 0;
-            border-left: 1px dashed #bbb;
-          }
-
-          &::after { // -
-            top: 50%;
-            height: 0;
-            width: $margin-right;
-            border-top: 1px dashed #bbb;
+        &__expand-icon {
+          &.is-leaf {
+            display: none;
           }
         }
       }
 
-      >.el-tree-node {
-        >.el-tree-node__children {
-          border-left: none;
+      .el-tree-menu {
+        &.is-leaf {
+          padding-left: 6px;
+
+          .line {
+            &-vertical {
+              height: 22px;
+              width: 0;
+              border-left: 1px dashed #bbb;
+            }
+
+            &-horizontal {
+              width: $margin-right;
+              height: 0;
+              border-top: 1px dashed #bbb;
+              margin-right: 8px;
+            }
+          }
+        }
+      }
+    }
+
+    &.caret {
+      .el-tree-menu.is-leaf {
+        margin-left: 2px;
+      }
+
+      .el-tree-node__expand-icon {
+        &.is-leaf {
+          display: block;
+          opacity: 0;
+        }
+      }
+    }
+
+    &.checkbox {
+      .el-tree-node {
+        &__children {
+          border-left: none !important;
+        }
+
+        &__expand-icon {
+          margin-left: 0;
+          border: none;
+          padding: 12px;
+          display: inline-block !important;
+
+          &.expanded {
+            transform: rotate(90deg);
+          }
+
+          &:before,
+          &::after {
+            content: none !important;
+            position: absolute;
+          }
+
+          &:not(.is-leaf) {
+            &::before {
+              height: auto;
+              top: 50%;
+              left: 50%;
+              transform: translate3d(-50%, -50%, 0);
+              background: none;
+              // color: #999;
+              color: $text-second-color;
+              content: '\e791' !important;
+            }
+
+            &::after {
+              content: none !important;
+            }
+          }
+        }
+
+        > .el-tree-node__children {
+          margin-left: 16px;
+          padding-left: 6px;
         }
       }
     }
 
     .el-tree-node {
       @apply flex-1 flex-row align-middle;
-      margin: 4px 0;
 
-      .ej-icon {
-        width: $icon-width;
-        height: $icon-width;
-        margin: 0;
-        padding: 0;
-        margin-right: $margin-right;
-      }
+      font-size: 0;
+      // margin: 4px 0;
 
       >.el-tree-node__children {
-        margin-left: $margin-right;
+        // margin-left: $margin-right;
+        margin-left: 6px;
       }
 
       &.is-current {
         >.el-tree-node {
           &__content {
-            .el-tree-node__label {
+            .el-tree-menu__label {
               @apply text-gray-darkest;
 
               background-color: #d4e4ff;
@@ -312,10 +386,16 @@
 
         line-height: 22px;
         height: auto;
+        margin-top: 2px;
+        margin-bottom: 2px;
 
         // 鼠标悬停样式
         &:hover {
-          @apply bg-transparent text-blue;
+          @apply bg-transparent;
+
+          .el-tree-menu {
+            background-color: #f5f7fa;
+          }
 
           .more-icon {
             @apply visible;
@@ -323,9 +403,7 @@
         }
 
         .el-tree-node__expand-icon {
-          &.is-leaf {
-            display: none;
-          }
+          color: $text-second-color;
         }
       }
 
@@ -343,37 +421,60 @@
           }
         }
       }
+    }
 
-      .ej-icon,
-      &__icon,
-      &__label,
-      &__more {
-        @apply inline-block align-middle;
+    .el-tree-menu {
+      @apply flex flex-row justify-between items-center;
+
+      flex: 1;
+      margin-top: 2px;
+      margin-bottom: 2px;
+      color: $text-second-color;
+      max-width: 100%;
+      overflow-x: hidden;
+
+      &:hover {
+        color: $primary;
+      }
+
+      .ej-icon {
+        width: $icon-width;
+        height: $icon-height;
+        margin: 0;
+        padding: 0;
+        margin-right: 8px;
+        color: $primary;
+        display: inline-block;
       }
 
       &__icon {
         width: $icon-width;
-        height: $icon-width;
-        margin-right: 6px;
-        margin-left: $text-padding;
+        height: $icon-height;
+        margin-right: 8px;
       }
 
       &__label {
         padding: 0 $text-padding;
         font-size: 14px;
+        flex: 1;
+        overflow-x: hidden;
+
+        [class^='el-tooltip'] {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          word-break: break-all;
+        }
       }
 
       // 更多按钮
       &__more {
-        @apply relative float-right;
-
-        margin-right: $margin-right;
 
         >div,
         >span {
           @apply inline-block align-middle;
-
-          margin: 0 5px;
+          
+          margin-left: 5px;
         }
 
         .more-icon {
@@ -395,13 +496,48 @@
           }
         }
       }
+
     }
 
-    .tree-cascader {
-      &.el-cascader {
-
+    .el-checkbox {
+      &__inner {
+        &:hover {
+          border-color: $primary;
+        }
       }
-      &.el-popper {}
+
+      &__input {
+        &.is-indeterminate,
+        &.is-checked {
+          .el-checkbox__inner {
+            background-color: $primary;
+            border-color: $primary;
+          }
+        }
+      }
+    }
+
+    &:focus,
+    *:focus {
+      outline: none;
+    }
+  }
+
+  .el-tooltip__popper {
+    &.is-dark {
+      background-color: #fff;
+      color: #262626;
+      box-shadow: -1px 1px 3px 1px rgba(0, 0, 0, 0.1), 1px 1px 3px 1px rgba(0, 0, 0, 0.1);
+
+      &.tree-tooltip {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding: 4px 10px;
+
+        .popper__arrow {
+          display: none;
+        }
+      }
     }
   }
 </style>

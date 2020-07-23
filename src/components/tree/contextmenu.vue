@@ -103,9 +103,13 @@
         }
       },
       observableMenu (item) {
-        if (item.disabled === undefined) {
-          this.$set(item, 'disabled', false)
-        }
+        // 设置默认值
+        let falseKeys = ['disabled', 'hidden']
+        falseKeys.map(x => {
+          if (item[x] === undefined) {
+            this.$set(item, x, false)
+          }
+        })
       },
     },
     mounted () {
@@ -115,6 +119,9 @@
 </script>
 
 <style lang="scss">
+  $primary: #0C64EB;
+  $text-second-color: #161616;
+
   .ej-tree-contextmenu {
     @apply relative bg-white;
 
@@ -123,8 +130,9 @@
     }
 
     &__item {
-      @apply text-blue cursor-pointer relative;
-
+      @apply cursor-pointer relative;
+      
+      color: $text-second-color;
       font-size: 14px;
       line-height: 22px;
       white-space: nowrap;
@@ -135,20 +143,20 @@
       & > .el-dropdown-menu__item:not(.is-disabled) {
 
         &:hover {
-          @apply text-gray-darkest;
-
-          background-color: #edf2fd;
+          color: $primary;
+          background-color: transparent;
         }
       }
 
       &.is-selected {
-        @apply text-gray-darkest;
-
-        background-color: #ecf2fc !important;
+        color: $text-second-color;
+        background-color: transparent !important;
       }
 
       &.is-disabled {
-        @apply text-gray-dark cursor-default;
+        @apply cursor-default;
+
+        color: $text-second-color;
       }
 
       & > div,
@@ -174,9 +182,10 @@
         padding: 0;
         font-size: 14px;
         line-height: 22px;
+        color: $text-second-color;
 
         &.is-disabled {
-          @apply text-gray-dark;
+          color: $text-second-color;
         }
       }
     }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="9px" viewBox="0 0 14 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>right备份</title>
+    <desc>Created with Sketch.</desc>
+    <g id="资源目录" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="导航菜单-商务蓝-政务导航" transform="translate(-268.000000, -339.000000)" fill-rule="nonzero">
+            <g id="政务版主导航-展开" transform="translate(80.000000, 159.000000)">
+                <g id="侧导航展开" transform="translate(0.000000, 90.000000)">
+                    <g id="侧导航">
+                        <g id="侧导航-2备份" transform="translate(0.000000, 74.000000)">
+                            <g id="right备份" transform="translate(195.000000, 20.000000) rotate(90.000000) translate(-195.000000, -20.000000) translate(186.000000, 11.000000)">
+                                <rect id="矩形" fill="#000000" opacity="0" x="0" y="0" width="18" height="18"></rect>
+                                <path d="M13.4595703,8.55703125 L5.53535156,2.36777344 C5.4421875,2.29570312 5.30859375,2.36074219 5.30859375,2.47851562 L5.30859375,3.83730469 C5.30859375,3.9234375 5.34902344,4.00605469 5.41582031,4.05878906 L11.7439453,9 L5.41582031,13.9412109 C5.34726563,13.9939453 5.30859375,14.0765625 5.30859375,14.1626953 L5.30859375,15.5214844 C5.30859375,15.6392578 5.44394531,15.7042969 5.53535156,15.6322266 L13.4595703,9.44296875 C13.7478516,9.21796875 13.7478516,8.78203125 13.4595703,8.55703125 Z" id="路径" fill="#525252"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

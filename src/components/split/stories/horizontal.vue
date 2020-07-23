@@ -6,7 +6,7 @@
     </template>
 
     <template #right>
-      <div>222</div>
+      <div v-for="item in 999" :key="item">222</div>
     </template>
     
   </ej-split>

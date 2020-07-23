@@ -14,7 +14,8 @@
       <slot name="split-line">
         <div class="split-line-default">
           <span>
-            <i :class="{'el-icon-caret-right': mode === 'horizontal', 'el-icon-caret-bottom': mode === 'vertical'}"></i>
+            <!-- <i :class="{'el-icon-caret-right': mode === 'horizontal', 'el-icon-caret-bottom': mode === 'vertical'}"></i> -->
+            <i>···</i>
           </span>
         </div>
       </slot>
@@ -50,7 +51,7 @@
 
       min: {
         type: Number,
-        default: () => 50,
+        default: () => 300,
       },
 
       max: {
@@ -118,7 +119,12 @@
         const min = this.min, max = this.max
 
         // 判断边距
-        if(newPosX > offsetWidth - max || newPosY > offsetHeight - max || newPosX < min || newPosY < min) return
+        if (mode === 'vertical' && (newPosY > offsetHeight - max || newPosY < min)) {
+          return
+        } 
+        else if(mode === 'horizontal' && (newPosX > offsetWidth - max || newPosX < min)){
+          return
+        }
         
         this.splitTrans = `${mode === 'vertical' ? newPosY : newPosX}px`
         this.$emit('moving', ev)
@@ -135,6 +141,21 @@
 
     >*{
       @apply overflow-auto flex-shrink-0;
+
+      // 去掉滚动条样式
+      &::-webkit-scrollbar{
+        width: 0;
+      }
+      &::-webkit-scrollbar-thumb{
+        border-radius: 2px;
+        height: 50px;
+        background: #eee;
+      }
+      &::-webkit-scrollbar-track{
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        border-radius: 2px;
+        background: rgba(0,0,0,0.4);
+      }
 
       &.ej-split-right{
         @apply flex-grow;
@@ -160,6 +181,11 @@
           color: #0C64EB;
           text-align: center;
           font-size: 6px;
+
+          >i{
+            display: inline-block;
+            font-weight: 500;
+          }
         }
       }
     }
@@ -184,6 +210,9 @@
             width: 10px;
             height: 45px;
             line-height: 45px;
+            >i{
+              transform: rotate(90deg);
+            }
           }
         }
       }

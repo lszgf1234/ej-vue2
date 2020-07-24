@@ -7,11 +7,12 @@
         </slot>
 
         <!-- 常用条件 -->
-        <template v-for="(item, index) in commonlyOptions">
-          <div :key="index"
+        <template v-if="!hideComList">
+          <div v-for="(item, index) in commonlyOptions"
+               :key="index"
                :class="{'ml-4': index === 0}"
                class="commonly-item flex cursor-pointer text-blue mt-3 mr-3"
-                @click="commonlyChange(item.value, commonlyOptions)">
+               @click="commonlyChange(item.value, commonlyOptions)">
             {{item.label}}
             <ej-icon icon="close-circle-o" class="commonly-item-close hidden" @click.stop="deletedOptions(item.value, item.label)"/>
           </div>
@@ -27,7 +28,7 @@
                       :default-expand-list="defaultExpandList"
                       @closeSelected="closeSelected">
       <template #tag-suffix>
-        <ej-popover-set  @confirm="setNameConfirm" :maxlength="30">
+        <ej-popover-set v-if="!hideComList"  @confirm="setNameConfirm" :maxlength="30">
           <p class="popover-content-text text-blue cursor-pointer">设为常用条件</p>
         </ej-popover-set>
       </template>
@@ -102,6 +103,16 @@
         type: Object,
         default: () => ({}),
       },
+      // 是否隐藏常用条件
+      hideComList: {
+        type: Boolean,
+        default: false,
+      },
+      // apollo客户端
+      apollo: {
+        type: Object,
+        default: () => ({}),
+      },
     },
 
     computed: {
@@ -133,15 +144,10 @@
     },
 
     created () {
-      if (!this.$apollo) {
-        this.$apollo = {
-          query () {return this},
-          mutate () {return this},
-          then () {return this},
-          catch () {return this},
-        }
+      // 获取常用条件
+      if (!this.hideComList) {
+        this.requestCommonlyList()
       }
-      this.requestCommonlyList()
     },
 
     methods: {
@@ -152,12 +158,37 @@
         this.$emit('search', type, this.handlerParams(this.models))
       },
 
+      // 可用的apollo客户端
+      getApolloClient (type, {query, mutation, fetchPolicy, client, variables}) {
+        if (Object.keys(this.apollo).length) {
+          if (type === 'mutate') {
+            return this.apollo.mutate({mutation, fetchPolicy, variables})
+          } else {
+            return this.apollo.query({query, fetchPolicy, variables})
+          }
+        } else if (Object.keys(this.$apollo || {}).length) {
+          if (type === 'mutate') {
+            return this.$apollo.mutate({mutation, fetchPolicy, variables, client})
+          } else {
+            return this.$apollo.query({query, fetchPolicy, variables, client})
+          }
+        } else {
+          console.warn('未检测到apollo客户端')
+          return {
+            query () {return this},
+            mutate () {return this},
+            then () {return this},
+            catch () {return this},
+          }
+        }
+      },
+
       // 获取常用条件
       requestCommonlyList () {
         const appKey = this.appKey
         const pageId = this.viewId
 
-        this.$apollo.query({
+        this.getApolloClient('query', {
           query: QUERY_COMMONLY_LIST,
           fetchPolicy: 'network-only',
           client: 'apolloUserClient',
@@ -179,7 +210,7 @@
           return
         }
 
-        this.$apollo.mutate({
+        this.getApolloClient('mutate', {
           mutation: MUTATION_COMMONLY_LIST,
           client: 'apolloUserClient',
           variables: {
@@ -190,8 +221,7 @@
               appKey: this.appKey,
             },
           },
-        })
-        .then(({data}) => {
+        }).then(({data}) => {
           if (!data || !data.result) return
           const result = data.result[0]
           const {conditionContent, conditionName, userConditionId} = result
@@ -215,7 +245,7 @@
           type: 'warning',
           center: true,
         }).then(_ => {
-          this.$apollo.mutate({
+          this.getApolloClient('mutate', {
             mutation: MUTATION_COMMONLY_DELETE,
             client: 'apolloUserClient',
             variables: {input: [id]},

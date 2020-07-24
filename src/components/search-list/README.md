@@ -14,6 +14,8 @@
 | `default-tag-more` | Boolean | true | 已选条件组件 - 是否默认展开 |
 | `default-expand-list` | Boolean | true | 是否展开列表 |
 | `input-props` | Object | {width: '552px', clearable: true} | input框的props |
+| `apollo` | Object | {} | apllo实例，有则使用，否则用this.$apollo去请求 |
+| `hide-com-list` | Boolean | false | 是否隐藏常用列表 |
 
 ### Slot
 

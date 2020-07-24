@@ -464,6 +464,7 @@
           text-overflow: ellipsis;
           white-space: nowrap;
           word-break: break-all;
+          width: 100%;
         }
       }
 

@@ -12,7 +12,10 @@
 
 <script>
 import Vue from 'vue'
+import {select} from '@storybook/addon-knobs'
+
 import GraphAnalysis from '../'
+
 Vue.use(GraphAnalysis)
 
 const nodes = [
@@ -34,24 +37,40 @@ const nodes = [
   },
 ]
 
-const edges = [
+const edgesBlood = [
   ['1', '1-1'],
   ['1', '1-2'],
   ['1', '1-2-1'],
   ['1-2', '1-2-1'],
 ]
 
+const edgesEffect = [
+  ['1-1', '1'],
+  ['1-2', '1'],
+  ['1-2-1', '1'],
+  ['1-2-1', '1-2'],
+]
+
 const baseId = '1'
 
 export default {
+  props: {
+    type: {
+      default : select('类型', ['Blood', 'Effect'], 'Effect')
+    }
+  },
+
   data () {
     return {
       nodes,
-      edges,
       baseId,
-      type: 'Blood',
     }
-  }
+  },
+  computed: {
+    edges () {
+      return this.type === 'Blood' ? edgesBlood : edgesEffect
+    }
+  },
 }
 </script>
 

@@ -19,7 +19,7 @@
  * 悬停线不显示 tooltip
  *
  * */
-import echarts from 'echarts/lib/echarts'
+import * as echarts from 'echarts/lib/echarts'
 import 'echarts/lib/chart/graph'
 import 'echarts/lib/chart/tree'
 import 'echarts/lib/component/tooltip'
@@ -83,7 +83,8 @@ export default {
 
   methods: {
     setOptions () {
-      const SPACING_X = -200
+      const _this = this
+      const SPACING_X = this.type === 'Blood' ? -200 : 200
       const SPACING_Y = 40
       const FIX_Y = 20
 
@@ -106,7 +107,7 @@ export default {
        * */
       void (function calcLevels (parentNodeIds) {
         const nextLevel = nodesMap[parentNodeIds[0]].level + 1
-        const childNodeIds = edges.filter(([from, to]) => parentNodeIds.includes(from)).map(([from, to]) => to)
+        const childNodeIds = edges.filter(([from, to]) => parentNodeIds.includes(_this.type === 'Blood' ? from : to)).map(([from, to]) => _this.type === 'Blood' ? to : from)
         if (childNodeIds.length) {
           for (const node of childNodeIds.map(id => nodesMap[id])) {
             node.level = nextLevel

@@ -167,7 +167,7 @@ export default {
           lineStyle: {
             curveness: 0.05,
           },
-          edgeSymbol: ['none', 'arrow'],
+          edgeSymbol: this.type === 'Blood' ? ['none', 'arrow'] : ['arrow', 'none'],
           edgeSymbolSize: 8,
           nodes,
           edges: edges1,

@@ -1,22 +1,5 @@
 import {storiesOf} from '@storybook/vue'
-import Vue from 'vue'
-
-import GraphAnalysis from '.'
-Vue.use(GraphAnalysis)
-
-/*
-两个钩子
-  操作
-  详情
-*/
+import Blood from './stories/blood.vue'
 
 storiesOf('Components|GraphAnalysis', module)
-  .add('基本使用', () => ({
-    template: `
-      <graph-analysis></graph-analysis>
-    `,
-    props: {
-    },
-    methods: {
-    },
-  }))
+  .add('基本使用', () => Blood)

@@ -24,6 +24,7 @@
     "@storybook/vue": "^5.2.8",
     "babel-loader": "^8.0.6",
     "babel-preset-vue": "^2.0.2",
+    "echarts": "^5.1.2",
     "element-ui": "^2.13.0",
     "graphql": "^14.5.8",
     "graphql-tag": "^2.10.1",

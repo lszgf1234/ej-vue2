@@ -8,13 +8,22 @@ echarts-graph实现血缘影响分析图谱。
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `data` | Object | {} | 用户对象信息 |
-| `data` | Object | {} | 用户对象信息 |
-| `type` | Blood | 血缘Blood 影响Effect |  |
+| `nodes` | Array | [] | 节点 |
+| `edges` | Array | [] | 关系线 |
+| `baseId` | String | [] | 关系线 |
+| `type` | String | Blood | 血缘Blood 影响Effect |
 
-### data
+### nodes[i]
 
 |  | Type | Default | Description |
 |---|---|---|---|
-| `id` | Number |  | 用户Id|
+| `id` | Number |  | Id|
 | `name` | String | | 名称|
+
+### edges[i]
+
+|  | Type | Default | Description |
+|---|---|---|---|
+| `[0]` | String |  | SourceId|
+| `[1]` | String| | targetId|
+

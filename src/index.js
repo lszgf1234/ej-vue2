@@ -35,6 +35,7 @@ import NavSubmenu from './components/nav-submenu'
 import Loading from './directives/loading'
 import Scrollbar from './directives/scrollbar'
 import PopoverSet from './components/popover-set'
+import GraphAnalysis from './components/graph-analysis'
 
 
 export {
@@ -71,6 +72,7 @@ export {
 
   NavMenu,
   NavSubmenu,
+  GraphAnalysis,
 
   Loading,
   Scrollbar,
@@ -103,6 +105,7 @@ export default {
     Vue.use(Card)
     Vue.use(Tree)
     Vue.use(Split)
+    Vue.use(GraphAnalysis)
 
     Vue.use(NavMenu)
     Vue.use(NavSubmenu)

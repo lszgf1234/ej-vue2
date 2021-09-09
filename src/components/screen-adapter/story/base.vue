@@ -16,5 +16,6 @@ export default {
 <style lang="scss">
 .adapter-wrap {
   background: blue;
+  height: 100vh;
 }
 </style>

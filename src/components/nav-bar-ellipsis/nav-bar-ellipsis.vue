@@ -1,8 +1,8 @@
 <template>
   <div
     :class="`nav-bar-${theme}`"
-    :style="{width: navWidth}"
-    class="nav-bar"
+    :style="{width: navWidth, height: height}"
+    class="nav-bar overflow-hidden"
   >
     <div
       ref="content"
@@ -161,6 +161,9 @@ export default {
     },
     widthIndex() {
       return this.$refs['mainMenu'].widthIndex;
+    },
+    height() {
+      return typeof this.barHeight === 'string' ? this.barHeight : `${this.barHeight}px`;
     }
   },
 

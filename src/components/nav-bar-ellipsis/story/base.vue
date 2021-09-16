@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-hidden" style="height: 56px">
+  <div>
     <ej-nav-bar-ellipsis
       :data="dataList"
       theme="dark"

@@ -37,6 +37,7 @@ import Scrollbar from './directives/scrollbar'
 import PopoverSet from './components/popover-set'
 import GraphAnalysis from './components/graph-analysis'
 import ScreenAdapter from './components/screen-adapter'
+import ResizeBar from './components/resize-bar'
 
 
 export {
@@ -79,6 +80,7 @@ export {
   Scrollbar,
   PopoverSet,
   ScreenAdapter,
+  ResizeBar,
 }
 
 export default {
@@ -109,6 +111,7 @@ export default {
     Vue.use(Split)
     Vue.use(GraphAnalysis)
     Vue.use(ScreenAdapter)
+    Vue.use(ResizeBar)
 
     Vue.use(NavMenu)
     Vue.use(NavSubmenu)

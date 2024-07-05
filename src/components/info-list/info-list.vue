@@ -66,6 +66,9 @@
       isVertical () {
         this.init()
       },
+      data () {
+        this.init()
+      },
     },
 
     created () {

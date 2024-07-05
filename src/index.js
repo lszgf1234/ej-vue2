@@ -23,12 +23,22 @@ import SearchOptionCascader from './components/search-options/cascader'
 import SearchOptionRadio from './components/search-options/radio'
 import UserCard from './components/user-card'
 import TabbedWorkspace from './components/tabbed-workspace'
+import SelectTree from './components/select-tree'
+import SelectTreeSingleMultiple from './components/select-tree-single-multiple'
+import EjPagination from './components/pagination'
+import Tree from './components/tree'
+import Split from './components/split'
 
 import NavMenu from './components/nav-menu'
 import NavSubmenu from './components/nav-submenu'
 
 import Loading from './directives/loading'
+import Scrollbar from './directives/scrollbar'
 import PopoverSet from './components/popover-set'
+import GraphAnalysis from './components/graph-analysis'
+import ScreenAdapter from './components/screen-adapter'
+import ResizeBar from './components/resize-bar'
+
 
 export {
   AppHeader,
@@ -56,12 +66,21 @@ export {
   SearchOptionRadio,
   UserCard,
   TabbedWorkspace,
+  SelectTree,
+  SelectTreeSingleMultiple,
+  EjPagination,
+  Tree,
+  Split,
 
   NavMenu,
   NavSubmenu,
+  GraphAnalysis,
 
   Loading,
+  Scrollbar,
   PopoverSet,
+  ScreenAdapter,
+  ResizeBar,
 }
 
 export default {
@@ -81,14 +100,24 @@ export default {
     Vue.use(Highlight)
     Vue.use(SearchInput)
     Vue.use(SearchList)
+    Vue.use(SelectTree)
+    Vue.use(SelectTreeSingleMultiple)
     Vue.use(SearchSelect)
     Vue.use(SearchOptions)
     Vue.use(UserCard)
+    Vue.use(EjPagination)
+    Vue.use(Card)
+    Vue.use(Tree)
+    Vue.use(Split)
+    Vue.use(GraphAnalysis)
+    Vue.use(ScreenAdapter)
+    Vue.use(ResizeBar)
 
     Vue.use(NavMenu)
     Vue.use(NavSubmenu)
 
     Vue.use(Loading)
+    Vue.use(Scrollbar)
     Vue.use(PopoverSet)
   },
 }

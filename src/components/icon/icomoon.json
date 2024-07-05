@@ -2,7 +2,7 @@
   "metadata": {
     "name": "EJ-SAMP",
     "lastOpened": 0,
-    "created": 1574046676206
+    "created": 1595828396812
   },
   "iconSets": [
     {
@@ -19,1542 +19,1750 @@
     {
       "selection": [
         {
-          "order": 3888,
+          "order": 2486,
           "id": 251,
           "name": "check-circle-o",
           "prevSize": 24
         },
         {
-          "order": 3889,
+          "order": 2487,
           "id": 252,
           "name": "check-circle",
           "prevSize": 24
         },
         {
-          "order": 3890,
+          "order": 2488,
           "id": 253,
           "name": "close-circle-o",
           "prevSize": 24
         },
         {
-          "order": 3891,
+          "order": 2489,
           "id": 254,
           "name": "close-circle",
           "prevSize": 24
         },
         {
-          "order": 3892,
+          "order": 2490,
           "id": 255,
           "name": "clock-circle-o",
           "prevSize": 24
         },
         {
-          "order": 3893,
+          "order": 2491,
           "id": 256,
           "name": "clock-circle",
           "prevSize": 24
         },
         {
-          "order": 3894,
+          "order": 2492,
           "id": 257,
           "name": "play-circle-o",
           "prevSize": 24
         },
         {
-          "order": 3895,
+          "order": 2493,
           "id": 258,
           "name": "play",
           "prevSize": 24
         },
         {
-          "order": 3896,
+          "order": 2494,
           "id": 259,
           "name": "pause-circle-o",
           "prevSize": 24
         },
         {
-          "order": 3897,
+          "order": 2495,
           "id": 260,
           "name": "pause-circle",
           "prevSize": 24
         },
         {
-          "order": 3898,
+          "order": 2496,
           "id": 261,
           "name": "plus-circle-o",
           "prevSize": 24
         },
         {
-          "order": 3899,
+          "order": 2497,
           "id": 262,
           "name": "plus-circle",
           "prevSize": 24
         },
         {
-          "order": 3900,
+          "order": 2498,
           "id": 263,
           "name": "minus-circle-o",
           "prevSize": 24
         },
         {
-          "order": 3901,
+          "order": 2499,
           "id": 264,
           "name": "minus-circle",
           "prevSize": 24
         },
         {
-          "order": 3902,
+          "order": 2500,
           "id": 265,
           "name": "up-circle-o",
           "prevSize": 24
         },
         {
-          "order": 3903,
+          "order": 2501,
           "id": 266,
           "name": "up-circle",
           "prevSize": 24
         },
         {
-          "order": 3904,
+          "order": 2502,
           "id": 267,
           "name": "down-circle-o",
           "prevSize": 24
         },
         {
-          "order": 3905,
+          "order": 2503,
           "id": 268,
           "name": "down-circle",
           "prevSize": 24
         },
         {
-          "order": 3906,
+          "order": 2504,
           "id": 269,
           "name": "left-circle-o",
           "prevSize": 24
         },
         {
-          "order": 3907,
+          "order": 2505,
           "id": 270,
           "name": "left-circle",
           "prevSize": 24
         },
         {
-          "order": 3908,
+          "order": 2506,
           "id": 271,
           "name": "right-circle-o",
           "prevSize": 24
         },
         {
-          "order": 3909,
+          "order": 2507,
           "id": 272,
           "name": "right-circle",
           "prevSize": 24
         },
         {
-          "order": 3910,
+          "order": 2508,
           "id": 273,
           "name": "info-cirlce-o",
           "prevSize": 24
         },
         {
-          "order": 3911,
+          "order": 2509,
           "id": 274,
           "name": "info-cirlce",
           "prevSize": 24
         },
         {
-          "order": 3912,
+          "order": 2510,
           "id": 275,
           "name": "exclamation-circle-o",
           "prevSize": 24
         },
         {
-          "order": 3913,
+          "order": 2511,
           "id": 276,
           "name": "exclamation-circle",
           "prevSize": 24
         },
         {
-          "order": 3914,
+          "order": 2512,
           "id": 277,
           "name": "question-circle-o",
           "prevSize": 24
         },
         {
-          "order": 3915,
+          "order": 2513,
           "id": 278,
           "name": "question-circle",
           "prevSize": 24
         },
         {
-          "order": 3916,
+          "order": 2514,
           "id": 279,
           "name": "frown-o",
           "prevSize": 24
         },
         {
-          "order": 3917,
+          "order": 2515,
           "id": 280,
           "name": "frown",
           "prevSize": 24
         },
         {
-          "order": 3918,
+          "order": 2516,
           "id": 281,
           "name": "smile-o",
           "prevSize": 24
         },
         {
-          "order": 3919,
+          "order": 2517,
           "id": 282,
           "name": "smile",
           "prevSize": 24
         },
         {
-          "order": 3920,
+          "order": 2518,
           "id": 283,
           "name": "meh",
           "prevSize": 24
         },
         {
-          "order": 3921,
+          "order": 2519,
           "id": 284,
           "name": "meh-o",
           "prevSize": 24
         },
         {
-          "order": 3922,
+          "order": 2520,
           "id": 285,
           "name": "pay-circle-o",
           "prevSize": 24
         },
         {
-          "order": 3923,
+          "order": 2521,
           "id": 286,
           "name": "pay-circle",
           "prevSize": 24
         },
         {
-          "order": 3924,
+          "order": 2522,
           "id": 287,
           "name": "cloud-o",
           "prevSize": 24
         },
         {
-          "order": 3925,
+          "order": 2523,
           "id": 288,
           "name": "cloud",
           "prevSize": 24
         },
         {
-          "order": 3926,
+          "order": 2524,
           "id": 289,
           "name": "download-o",
           "prevSize": 24
         },
         {
-          "order": 3927,
+          "order": 2525,
           "id": 290,
           "name": "download",
           "prevSize": 24
         },
         {
-          "order": 3928,
+          "order": 2526,
           "id": 291,
           "name": "upload-o",
           "prevSize": 24
         },
         {
-          "order": 3929,
+          "order": 2527,
           "id": 292,
           "name": "upload",
           "prevSize": 24
         },
         {
-          "order": 3930,
+          "order": 2528,
           "id": 293,
           "name": "location-o",
           "prevSize": 24
         },
         {
-          "order": 3931,
+          "order": 2529,
           "id": 294,
           "name": "location",
           "prevSize": 24
         },
         {
-          "order": 3932,
+          "order": 2530,
           "id": 295,
           "name": "look-o",
           "prevSize": 24
         },
         {
-          "order": 3933,
+          "order": 2531,
           "id": 296,
           "name": "look",
           "prevSize": 24
         },
         {
-          "order": 3934,
+          "order": 2532,
           "id": 297,
           "name": "heart",
           "prevSize": 24
         },
         {
-          "order": 3935,
+          "order": 2533,
           "id": 298,
           "name": "heart-o",
           "prevSize": 24
         },
         {
-          "order": 3936,
+          "order": 2534,
           "id": 299,
           "name": "pin-o",
           "prevSize": 24
         },
         {
-          "order": 3937,
+          "order": 2535,
           "id": 300,
           "name": "pin",
           "prevSize": 24
         },
         {
-          "order": 3938,
+          "order": 2536,
           "id": 301,
           "name": "tag-o",
           "prevSize": 24
         },
         {
-          "order": 3939,
+          "order": 2537,
           "id": 302,
           "name": "tag",
           "prevSize": 24
         },
         {
-          "order": 3940,
+          "order": 2538,
           "id": 303,
           "name": "tags-o",
           "prevSize": 24
         },
         {
-          "order": 3941,
+          "order": 2539,
           "id": 304,
           "name": "tags",
           "prevSize": 24
         },
         {
-          "order": 3942,
+          "order": 2540,
           "id": 305,
           "name": "aliww-o",
           "prevSize": 24
         },
         {
-          "order": 3943,
+          "order": 2541,
           "id": 306,
           "name": "aliww",
           "prevSize": 24
         },
         {
-          "order": 3944,
+          "order": 2542,
           "id": 307,
           "name": "dingding",
           "prevSize": 24
         },
         {
-          "order": 3945,
+          "order": 2543,
           "id": 308,
           "name": "dingding-o",
           "prevSize": 24
         },
         {
-          "order": 3946,
+          "order": 2544,
           "id": 309,
           "name": "android-o",
           "prevSize": 24
         },
         {
-          "order": 3947,
+          "order": 2545,
           "id": 310,
           "name": "android",
           "prevSize": 24
         },
         {
-          "order": 3948,
+          "order": 2546,
           "id": 311,
           "name": "apple-o",
           "prevSize": 24
         },
         {
-          "order": 3949,
+          "order": 2547,
           "id": 312,
           "name": "apple",
           "prevSize": 24
         },
         {
-          "order": 3950,
+          "order": 2548,
           "id": 313,
           "name": "microsoft-o",
           "prevSize": 24
         },
         {
-          "order": 3951,
+          "order": 2549,
           "id": 314,
           "name": "microsoft",
           "prevSize": 24
         },
         {
-          "order": 3952,
+          "order": 2550,
           "id": 315,
           "name": "windows-o",
           "prevSize": 24
         },
         {
-          "order": 3953,
+          "order": 2551,
           "id": 316,
           "name": "windows",
           "prevSize": 24
         },
         {
-          "order": 3954,
+          "order": 2552,
           "id": 317,
           "name": "like",
           "prevSize": 24
         },
         {
-          "order": 3955,
+          "order": 2553,
           "id": 318,
           "name": "like-o",
           "prevSize": 24
         },
         {
-          "order": 3956,
+          "order": 2554,
           "id": 319,
           "name": "dislike",
           "prevSize": 24
         },
         {
-          "order": 3957,
+          "order": 2555,
           "id": 320,
           "name": "dislike-o",
           "prevSize": 24
         },
         {
-          "order": 3958,
+          "order": 2556,
           "id": 321,
           "name": "down-square-o",
           "prevSize": 24
         },
         {
-          "order": 3959,
+          "order": 2557,
           "id": 322,
           "name": "down-square",
           "prevSize": 24
         },
         {
-          "order": 3960,
+          "order": 2558,
           "id": 323,
           "name": "up-square-o",
           "prevSize": 24
         },
         {
-          "order": 3961,
+          "order": 2559,
           "id": 324,
           "name": "up-square",
           "prevSize": 24
         },
         {
-          "order": 3962,
+          "order": 2560,
           "id": 325,
           "name": "left-square-o",
           "prevSize": 24
         },
         {
-          "order": 3963,
+          "order": 2561,
           "id": 326,
           "name": "left-square",
           "prevSize": 24
         },
         {
-          "order": 3964,
+          "order": 2562,
           "id": 327,
           "name": "right-square-o",
           "prevSize": 24
         },
         {
-          "order": 3965,
+          "order": 2563,
           "id": 328,
           "name": "right-square",
           "prevSize": 24
         },
         {
-          "order": 3966,
+          "order": 2564,
           "id": 329,
           "name": "star",
           "prevSize": 24
         },
         {
-          "order": 3967,
+          "order": 2565,
           "id": 330,
           "name": "star-o",
           "prevSize": 24
         },
         {
-          "order": 3968,
+          "order": 2566,
           "id": 331,
           "name": "plus-square-o",
           "prevSize": 24
         },
         {
-          "order": 3969,
+          "order": 2567,
           "id": 332,
           "name": "plus-square",
           "prevSize": 24
         },
         {
-          "order": 3970,
+          "order": 2568,
           "id": 333,
           "name": "minus-square-o",
           "prevSize": 24
         },
         {
-          "order": 3971,
+          "order": 2569,
           "id": 334,
           "name": "minus-square",
           "prevSize": 24
         },
         {
-          "order": 3972,
+          "order": 2570,
           "id": 335,
           "name": "close-square-o",
           "prevSize": 24
         },
         {
-          "order": 3973,
+          "order": 2571,
           "id": 336,
           "name": "close-square",
           "prevSize": 24
         },
         {
-          "order": 3974,
+          "order": 2572,
           "id": 337,
           "name": "check-square-o",
           "prevSize": 24
         },
         {
-          "order": 3975,
+          "order": 2573,
           "id": 338,
           "name": "check-square",
           "prevSize": 24
         },
         {
-          "order": 3976,
+          "order": 2574,
           "id": 339,
           "name": "plus",
           "prevSize": 24
         },
         {
-          "order": 3977,
+          "order": 2575,
           "id": 340,
           "name": "minus",
           "prevSize": 24
         },
         {
-          "order": 3978,
+          "order": 2576,
           "id": 341,
           "name": "check",
           "prevSize": 24
         },
         {
-          "order": 3979,
+          "order": 2577,
           "id": 342,
           "name": "close",
           "prevSize": 24
         },
         {
-          "order": 3980,
+          "order": 2578,
           "id": 343,
           "name": "up",
           "prevSize": 24
         },
         {
-          "order": 3981,
+          "order": 2579,
           "id": 344,
           "name": "down",
           "prevSize": 24
         },
         {
-          "order": 3982,
+          "order": 2580,
           "id": 345,
           "name": "left",
           "prevSize": 24
         },
         {
-          "order": 3983,
+          "order": 2581,
           "id": 346,
           "name": "right",
           "prevSize": 24
         },
         {
-          "order": 3984,
+          "order": 2582,
           "id": 347,
           "name": "pause",
           "prevSize": 24
         },
         {
-          "order": 3985,
+          "order": 2583,
           "id": 348,
           "name": "exclamation",
           "prevSize": 24
         },
         {
-          "order": 3986,
+          "order": 2584,
           "id": 349,
           "name": "info",
           "prevSize": 24
         },
         {
-          "order": 3987,
+          "order": 2585,
           "id": 350,
           "name": "question",
           "prevSize": 24
         },
         {
-          "order": 3988,
+          "order": 2586,
           "id": 351,
           "name": "arrow-left",
           "prevSize": 24
         },
         {
-          "order": 3989,
+          "order": 2587,
           "id": 352,
           "name": "arrow-down",
           "prevSize": 24
         },
         {
-          "order": 3990,
+          "order": 2588,
           "id": 353,
           "name": "arrow-right",
           "prevSize": 24
         },
         {
-          "order": 3991,
+          "order": 2589,
           "id": 354,
           "name": "arrow-up",
           "prevSize": 24
         },
         {
-          "order": 3992,
+          "order": 2590,
           "id": 355,
           "name": "left-end",
           "prevSize": 24
         },
         {
-          "order": 3993,
+          "order": 2591,
           "id": 356,
           "name": "right-end",
           "prevSize": 24
         },
         {
-          "order": 3994,
+          "order": 2592,
           "id": 357,
           "name": "pinch-in",
           "prevSize": 24
         },
         {
-          "order": 3995,
+          "order": 2593,
           "id": 358,
           "name": "pinch-out",
           "prevSize": 24
         },
         {
-          "order": 3996,
+          "order": 2594,
           "id": 359,
           "name": "forward",
           "prevSize": 24
         },
         {
-          "order": 3997,
+          "order": 2595,
           "id": 360,
           "name": "backward",
           "prevSize": 24
         },
         {
-          "order": 3998,
+          "order": 2596,
           "id": 361,
           "name": "Group-77",
           "prevSize": 24
         },
         {
-          "order": 3999,
+          "order": 2597,
           "id": 362,
           "name": "Group-78",
           "prevSize": 24
         },
         {
-          "order": 4000,
+          "order": 2598,
           "id": 363,
           "name": "Group-79",
           "prevSize": 24
         },
         {
-          "order": 4001,
+          "order": 2599,
           "id": 364,
           "name": "Group-80",
           "prevSize": 24
         },
         {
-          "order": 4002,
+          "order": 2600,
           "id": 365,
           "name": "Group-82",
           "prevSize": 24
         },
         {
-          "order": 4003,
+          "order": 2601,
           "id": 366,
           "name": "Group-83",
           "prevSize": 24
         },
         {
-          "order": 4004,
+          "order": 2602,
           "id": 367,
           "name": "Group-84",
           "prevSize": 24
         },
         {
-          "order": 4005,
+          "order": 2603,
           "id": 368,
           "name": "Group-85",
           "prevSize": 24
         },
         {
-          "order": 4006,
+          "order": 2604,
           "id": 369,
           "name": "file",
           "prevSize": 24
         },
         {
-          "order": 4007,
+          "order": 2605,
           "id": 370,
           "name": "textfile",
           "prevSize": 24
         },
         {
-          "order": 4008,
+          "order": 2606,
           "id": 371,
           "name": "word",
           "prevSize": 24
         },
         {
-          "order": 4009,
+          "order": 2607,
           "id": 372,
           "name": "excel",
           "prevSize": 24
         },
         {
-          "order": 4010,
+          "order": 2608,
           "id": 373,
           "name": "powerpoint",
           "prevSize": 24
         },
         {
-          "order": 4011,
+          "order": 2609,
           "id": 374,
           "name": "jpg",
           "prevSize": 24
         },
         {
-          "order": 4012,
+          "order": 2610,
           "id": 375,
           "name": "pdf",
           "prevSize": 24
         },
         {
-          "order": 4013,
+          "order": 2611,
           "id": 376,
           "name": "unkown-file",
           "prevSize": 24
         },
         {
-          "order": 4014,
+          "order": 2612,
           "id": 377,
           "name": "add-file",
           "prevSize": 24
         },
         {
-          "order": 4015,
+          "order": 2613,
           "id": 378,
           "name": "folder",
           "prevSize": 24
         },
         {
-          "order": 4016,
+          "order": 2614,
           "id": 379,
           "name": "folder-open",
           "prevSize": 24
         },
         {
-          "order": 4017,
+          "order": 2615,
           "id": 380,
           "name": "add-folder",
           "prevSize": 24
         },
         {
-          "order": 4018,
+          "order": 2616,
           "id": 381,
           "name": "copy",
           "prevSize": 24
         },
         {
-          "order": 4019,
+          "order": 2617,
           "id": 382,
           "name": "bookmark",
           "prevSize": 24
         },
         {
-          "order": 4020,
+          "order": 2618,
           "id": 383,
           "name": "contacts",
           "prevSize": 24
         },
         {
-          "order": 4021,
+          "order": 2619,
           "id": 384,
           "name": "Group-91",
           "prevSize": 24
         },
         {
-          "order": 4022,
+          "order": 2620,
           "id": 385,
           "name": "Group-122",
           "prevSize": 24
         },
         {
-          "order": 4023,
+          "order": 2621,
           "id": 386,
           "name": "inbox",
           "prevSize": 24
         },
         {
-          "order": 4024,
+          "order": 2622,
           "id": 387,
           "name": "image",
           "prevSize": 24
         },
         {
-          "order": 4025,
+          "order": 2623,
           "id": 388,
           "name": "list",
           "prevSize": 24
         },
         {
-          "order": 4026,
+          "order": 2624,
           "id": 389,
           "name": "remove-batch",
           "prevSize": 24
         },
         {
-          "order": 4027,
+          "order": 2625,
           "id": 390,
           "name": "gear",
           "prevSize": 24
         },
         {
-          "order": 4028,
+          "order": 2626,
           "id": 391,
           "name": "usb",
           "prevSize": 24
         },
         {
-          "order": 4029,
+          "order": 2627,
           "id": 392,
           "name": "Group-163",
           "prevSize": 24
         },
         {
-          "order": 4030,
+          "order": 2628,
           "id": 393,
           "name": "user",
           "prevSize": 24
         },
         {
-          "order": 4031,
+          "order": 2629,
           "id": 394,
           "name": "Group-197",
           "prevSize": 24
         },
         {
-          "order": 4032,
+          "order": 2630,
           "id": 395,
           "name": "add-friend",
           "prevSize": 24
         },
         {
-          "order": 4033,
+          "order": 2631,
           "id": 396,
           "name": "add-friends",
           "prevSize": 24
         },
         {
-          "order": 4034,
+          "order": 2632,
           "id": 397,
           "name": "remove-friend",
           "prevSize": 24
         },
         {
-          "order": 4035,
+          "order": 2633,
           "id": 398,
           "name": "remove-friends",
           "prevSize": 24
         },
         {
-          "order": 4036,
+          "order": 2634,
           "id": 399,
           "name": "world",
           "prevSize": 24
         },
         {
-          "order": 4037,
+          "order": 2635,
           "id": 400,
           "name": "Group-115",
           "prevSize": 24
         },
         {
-          "order": 4038,
+          "order": 2636,
           "id": 401,
           "name": "loading",
           "prevSize": 24
         },
         {
-          "order": 4039,
+          "order": 2637,
           "id": 402,
           "name": "Group-117",
           "prevSize": 24
         },
         {
-          "order": 4040,
+          "order": 2638,
           "id": 403,
           "name": "message",
           "prevSize": 24
         },
         {
-          "order": 4041,
+          "order": 2639,
           "id": 404,
           "name": "Group-119",
           "prevSize": 24
         },
         {
-          "order": 4042,
+          "order": 2640,
           "id": 405,
           "name": "Group-141",
           "prevSize": 24
         },
         {
-          "order": 4043,
+          "order": 2641,
           "id": 406,
           "name": "Group-124",
           "prevSize": 24
         },
         {
-          "order": 4044,
+          "order": 2642,
           "id": 407,
           "name": "Group-120",
           "prevSize": 24
         },
         {
-          "order": 4045,
+          "order": 2643,
           "id": 408,
           "name": "refresh",
           "prevSize": 24
         },
         {
-          "order": 4046,
+          "order": 2644,
           "id": 409,
           "name": "Group-81",
           "prevSize": 24
         },
         {
-          "order": 4047,
+          "order": 2645,
           "id": 410,
           "name": "Group-188",
           "prevSize": 24
         },
         {
-          "order": 4048,
+          "order": 2646,
           "id": 411,
           "name": "back",
           "prevSize": 24
         },
         {
-          "order": 4049,
+          "order": 2647,
           "id": 412,
           "name": "male",
           "prevSize": 24
         },
         {
-          "order": 4050,
+          "order": 2648,
           "id": 413,
           "name": "female",
           "prevSize": 24
         },
         {
-          "order": 4051,
+          "order": 2649,
           "id": 414,
           "name": "bank",
           "prevSize": 24
         },
         {
-          "order": 4052,
+          "order": 2650,
           "id": 415,
           "name": "idea",
           "prevSize": 24
         },
         {
-          "order": 4053,
+          "order": 2651,
           "id": 416,
           "name": "edit",
           "prevSize": 24
         },
         {
-          "order": 4054,
+          "order": 2652,
           "id": 417,
           "name": "fork",
           "prevSize": 24
         },
         {
-          "order": 4055,
+          "order": 2653,
           "id": 418,
           "name": "gift",
           "prevSize": 24
         },
         {
-          "order": 4056,
+          "order": 2654,
           "id": 419,
           "name": "shop",
           "prevSize": 24
         },
         {
-          "order": 4057,
+          "order": 2655,
           "id": 420,
           "name": "medkit",
           "prevSize": 24
         },
         {
-          "order": 4058,
+          "order": 2656,
           "id": 421,
           "name": "red-envelope",
           "prevSize": 24
         },
         {
-          "order": 4059,
+          "order": 2657,
           "id": 422,
           "name": "coffee",
           "prevSize": 24
         },
         {
-          "order": 4060,
+          "order": 2658,
           "id": 423,
           "name": "rocket",
           "prevSize": 24
         },
         {
-          "order": 4061,
+          "order": 2659,
           "id": 424,
           "name": "assurance",
           "prevSize": 24
         },
         {
-          "order": 4062,
+          "order": 2660,
           "id": 425,
           "name": "scan",
           "prevSize": 24
         },
         {
-          "order": 4063,
+          "order": 2661,
           "id": 426,
           "name": "registered",
           "prevSize": 24
         },
         {
-          "order": 4064,
+          "order": 2662,
           "id": 427,
           "name": "copyright",
           "prevSize": 24
         },
         {
-          "order": 4065,
+          "order": 2663,
           "id": 428,
           "name": "trophy",
           "prevSize": 24
         },
         {
-          "order": 4066,
+          "order": 2664,
           "id": 429,
           "name": "idcard",
           "prevSize": 24
         },
         {
-          "order": 4067,
+          "order": 2665,
           "id": 430,
           "name": "wallet",
           "prevSize": 24
         },
         {
-          "order": 4068,
+          "order": 2666,
           "id": 431,
           "name": "bell",
           "prevSize": 24
         },
         {
-          "order": 4069,
+          "order": 2667,
           "id": 432,
           "name": "notepad",
           "prevSize": 24
         },
         {
-          "order": 4070,
+          "order": 2668,
           "id": 433,
           "name": "calendar",
           "prevSize": 24
         },
         {
-          "order": 4071,
+          "order": 2669,
           "id": 434,
           "name": "Group-151",
           "prevSize": 24
         },
         {
-          "order": 4072,
+          "order": 2670,
           "id": 435,
           "name": "car",
           "prevSize": 24
         },
         {
-          "order": 4073,
+          "order": 2671,
           "id": 436,
           "name": "more",
           "prevSize": 24
         },
         {
-          "order": 4074,
+          "order": 2672,
           "id": 437,
           "name": "flag",
           "prevSize": 24
         },
         {
-          "order": 4075,
+          "order": 2673,
           "id": 438,
           "name": "Group-155",
           "prevSize": 24
         },
         {
-          "order": 4076,
+          "order": 2674,
           "id": 439,
           "name": "mobile",
           "prevSize": 24
         },
         {
-          "order": 4077,
+          "order": 2675,
           "id": 440,
           "name": "shake",
           "prevSize": 24
         },
         {
-          "order": 4078,
+          "order": 2676,
           "id": 441,
           "name": "tablet",
           "prevSize": 24
         },
         {
-          "order": 4079,
+          "order": 2677,
           "id": 442,
           "name": "monitor",
           "prevSize": 24
         },
         {
-          "order": 4080,
+          "order": 2678,
           "id": 443,
           "name": "Group-204",
           "prevSize": 24
         },
         {
-          "order": 4081,
+          "order": 2679,
           "id": 444,
           "name": "database",
           "prevSize": 24
         },
         {
-          "order": 4082,
+          "order": 2680,
           "id": 445,
           "name": "search",
           "prevSize": 24
         },
         {
-          "order": 4083,
+          "order": 2681,
           "id": 446,
           "name": "cli",
           "prevSize": 24
         },
         {
-          "order": 4084,
+          "order": 2682,
           "id": 447,
           "name": "tshirt",
           "prevSize": 24
         },
         {
-          "order": 4085,
+          "order": 2683,
           "id": 448,
           "name": "bankcard",
           "prevSize": 24
         },
         {
-          "order": 4086,
+          "order": 2684,
           "id": 449,
           "name": "support",
           "prevSize": 24
         },
         {
-          "order": 4087,
+          "order": 2685,
           "id": 450,
           "name": "link",
           "prevSize": 24
         },
         {
-          "order": 4088,
+          "order": 2686,
           "id": 451,
           "name": "unlink",
           "prevSize": 24
         },
         {
-          "order": 4089,
+          "order": 2687,
           "id": 452,
           "name": "import",
           "prevSize": 24
         },
         {
-          "order": 4090,
+          "order": 2688,
           "id": 453,
           "name": "export",
           "prevSize": 24
         },
         {
-          "order": 4091,
+          "order": 2689,
           "id": 454,
           "name": "Group-189",
           "prevSize": 24
         },
         {
-          "order": 4092,
+          "order": 2690,
           "id": 455,
           "name": "filter",
           "prevSize": 24
         },
         {
-          "order": 4093,
+          "order": 2691,
           "id": 456,
           "name": "home",
           "prevSize": 24
         },
         {
-          "order": 4094,
+          "order": 2692,
           "id": 457,
           "name": "mail",
           "prevSize": 24
         },
         {
-          "order": 4095,
+          "order": 2693,
           "id": 458,
           "name": "Group-175",
           "prevSize": 24
         },
         {
-          "order": 4096,
+          "order": 2694,
           "id": 459,
           "name": "save",
           "prevSize": 24
         },
         {
-          "order": 4097,
+          "order": 2695,
           "id": 460,
           "name": "cart",
           "prevSize": 24
         },
         {
-          "order": 4098,
+          "order": 2696,
           "id": 461,
           "name": "Group-179",
           "prevSize": 24
         },
         {
-          "order": 4099,
+          "order": 2697,
           "id": 462,
           "name": "Group-180",
           "prevSize": 24
         },
         {
-          "order": 4100,
+          "order": 2698,
           "id": 463,
           "name": "Group-181",
           "prevSize": 24
         },
         {
-          "order": 4101,
+          "order": 2699,
           "id": 464,
           "name": "gameboy",
           "prevSize": 24
         },
         {
-          "order": 4102,
+          "order": 2700,
           "id": 465,
           "name": "ie",
           "prevSize": 24
         },
         {
-          "order": 4103,
+          "order": 2701,
           "id": 466,
           "name": "safari",
           "prevSize": 24
         },
         {
-          "order": 4104,
+          "order": 2702,
           "id": 467,
           "name": "chrome",
           "prevSize": 24
         },
         {
-          "order": 4105,
+          "order": 2703,
           "id": 468,
           "name": "Group-205",
           "prevSize": 24
         },
         {
-          "order": 4106,
+          "order": 2704,
           "id": 469,
           "name": "trash",
           "prevSize": 24
         },
         {
-          "order": 4107,
+          "order": 2705,
           "id": 470,
           "name": "github",
           "prevSize": 24
         },
         {
-          "order": 4108,
+          "order": 2706,
           "id": 471,
           "name": "lock",
           "prevSize": 24
         },
         {
-          "order": 4109,
+          "order": 2707,
           "id": 472,
           "name": "unlock",
           "prevSize": 24
         },
         {
-          "order": 4110,
+          "order": 2708,
           "id": 473,
           "name": "key",
           "prevSize": 24
         },
         {
-          "order": 4111,
+          "order": 2709,
           "id": 474,
           "name": "Group-194",
           "prevSize": 24
         },
         {
-          "order": 4112,
+          "order": 2710,
           "id": 475,
           "name": "Group-114",
           "prevSize": 24
         },
         {
-          "order": 4113,
+          "order": 2711,
           "id": 476,
           "name": "column-chart",
           "prevSize": 24
         },
         {
-          "order": 4114,
+          "order": 2712,
           "id": 477,
           "name": "line-chart",
           "prevSize": 24
         },
         {
-          "order": 4115,
+          "order": 2713,
           "id": 478,
           "name": "area-chart",
           "prevSize": 24
         },
         {
-          "order": 4116,
+          "order": 2714,
           "id": 479,
           "name": "scatter-chart",
           "prevSize": 24
         },
         {
-          "order": 4117,
+          "order": 2715,
           "id": 480,
           "name": "pie-chart",
           "prevSize": 24
         },
         {
-          "order": 4118,
+          "order": 2716,
           "id": 481,
           "name": "barcode",
           "prevSize": 24
         },
         {
-          "order": 4119,
+          "order": 2717,
           "id": 482,
           "name": "qrcode",
           "prevSize": 24
         },
         {
-          "order": 4120,
+          "order": 2718,
           "id": 483,
           "name": "to-top",
           "prevSize": 24
         },
         {
-          "order": 4121,
+          "order": 2719,
           "id": 484,
           "name": "phone",
           "prevSize": 24
         },
         {
-          "order": 4122,
+          "order": 2720,
           "id": 485,
           "name": "share",
           "prevSize": 24
         },
         {
-          "order": 4123,
+          "order": 2721,
           "id": 486,
           "name": "sound",
           "prevSize": 24
         },
         {
-          "order": 4124,
+          "order": 2722,
           "id": 487,
           "name": "camera-o",
           "prevSize": 24
         },
         {
-          "order": 4125,
+          "order": 2723,
           "id": 488,
           "name": "camera",
           "prevSize": 24
         },
         {
-          "order": 4126,
+          "order": 2724,
           "id": 489,
           "name": "video-camera",
           "prevSize": 24
         },
         {
-          "order": 4127,
+          "order": 2725,
           "id": 490,
           "name": "wifi",
           "prevSize": 24
         },
         {
-          "order": 4128,
+          "order": 2726,
           "id": 491,
           "name": "paperclip",
           "prevSize": 24
         },
         {
-          "order": 4129,
+          "order": 2727,
           "id": 492,
           "prevSize": 24,
           "name": "fire"
         },
         {
-          "order": 4130,
+          "order": 2728,
           "id": 505,
           "name": "table-file",
           "prevSize": 24
         },
         {
-          "order": 4131,
+          "order": 2729,
           "id": 499,
           "name": "signal-level-5",
           "prevSize": 24
         },
         {
-          "order": 4132,
+          "order": 2730,
           "id": 500,
           "name": "signal-level-4",
           "prevSize": 24
         },
         {
-          "order": 4133,
+          "order": 2731,
           "id": 501,
           "name": "signal-level-3",
           "prevSize": 24
         },
         {
-          "order": 4134,
+          "order": 2732,
           "id": 504,
           "name": "signal-level-2",
           "prevSize": 24
         },
         {
-          "order": 4135,
+          "order": 2733,
           "id": 503,
           "name": "signal-level-1",
           "prevSize": 24
         },
         {
-          "order": 4136,
+          "order": 2734,
           "id": 513,
           "name": "rhombus",
           "prevSize": 24
         },
         {
-          "order": 4137,
+          "order": 2735,
           "id": 507,
           "name": "rhombus-o",
           "prevSize": 24
         },
         {
-          "order": 4138,
+          "order": 2736,
           "id": 509,
           "name": "checkin",
           "prevSize": 24
         },
         {
-          "order": 4139,
+          "order": 2737,
           "id": 508,
           "name": "checkout",
           "prevSize": 24
         },
         {
-          "order": 4140,
+          "order": 2738,
           "id": 510,
           "name": "cancel-o",
           "prevSize": 24
         },
         {
-          "order": 4141,
+          "order": 2739,
           "id": 511,
           "name": "discuss-o",
           "prevSize": 24
         },
         {
-          "order": 4142,
+          "order": 2740,
           "id": 512,
           "name": "opera-o",
           "prevSize": 24
+        },
+        {
+          "order": 2741,
+          "id": 517,
+          "name": "business-add",
+          "prevSize": 24
+        },
+        {
+          "order": 2742,
+          "id": 516,
+          "name": "business-all-query",
+          "prevSize": 24
+        },
+        {
+          "order": 2743,
+          "id": 515,
+          "name": "business-analysis",
+          "prevSize": 24
+        },
+        {
+          "order": 2744,
+          "id": 514,
+          "name": "business-stick",
+          "prevSize": 24
+        },
+        {
+          "order": 2745,
+          "id": 519,
+          "name": "demand-approve",
+          "prevSize": 24
+        },
+        {
+          "order": 2746,
+          "id": 518,
+          "name": "supply-approve",
+          "prevSize": 24
+        },
+        {
+          "order": 2747,
+          "id": 520,
+          "name": "negative-stick",
+          "prevSize": 24
+        },
+        {
+          "order": 2748,
+          "id": 521,
+          "name": "negative-query",
+          "prevSize": 24
+        },
+        {
+          "order": 2749,
+          "id": 522,
+          "name": "license-analysis",
+          "prevSize": 24
+        },
+        {
+          "order": 2750,
+          "id": 523,
+          "name": "license-stick",
+          "prevSize": 24
+        },
+        {
+          "order": 2751,
+          "id": 527,
+          "name": "system-stick",
+          "prevSize": 24
+        },
+        {
+          "order": 2752,
+          "id": 525,
+          "name": "business-theme",
+          "prevSize": 24
+        },
+        {
+          "order": 2753,
+          "id": 526,
+          "name": "business-log",
+          "prevSize": 24
+        },
+        {
+          "order": 2754,
+          "id": 524,
+          "name": "business-nature",
+          "prevSize": 24
+        },
+        {
+          "order": 2755,
+          "id": 531,
+          "name": "supply-query",
+          "prevSize": 24
+        },
+        {
+          "order": 2756,
+          "id": 530,
+          "name": "supply-stick",
+          "prevSize": 24
+        },
+        {
+          "order": 2757,
+          "id": 528,
+          "name": "supply-analysis",
+          "prevSize": 24
+        },
+        {
+          "order": 2758,
+          "id": 529,
+          "name": "supply-add",
+          "prevSize": 24
+        },
+        {
+          "order": 2759,
+          "id": 532,
+          "name": "menu-packup",
+          "prevSize": 24
+        },
+        {
+          "order": 2760,
+          "id": 533,
+          "name": "menu-expand",
+          "prevSize": 24
+        },
+        {
+          "order": 2761,
+          "id": 534,
+          "name": "zw-home",
+          "prevSize": 24
+        },
+        {
+          "order": 2762,
+          "id": 536,
+          "name": "zw-file-search",
+          "prevSize": 24
+        },
+        {
+          "order": 2763,
+          "id": 535,
+          "name": "zw-list",
+          "prevSize": 24
+        },
+        {
+          "order": 2764,
+          "id": 537,
+          "name": "zw-file",
+          "prevSize": 24
+        },
+        {
+          "order": 2765,
+          "id": 539,
+          "name": "double-left",
+          "prevSize": 24
+        },
+        {
+          "order": 2766,
+          "id": 540,
+          "name": "double-right",
+          "prevSize": 24
+        },
+        {
+          "order": 2767,
+          "id": 541,
+          "name": "subscribe",
+          "prevSize": 24
+        },
+        {
+          "order": 2768,
+          "id": 548,
+          "name": "database1",
+          "prevSize": 24
+        },
+        {
+          "order": 2769,
+          "id": 547,
+          "name": "function",
+          "prevSize": 24
+        },
+        {
+          "order": 2770,
+          "id": 546,
+          "name": "procedure",
+          "prevSize": 24
+        },
+        {
+          "order": 2771,
+          "id": 545,
+          "name": "schemata",
+          "prevSize": 24
+        },
+        {
+          "order": 2772,
+          "id": 543,
+          "name": "table",
+          "prevSize": 24
+        },
+        {
+          "order": 2773,
+          "id": 542,
+          "name": "view",
+          "prevSize": 24
+        },
+        {
+          "order": 2774,
+          "id": 549,
+          "name": "d-up"
+        },
+        {
+          "order": 2775,
+          "id": 550,
+          "name": "d-down"
         }
       ],
       "id": 3,
       "metadata": {
         "name": "Common Icons",
         "importSize": {
-          "width": 14,
-          "height": 17
+          "width": 12,
+          "height": 12
         },
         "designer": "Ant Design"
       },
@@ -4423,6 +4631,422 @@
           "grid": 24,
           "tags": [
             "opera-o"
+          ]
+        },
+        {
+          "id": 517,
+          "paths": [
+            "M1026.107 778.651c11.595 0 20.977 9.381 20.977 20.977s-9.381 20.977-20.977 20.977h-185.586v181.507c0 11.595-9.381 20.977-20.977 20.977s-20.977-9.381-20.977-20.977v-181.507h-181.507c-11.596 0-20.977-9.381-20.977-20.977s9.381-20.977 20.977-20.977h181.507v-180.924c0-11.595 9.381-20.977 20.977-20.977s20.977 9.381 20.977 20.977v180.924h185.586zM554.667 1023.505h-529.843c-13.581 0-24.823-9.927-24.823-23.501v-116.891c0-0.015 0-0.032 0-0.047 0.165-13.547 11.279-24.396 24.823-24.231h75.945v-491.551h-45.132c-0.447 0.015-0.892 0.017-1.34 0.005-12.662-0.322-22.668-10.849-22.346-23.511v-112.27c-0.175-9.762 5.537-18.674 14.481-22.594l482.78-206.928c6.193-2.647 13.203-2.647 19.396 0l483.298 206.928c9.086 3.849 15.017 12.726 15.098 22.594v112.27c0 13.572-11.394 23.506-24.966 23.506h-43.851v164.131h-49.155v-164.131h-120.43v164.131h-49.155v-164.131h-117.972v164.131h-49.155v-164.131h-117.972v491.551h80.32v49.155h-505.511v66.359h505.511v49.155zM538.836 115.573c44.557 0.052 80.664 36.159 80.713 80.713 0 44.576-36.136 80.713-80.713 80.713s-80.713-36.136-80.713-80.713c0-44.576 36.136-80.713 80.713-80.713zM538.836 227.843c17.421-0.020 31.538-14.137 31.558-31.558 0-17.428-14.13-31.558-31.558-31.558s-31.558 14.13-31.558 31.558c0 17.428 14.129 31.558 31.558 31.558zM81.106 318.129h916.743v-70.41l-458.372-196.404-458.372 196.404v70.41zM425.192 367.284h-117.972v491.551h117.972v-491.551zM258.064 367.284h-108.141v491.551h108.141v-491.551z"
+          ],
+          "attrs": [],
+          "width": 1067,
+          "grid": 24,
+          "tags": [
+            "business-add"
+          ]
+        },
+        {
+          "id": 516,
+          "paths": [
+            "M527.84 115.093c-43.667 0-79.066 35.399-79.066 79.066s35.399 79.066 79.066 79.066c43.667 0 79.066-35.399 79.066-79.066-0.048-43.645-35.418-79.015-79.066-79.066zM527.84 225.072c-17.072 0-30.914-13.841-30.914-30.914s13.841-30.914 30.914-30.914c17.072 0 30.914 13.841 30.914 30.914-0.019 17.065-13.849 30.894-30.914 30.914z",
+            "M1020.627 843.187c-0.014 0-0.031 0-0.046 0h-62.357v-481.52h42.956c13.295 0 24.456-9.732 24.456-23.026v-109.979c-0.079-9.667-5.889-18.363-14.79-22.133l-473.435-202.705c-6.067-2.593-12.934-2.593-19.001 0l-472.927 202.705c-8.761 3.84-14.357 12.57-14.186 22.133v109.979c-0.315 12.404 9.486 22.716 21.89 23.031 0.438 0.012 0.874 0.010 1.312-0.005h44.211v481.52h-74.395c-13.268-0.161-24.155 10.466-24.317 23.737 0 0.014 0 0.031 0 0.046v114.505c0 13.297 11.012 23.021 24.317 23.021h996.264c13.297 0 24.317-9.724 24.317-23.021v-114.505c-0.135-13.268-11-23.917-24.271-23.782zM79.451 313.515v-68.973l449.017-192.396 449.017 192.396v68.973h-898.034zM910.072 361.667v481.52h-117.972v-481.52h117.972zM743.948 361.667v481.52h-115.565v-481.52h115.565zM580.231 361.667v481.52h-115.565v-481.52h115.565zM416.515 361.667v481.52h-115.565v-481.52h115.565zM252.798 361.667v481.52h-105.934v-481.52h105.934zM996.746 956.344h-948.594v-65.005h948.594v65.005z"
+          ],
+          "attrs": [],
+          "width": 1045,
+          "grid": 24,
+          "tags": [
+            "business-all-query"
+          ]
+        },
+        {
+          "id": 515,
+          "paths": [
+            "M554.667 1023.505h-529.843c-13.581 0-24.823-9.927-24.823-23.501v-116.891c0-0.015 0-0.032 0-0.047 0.165-13.547 11.279-24.396 24.823-24.231h75.945v-491.551h-45.132c-0.447 0.015-0.892 0.017-1.34 0.005-12.662-0.322-22.668-10.849-22.346-23.511v-112.27c-0.175-9.762 5.537-18.674 14.481-22.594l482.78-206.928c6.193-2.647 13.203-2.647 19.396 0l483.298 206.928c9.086 3.849 15.017 12.726 15.098 22.594v112.27c0 13.572-11.394 23.506-24.966 23.506h-43.851v164.131h-49.155v-164.131h-120.43v164.131h-49.155v-164.131h-117.972v164.131h-49.155v-164.131h-117.972v491.551h80.32v49.155h-505.511v66.359h505.511v49.155zM538.836 115.573c44.557 0.052 80.664 36.159 80.713 80.713 0 44.576-36.136 80.713-80.713 80.713s-80.713-36.136-80.713-80.713c0-44.576 36.136-80.713 80.713-80.713zM538.836 227.843c17.421-0.020 31.538-14.137 31.558-31.558 0-17.428-14.13-31.558-31.558-31.558s-31.558 14.13-31.558 31.558c0 17.428 14.129 31.558 31.558 31.558zM81.106 318.129h916.743v-70.41l-458.372-196.404-458.372 196.404v70.41zM425.192 367.284h-117.972v491.551h117.972v-491.551zM258.064 367.284h-108.141v491.551h108.141v-491.551zM933.028 619.581h97.372v97.371h-32.457v69.986c0 20.184-16.33 36.514-36.514 36.514h-139.971v91.793c17.852 7.201 30.429 24.698 30.429 45.136 0 26.879-21.807 48.686-48.686 48.686s-48.686-21.807-48.686-48.686c0-20.438 12.577-37.934 30.429-45.136v-36.007h-139.971c-20.184 0-36.514-16.33-36.514-36.514v-63.646c-18.916-6.644-32.457-24.698-32.457-45.896 0-26.879 21.807-48.686 48.686-48.686s48.686 21.807 48.686 48.686c0 5.68-1.014 11.157-2.789 16.229-4.361 12.476-13.693 22.568-25.611 28.045v65.269h139.971v-223.143h-30.429l48.686-64.914 48.686 64.914h-30.429v167.357h139.971v-69.986h-28.4v-97.371zM624.686 745.352c6.745 0 12.172-5.426 12.172-12.171s-5.427-12.171-12.172-12.171c-6.745 0-12.171 5.426-12.171 12.171s5.426 12.171 12.171 12.171zM993.886 680.438v-24.343h-24.343v24.343h24.343z"
+          ],
+          "attrs": [],
+          "width": 1067,
+          "grid": 24,
+          "tags": [
+            "business-analysis"
+          ]
+        },
+        {
+          "id": 514,
+          "paths": [
+            "M543.347 1004.496h-519.030c-13.304 0-24.317-9.724-24.317-23.021v-114.505c0-0.014 0-0.031 0-0.046 0.161-13.271 11.049-23.898 24.317-23.737h74.395v-481.52h-44.211c-0.438 0.014-0.874 0.017-1.312 0.005-12.404-0.315-22.205-10.627-21.89-23.031v-109.979c-0.171-9.563 5.424-18.293 14.186-22.133l472.927-202.705c6.067-2.593 12.934-2.593 19.001 0l473.435 202.705c8.901 3.77 14.71 12.467 14.79 22.133v109.979c0 13.295-11.162 23.026-24.456 23.026h-42.956v160.782h-48.152v-160.782h-117.972v160.782h-48.152v-160.782h-115.565v160.782h-48.152v-160.782h-115.565v481.52h78.68v48.152h-495.195v65.005h495.195v48.152zM527.84 115.093c43.647 0.051 79.017 35.421 79.066 79.066 0 43.667-35.399 79.066-79.066 79.066s-79.066-35.399-79.066-79.066c0-43.667 35.399-79.066 79.066-79.066zM527.84 225.072c17.065-0.019 30.894-13.849 30.914-30.914 0-17.072-13.841-30.914-30.914-30.914s-30.914 13.841-30.914 30.914c0 17.072 13.841 30.914 30.914 30.914zM79.451 313.515h898.034v-68.973l-449.017-192.396-449.017 192.396v68.973zM416.515 361.667h-115.565v481.52h115.565v-481.52zM252.798 361.667h-105.934v481.52h105.934v-481.52zM1014.433 737.763c2.155 12.931 3.135 24.539 2.988 35.363 0 10.922-0.98 22.482-3.037 35.363l-1.861 11.755-35.902 12c-3.135 9.747-7.053 19.2-11.706 28.261l16.947 33.845-6.955 9.698c-7.445 10.237-14.89 19.151-22.873 27.135-7.69 7.837-16.555 15.331-27.086 22.922l-9.649 6.955-33.845-16.947c-9.159 4.604-18.612 8.522-28.212 11.657l-11.951 35.951-11.755 1.861c-12.931 2.057-24.49 3.037-35.412 3.037s-22.482-0.98-35.363-3.037l-11.755-1.861-11.951-35.951c-9.698-3.086-19.151-7.053-28.261-11.706l-33.796 16.947-9.649-6.955c-10.629-7.788-19.494-15.282-27.086-22.922-8.131-8.18-15.624-17.045-22.873-27.135l-6.955-9.6 16.849-33.747c-4.653-9.061-8.572-18.563-11.706-28.261l-35.902-12-1.861-11.755c-2.057-12.882-3.037-24.441-3.037-35.412 0-10.922 0.98-22.482 3.037-35.461l1.861-11.755 35.902-11.902c3.135-9.698 7.053-19.151 11.657-28.212l-16.947-33.845 6.955-9.698c14.008-19.298 30.857-36.098 50.057-50.008l9.649-6.955 33.796 16.996c8.865-4.506 18.367-8.424 28.261-11.657l11.951-35.951 11.755-1.861c13.273-2.106 24.539-3.086 35.412-3.086 11.167 0 22.384 0.98 35.363 3.037l11.657 1.812 11.951 35.804c9.698 3.135 19.151 7.053 28.261 11.706l33.845-16.947 9.649 6.955c19.151 13.91 36 30.759 50.106 50.008l6.955 9.698-16.947 33.845c4.653 9.061 8.572 18.563 11.706 28.261l35.902 12 1.861 11.755zM982.351 772.833c0.098-6.269-0.294-12.882-1.224-20.229l-32.572-10.873-4.8-15.331c-2.792-8.963-6.465-17.78-10.825-26.204l-7.347-14.155 15.282-30.612c-8.669-10.727-18.465-20.473-29.143-29.045l-30.612 15.331-14.204-7.445c-8.375-4.31-17.143-7.935-26.057-10.727l-15.331-4.751-10.873-32.473c-7.151-0.833-13.91-1.273-20.474-1.273-6.367 0-13.078 0.441-20.473 1.273l-5.78 17.339-5.094 15.233-15.331 4.8c-9.061 2.841-17.829 6.465-26.057 10.776l-14.253 7.494-30.661-15.331c-10.678 8.571-20.425 18.318-28.996 28.996l15.282 30.661-7.445 14.204c-4.359 8.424-7.984 17.192-10.727 26.057l-4.751 15.38-32.522 10.824c-0.833 7.2-1.274 13.91-1.274 20.522s0.392 13.371 1.274 20.522l32.62 10.824 4.751 15.429c2.645 8.718 6.269 17.437 10.727 25.959l7.445 14.204-15.282 30.612c4.408 5.584 8.865 10.629 13.616 15.38 4.653 4.653 9.698 9.11 15.379 13.616l30.759-15.331 14.302 7.445c8.033 4.261 16.702 7.837 25.812 10.629l15.429 4.751 5.045 15.331 5.78 17.339c7.2 0.833 13.959 1.273 20.522 1.273 6.612 0 13.371-0.392 20.522-1.273l5.78-17.339 4.996-15.184 15.331-4.8c8.963-2.841 17.78-6.465 26.155-10.824l14.204-7.396 30.612 15.331c5.682-4.457 10.727-8.914 15.282-13.518l0.098-0.098c4.653-4.653 9.11-9.698 13.616-15.38l-15.379-30.71 7.543-14.253c4.359-8.229 7.935-16.898 10.629-25.812l4.751-15.429 15.331-5.192 17.339-5.78c0.833-7.2 1.274-13.91 1.274-20.522v-0.245zM794.22 687.853c47.069 0 85.371 38.302 85.371 85.371s-38.302 85.371-85.371 85.371c-47.070 0-85.372-38.302-85.372-85.371s38.302-85.371 85.372-85.371zM829.633 808.637c9.453-9.453 14.694-22.041 14.694-35.412s-5.241-25.91-14.694-35.412c-9.453-9.502-22.041-14.694-35.412-14.694s-25.959 5.241-35.412 14.694c-9.502 9.453-14.694 22.041-14.694 35.412s5.241 25.959 14.694 35.412c9.453 9.502 22.041 14.694 35.412 14.694s25.959-5.241 35.412-14.694z"
+          ],
+          "attrs": [],
+          "width": 1045,
+          "grid": 24,
+          "tags": [
+            "business-stick"
+          ]
+        },
+        {
+          "id": 519,
+          "paths": [
+            "M868.129 562.196h-44.173v-393.925h-47.193v393.925h-44.173v-485.291h-51.006v485.291h-44.173v-518.024h-587.758v752.215h492.463v44.173h-423.184v32.733h423.184v44.173h-331.819v47.193h331.819v44.173h-375.991v-91.365h-91.365v-76.905h-49.201c-11.089 0-20.078-8.989-20.078-20.078v-800.404c0-11.089 8.989-20.078 20.078-20.078h635.946c11.089 0 20.078 8.989 20.078 20.078v12.654h95.178v91.365h91.365v438.098zM163.84 409.6h389.12c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-389.12c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM163.84 532.48h245.76c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-245.76c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM163.84 655.36h245.76c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-245.76c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM791.223 1008.831c-113.117 0-204.817-91.7-204.817-204.817s91.7-204.817 204.817-204.817c113.117 0 204.817 91.7 204.817 204.817s-91.7 204.817-204.817 204.817zM791.223 964.659c88.721 0 160.644-71.923 160.644-160.644s-71.923-160.644-160.644-160.644c-88.721 0-160.644 71.923-160.644 160.644s71.923 160.644 160.644 160.644zM711.714 838.528c-8.512 8.896-21.542 12.89-34.191 9.263-18.173-5.211-28.678-24.181-23.462-42.37s24.176-28.71 42.35-23.499c5.709 1.637 10.66 4.631 14.606 8.533l103.663-64.212c-3.873-7.494-5.003-16.427-2.493-25.179 5.216-18.189 24.176-28.71 42.35-23.499s28.678 24.181 23.462 42.37c-5.216 18.189-24.176 28.71-42.35 23.499-4.205-1.206-8-3.148-11.284-5.647l-105.272 65.209c2.427 6.574 2.866 13.95 0.807 21.206l121.585 30.178c8.189-11.479 22.994-17.137 37.311-13.031 18.173 5.211 28.678 24.181 23.462 42.37s-24.176 28.71-42.35 23.499c-16.71-4.792-26.936-21.215-24.42-37.969l-123.773-30.721zM182.37 122.88h331.581c21.544 0 39.010 18.338 39.010 40.96v122.88c0 22.622-17.465 40.96-39.010 40.96h-331.581c-21.544 0-39.010-18.338-39.010-40.96v-122.88c0-22.622 17.465-40.96 39.010-40.96zM186.27 282.624h323.779v-114.688h-323.779v114.688z"
+          ],
+          "attrs": [],
+          "width": 1004,
+          "grid": 24,
+          "tags": [
+            "demand-approve"
+          ]
+        },
+        {
+          "id": 518,
+          "paths": [
+            "M868.129 395.545h-44.173v-227.274h-47.193v227.274h-44.173v-318.64h-51.006v318.64h-44.173v-351.373h-587.758v752.215h492.463v44.173h-423.184v32.733h423.184v44.173h-331.819v47.193h331.819v44.173h-375.991v-91.365h-91.365v-76.905h-49.201c-11.089 0-20.078-8.989-20.078-20.078v-800.404c0-11.089 8.989-20.078 20.078-20.078h635.946c11.089 0 20.078 8.989 20.078 20.078v12.654h95.178v91.365h91.365v271.447zM163.84 409.6h389.12c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-389.12c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM163.84 532.48h245.76c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-245.76c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM163.84 655.36h245.76c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-245.76c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM182.37 122.88h331.581c21.544 0 39.010 18.338 39.010 40.96v122.88c0 22.622-17.465 40.96-39.010 40.96h-331.581c-21.544 0-39.010-18.338-39.010-40.96v-122.88c0-22.622 17.465-40.96 39.010-40.96zM186.27 282.624h323.779v-114.688h-323.779v114.688zM795.059 460.927l71.699 27.523-176.145 458.873-71.699-27.523 176.145-458.873zM627.241 1005.261l-13.831-71.121 71.699 27.523-57.868 43.598zM811.573 417.908c10.284-12.505 24.987-15.088 44.106-7.748s28.317 19.096 27.593 35.271l-11.009 28.68-71.699-27.523 11.009-28.68z"
+          ],
+          "attrs": [],
+          "width": 901,
+          "grid": 24,
+          "tags": [
+            "supply-approve"
+          ]
+        },
+        {
+          "id": 520,
+          "paths": [
+            "M868.129 538.905h-44.173v-370.634h-47.193v370.634h-44.173v-462h-51.006v462h-44.173v-494.733h-587.758v752.215h349.103v44.173h-279.824v32.733h279.824v44.173h-188.459v47.193h188.459v44.173h-232.631v-91.365h-91.365v-76.905h-49.201c-11.089 0-20.078-8.989-20.078-20.078v-800.404c0-11.089 8.989-20.078 20.078-20.078h635.946c11.089 0 20.078 8.989 20.078 20.078v12.654h95.178v91.365h91.365v414.807zM163.84 409.6h389.12c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-389.12c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM163.84 532.48h245.76c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-245.76c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM163.84 655.36h245.76c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-245.76c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM182.37 122.88h331.581c21.544 0 39.010 18.338 39.010 40.96v122.88c0 22.622-17.465 40.96-39.010 40.96h-331.581c-21.544 0-39.010-18.338-39.010-40.96v-122.88c0-22.622 17.465-40.96 39.010-40.96zM186.27 282.624h323.779v-114.688h-323.779v114.688zM864.864 757.616c2.112 12.672 3.072 24.048 2.928 34.656 0 10.704-0.96 22.032-2.976 34.656l-1.824 11.52-35.184 11.76c-3.072 9.552-6.912 18.816-11.472 27.696l16.608 33.168-6.816 9.504c-7.296 10.032-14.592 18.768-22.416 26.592-7.536 7.68-16.224 15.024-26.544 22.464l-9.456 6.816-33.168-16.608c-8.976 4.512-18.24 8.352-27.648 11.424l-11.712 35.232-11.52 1.824c-12.672 2.016-24 2.976-34.704 2.976s-22.032-0.96-34.656-2.976l-11.52-1.824-11.712-35.232c-9.504-3.024-18.768-6.912-27.696-11.472l-33.12 16.608-9.456-6.816c-10.416-7.632-19.104-14.976-26.544-22.464-7.968-8.016-15.312-16.704-22.416-26.592l-6.816-9.408 16.512-33.072c-4.56-8.88-8.4-18.192-11.472-27.696l-35.184-11.76-1.824-11.52c-2.016-12.624-2.976-23.952-2.976-34.704 0-10.704 0.96-22.032 2.976-34.752l1.824-11.52 35.184-11.664c3.072-9.504 6.912-18.768 11.424-27.648l-16.608-33.168 6.816-9.504c13.728-18.912 30.24-35.376 49.056-49.008l9.456-6.816 33.12 16.656c8.688-4.416 18-8.256 27.696-11.424l11.712-35.232 11.52-1.824c13.008-2.064 24.048-3.024 34.704-3.024 10.944 0 21.936 0.96 34.656 2.976l11.424 1.776 11.712 35.088c9.504 3.072 18.768 6.912 27.696 11.472l33.168-16.608 9.456 6.816c18.768 13.632 35.28 30.144 49.104 49.008l6.816 9.504-16.608 33.168c4.56 8.88 8.4 18.192 11.472 27.696l35.184 11.76 1.824 11.52zM833.424 791.984c0.096-6.144-0.288-12.624-1.2-19.824l-31.92-10.656-4.704-15.024c-2.736-8.784-6.336-17.424-10.608-25.68l-7.2-13.872 14.976-30c-8.496-10.512-18.096-20.064-28.56-28.464l-30 15.024-13.92-7.296c-8.208-4.224-16.8-7.776-25.536-10.512l-15.024-4.656-10.656-31.824c-7.008-0.816-13.632-1.248-20.064-1.248-6.24 0-12.816 0.432-20.064 1.248l-5.664 16.992-4.992 14.928-15.024 4.704c-8.88 2.784-17.472 6.336-25.536 10.56l-13.968 7.344-30.048-15.024c-10.464 8.4-20.016 17.952-28.416 28.416l14.976 30.048-7.296 13.92c-4.272 8.256-7.824 16.848-10.512 25.536l-4.656 15.072-31.872 10.608c-0.816 7.056-1.248 13.632-1.248 20.112s0.384 13.104 1.248 20.112l31.968 10.608 4.656 15.12c2.592 8.544 6.144 17.088 10.512 25.44l7.296 13.92-14.976 30c4.32 5.472 8.688 10.416 13.344 15.072 4.56 4.56 9.504 8.928 15.072 13.344l30.144-15.024 14.016 7.296c7.872 4.176 16.368 7.68 25.296 10.416l15.12 4.656 4.944 15.024 5.664 16.992c7.056 0.816 13.68 1.248 20.112 1.248 6.48 0 13.104-0.384 20.112-1.248l5.664-16.992 4.896-14.88 15.024-4.704c8.784-2.784 17.424-6.336 25.632-10.608l13.92-7.248 30 15.024c5.568-4.368 10.512-8.736 14.976-13.248l0.096-0.096c4.56-4.56 8.928-9.504 13.344-15.072l-15.072-30.096 7.392-13.968c4.272-8.064 7.776-16.56 10.416-25.296l4.656-15.12 15.024-5.088 16.992-5.664c0.816-7.056 1.248-13.632 1.248-20.112v-0.24zM649.056 708.704c46.128 0 83.664 37.536 83.664 83.664s-37.536 83.664-83.664 83.664c-46.128 0-83.664-37.536-83.664-83.664s37.536-83.664 83.664-83.664zM683.76 827.072c9.264-9.264 14.4-21.6 14.4-34.704s-5.136-25.392-14.4-34.704c-9.264-9.312-21.6-14.4-34.704-14.4s-25.44 5.136-34.704 14.4c-9.312 9.264-14.4 21.6-14.4 34.704s5.136 25.44 14.4 34.704c9.264 9.312 21.6 14.4 34.704 14.4s25.44-5.136 34.704-14.4z"
+          ],
+          "attrs": [],
+          "width": 881,
+          "grid": 24,
+          "tags": [
+            "negative-stick"
+          ]
+        },
+        {
+          "id": 521,
+          "paths": [
+            "M868.129 562.196h-44.173v-393.925h-47.193v393.925h-44.173v-485.291h-51.006v485.291h-44.173v-518.024h-587.758v752.215h492.463v44.173h-423.184v32.733h423.184v44.173h-331.819v47.193h331.819v44.173h-375.991v-91.365h-91.365v-76.905h-49.201c-11.089 0-20.078-8.989-20.078-20.078v-800.404c0-11.089 8.989-20.078 20.078-20.078h635.946c11.089 0 20.078 8.989 20.078 20.078v12.654h95.178v91.365h91.365v438.098zM163.84 409.6h389.12c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-389.12c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM163.84 532.48h245.76c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-245.76c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM163.84 655.36h245.76c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-245.76c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM791.223 1008.831c-113.117 0-204.817-91.7-204.817-204.817s91.7-204.817 204.817-204.817c113.117 0 204.817 91.7 204.817 204.817s-91.7 204.817-204.817 204.817zM791.223 964.659c88.721 0 160.644-71.923 160.644-160.644s-71.923-160.644-160.644-160.644c-88.721 0-160.644 71.923-160.644 160.644s71.923 160.644 160.644 160.644zM711.714 838.528c-8.512 8.896-21.542 12.89-34.191 9.263-18.173-5.211-28.678-24.181-23.462-42.37s24.176-28.71 42.35-23.499c5.709 1.637 10.66 4.631 14.606 8.533l103.663-64.212c-3.873-7.494-5.003-16.427-2.493-25.179 5.216-18.189 24.176-28.71 42.35-23.499s28.678 24.181 23.462 42.37c-5.216 18.189-24.176 28.71-42.35 23.499-4.205-1.206-8-3.148-11.284-5.647l-105.272 65.209c2.427 6.574 2.866 13.95 0.807 21.206l121.585 30.178c8.189-11.479 22.994-17.137 37.311-13.031 18.173 5.211 28.678 24.181 23.462 42.37s-24.176 28.71-42.35 23.499c-16.71-4.792-26.936-21.215-24.42-37.969l-123.773-30.721zM182.37 122.88h331.581c21.544 0 39.010 18.338 39.010 40.96v122.88c0 22.622-17.465 40.96-39.010 40.96h-331.581c-21.544 0-39.010-18.338-39.010-40.96v-122.88c0-22.622 17.465-40.96 39.010-40.96zM186.27 282.624h323.779v-114.688h-323.779v114.688z",
+            "M655.36 706.56l41.763-41.594 244.957 266.874-45.402 36.199z"
+          ],
+          "attrs": [],
+          "width": 1004,
+          "grid": 24,
+          "tags": [
+            "negative-query"
+          ]
+        },
+        {
+          "id": 522,
+          "paths": [
+            "M869.175 229.952v726.801c0 27.368-24.266 49.555-54.2 49.555h-686.538c-29.934 0-54.2-22.186-54.2-49.555v-16.518h-18.067c-29.934 0-54.2-22.186-54.2-49.555v-825.911c0-27.368 24.266-49.555 54.2-49.555h686.538c29.934 0 54.2 22.186 54.2 49.555v16.518h18.067c29.934 0 54.2 22.186 54.2 49.555v99.109zM814.975 114.325h-18.067v545.101h36.134v-528.583c0-9.123-8.089-16.518-18.067-16.518zM38.103 890.681c0 9.123 8.089 16.518 18.067 16.518h686.538c9.978 0 18.067-7.395 18.067-16.518v-825.911c0-9.123-8.089-16.518-18.067-16.518h-686.538c-9.978 0-18.067 7.395-18.067 16.518v825.911zM833.042 956.754v-297.328h-36.134v231.255c0 27.368-24.266 49.555-54.2 49.555h-632.338v16.518c0 9.123 8.089 16.518 18.067 16.518h686.538c9.978 0 18.067-7.395 18.067-16.518zM535.49 341.181h102.541v104.948h-34.18v75.431c0 21.755-17.197 39.355-38.453 39.355h-147.402v98.935c18.799 7.762 32.044 26.62 32.044 48.648 0 28.97-22.965 52.474-51.27 52.474s-51.27-23.504-51.27-52.474c0-22.028 13.245-40.886 32.044-48.648v-38.809h-147.402c-21.256 0-38.453-17.601-38.453-39.355v-68.599c-19.921-7.16-34.18-26.62-34.18-49.468 0-28.97 22.965-52.474 51.27-52.474s51.27 23.504 51.27 52.474c0 6.122-1.068 12.025-2.937 17.491-4.593 13.446-14.42 24.324-26.97 30.227v70.348h147.402v-240.505h-32.044l51.27-69.965 51.27 69.965h-32.044v180.379h147.402v-75.431h-29.908v-104.948zM210.778 476.738c7.103 0 12.818-5.849 12.818-13.118s-5.714-13.118-12.818-13.118c-7.103 0-12.818 5.849-12.818 13.118s5.714 13.118 12.818 13.118zM599.578 406.773v-26.237h-25.635v26.237h25.635z"
+          ],
+          "attrs": [],
+          "width": 886,
+          "grid": 24,
+          "tags": [
+            "license-analysis"
+          ]
+        },
+        {
+          "id": 523,
+          "paths": [
+            "M869.175 229.952v726.801c0 27.368-24.266 49.555-54.2 49.555h-686.538c-29.934 0-54.2-22.186-54.2-49.555v-16.518h-18.067c-29.934 0-54.2-22.186-54.2-49.555v-825.911c0-27.368 24.266-49.555 54.2-49.555h686.538c29.934 0 54.2 22.186 54.2 49.555v16.518h18.067c29.934 0 54.2 22.186 54.2 49.555v99.109zM814.975 114.325h-18.067v545.101h36.134v-528.583c0-9.123-8.089-16.518-18.067-16.518zM38.103 890.681c0 9.123 8.089 16.518 18.067 16.518h686.538c9.978 0 18.067-7.395 18.067-16.518v-825.911c0-9.123-8.089-16.518-18.067-16.518h-686.538c-9.978 0-18.067 7.395-18.067 16.518v825.911zM833.042 956.754v-297.328h-36.134v231.255c0 27.368-24.266 49.555-54.2 49.555h-632.338v16.518c0 9.123 8.089 16.518 18.067 16.518h686.538c9.978 0 18.067-7.395 18.067-16.518zM648.763 470.124c2.281 13.686 3.318 25.972 3.162 37.428 0 11.56-1.037 23.794-3.214 37.428l-1.97 12.442-37.998 12.701c-3.318 10.316-7.465 20.321-12.39 29.911l17.937 35.821-7.361 10.264c-7.88 10.834-15.759 20.269-24.209 28.719-8.139 8.294-17.522 16.226-28.667 24.261l-10.212 7.361-35.821-17.937c-9.694 4.873-19.699 9.020-29.86 12.338l-12.649 38.050-12.442 1.97c-13.686 2.177-25.92 3.214-37.48 3.214s-23.794-1.037-37.428-3.214l-12.441-1.97-12.649-38.050c-10.264-3.266-20.269-7.465-29.911-12.39l-35.769 17.936-10.212-7.361c-11.249-8.242-20.632-16.174-28.667-24.261-8.605-8.657-16.537-18.040-24.209-28.719l-7.361-10.161 17.833-35.717c-4.925-9.59-9.072-19.647-12.39-29.911l-37.998-12.701-1.97-12.441c-2.177-13.634-3.214-25.868-3.214-37.48 0-11.56 1.037-23.794 3.214-37.532l1.97-12.442 37.998-12.597c3.318-10.264 7.465-20.269 12.338-29.86l-17.936-35.821 7.361-10.264c14.826-20.425 32.659-38.206 52.98-52.928l10.212-7.361 35.769 17.988c9.383-4.769 19.44-8.916 29.911-12.338l12.649-38.050 12.442-1.97c14.049-2.229 25.972-3.266 37.48-3.266 11.819 0 23.691 1.037 37.428 3.214l12.338 1.918 12.649 37.895c10.264 3.318 20.269 7.465 29.911 12.39l35.821-17.937 10.212 7.361c20.269 14.722 38.102 32.555 53.032 52.928l7.361 10.264-17.936 35.821c4.925 9.59 9.072 19.647 12.39 29.911l37.998 12.701 1.97 12.442zM614.808 507.241c0.104-6.635-0.311-13.634-1.296-21.41l-34.473-11.508-5.080-16.226c-2.955-9.487-6.843-18.818-11.457-27.734l-7.776-14.982 16.174-32.4c-9.176-11.353-19.544-21.669-30.845-30.741l-32.4 16.226-15.033-7.88c-8.865-4.562-18.144-8.398-27.579-11.353l-16.226-5.028-11.508-34.37c-7.569-0.881-14.722-1.348-21.669-1.348-6.739 0-13.841 0.467-21.669 1.348l-6.117 18.351-5.391 16.122-16.226 5.080c-9.59 3.007-18.87 6.843-27.579 11.405l-15.085 7.931-32.452-16.226c-11.301 9.072-21.617 19.388-30.689 30.689l16.174 32.452-7.88 15.033c-4.614 8.916-8.45 18.196-11.353 27.579l-5.028 16.278-34.421 11.457c-0.881 7.62-1.348 14.722-1.348 21.721s0.415 14.152 1.348 21.721l34.525 11.457 5.028 16.329c2.799 9.227 6.635 18.455 11.353 27.475l7.88 15.033-16.174 32.4c4.666 5.91 9.383 11.249 14.411 16.278 4.925 4.925 10.264 9.642 16.278 14.411l32.555-16.226 15.137 7.88c8.502 4.51 17.677 8.294 27.319 11.249l16.329 5.028 5.339 16.226 6.117 18.351c7.62 0.881 14.774 1.348 21.721 1.348 6.998 0 14.152-0.415 21.721-1.348l6.117-18.351 5.288-16.070 16.226-5.080c9.487-3.007 18.818-6.843 27.682-11.457l15.033-7.828 32.4 16.226c6.013-4.717 11.353-9.435 16.174-14.308l0.104-0.104c4.925-4.925 9.642-10.264 14.411-16.278l-16.278-32.503 7.983-15.085c4.614-8.709 8.398-17.885 11.249-27.319l5.028-16.329 16.226-5.495 18.351-6.117c0.881-7.62 1.348-14.722 1.348-21.721v-0.259zM415.692 417.299c49.818 0 90.356 40.539 90.356 90.356s-40.539 90.356-90.356 90.356c-49.818 0-90.356-40.539-90.356-90.356s40.539-90.356 90.356-90.356zM453.172 545.136c10.005-10.005 15.552-23.328 15.552-37.48s-5.547-27.423-15.552-37.48c-10.005-10.057-23.328-15.552-37.48-15.552s-27.475 5.547-37.48 15.552c-10.057 10.005-15.552 23.328-15.552 37.48s5.547 27.475 15.552 37.48c10.005 10.057 23.328 15.552 37.48 15.552s27.475-5.547 37.48-15.552z"
+          ],
+          "attrs": [],
+          "width": 886,
+          "grid": 24,
+          "tags": [
+            "license-stick"
+          ]
+        },
+        {
+          "id": 527,
+          "paths": [
+            "M441.416 800.182h-361.061c-44.636 0-80.355-37.433-80.355-83.064v-636.667c0-44.42 35.972-80.45 80.355-80.45h975.65c44.384 0 80.355 36.030 80.355 80.45v636.667c0 45.631-35.719 83.064-80.355 83.064h-361.061l32.435 87.319h68.377v117.151h-455.154v-117.151h68.377l32.435-87.319zM48.134 687.022v30.096c0 19.538 14.687 34.93 32.221 34.93h975.65c17.534 0 32.221-15.391 32.221-34.93v-30.096h-1040.091zM48.134 634.053h1040.091v-553.603c0-17.854-14.439-32.316-32.221-32.316h-975.65c-17.782 0-32.221 14.462-32.221 32.316v553.603zM747.623 956.517v-20.882h-53.711l-49.963-134.505h-151.537l-49.963 134.505h-53.711v20.882h358.886zM816.453 297.715c2.467 14.805 3.589 28.095 3.421 40.488 0 12.505-1.122 25.74-3.477 40.488l-2.131 13.459-41.105 13.739c-3.589 11.16-8.075 21.983-13.403 32.357l19.403 38.75-7.963 11.103c-8.524 11.72-17.048 21.927-26.188 31.067-8.804 8.972-18.954 17.552-31.011 26.245l-11.047 7.963-38.75-19.403c-10.487 5.271-21.31 9.758-32.301 13.347l-13.683 41.161-13.459 2.131c-14.805 2.355-28.039 3.477-40.544 3.477s-25.74-1.122-40.488-3.477l-13.459-2.131-13.683-41.161c-11.103-3.533-21.927-8.075-32.357-13.403l-38.694 19.403-11.047-7.963c-12.169-8.916-22.319-17.496-31.011-26.245-9.309-9.365-17.889-19.515-26.188-31.067l-7.963-10.991 19.291-38.638c-5.327-10.374-9.814-21.254-13.403-32.357l-41.105-13.739-2.131-13.459c-2.355-14.749-3.477-27.983-3.477-40.544 0-12.505 1.122-25.74 3.477-40.601l2.131-13.459 41.105-13.627c3.589-11.103 8.075-21.927 13.347-32.301l-19.403-38.75 7.963-11.103c16.038-22.095 35.329-41.33 57.312-57.256l11.047-7.963 38.694 19.459c10.15-5.159 21.029-9.645 32.357-13.347l13.683-41.161 13.459-2.131c15.197-2.411 28.095-3.533 40.544-3.533 12.786 0 25.628 1.122 40.488 3.477l13.347 2.075 13.683 40.993c11.103 3.589 21.927 8.075 32.357 13.403l38.75-19.403 11.047 7.963c21.927 15.926 41.217 35.217 57.368 57.256l7.963 11.103-19.403 38.75c5.327 10.374 9.814 21.254 13.403 32.357l41.105 13.739 2.131 13.459zM779.722 337.867c0.112-7.178-0.336-14.749-1.402-23.16l-37.292-12.449-5.496-17.552c-3.196-10.262-7.402-20.356-12.393-30.002l-8.412-16.207 17.496-35.049c-9.926-12.281-21.141-23.441-33.366-33.254l-35.049 17.552-16.263-8.524c-9.589-4.935-19.627-9.085-29.834-12.281l-17.552-5.44-12.449-37.18c-8.187-0.953-15.926-1.458-23.441-1.458-7.29 0-14.973 0.505-23.441 1.458l-6.617 19.852-5.832 17.44-17.552 5.496c-10.374 3.253-20.412 7.402-29.834 12.337l-16.319 8.58-35.105-17.552c-12.225 9.814-23.385 20.973-33.198 33.198l17.496 35.105-8.524 16.263c-4.991 9.645-9.141 19.683-12.281 29.834l-5.44 17.609-37.236 12.393c-0.953 8.243-1.458 15.926-1.458 23.497s0.449 15.309 1.458 23.497l37.348 12.393 5.44 17.665c3.028 9.982 7.178 19.964 12.281 29.721l8.524 16.263-17.496 35.049c5.047 6.393 10.15 12.169 15.59 17.609 5.327 5.327 11.103 10.431 17.608 15.59l35.217-17.552 16.375 8.524c9.197 4.879 19.123 8.972 29.553 12.169l17.665 5.44 5.776 17.552 6.617 19.852c8.243 0.953 15.982 1.458 23.497 1.458 7.571 0 15.309-0.449 23.497-1.458l6.617-19.852 5.72-17.384 17.552-5.496c10.262-3.253 20.356-7.402 29.946-12.393l16.263-8.468 35.049 17.552c6.505-5.103 12.281-10.206 17.496-15.478l0.112-0.112c5.327-5.327 10.431-11.103 15.59-17.609l-17.609-35.161 8.636-16.319c4.991-9.421 9.085-19.347 12.169-29.553l5.44-17.665 17.552-5.944 19.852-6.617c0.953-8.243 1.458-15.926 1.458-23.497v-0.28zM564.326 240.571c53.891 0 97.744 43.853 97.744 97.744s-43.853 97.744-97.744 97.744c-53.891 0-97.744-43.853-97.744-97.744s43.853-97.744 97.744-97.744zM604.871 378.86c10.823-10.823 16.823-25.235 16.823-40.544s-6-29.665-16.823-40.544c-10.823-10.879-25.235-16.823-40.544-16.823s-29.721 6-40.544 16.823c-10.879 10.823-16.823 25.235-16.823 40.544s6 29.721 16.823 40.544c10.823 10.879 25.235 16.823 40.544 16.823s29.721-6 40.544-16.823z"
+          ],
+          "attrs": [],
+          "width": 1138,
+          "grid": 24,
+          "tags": [
+            "system-stick"
+          ]
+        },
+        {
+          "id": 525,
+          "paths": [
+            "M441.681 800.628h-361.292c-44.654 0-80.389-37.449-80.389-83.099v-637.041c0-44.439 35.987-80.484 80.389-80.484h976.222c44.402 0 80.389 36.045 80.389 80.484v637.041c0 45.65-35.734 83.099-80.389 83.099h-361.292l32.465 87.397h68.413v117.192h-455.394v-117.192h68.413l32.465-87.397zM48.135 687.402v30.127c0 19.557 14.701 34.964 32.253 34.964h976.222c17.552 0 32.253-15.407 32.253-34.964v-30.127h-1040.729zM48.135 634.43h1040.729v-553.941c0-17.872-14.453-32.349-32.253-32.349h-976.222c-17.8 0-32.253 14.477-32.253 32.349v553.941zM748.062 957.082v-20.921h-53.747l-49.993-134.583h-151.645l-49.993 134.583h-53.747v20.921h359.123zM714.99 433.476c41.845 0 75.947 34.102 75.947 75.947s-34.050 75.895-75.895 75.895c-41.845 0-75.895-34.050-75.895-75.895 0-1.744 0.051-3.436 0.154-5.128l-124.663-88.408c-18.461 25.794-48.665 42.666-82.716 42.666-55.999 0-101.536-45.537-101.536-101.536s45.537-101.536 101.536-101.536c29.025 0 55.229 12.205 73.742 31.794l135.33-68.203c-1.231-5.436-1.897-11.077-1.897-16.871 0-41.845 34.050-75.895 75.895-75.895s75.895 34.050 75.895 75.895c0 41.845-34.050 75.895-75.895 75.895-22.82 0-43.281-10.102-57.229-26.102l-131.945 66.46c4.923 11.897 7.641 24.922 7.641 38.563 0 8.564-1.077 16.82-3.077 24.769l121.176 85.946c13.589-20.615 36.973-34.256 63.434-34.256zM714.99 163.227c-21.487 0-38.973 17.487-38.973 38.973s17.487 38.973 38.973 38.973c21.487 0 38.973-17.487 38.973-38.973s-17.487-38.973-38.973-38.973zM431.92 421.63c35.64 0 64.614-28.974 64.614-64.614s-28.974-64.614-64.614-64.614c-35.64 0-64.614 28.974-64.614 64.614s28.974 64.614 64.614 64.614zM714.99 548.345c21.487 0 38.973-17.487 38.973-38.973s-17.487-38.973-38.973-38.973c-21.487 0-38.973 17.487-38.973 38.973s17.487 38.973 38.973 38.973z"
+          ],
+          "attrs": [],
+          "width": 1138,
+          "grid": 24,
+          "tags": [
+            "business-theme"
+          ]
+        },
+        {
+          "id": 526,
+          "paths": [
+            "M629.698 1006.308h-501.261c-29.934 0-54.2-22.186-54.2-49.555v-16.518h-18.067c-29.934 0-54.2-22.186-54.2-49.555v-825.911c0-27.368 24.266-49.555 54.2-49.555h686.538c29.934 0 54.2 22.186 54.2 49.555v16.518h18.067c29.934 0 54.2 22.186 54.2 49.555v433.013h-36.134v-433.013c0-9.123-8.089-16.518-18.067-16.518h-18.067v449.531h-36.134v-499.086c0-9.123-8.089-16.518-18.067-16.518h-686.538c-9.978 0-18.067 7.395-18.067 16.518v825.911c0 9.123 8.089 16.518 18.067 16.518h388.252v33.036h-334.051v16.518c0 9.123 8.089 16.518 18.067 16.518h315.985v33.036h185.277zM873.002 755.606c1.996 11.975 2.903 22.726 2.767 32.751 0 10.116-0.907 20.821-2.812 32.751l-1.724 10.887-33.25 11.114c-2.903 9.027-6.532 17.782-10.841 26.173l15.695 31.345-6.441 8.982c-6.895 9.481-13.79 17.736-21.184 25.13-7.122 7.258-15.332 14.198-25.085 21.229l-8.936 6.441-31.345-15.695c-8.483 4.264-17.237 7.893-26.128 10.796l-11.068 33.295-10.887 1.724c-11.975 1.905-22.681 2.812-32.796 2.812s-20.821-0.907-32.751-2.812l-10.887-1.724-11.068-33.295c-8.982-2.858-17.736-6.532-26.173-10.841l-31.299 15.695-8.936-6.441c-9.843-7.212-18.054-14.153-25.085-21.229-7.53-7.575-14.47-15.786-21.184-25.13l-6.441-8.891 15.604-31.254c-4.309-8.392-7.938-17.192-10.841-26.173l-33.25-11.114-1.724-10.887c-1.905-11.93-2.812-22.635-2.812-32.796 0-10.116 0.907-20.821 2.812-32.842l1.724-10.887 33.25-11.023c2.903-8.982 6.532-17.736 10.796-26.128l-15.695-31.345 6.441-8.982c12.973-17.872 28.578-33.431 46.359-46.314l8.936-6.441 31.299 15.74c8.21-4.173 17.010-7.802 26.173-10.796l11.068-33.295 10.887-1.724c12.293-1.951 22.726-2.858 32.796-2.858 10.342 0 20.73 0.907 32.751 2.812l10.796 1.678 11.068 33.159c8.982 2.903 17.736 6.532 26.173 10.841l31.345-15.695 8.936 6.441c17.736 12.883 33.341 28.487 46.405 46.314l6.441 8.982-15.695 31.345c4.309 8.392 7.938 17.192 10.841 26.173l33.25 11.114 1.724 10.887zM843.291 788.084c0.091-5.806-0.272-11.93-1.134-18.734l-30.165-10.070-4.445-14.198c-2.586-8.301-5.988-16.466-10.025-24.268l-6.804-13.109 14.153-28.351c-8.029-9.934-17.101-18.961-26.99-26.899l-28.351 14.198-13.155-6.895c-7.757-3.992-15.876-7.349-24.132-9.934l-14.198-4.4-10.070-30.075c-6.623-0.771-12.883-1.179-18.961-1.179-5.897 0-12.111 0.408-18.961 1.179l-5.353 16.058-4.718 14.107-14.198 4.445c-8.392 2.631-16.512 5.988-24.132 9.979l-13.2 6.94-28.396-14.198c-9.889 7.938-18.916 16.965-26.854 26.854l14.153 28.396-6.895 13.155c-4.037 7.802-7.394 15.922-9.934 24.132l-4.4 14.243-30.12 10.025c-0.771 6.668-1.179 12.883-1.179 19.006s0.363 12.384 1.179 19.006l30.211 10.025 4.4 14.289c2.45 8.074 5.806 16.149 9.934 24.042l6.895 13.155-14.153 28.351c4.083 5.171 8.21 9.843 12.61 14.243 4.309 4.309 8.982 8.437 14.243 12.61l28.487-14.198 13.246 6.895c7.439 3.946 15.468 7.258 23.905 9.843l14.289 4.4 4.672 14.198 5.353 16.058c6.668 0.771 12.928 1.179 19.006 1.179 6.124 0 12.384-0.363 19.006-1.179l5.353-16.058 4.627-14.062 14.198-4.445c8.301-2.631 16.466-5.988 24.223-10.025l13.155-6.85 28.351 14.198c5.262-4.128 9.934-8.256 14.153-12.52l0.091-0.091c4.309-4.309 8.437-8.982 12.61-14.243l-14.243-28.442 6.986-13.2c4.037-7.621 7.349-15.65 9.843-23.905l4.4-14.289 14.198-4.808 16.058-5.353c0.771-6.668 1.179-12.883 1.179-19.006v-0.227zM669.058 709.382c43.592 0 79.065 35.473 79.065 79.065s-35.473 79.065-79.065 79.065c-43.592 0-79.065-35.473-79.065-79.065s35.473-79.065 79.065-79.065zM701.854 821.244c8.755-8.755 13.608-20.413 13.608-32.796s-4.854-23.996-13.608-32.796c-8.755-8.8-20.413-13.608-32.796-13.608s-24.042 4.854-32.796 13.608c-8.8 8.755-13.608 20.413-13.608 32.796s4.854 24.042 13.608 32.796c8.755 8.8 20.413 13.608 32.796 13.608s24.042-4.854 32.796-13.608zM207.312 320.167v199.671h79.868v39.934h-99.835c-11.028 0-19.967-8.94-19.967-19.967v-219.638h39.934zM403.353 320.167c33.083 0 59.901 26.819 59.901 59.901v119.802c0 33.083-26.819 59.901-59.901 59.901h-39.934c-33.083 0-59.901-26.819-59.901-59.901v-119.802c0-33.083 26.819-59.901 59.901-59.901h39.934zM423.32 499.871v-119.802c0-11.027-8.94-19.967-19.967-19.967h-39.934c-11.028 0-19.967 8.94-19.967 19.967v119.802c0 11.028 8.94 19.967 19.967 19.967h39.934c11.028 0 19.967-8.94 19.967-19.967zM551.291 360.101c-11.028 0-19.967 8.94-19.967 19.967v119.802c0 11.028 8.94 19.967 19.967 19.967h39.934c11.028 0 19.967-8.94 19.967-19.967v-39.934h-39.934v-39.934h59.901c11.027 0 19.967 8.94 19.967 19.967v59.901c0 33.083-26.819 59.901-59.901 59.901h-39.934c-33.083 0-59.901-26.819-59.901-59.901v-119.802c0-33.083 26.819-59.901 59.901-59.901h39.934c33.083 0 59.901 26.819 59.901 59.901h-39.934c0-11.027-8.94-19.967-19.967-19.967h-39.934z"
+          ],
+          "attrs": [],
+          "width": 886,
+          "grid": 24,
+          "tags": [
+            "business-log"
+          ]
+        },
+        {
+          "id": 524,
+          "paths": [
+            "M441.681 800.628h-361.292c-44.654 0-80.389-37.449-80.389-83.099v-637.041c0-44.439 35.987-80.484 80.389-80.484h976.222c44.402 0 80.389 36.045 80.389 80.484v637.041c0 45.65-35.734 83.099-80.389 83.099h-361.292l32.465 87.397h68.413v117.192h-455.394v-117.192h68.413l32.465-87.397zM48.135 687.402v30.127c0 19.557 14.701 34.964 32.253 34.964h976.222c17.552 0 32.253-15.407 32.253-34.964v-30.127h-1040.729zM48.135 634.43h1040.729v-553.941c0-17.872-14.453-32.349-32.253-32.349h-976.222c-17.8 0-32.253 14.477-32.253 32.349v553.941zM748.062 957.082v-20.921h-53.747l-49.993-134.583h-151.645l-49.993 134.583h-53.747v20.921h359.123zM701.684 179.472h103.863v106.301h-34.621v76.404c0 22.035-17.419 39.863-38.949 39.863h-149.303v100.211c19.042 7.862 32.457 26.963 32.457 49.275 0 29.343-23.261 53.15-51.931 53.15s-51.931-23.807-51.931-53.15c0-22.312 13.416-41.413 32.457-49.275v-39.309h-149.303c-21.53 0-38.949-17.828-38.949-39.863v-69.483c-20.178-7.253-34.621-26.963-34.621-50.105 0-29.343 23.261-53.15 51.931-53.15s51.931 23.807 51.931 53.15c0 6.201-1.082 12.18-2.975 17.717-4.652 13.62-14.606 24.637-27.318 30.617v71.255h149.303v-243.606h-32.457l51.931-70.867 51.931 70.867h-32.457v182.705h149.303v-76.404h-30.293v-106.301zM372.785 316.777c7.195 0 12.983-5.924 12.983-13.288s-5.788-13.288-12.983-13.288c-7.195 0-12.983 5.924-12.983 13.288s5.788 13.288 12.983 13.288zM766.598 245.91v-26.575h-25.966v26.575h25.966z"
+          ],
+          "attrs": [],
+          "width": 1138,
+          "grid": 24,
+          "tags": [
+            "business-nature"
+          ]
+        },
+        {
+          "id": 531,
+          "paths": [
+            "M868.129 538.905h-44.173v-370.634h-47.193v370.634h-44.173v-462h-51.006v462h-44.173v-494.733h-587.758v752.215h349.103v44.173h-279.824v32.733h279.824v44.173h-188.459v47.193h188.459v44.173h-232.631v-91.365h-91.365v-76.905h-49.201c-11.089 0-20.078-8.989-20.078-20.078v-800.404c0-11.089 8.989-20.078 20.078-20.078h635.946c11.089 0 20.078 8.989 20.078 20.078v12.654h95.178v91.365h91.365v414.807zM163.84 409.6h389.12c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-389.12c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM163.84 532.48h245.76c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-245.76c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM163.84 655.36h245.76c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-245.76c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM182.37 122.88h331.581c21.544 0 39.010 18.338 39.010 40.96v122.88c0 22.622-17.465 40.96-39.010 40.96h-331.581c-21.544 0-39.010-18.338-39.010-40.96v-122.88c0-22.622 17.465-40.96 39.010-40.96zM186.27 282.624h323.779v-114.688h-323.779v114.688zM855.12 974c6.72 6.768 6.72 17.712 0.048 24.48-3.408 3.36-7.776 5.040-12.24 5.040s-8.88-1.68-12.24-5.040l-98.736-98.736c-31.92 26.448-72.864 42.336-117.552 42.336-101.808 0-184.32-82.512-184.32-184.32s82.512-184.32 184.32-184.32c101.808 0 184.32 82.512 184.32 184.32 0 44.688-15.888 85.632-42.336 117.552l98.736 98.688zM672.672 895.76c17.856-7.536 33.84-18.336 47.616-32.112s24.576-29.808 32.112-47.616c7.824-18.432 11.76-38.016 11.76-58.272s-3.936-39.84-11.76-58.272c-7.536-17.808-18.336-33.84-32.112-47.616s-29.808-24.576-47.616-32.112c-18.432-7.824-38.016-11.76-58.272-11.76s-39.84 3.936-58.272 11.76c-17.808 7.536-33.84 18.336-47.616 32.112s-24.576 29.808-32.112 47.616c-7.824 18.432-11.76 38.016-11.76 58.272s3.936 39.84 11.76 58.272c7.536 17.808 18.336 33.84 32.112 47.616s29.808 24.576 47.616 32.112c18.432 7.824 38.016 11.76 58.272 11.76s39.84-3.936 58.272-11.76z"
+          ],
+          "attrs": [],
+          "width": 881,
+          "grid": 24,
+          "tags": [
+            "supply-query"
+          ]
+        },
+        {
+          "id": 530,
+          "paths": [
+            "M868.129 538.905h-44.173v-370.634h-47.193v370.634h-44.173v-462h-51.006v462h-44.173v-494.733h-587.758v752.215h349.103v44.173h-279.824v32.733h279.824v44.173h-188.459v47.193h188.459v44.173h-232.631v-91.365h-91.365v-76.905h-49.201c-11.089 0-20.078-8.989-20.078-20.078v-800.404c0-11.089 8.989-20.078 20.078-20.078h635.946c11.089 0 20.078 8.989 20.078 20.078v12.654h95.178v91.365h91.365v414.807zM163.84 409.6h389.12c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-389.12c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM163.84 532.48h245.76c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-245.76c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM163.84 655.36h245.76c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-245.76c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM182.37 122.88h331.581c21.544 0 39.010 18.338 39.010 40.96v122.88c0 22.622-17.465 40.96-39.010 40.96h-331.581c-21.544 0-39.010-18.338-39.010-40.96v-122.88c0-22.622 17.465-40.96 39.010-40.96zM186.27 282.624h323.779v-114.688h-323.779v114.688zM772.827 616.741h93.477v95.671h-31.159v68.763c0 19.832-15.677 35.877-35.054 35.877h-134.373v90.19c17.137 7.076 29.211 24.267 29.211 44.347 0 26.409-20.935 47.835-46.738 47.835s-46.738-21.426-46.738-47.835c0-20.081 12.074-37.272 29.211-44.347v-35.378h-134.373c-19.377 0-35.054-16.045-35.054-35.877v-62.535c-18.16-6.528-31.159-24.267-31.159-45.095 0-26.409 20.935-47.835 46.738-47.835s46.738 21.426 46.738 47.835c0 5.581-0.974 10.962-2.678 15.945-4.187 12.258-13.145 22.174-24.586 27.555v64.129h134.373v-219.246h-29.211l46.738-63.781 46.738 63.781h-29.211v164.434h134.373v-68.763h-27.264v-95.671zM476.818 740.315c6.475 0 11.685-5.332 11.685-11.959s-5.209-11.959-11.685-11.959c-6.475 0-11.685 5.332-11.685 11.959s5.209 11.959 11.685 11.959zM831.25 676.535v-23.918h-23.369v23.918h23.369z"
+          ],
+          "attrs": [],
+          "width": 881,
+          "grid": 24,
+          "tags": [
+            "supply-stick"
+          ]
+        },
+        {
+          "id": 528,
+          "paths": [
+            "M868.129 538.905h-44.173v-370.634h-47.193v370.634h-44.173v-462h-51.006v462h-44.173v-494.733h-587.758v752.215h349.103v44.173h-279.824v32.733h279.824v44.173h-188.459v47.193h188.459v44.173h-232.631v-91.365h-91.365v-76.905h-49.201c-11.089 0-20.078-8.989-20.078-20.078v-800.404c0-11.089 8.989-20.078 20.078-20.078h635.946c11.089 0 20.078 8.989 20.078 20.078v12.654h95.178v91.365h91.365v414.807zM163.84 409.6h389.12c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-389.12c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM163.84 532.48h245.76c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-245.76c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM163.84 655.36h245.76c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-245.76c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM182.37 122.88h331.581c21.544 0 39.010 18.338 39.010 40.96v122.88c0 22.622-17.465 40.96-39.010 40.96h-331.581c-21.544 0-39.010-18.338-39.010-40.96v-122.88c0-22.622 17.465-40.96 39.010-40.96zM186.27 282.624h323.779v-114.688h-323.779v114.688zM795.264 867.152c39.168 0 71.088 31.92 71.088 71.088s-31.872 71.040-71.040 71.040c-39.168 0-71.040-31.872-71.040-71.040 0-1.632 0.048-3.216 0.144-4.8l-116.688-82.752c-17.28 24.144-45.552 39.936-77.424 39.936-52.416 0-95.040-42.624-95.040-95.040s42.624-95.040 95.040-95.040c27.168 0 51.696 11.424 69.024 29.76l126.672-63.84c-1.152-5.088-1.776-10.368-1.776-15.792 0-39.168 31.872-71.040 71.040-71.040s71.040 31.872 71.040 71.040c0 39.168-31.872 71.040-71.040 71.040-21.36 0-40.512-9.456-53.568-24.432l-123.504 62.208c4.608 11.136 7.152 23.328 7.152 36.096 0 8.016-1.008 15.744-2.88 23.184l113.424 80.448c12.72-19.296 34.608-32.064 59.376-32.064zM795.264 614.192c-20.112 0-36.48 16.368-36.48 36.48s16.368 36.48 36.48 36.48c20.112 0 36.48-16.368 36.48-36.48s-16.368-36.48-36.48-36.48zM530.304 856.064c33.36 0 60.48-27.12 60.48-60.48s-27.12-60.48-60.48-60.48c-33.36 0-60.48 27.12-60.48 60.48s27.12 60.48 60.48 60.48zM795.264 974.672c20.112 0 36.48-16.368 36.48-36.48s-16.368-36.48-36.48-36.48c-20.112 0-36.48 16.368-36.48 36.48s16.368 36.48 36.48 36.48z"
+          ],
+          "attrs": [],
+          "width": 881,
+          "grid": 24,
+          "tags": [
+            "supply-analysis"
+          ]
+        },
+        {
+          "id": 529,
+          "paths": [
+            "M868.129 538.905h-44.173v-370.634h-47.193v370.634h-44.173v-462h-51.006v462h-44.173v-494.733h-587.758v752.215h349.103v44.173h-279.824v32.733h279.824v44.173h-188.459v47.193h188.459v44.173h-232.631v-91.365h-91.365v-76.905h-49.201c-11.089 0-20.078-8.989-20.078-20.078v-800.404c0-11.089 8.989-20.078 20.078-20.078h635.946c11.089 0 20.078 8.989 20.078 20.078v12.654h95.178v91.365h91.365v414.807zM163.84 409.6h389.12c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-389.12c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM163.84 532.48h245.76c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-245.76c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM163.84 655.36h245.76c11.311 0 20.48 9.169 20.48 20.48s-9.169 20.48-20.48 20.48h-245.76c-11.311 0-20.48-9.169-20.48-20.48s9.169-20.48 20.48-20.48zM182.37 122.88h331.581c21.544 0 39.010 18.338 39.010 40.96v122.88c0 22.622-17.465 40.96-39.010 40.96h-331.581c-21.544 0-39.010-18.338-39.010-40.96v-122.88c0-22.622 17.465-40.96 39.010-40.96zM186.27 282.624h323.779v-114.688h-323.779v114.688z",
+            "M842.902 767.265h-178.162v-173.687c0-11.132-9.006-20.138-20.138-20.138s-20.138 9.006-20.138 20.138v173.687h-174.247c-11.132 0-20.138 9.006-20.138 20.138s9.006 20.138 20.138 20.138h174.247v174.247c0 11.132 9.006 20.138 20.138 20.138s20.138-9.006 20.138-20.138v-174.247h178.162c11.132 0 20.138-9.006 20.138-20.138s-9.006-20.138-20.138-20.138z"
+          ],
+          "attrs": [],
+          "width": 881,
+          "grid": 24,
+          "tags": [
+            "supply-add"
+          ]
+        },
+        {
+          "id": 532,
+          "paths": [
+            "M20.427 523.662l240.498 243.627c10.524 10.667 28.444 3.129 28.444-11.947v-487.111c0-15.076-17.92-22.613-28.444-11.947l-240.356 243.484c-6.542 6.684-6.542 17.351-0.142 23.893zM1135.644 103.538h-1069.796c-17.636 0-32-14.364-32-32s14.364-32 32-32h1069.653c17.636 0 32 14.364 32 32s-14.222 32-31.858 32zM1135.644 397.084h-618.382c-17.636 0-32-14.364-32-32s14.364-32 32-32h618.382c17.636 0 32 14.364 32 32s-14.364 32-32 32v0zM1135.644 690.489h-618.382c-17.636 0-32-14.364-32-32s14.364-32 32-32h618.382c17.636 0 32 14.364 32 32s-14.364 32-32 32v0zM1135.644 983.893h-1069.796c-17.636 0-32-14.364-32-32s14.364-32 32-32h1069.653c17.636 0 32 14.364 32 32s-14.222 32-31.858 32z"
+          ],
+          "attrs": [],
+          "width": 1216,
+          "grid": 24,
+          "tags": [
+            "menu-packup"
+          ]
+        },
+        {
+          "id": 533,
+          "paths": [
+            "M284.587 523.662l-240.498 243.627c-10.524 10.667-28.444 3.129-28.444-11.947v-487.111c0-15.076 17.92-22.613 28.444-11.947l240.356 243.484c6.542 6.684 6.542 17.351 0.142 23.893zM1135.644 103.538h-1069.796c-17.636 0-32-14.364-32-32s14.364-32 32-32h1069.653c17.636 0 32 14.364 32 32s-14.222 32-31.858 32zM1135.644 397.084h-618.382c-17.636 0-32-14.364-32-32s14.364-32 32-32h618.382c17.636 0 32 14.364 32 32s-14.364 32-32 32v0zM1135.644 690.489h-618.382c-17.636 0-32-14.364-32-32s14.364-32 32-32h618.382c17.636 0 32 14.364 32 32s-14.364 32-32 32v0zM1135.644 983.893h-1069.796c-17.636 0-32-14.364-32-32s14.364-32 32-32h1069.653c17.636 0 32 14.364 32 32s-14.222 32-31.858 32z"
+          ],
+          "attrs": [],
+          "width": 1216,
+          "grid": 24,
+          "tags": [
+            "menu-expand"
+          ]
+        },
+        {
+          "id": 534,
+          "paths": [
+            "M1140.861 470.238l-537.361-460.596c-15.019-12.856-37.131-12.856-52.15 0l-537.361 460.596c-12.725 10.9-17.315 28.579-11.5 44.302s20.809 26.152 37.575 26.152h160.207v443.255c0 22.111 17.938 40.053 40.052 40.053h213.609c22.111 0 40.051-17.942 40.051-40.053v-199.607h186.908v199.607c0 22.111 17.942 40.053 40.053 40.053h213.609c22.111 0 40.053-17.942 40.053-40.053v-444.54h132.723c13.612 1.875 28.18-3.746 37.862-15.003 14.391-16.793 12.463-39.772-4.331-54.167zM894.5 943.896h-133.504v-199.608c0-22.111-17.942-40.052-40.053-40.052h-267.010c-22.113 0-40.053 17.941-40.053 40.052v199.608h-133.507v-443.254c0-22.113-17.938-40.052-40.051-40.052h-91.994l429.096-367.793 424.889 364.194h-81.493c-10.012 0-27.536 6.949-27.536 25.868 0 23.402 0 56.55 0 56.55h1.215v404.488z"
+          ],
+          "attrs": [],
+          "width": 1216,
+          "grid": 24,
+          "tags": [
+            "zw-home"
+          ]
+        },
+        {
+          "id": 536,
+          "paths": [
+            "M650.667 289.778v-53.333c0-4.889-4-8.889-8.889-8.889h-426.667c-4.889 0-8.889 4-8.889 8.889v53.333c0 4.889 4 8.889 8.889 8.889h426.667c4.889 0 8.889-4 8.889-8.889zM215.111 387.556c-4.889 0-8.889 4-8.889 8.889v53.333c0 4.889 4 8.889 8.889 8.889h204.444c4.889 0 8.889-4 8.889-8.889v-53.333c0-4.889-4-8.889-8.889-8.889h-204.444zM375.111 889.778h-257.778v-782.222h622.222v382.222c0 4.889 4 8.889 8.889 8.889h62.222c4.889 0 8.889-4 8.889-8.889v-426.667c0-19.667-15.889-35.556-35.556-35.556h-711.111c-19.667 0-35.556 15.889-35.556 35.556v871.111c0 19.667 15.889 35.556 35.556 35.556h302.222c4.889 0 8.889-4 8.889-8.889v-62.222c0-4.889-4-8.889-8.889-8.889zM870.333 947l-103.667-103.667c24.778-32.778 39.556-73.667 39.556-118 0-108-87.556-195.556-195.556-195.556s-195.556 87.556-195.556 195.556c0 108 87.556 195.556 195.556 195.556 39.778 0 76.667-11.889 107.556-32.222l105.222 105.222c1.778 1.778 4 2.556 6.222 2.556s4.556-0.889 6.222-2.556l34.444-34.444c3.444-3.444 3.444-9 0-12.444zM610.667 849.778c-68.778 0-124.444-55.667-124.444-124.444s55.667-124.444 124.444-124.444c68.778 0 124.444 55.667 124.444 124.444s-55.667 124.444-124.444 124.444z"
+          ],
+          "attrs": [],
+          "width": 910,
+          "grid": 24,
+          "tags": [
+            "zw-file-search"
+          ]
+        },
+        {
+          "id": 535,
+          "paths": [
+            "M972 12h-920c-22.125 0-40 17.875-40 40v920c0 22.125 17.875 40 40 40h920c22.125 0 40-17.875 40-40v-920c0-22.125-17.875-40-40-40zM922 922h-820v-820h820v820zM487 372h230c5.5 0 10-4.5 10-10v-60c0-5.5-4.5-10-10-10h-230c-5.5 0-10 4.5-10 10v60c0 5.5 4.5 10 10 10zM487 552h230c5.5 0 10-4.5 10-10v-60c0-5.5-4.5-10-10-10h-230c-5.5 0-10 4.5-10 10v60c0 5.5 4.5 10 10 10zM487 732h230c5.5 0 10-4.5 10-10v-60c0-5.5-4.5-10-10-10h-230c-5.5 0-10 4.5-10 10v60c0 5.5 4.5 10 10 10zM297 332c0 27.614 22.386 50 50 50s50-22.386 50-50c0-27.614-22.386-50-50-50s-50 22.386-50 50v0zM297 512c0 27.614 22.386 50 50 50s50-22.386 50-50c0-27.614-22.386-50-50-50s-50 22.386-50 50zM297 692c0 27.614 22.386 50 50 50s50-22.386 50-50c0-27.614-22.386-50-50-50s-50 22.386-50 50v0z"
+          ],
+          "attrs": [],
+          "grid": 24,
+          "tags": [
+            "zw-list"
+          ]
+        },
+        {
+          "id": 537,
+          "paths": [
+            "M778.889 263.778l-239.111-239.111c-6.667-6.667-15.667-10.444-25.111-10.444h-472c-19.667 0-35.556 15.889-35.556 35.556v924.444c0 19.667 15.889 35.556 35.556 35.556h711.111c19.667 0 35.556-15.889 35.556-35.556v-685.222c0-9.444-3.778-18.556-10.444-25.222zM707.333 305.333h-209.111v-209.111l209.111 209.111zM709.333 929.778h-622.222v-835.556h335.556v240c0 25.778 20.889 46.667 46.667 46.667h240v548.889zM389.333 629.778h-204.444c-4.889 0-8.889 4-8.889 8.889v53.333c0 4.889 4 8.889 8.889 8.889h204.444c4.889 0 8.889-4 8.889-8.889v-53.333c0-4.889-4-8.889-8.889-8.889zM176 487.556v53.333c0 4.889 4 8.889 8.889 8.889h426.667c4.889 0 8.889-4 8.889-8.889v-53.333c0-4.889-4-8.889-8.889-8.889h-426.667c-4.889 0-8.889 4-8.889 8.889z"
+          ],
+          "attrs": [],
+          "width": 796,
+          "grid": 24,
+          "tags": [
+            "zw-file"
+          ]
+        },
+        {
+          "id": 539,
+          "paths": [
+            "M481.714 483.857l364.714-466c4.286-5.571 11-8.714 18-8.714h110.429c9.571 0 14.857 11 9 18.429l-379.143 484.429 379.143 484.429c5.857 7.429 0.571 18.429-9 18.429h-110.429c-7 0-13.714-3.286-18-8.714l-364.714-465.857c-13-16.714-13-39.857 0-56.429zM47.429 483.857l364.714-466c4.286-5.571 11-8.714 18-8.714h110.429c9.571 0 14.857 11 9 18.429l-379.143 484.429 379.143 484.429c5.857 7.429 0.571 18.429-9 18.429h-110.429c-7 0-13.714-3.286-18-8.714l-364.714-465.857c-13-16.714-13-39.857 0-56.429z"
+          ],
+          "attrs": [],
+          "grid": 24,
+          "tags": [
+            "double-left"
+          ]
+        },
+        {
+          "id": 540,
+          "paths": [
+            "M542.286 483.857l-364.714-466c-4.286-5.571-11-8.714-18-8.714h-110.429c-9.571 0-14.857 11-9 18.429l379.143 484.429-379.143 484.429c-5.857 7.429-0.571 18.429 9 18.429h110.429c7 0 13.714-3.286 18-8.714l364.714-465.857c13-16.714 13-39.857 0-56.429zM976.571 483.857l-364.714-466c-4.286-5.571-11-8.714-18-8.714h-110.429c-9.571 0-14.857 11-9 18.429l379.143 484.429-379.143 484.429c-5.857 7.429-0.571 18.429 9 18.429h110.429c7 0 13.714-3.286 18-8.714l364.714-465.857c13-16.714 13-39.857 0-56.429z"
+          ],
+          "attrs": [],
+          "grid": 24,
+          "tags": [
+            "double-right"
+          ]
+        },
+        {
+          "id": 541,
+          "paths": [
+            "M831.077 871.985h-106.351v71.787c0 18.611-15.953 34.564-34.564 34.564h-5.318l-515.802-90.398c-15.953-2.659-29.246-15.953-29.246-34.564v-654.058c0-15.953 13.294-31.905 29.246-34.564l518.461-116.986c18.611-2.659 37.223 10.635 39.882 29.246v79.763h106.351c31.905 0 53.175 7.976 53.175 53.175v611.518c-2.659 39.882-21.27 50.517-55.834 50.517zM671.55 100.942l-478.579 106.351v638.105l478.579 79.763v-824.219zM831.077 207.292h-106.351v611.518h106.351v-611.518zM512.024 526.345h-186.114c0 0-26.588-2.659-26.588-26.588s26.588-26.588 26.588-26.588h186.114c0 0 26.588 0 26.588 29.246 0 23.929-26.588 23.929-26.588 23.929zM408.332 632.696c-29.246 0-29.246-26.588-29.246-26.588v-212.702c0 0 2.659-26.588 26.588-26.588 26.588 0 26.588 26.588 26.588 26.588v212.702c0 0 0 26.588-23.929 26.588v0z"
+          ],
+          "attrs": [],
+          "grid": 24,
+          "tags": [
+            "subscribe"
+          ]
+        },
+        {
+          "id": 548,
+          "paths": [
+            "M512 800c-247.42 0-448-71.63-448-160v160c0 88.37 200.58 160 448 160s448-71.63 448-160v-160c0 88.37-200.58 160-448 160zM512 608c-247.42 0-448-71.63-448-160v160c0 88.37 200.58 160 448 160s448-71.63 448-160v-160c0 88.37-200.58 160-448 160zM512 416c-247.42 0-448-71.63-448-160v160c0 88.37 200.58 160 448 160s448-71.63 448-160v-160c0 88.37-200.58 160-448 160zM64 224c0 88.366 200.576 160 448 160s448-71.634 448-160c0-88.366-200.576-160-448-160s-448 71.634-448 160z"
+          ],
+          "attrs": [],
+          "grid": 24,
+          "tags": [
+            "database"
+          ]
+        },
+        {
+          "id": 547,
+          "paths": [
+            "M895.511 0.497h-772.389c-67.419 0-122.626 55.207-122.626 122.626v772.389c0 67.419 55.207 122.626 122.626 122.626h772.389c67.419 0 122.626-55.207 122.626-122.626v-772.389c-0.14-67.666-54.959-122.486-122.626-122.626zM509.444 456.145c0 5.023-4.072 9.095-9.095 9.095h-117.601l-8.078 34.981-0.89 4.071c-28.748 125.615-42.741 184.256-55.907 232.085-22.706 82.302-76.069 130.449-153.218 137.191l-9.54 0.578c-2.413 0.080-4.76-0.797-6.526-2.443s-2.804-3.927-2.887-6.34v-73.27c0-4.77 3.753-8.714 8.523-9.032 5.47-0.382 9.731-0.827 12.72-1.399 32.246-6.042 51.772-27.349 63.348-69.518 12.72-45.985 26.586-104.117 54.889-228.142l0.89-4.007 3.435-14.756h-89.298c-5.023 0-9.095-4.072-9.095-9.095v-72.698c0-4.961 4.071-9.032 9.095-9.032h110.16c10.558-45.349 17.173-72.507 24.551-101.573 26.586-104.499 118.237-142.47 255.428-118.682l10.113 1.844c4.897 0.89 8.141 5.661 7.251 10.622v0.254l-14.883 71.235c-0.46 2.335-1.835 4.388-3.818 5.703s-4.411 1.78-6.74 1.293c-4.198-0.763-8.268-1.59-12.466-2.226-91.333-15.455-134.201 3.498-146.667 52.345-5.979 23.597-11.576 46.239-19.272 79.185h96.421c4.961 0 9.095 4.071 9.095 9.032v72.698h0.064zM873.123 456.145c0 5.023-4.072 9.095-9.095 9.095h-26.459l-84.591 93.496 45.285 88.407h20.226c4.961 0 9.095 4.007 9.095 9.032v72.698c0 5.023-4.072 9.095-9.095 9.095h-75.751l-55.016-107.107-97.057 107.17h-72.252c-4.998 0-9.060-4.033-9.095-9.032v-72.761c0-5.025 4.071-9.095 9.095-9.095h31.928l92.987-102.782-40.515-79.058h-38.861c-5.023 0-9.095-4.072-9.095-9.095v-72.634c0-4.961 4.071-9.095 9.095-9.095h94.386l50.246 98.011 88.789-97.948h66.655c4.961 0 9.095 4.071 9.095 9.032v72.57z"
+          ],
+          "attrs": [],
+          "grid": 24,
+          "tags": [
+            "function"
+          ]
+        },
+        {
+          "id": 546,
+          "paths": [
+            "M981.477 777.495h-940.2c-10.842 0-21.239 4.307-28.905 11.973s-11.973 18.064-11.973 28.905v163.513c0 10.842 4.307 21.239 11.973 28.905s18.064 11.973 28.905 11.973h940.2c10.842 0 21.239-4.307 28.905-11.973s11.973-18.064 11.973-28.905v-163.513c0-10.842-4.307-21.239-11.973-28.905s-18.064-11.973-28.905-11.973zM184.678 940.967h-14.716c-8.886 0.011-17.412-3.512-23.7-9.791s-9.82-14.802-9.82-23.688v-14.716c0-18.513 15.007-33.52 33.52-33.52h14.675c18.513 0 33.52 15.007 33.52 33.52v14.675h0.041c0 18.513-15.007 33.52-33.52 33.52v0zM858.842 941.008h-531.417c-22.576 0-40.878-18.302-40.878-40.878s18.302-40.878 40.878-40.878h531.417c22.576 0 40.878 18.302 40.878 40.878s-18.302 40.878-40.878 40.878zM480.024 445.318h0.082c7.73 8.728 18.836 13.716 30.495 13.694h1.594c11.65 0.021 22.752-4.949 30.495-13.653h0.082l106.447-132.936c5.121-6.043 6.245-14.519 2.876-21.688s-10.612-11.713-18.533-11.627h-80.489v-278.299h-81.756v278.34h-82.084c-11.288 0-20.439 9.151-20.439 20.439 0 4.946 1.962 9.279 4.865 12.795l106.365 132.936z",
+            "M61.676 694.471h899.403c5.298 0.121 10.426-1.872 14.253-5.538s6.038-8.704 6.145-14.002c-0.009-3.55-1.030-7.024-2.943-10.015-12.1-19.499-23.014-39.693-34.501-59.478l-121.204-209.092c-10.22-17.7-23.055-48.032-46.806-48.032h-52.61c-6.412-0.041-12.488 2.866-16.474 7.89 0 0-136.288 162.982-136.492 162.982-15.114 16.115-36.239 25.234-58.333 25.181h-3.107c-22.157 0.070-43.352-9.047-58.538-25.181 0 0-136.492-163.309-136.738-163.431-3.949-4.771-9.831-7.517-16.024-7.481h-51.016c-26.653 0-38.998 34.542-50.28 54.082l-124.433 214.693c-9.238 15.943-18.109 32.171-27.756 47.868-1.913 2.991-2.934 6.465-2.943 10.015 0 10.833 9.075 19.54 20.398 19.54v0z"
+          ],
+          "attrs": [],
+          "grid": 24,
+          "tags": [
+            "procedure"
+          ]
+        },
+        {
+          "id": 545,
+          "paths": [
+            "M102.595 613.902h204.391c27.104 0 53.098 10.767 72.263 29.932s29.932 45.159 29.932 72.263v204.391c0 27.104-10.767 53.098-29.932 72.263s-45.159 29.932-72.263 29.932h-204.391c-27.104 0-53.098-10.767-72.263-29.932s-29.932-45.159-29.932-72.263v-204.391c0-27.104 10.767-53.098 29.932-72.263s45.159-29.932 72.263-29.932v0zM409.182 0.728h204.391c27.104 0 53.098 10.767 72.263 29.932s29.932 45.159 29.932 72.263v204.391c0 27.104-10.767 53.098-29.932 72.263s-45.159 29.932-72.263 29.932h-204.391c-27.104 0-53.098-10.767-72.263-29.932s-29.932-45.159-29.932-72.263v-204.391c0-27.104 10.767-53.098 29.932-72.263s45.159-29.932 72.263-29.932v0zM715.768 613.902h204.391c27.104 0 53.098 10.767 72.263 29.932s29.932 45.159 29.932 72.263v204.391c0 27.104-10.767 53.098-29.932 72.263s-45.159 29.932-72.263 29.932h-204.391c-27.104 0-53.098-10.767-72.263-29.932s-29.932-45.159-29.932-72.263v-204.391c0-27.104 10.767-53.098 29.932-72.263s45.159-29.932 72.263-29.932v0z",
+            "M460.279 460.608v-102.196h102.196v204.391h-255.489c-28.221 0-51.098 22.877-51.098 51.098v47.776h-102.196v-47.776c0-84.662 68.632-153.293 153.293-153.293h153.293z",
+            "M511.377 562.804v-102.196h204.391c84.662 0 153.293 68.632 153.293 153.293v52.12h-102.196v-52.12c0-28.221-22.877-51.098-51.098-51.098h-204.391z"
+          ],
+          "attrs": [],
+          "grid": 24,
+          "tags": [
+            "schemata"
+          ]
+        },
+        {
+          "id": 543,
+          "paths": [
+            "M846.5 129.3h-666c-64.2 0-116.4 52-116.4 115.8v538.5c0 63.8 52.2 115.8 116.4 115.8h666c64.2 0 116.4-52 116.4-115.8v-538.5c0-63.9-52.3-115.8-116.4-115.8zM342.9 817.5h-162.4c-18.8 0-34.1-15.2-34.1-33.9v-97.4h196.6v131.3h-0.1zM342.9 618h-196.6v-131.2h196.6v131.2zM342.9 418.5h-196.6v-132.5h196.6v132.5zM624.9 817.5h-213.4v-131.3h213.3v131.3h0.1zM624.9 618h-213.4v-131.2h213.3v131.2h0.1zM624.9 418.5h-213.4v-132.5h213.3v132.5h0.1zM880.6 783.6c0 18.7-15.3 33.9-34.1 33.9h-153.1v-131.3h187.1v97.4h0.1zM880.6 618h-187.2v-131.2h187.1v131.2h0.1zM880.6 418.5h-187.2v-132.5h187.1v132.5h0.1z"
+          ],
+          "attrs": [],
+          "grid": 24,
+          "tags": [
+            "table"
+          ]
+        },
+        {
+          "id": 542,
+          "paths": [
+            "M856.625 51.622h-789.943c-36.36 0-65.829 29.469-65.829 65.829v197.393h921.6v-197.393c0-36.35-29.479-65.829-65.829-65.829zM1.81 380.466h261.597v261.648h-261.597v-261.648zM1.81 906.19c0 36.36 29.469 65.829 65.829 65.829h195.768v-261.648h-261.597v195.819zM419.071 793.993c11.294-30.795 27.576-58.958 47.798-83.438h-135.36v261.648h261.648v-8.897c-79.838-25.21-144.319-88.107-174.086-169.313v0zM669.939 611.607c45.391 0 88.251 11.757 125.887 32.565h126.165v-263.705h-261.123v231.305c3.014-0.103 6.038-0.165 9.072-0.165zM593.167 624.783v-244.317h-261.648v261.648h219.333c13.571-7.005 27.73-12.804 42.315-17.331v0z",
+            "M683.619 633.495c-109.769 0-204.13 68.091-241.457 164.705 37.327 96.614 131.688 164.705 241.457 164.705s204.13-68.091 241.457-164.705c-37.327-96.603-131.688-164.705-241.457-164.705zM683.619 907.99c-61.478 0-109.769-48.333-109.769-109.79 0-61.509 48.291-109.79 109.769-109.79s109.769 48.333 109.769 109.79c0 61.509-48.291 109.79-109.769 109.79z",
+            "M680.462 732.042c-35.414 0-62.486 28.563-62.486 65.88s27.072 65.88 62.486 65.88c35.414 0 62.486-28.563 62.486-65.88s-27.082-65.88-62.486-65.88z"
+          ],
+          "attrs": [],
+          "grid": 24,
+          "tags": [
+            "view"
+          ]
+        },
+        {
+          "id": 549,
+          "paths": [
+            "M538.267 483.733l434.933 340.4c5.2 4 8.133 10.267 8.133 16.8v103.067c0 8.933-10.267 13.867-17.2 8.4l-452.133-353.867-452.133 353.867c-6.933 5.467-17.2 0.533-17.2-8.4v-103.067c0-6.533 3.067-12.8 8.133-16.8l434.8-340.4c15.6-12.133 37.2-12.133 52.667 0zM538.267 78.4l434.933 340.4c5.2 4 8.133 10.267 8.133 16.8v103.067c0 8.933-10.267 13.867-17.2 8.4l-452.133-353.867-452.133 353.867c-6.933 5.467-17.2 0.533-17.2-8.4v-103.067c0-6.533 3.067-12.8 8.133-16.8l434.8-340.4c15.6-12.133 37.2-12.133 52.667 0z"
+          ],
+          "attrs": [],
+          "grid": 24,
+          "tags": [
+            "d-up"
+          ]
+        },
+        {
+          "id": 550,
+          "paths": [
+            "M538.267 540.267l434.933-340.4c5.2-4 8.133-10.267 8.133-16.8v-103.067c0-8.933-10.267-13.867-17.2-8.4l-452.133 353.867-452.133-353.867c-6.933-5.467-17.2-0.533-17.2 8.4v103.067c0 6.533 3.067 12.8 8.133 16.8l434.8 340.4c15.6 12.133 37.2 12.133 52.667 0zM538.267 945.6l434.933-340.4c5.2-4 8.133-10.267 8.133-16.8v-103.067c0-8.933-10.267-13.867-17.2-8.4l-452.133 353.867-452.133-353.867c-6.933-5.467-17.2-0.533-17.2 8.4v103.067c0 6.533 3.067 12.8 8.133 16.8l434.8 340.4c15.6 12.133 37.2 12.133 52.667 0z"
+          ],
+          "attrs": [],
+          "grid": 24,
+          "tags": [
+            "d-down"
           ]
         }
       ],

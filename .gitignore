@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
 /storybook-static
+storybook-static.zip
 /coverage
 
 # local env files
@@ -20,3 +21,4 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
+
